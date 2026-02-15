@@ -1,0 +1,445 @@
+<!--
+title: MMS vΦ.1 // KERNEL TELEMETRY
+type: code_artifact
+language: html
+created_at: 2025-12-17T22:06:51.742Z
+updated_at: 2025-12-17T22:06:51.742Z
+tags: code, codeblock, artifact
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMS vΦ.1 // KERNEL TELEMETRY</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --grid: #111;
+            --text-main: #e0e0e0;
+            --text-dim: #666;
+            --accent-cyan: #00f3ff;
+            --accent-magenta: #ff0055;
+            --accent-yellow: #ffcc00;
+            --accent-green: #00ff66;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+            font-size: 12px;
+        }
+
+        /* LAYOUT */
+        #sidebar {
+            width: 300px;
+            background: rgba(10, 10, 10, 0.95);
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        #main-view {
+            flex-grow: 1;
+            position: relative;
+            background-image: 
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* COMPONENTS */
+        .panel {
+            border: 1px solid #333;
+            background: rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .panel-title {
+            color: var(--accent-cyan);
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+
+        .stat-val { color: var(--accent-green); }
+        .stat-val.warn { color: var(--accent-yellow); }
+        .stat-val.crit { color: var(--accent-magenta); }
+
+        #log-console {
+            flex-grow: 1;
+            overflow-y: auto;
+            font-size: 11px;
+            border-top: 1px solid #333;
+            padding-top: 5px;
+            color: var(--text-dim);
+        }
+
+        .log-entry { margin-bottom: 4px; }
+        .log-entry span { margin-right: 5px; color: #444; }
+        .log-info { color: var(--text-main); }
+        .log-sys { color: var(--accent-cyan); }
+        .log-warn { color: var(--accent-yellow); }
+        .log-err { color: var(--accent-magenta); }
+
+        /* BUTTONS */
+        button {
+            background: #222;
+            color: var(--text-main);
+            border: 1px solid var(--accent-cyan);
+            padding: 8px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            margin-top: 5px;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        /* CANVAS OVERLAY */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* HUD ELEMENTS */
+        .hud-overlay {
+            position: absolute;
+            pointer-events: none;
+            padding: 20px;
+        }
+        .top-right { top: 0; right: 0; text-align: right; }
+        .bottom-left { bottom: 0; left: 0; }
+
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR CONTROLS -->
+    <div id="sidebar">
+        <div class="panel">
+            <div class="panel-title">MMS vΦ.1 STATUS</div>
+            <div class="stat-row"><span>KERNEL:</span> <span class="stat-val">ONLINE</span></div>
+            <div class="stat-row"><span>MODE:</span> <span class="stat-val">STRICT_RUNTIME</span></div>
+            <div class="stat-row"><span>ENTROPY:</span> <span class="stat-val" id="val-entropy">0.004</span></div>
+            <div class="stat-row"><span>ACTIONSCORE:</span> <span class="stat-val" id="val-as">0.92</span></div>
+            <div class="stat-row"><span>KLI BUFFER:</span> <span class="stat-val">ACTIVE</span></div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">ACTIVE MODULES</div>
+            <div id="modules-list">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">INJECT INTENT</div>
+            <input type="text" id="intent-input" value="Genera analisi frattale" style="width:90%; background:#111; color:#fff; border:1px solid #444; font-family:var(--font-mono); margin-bottom:5px;">
+            <button onclick="injectIntent()">> EXECUTE PIPELINE</button>
+            <button onclick="triggerGlitch()" style="border-color:var(--accent-magenta)">> SIMULATE PERTURBATION</button>
+        </div>
+
+        <div id="log-console">
+            <div class="log-entry"><span>[SYS]</span> Booting MMS vΦ.1 Kernel...</div>
+            <div class="log-entry"><span>[LOA]</span> Loaded MMS_DND_KnowledgePack_v1.1.yaml</div>
+            <div class="log-entry"><span>[LOA]</span> Loaded guard_rules.yaml</div>
+            <div class="log-entry"><span>[LOA]</span> Loaded router_config.json</div>
+            <div class="log-entry"><span>[RDY]</span> System Ready. Awaiting perturbation.</div>
+        </div>
+    </div>
+
+    <!-- MAIN VISUALIZER -->
+    <div id="main-view">
+        <canvas id="viz-canvas"></canvas>
+        <div class="hud-overlay top-right">
+            <h1>Φ_A FIELD MONITOR</h1>
+            <h3>DEPTH: 3 // QUALITY: HIGH</h3>
+        </div>
+        <div class="hud-overlay bottom-left" style="width: 100%;">
+            <div style="border-top: 1px solid var(--accent-cyan); width: 200px; padding-top: 5px;">
+                PIPELINE STAGE: <span id="pipeline-stage" style="color:var(--accent-cyan)">IDLE</span>
+            </div>
+        </div>
+    </div>
+
+<script>
+    /**
+     * MMS vΦ.1 VISUALIZER LOGIC
+     * Simulates the interaction between modules defined in the YAML configuration.
+     */
+
+    // --- CONFIGURATION ---
+    const MODULES = [
+        { id: 'CCCA', name: 'CCCA-LITE', x: 0.1, y: 0.5, type: 'input' },
+        { id: 'MCI', name: 'MCI-LITE', x: 0.25, y: 0.5, type: 'process' },
+        { id: 'ROUTER', name: 'ADAPTIVE ROUTER', x: 0.4, y: 0.5, type: 'decision' },
+        { id: 'PSW', name: 'PSW 4.4', x: 0.55, y: 0.3, type: 'worker' },
+        { id: 'OCC', name: 'OCC v1.0', x: 0.55, y: 0.5, type: 'worker' },
+        { id: 'SACS', name: 'SACS-PS', x: 0.55, y: 0.7, type: 'guard' },
+        { id: 'MORPH', name: 'MORPHEUS', x: 0.75, y: 0.5, type: 'collapse' },
+        { id: 'RES', name: 'RESULTANTE (R)', x: 0.9, y: 0.5, type: 'output' }
+    ];
+
+    const LOGS = document.getElementById('log-console');
+    const CANVAS = document.getElementById('viz-canvas');
+    const CTX = CANVAS.getContext('2d');
+    
+    let width, height;
+    let particles = [];
+    let activePulse = null;
+    let pipelineState = 'IDLE';
+    
+    // --- UTILS ---
+    function resize() {
+        width = CANVAS.width = document.getElementById('main-view').offsetWidth;
+        height = CANVAS.height = document.getElementById('main-view').offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function log(msg, type='SYS') {
+        const div = document.createElement('div');
+        div.className = 'log-entry';
+        const ts = new Date().toISOString().split('T')[1].split('.')[0];
+        let colorClass = 'log-info';
+        if(type==='ERR') colorClass='log-err';
+        if(type==='WRN') colorClass='log-warn';
+        if(type==='SYS') colorClass='log-sys';
+        
+        div.innerHTML = `<span>[${ts}]</span><span class="${colorClass}">${msg}</span>`;
+        LOGS.appendChild(div);
+        LOGS.scrollTop = LOGS.scrollHeight;
+    }
+
+    // --- VISUALIZATION CLASSES ---
+    
+    class Particle {
+        constructor(startX, startY, targetX, targetY, color) {
+            this.x = startX;
+            this.y = startY;
+            this.tx = targetX;
+            this.ty = targetY;
+            this.color = color;
+            this.speed = 0.02 + Math.random() * 0.03;
+            this.progress = 0;
+            this.dead = false;
+            this.size = 2 + Math.random() * 2;
+        }
+
+        update() {
+            this.progress += this.speed;
+            if(this.progress >= 1) {
+                this.x = this.tx;
+                this.y = this.ty;
+                this.dead = true;
+            } else {
+                this.x = this.x + (this.tx - this.x) * this.speed;
+                this.y = this.y + (this.ty - this.y) * this.speed;
+            }
+        }
+
+        draw(ctx) {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    // --- MAIN LOOP ---
+
+    function drawModules() {
+        MODULES.forEach(mod => {
+            const mx = mod.x * width;
+            const my = mod.y * height;
+            
+            // Connections
+            CTX.strokeStyle = '#222';
+            CTX.lineWidth = 1;
+            MODULES.forEach(other => {
+                if(other !== mod) {
+                     CTX.beginPath();
+                     CTX.moveTo(mx, my);
+                     CTX.lineTo(other.x * width, other.y * height);
+                     CTX.stroke();
+                }
+            });
+
+            // Node Body
+            CTX.fillStyle = '#000';
+            CTX.strokeStyle = mod.id === activePulse ? '#00f3ff' : '#444';
+            if (mod.type === 'guard') CTX.strokeStyle = '#ff0055';
+            
+            CTX.lineWidth = 2;
+            
+            CTX.beginPath();
+            CTX.arc(mx, my, 20, 0, Math.PI*2);
+            CTX.fill();
+            CTX.stroke();
+
+            // Glow if active
+            if(mod.id === activePulse) {
+                CTX.shadowBlur = 15;
+                CTX.shadowColor = CTX.strokeStyle;
+                CTX.stroke();
+                CTX.shadowBlur = 0;
+            }
+
+            // Text
+            CTX.fillStyle = '#fff';
+            CTX.textAlign = 'center';
+            CTX.font = '10px monospace';
+            CTX.fillText(mod.id, mx, my + 35);
+        });
+    }
+
+    function animate() {
+        CTX.clearRect(0, 0, width, height);
+        
+        // Dynamic Grid Background effect
+        CTX.strokeStyle = 'rgba(0, 243, 255, 0.03)';
+        CTX.beginPath();
+        for(let i=0; i<width; i+=40) {
+            CTX.moveTo(i, 0); CTX.lineTo(i, height);
+        }
+        CTX.stroke();
+
+        drawModules();
+
+        // Particles
+        particles.forEach(p => {
+            p.update();
+            p.draw(CTX);
+        });
+        particles = particles.filter(p => !p.dead);
+
+        // Random Metric Update
+        if(Math.random() > 0.95) {
+            document.getElementById('val-entropy').innerText = (Math.random() * 0.01).toFixed(4);
+            document.getElementById('val-as').innerText = (0.90 + Math.random() * 0.09).toFixed(2);
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    // --- SIMULATION LOGIC ---
+
+    async function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    function spawnParticles(fromId, toId, count=5, color='#00f3ff') {
+        const from = MODULES.find(m => m.id === fromId);
+        const to = MODULES.find(m => m.id === toId);
+        if(!from || !to) return;
+        
+        for(let i=0; i<count; i++) {
+            particles.push(new Particle(from.x * width, from.y * height, to.x * width, to.y * height, color));
+        }
+    }
+
+    async function injectIntent() {
+        const input = document.getElementById('intent-input').value;
+        if(pipelineState !== 'IDLE') return;
+        
+        pipelineState = 'RUNNING';
+        log(`ResonanceInit: Intent detected -> "${input}"`);
+        
+        // STEP 1: CCCA
+        activePulse = 'CCCA';
+        document.getElementById('pipeline-stage').innerText = '1. CCCA-LITE (COMPRESSION)';
+        log('CCCA-lite: Extracting Metatags...');
+        await wait(800);
+        spawnParticles('CCCA', 'MCI', 10, '#00f3ff');
+        
+        // STEP 2: MCI
+        activePulse = 'MCI';
+        document.getElementById('pipeline-stage').innerText = '2. MCI-LITE (INTENT MODELING)';
+        log('MCI-lite: Intent core -> Analysis/Synthesis prioritized.');
+        await wait(800);
+        spawnParticles('MCI', 'ROUTER', 10, '#00f3ff');
+
+        // STEP 3: ROUTER
+        activePulse = 'ROUTER';
+        document.getElementById('pipeline-stage').innerText = '3. ADAPTIVE ROUTING';
+        log('Router: Calculating features [history_delta, intent_embedding]...');
+        await wait(600);
+        log('Router: Selected Combo -> [PSW + OCC + SACS]');
+        spawnParticles('ROUTER', 'PSW', 5, '#ffee00');
+        spawnParticles('ROUTER', 'OCC', 5, '#ffee00');
+        spawnParticles('ROUTER', 'SACS', 5, '#ff0055');
+
+        // STEP 4: EXECUTION CLUSTER
+        activePulse = null;
+        document.getElementById('pipeline-stage').innerText = '4. EXECUTION (PARALLEL)';
+        await wait(1200);
+        log('SACS-PS: Validating Stream-Guard P0-P6... OK');
+        
+        // STEP 5: COLLAPSE
+        activePulse = 'MORPH';
+        document.getElementById('pipeline-stage').innerText = '5. MORPHEUS COLLAPSE';
+        spawnParticles('PSW', 'MORPH', 8, '#fff');
+        spawnParticles('OCC', 'MORPH', 8, '#fff');
+        spawnParticles('SACS', 'MORPH', 8, '#fff');
+        log('Morpheus: Collapsing Field Φ_A onto single R...');
+        await wait(1000);
+
+        // STEP 6: OUTPUT
+        activePulse = 'RES';
+        document.getElementById('pipeline-stage').innerText = '6. RESULTANTE MANIFESTED';
+        log('System: KLI Registered. Pipeline Complete.');
+        spawnParticles('MORPH', 'RES', 20, '#00ff66');
+        
+        await wait(1000);
+        activePulse = null;
+        document.getElementById('pipeline-stage').innerText = 'IDLE';
+        pipelineState = 'IDLE';
+    }
+
+    function triggerGlitch() {
+        log('Stream-Guard: WARNING - Entropy Spike Detected!', 'WRN');
+        document.getElementById('val-entropy').innerText = '0.842 [CRIT]';
+        document.body.style.filter = 'invert(1)';
+        setTimeout(() => {
+            document.body.style.filter = 'invert(0)';
+            log('SACS-PS: Pruning unstable branch. System Stabilized.', 'SYS');
+        }, 200);
+    }
+
+    // INIT
+    animate();
+    
+    // Populate module list UI
+    const modContainer = document.getElementById('modules-list');
+    MODULES.forEach(m => {
+        const d = document.createElement('div');
+        d.style.marginBottom = '2px';
+        d.style.fontSize = '10px';
+        d.innerHTML = `<span style="color:#666">[LOADED]</span> ${m.name}`;
+        modContainer.appendChild(d);
+    });
+
+</script>
+</body>
+</html>

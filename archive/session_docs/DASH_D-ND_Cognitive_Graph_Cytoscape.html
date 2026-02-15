@@ -1,0 +1,28 @@
+<!--
+title: <!DOCTYPE html>
+type: code_artifact
+language: html
+created_at: 2025-12-09T18:54:07.843Z
+updated_at: 2025-12-09T18:54:07.843Z
+tags: code, codeblock, artifact
+-->
+
+<!DOCTYPE html>
+<html><head><script src="https://unpkg.com/cytoscape@3.23.0/dist/cytoscape.min.js"></script><style>body{background:#1a1a1a;color:#fff;}#cy{width:100vw;height:100vh;}</style></head><body>
+<div id="cy"></div>
+<script>
+const cy = cytoscape({container: document.getElementById('cy'),style: [{selector: 'node', style: {'background-color': '#666', 'label': 'data(id)', 'width': 'data(size)', 'height': 'data(size)'}},{selector: 'edge', style: {'width': 3, 'line-color': '#ccc', 'target-arrow-shape': 'triangle'}}],
+elements: [
+  {data: {id: 'D-ND', size: 50}},
+  {data: {id: 'EUFP', size: 40}},
+  {data: {id: 'OCC', size: 35}},
+  {data: {id: 'MetaCoder', size: 35}},
+  {data: {id: 'Φ_A', size: 60}},
+  {data: {id: 'GCE', size: 45}},
+  {data: {source: 'D-ND', target: 'EUFP', id: 'rel1'}},
+  {data: {source: 'OCC', target: 'MetaCoder', id: 'rel2'}},
+  {data: {source: 'EUFP', target: 'Φ_A', id: 'rel3'}},
+  {data: {source: 'Φ_A', target: 'GCE', id: 'rel4'}}
+],layout: {name: 'cose', idealEdgeLength: 100}});
+cy.on('click', 'node', (evt) => {alert('Nodo: ' + evt.target.id() + '\nσ_FP: ' + (Math.random()*0.5).toFixed(2) + '\nG_C: ' + (3 + Math.random()*5).toFixed(1));}); // Interattivo: clic per metriche dinamiche
+</script></body></html>

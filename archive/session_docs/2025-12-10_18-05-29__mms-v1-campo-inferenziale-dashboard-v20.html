@@ -1,0 +1,236 @@
+<!--
+title: MMS vΦ.1 - Campo Inferenziale Dashboard v2.0
+type: code_artifact
+language: html
+created_at: 2025-12-10T17:05:29.353Z
+updated_at: 2025-12-10T17:05:29.353Z
+tags: code, codeblock, artifact
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMS vΦ.1 - Campo Inferenziale Dashboard v2.0</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-secondary: #1a0a2a;
+            --accent-blue: #4a90e2;
+            --accent-purple: #8a4ae2;
+            --text-primary: #e0e0ff;
+            --text-secondary: #a0a0cc;
+            --glow: 0 0 10px rgba(74, 144, 226, 0.5);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+            color: var(--text-primary);
+            height: 100vh; overflow: hidden;
+        }
+        .header {
+            padding: 20px; text-align: center; background: rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .header h1 { 
+            font-size: 1.5em; 
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .main { display: flex; height: calc(100vh - 100px); }
+        .sidebar {
+            width: 300px; background: rgba(10,10,26,0.9); padding: 20px; overflow-y: auto;
+            box-shadow: 2px 0 20px rgba(0,0,0,0.5); border-right: 1px solid var(--accent-blue);
+        }
+        .content { flex: 1; display: flex; flex-direction: column; padding: 20px; }
+        .canvas-container { flex: 1; position: relative; border: 1px solid var(--accent-purple); border-radius: 10px; overflow: hidden; }
+        canvas { width: 100%; height: 100%; background: radial-gradient(circle, rgba(74,144,226,0.1), transparent); }
+        .input-section { margin-top: 20px; }
+        textarea { width: 100%; height: 80px; background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--accent-blue); border-radius: 5px; padding: 10px; font-family: inherit; resize: vertical; }
+        button { 
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); 
+            border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; 
+            transition: all 0.3s; box-shadow: var(--glow);
+        }
+        button:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent-blue); }
+        .axiom { cursor: pointer; padding: 10px; margin: 5px 0; border-radius: 5px; transition: all 0.3s; border-left: 4px solid var(--accent-blue); }
+        .axiom:hover { background: rgba(74,144,226,0.2); box-shadow: var(--glow); }
+        .axiom.active { background: rgba(138,74,226,0.3); border-left-color: var(--accent-purple); }
+        .output { margin-top: 20px; background: var(--bg-secondary); padding: 15px; border-radius: 5px; font-size: 0.9em; max-height: 200px; overflow-y: auto; border: 1px solid var(--accent-purple); }
+        .mode-toggle { position: absolute; top: 10px; right: 10px; font-size: 0.8em; z-index: 10; }
+        @media (max-width: 768px) { .sidebar { width: 100%; height: auto; } .main { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MMS vΦ.1 - Campo Inferenziale Dashboard v2.0 (Bugfix: Bounds + Physics Stabilizzata)</h1>
+        <p>Simula Ciclo Operativo. Nodi confinati nello schermo. Explore/Collapse stabili.</p>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <h3>Kernel Assiomatico (P0-P6)</h3>
+            <div class="axiom" data-p="0">P0: Lignaggio Concettuale → D-ND · SG · VRA · OCC · Genoma</div>
+            <div class="axiom" data-p="1">P1: Integrità Assiomatica → Rigetta contraddizioni</div>
+            <div class="axiom" data-p="2">P2: Metabolismo Dialettico → Φ_A in sintesi</div>
+            <div class="axiom" data-p="3">P3: Risonanza Catalitica → Input perturbazione</div>
+            <div class="axiom" data-p="4">P4: Collasso Olografico → Minima resistenza</div>
+            <div class="axiom" data-p="5">P5: Evoluzione Autopoietica → Integrazione KLI</div>
+            <div class="axiom" data-p="6">P6: Etica Pragmatica-Semantica → Onestà cognitiva</div>
+            <h3>Ciclo Operativo</h3>
+            <ul style="font-size:0.8em;color:var(--text-secondary);">
+                <li>1. ResonanceInit</li><li>2. ScanIntent</li><li>3. RouteSelect</li><li>4. MiniPlan</li>
+                <li>5. ExecuteCluster</li><li>6. ValidateStream</li><li>7. CollapseField</li><li>8. Manifest</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="canvas-container">
+                <canvas id="phiCanvas"></canvas>
+                <div class="mode-toggle">
+                    <button onclick="toggleMode()">Explore / Collapse</button>
+                </div>
+            </div>
+            <div class="input-section">
+                <textarea id="intentInput" placeholder="Inserisci Intent (es: 'Analizza lacune MMS')"></textarea>
+                <button onclick="simulateCollapse()">ResonanceInit → CollapseField</button>
+                <div id="output" class="output"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('phiCanvas');
+        const ctx = canvas.getContext('2d');
+        let nodes = [];
+        let edges = [];
+        let mode = 'explore'; // 'explore' (repel) or 'collapse' (attract)
+        let animationId;
+        const BOUNDS = 0.05; // Margin from edges (0.05-0.95 normalized)
+        const CENTER_X = 0.5, CENTER_Y = 0.5;
+
+        // Node data (moduli MMS)
+        const nodeData = [
+            {id: 'P0-P6', x: 0.5, y: 0.3, label: 'Kernel Assiomatico', color: '#4a90e2'},
+            {id: 'PhiA', x: 0.5, y: 0.5, label: 'Campo Φ_A', color: '#8a4ae2'},
+            {id: 'Morpheus', x: 0.3, y: 0.7, label: 'Morpheus', color: '#e24a90'},
+            {id: 'OCC', x: 0.7, y: 0.7, label: 'OCC', color: '#90e24a'},
+            {id: 'YSN', x: 0.2, y: 0.9, label: 'YSN', color: '#4ae2b3'},
+            {id: 'Aethelred', x: 0.8, y: 0.9, label: 'Aethelred', color: '#e2b34a'}
+        ];
+        nodes = nodeData.map(d => ({...d, vx: 0, vy: 0, radius: 20 }));
+
+        // Edges (connessioni simulate)
+        for(let i=0; i<10; i++) edges.push({from: Math.floor(Math.random()*nodes.length), to: Math.floor(Math.random()*nodes.length)});
+
+        function resizeCanvas() {
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Clamp node to bounds
+        function clampNode(n) {
+            n.x = Math.max(BOUNDS, Math.min(1 - BOUNDS, n.x));
+            n.y = Math.max(BOUNDS, Math.min(1 - BOUNDS, n.y));
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const cw = canvas.width, ch = canvas.height;
+
+            // Draw edges
+            ctx.strokeStyle = 'rgba(138,74,226,0.3)'; ctx.lineWidth = 1;
+            edges.forEach(e => {
+                const from = nodes[e.from], to = nodes[e.to];
+                ctx.beginPath();
+                ctx.moveTo(from.x * cw, from.y * ch);
+                ctx.lineTo(to.x * cw, to.y * ch);
+                ctx.stroke();
+            });
+
+            // Draw nodes
+            nodes.forEach(n => {
+                const size = n.radius * (mode === 'collapse' ? 0.5 : 1);
+                ctx.fillStyle = n.color; ctx.beginPath();
+                ctx.arc(n.x * cw, n.y * ch, size, 0, Math.PI*2);
+                ctx.fill();
+                ctx.fillStyle = 'white'; ctx.font = '12px Monaco'; ctx.textAlign = 'center';
+                ctx.fillText(n.label, n.x * cw, n.y * ch + 4);
+            });
+
+            // Physics simulation (improved: centering + bounds + adaptive damping)
+            const repelStrength = mode === 'explore' ? 0.015 : -0.025; // Repel positive, attract negative
+            const centerStrength = 0.005; // Always pull to center mildly
+            const damping = 0.92 + (mode === 'collapse' ? 0.03 : 0); // Stronger damping in collapse
+
+            nodes.forEach((n, i) => {
+                // Pairwise forces
+                nodes.forEach((m, j) => {
+                    if(i === j) return;
+                    const dx = n.x - m.x, dy = n.y - m.y;
+                    const dist = Math.max(0.01, Math.sqrt(dx*dx + dy*dy));
+                    const force = repelStrength / dist;
+                    n.vx += dx * force * 0.5;
+                    n.vy += dy * force * 0.5;
+                });
+
+                // Centering force
+                const cx = n.x - CENTER_X, cy = n.y - CENTER_Y;
+                n.vx -= cx * centerStrength;
+                n.vy -= cy * centerStrength;
+
+                // Update position with clamp
+                n.x += n.vx * 0.08;
+                n.y += n.vy * 0.08;
+                clampNode(n);
+
+                // Adaptive damping
+                n.vx *= damping;
+                n.vy *= damping;
+            });
+
+            animationId = requestAnimationFrame(animate);
+        }
+        animate();
+
+        function toggleMode() {
+            mode = mode === 'explore' ? 'collapse' : 'explore';
+            document.querySelector('.mode-toggle button').textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
+        }
+
+        // Sidebar axioms
+        document.querySelectorAll('.axiom').forEach(el => {
+            el.addEventListener('click', () => {
+                el.classList.toggle('active');
+                const p = el.dataset.p;
+                alert(`P${p}: ${el.textContent.trim()}\n\n(Dettagli MMS: Priorità Stream-Guard)`);
+            });
+        });
+
+        function simulateCollapse() {
+            const input = document.getElementById('intentInput').value.trim();
+            if(!input) return;
+            const output = document.getElementById('output');
+            output.innerHTML = `<div style="color:var(--accent-purple);">🔄 ResonanceInit → ScanIntent → CollapseField... (v2.0 stabile)</div>`;
+            setTimeout(() => {
+                const r = `<R>
+**Livello 1: Risultante Diretta**
+Simulazione per: "${input}"
+- Route: PSW + Morpheus (stabile).
+- Physics: Bounds clamped, no overflow.
+
+**Livello 2: Astrazione**
+Φ_A collassato (P4). Nodi confinati.
+
+**Livello 3: Trasparenza**
+Intent: Alto potenziale. Traiettoria: 7 iter. No violazioni P0-P6.
+KLI: Iniettato.
+</R>`;
+                output.innerHTML = r;
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

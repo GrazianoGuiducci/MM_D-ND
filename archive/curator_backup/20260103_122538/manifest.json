@@ -1,0 +1,15 @@
+{
+  "backup_id": "20260103_122538",
+  "timestamp": "2026-01-03T12:25:38.725735",
+  "files": [
+    {
+      "original": "AWARENESS/4_\u03ba_EVOLUTIVE_MEMORY/DND_CLI_Development_Roadmap.md",
+      "backup": "4_\u03ba_EVOLUTIVE_MEMORY/DND_CLI_Development_Roadmap.md"
+    },
+    {
+      "original": "AWARENESS/4_\u03ba_EVOLUTIVE_MEMORY/KLI_EVOLUTION_LOG.md",
+      "backup": "4_\u03ba_EVOLUTIVE_MEMORY/KLI_EVOLUTION_LOG.md"
+    }
+  ],
+  "actions_count": 1
+}

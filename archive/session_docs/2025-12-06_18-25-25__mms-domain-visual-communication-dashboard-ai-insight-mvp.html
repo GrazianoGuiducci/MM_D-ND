@@ -1,0 +1,260 @@
+<!--
+title: MMS Domain Visual Communication Dashboard - AI Insight MVP
+type: code_artifact
+language: html
+created_at: 2025-12-06T17:25:25.889Z
+updated_at: 2025-12-06T17:25:25.889Z
+tags: code, codeblock, artifact
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMS Domain Visual Communication Dashboard - AI Insight MVP</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Dark, colorful theme: Primary dark bg, neon accents for MMS vibe */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .header {
+            background: rgba(0, 255, 150, 0.1);
+            border-bottom: 2px solid #00ff96;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 255, 150, 0.2);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #00ff96, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 150, 0.5);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 150, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 255, 150, 0.4);
+        }
+        .card h2 {
+            color: #00ff96;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .tag-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .tag {
+            padding: 8px 12px;
+            background: linear-gradient(45deg, #ff00ff, #00ff96);
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 20px;
+        }
+        .kpi {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .kpi-item {
+            background: rgba(0, 255, 150, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 120px;
+            border: 1px solid #00ff96;
+        }
+        .kpi-value {
+            font-size: 2em;
+            color: #00ff96;
+            font-weight: bold;
+        }
+        .insight-list {
+            list-style: none;
+        }
+        .insight-list li {
+            background: rgba(255, 255, 255, 0.05);
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 4px solid #ff00ff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .insight-list li:hover {
+            background: rgba(255, 0, 255, 0.1);
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MMS Domain Visual Hub: AI Insight MVP & CRM Integration</h1>
+        <p>Interactive dashboard for T1-T9 insights. Hover for details, click tags for expansions.</p>
+    </div>
+    
+    <div class="container">
+        <!-- Left Column: Core Tags & KPIs -->
+        <div class="card">
+            <h2>Core Tags (T1-T9) Overview</h2>
+            <div class="tag-grid">
+                <div class="tag" onclick="toggleDetails('T1')">T1: CRM Integration</div>
+                <div class="tag" onclick="toggleDetails('T2')">T2: Data Governance</div>
+                <div class="tag" onclick="toggleDetails('T3')">T3: AI Insight MVP</div>
+                <div class="tag" onclick="toggleDetails('T4')">T4: Read-Only Overlay</div>
+                <div class="tag" onclick="toggleDetails('T5')">T5: PII Compliance</div>
+                <div class="tag" onclick="toggleDetails('T6')">T6: Agentic Tooling</div>
+                <div class="tag" onclick="toggleDetails('T7')">T7: Feature Store</div>
+                <div class="tag" onclick="toggleDetails('T8')">T8: Feedback Loop</div>
+                <div class="tag" onclick="toggleDetails('T9')">T9: System Bootstrapping</div>
+            </div>
+            <div class="kpi">
+                <div class="kpi-item">
+                    <div class="kpi-value">85%</div>
+                    <div>Lead Scoring Accuracy</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">42</div>
+                    <div>NBA Recommendations</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">99.9%</div>
+                    <div>PII Compliance</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Lead Scoring Chart & Insights -->
+        <div class="card">
+            <h2>AI Lead Scoring Pipeline (v0-v1)</h2>
+            <div class="chart-container">
+                <canvas id="leadScoringChart"></canvas>
+            </div>
+            <h3>Key Insights</h3>
+            <ul class="insight-list" id="insights">
+                <li>Genesis Flow: Bootstraps domain via Metaprompter & Tool Seeding.</li>
+                <li>SHAP Explainability: Visualizes feature importance for trust.</li>
+                <li>Reflexion Loop: Measures KPI from accept/reject feedback.</li>
+            </ul>
+        </div>
+
+        <!-- Additional Card: Workflow Status -->
+        <div class="card">
+            <h2>Current Workflow Status (MMS Φ_A Collapse)</h2>
+            <div class="chart-container">
+                <canvas id="workflowChart"></canvas>
+            </div>
+            <p>Hover/click tags above to expand details dynamically.</p>
+        </div>
+    </div>
+
+    <script>
+        // Sample data from domain context (T1-T9, AI MVP)
+        const tagsData = {
+            T1: 'Dynamics 365 CE/Dataverse Lead/Opportunity cycle.',
+            T2: 'Contracts before Code, Versioning, Schema Registry.',
+            T3: 'Pipeline for Lead Scoring v0-v1, NBA, SHAP.',
+            T4: 'Browser extension UI consuming APIs (read-only).',
+            T5: 'PII masking, encryption, audit trails.',
+            T6: 'Atomic tools (ingest, scoring) via registry.',
+            T7: 'Versioned structures for ML freshness/backfill.',
+            T8: 'KPI cycles from AI output acceptance.',
+            T9: 'Guided setup process for new domains.'
+        };
+
+        function toggleDetails(tag) {
+            const details = tagsData[tag] || 'Details loading...';
+            alert(`Tag ${tag}: ${details}\n\n(Interactive expansion - integrate with MMS tools for real-time data.)`);
+            // Could expand to modal or dynamic content
+        }
+
+        // Lead Scoring Chart (Doughnut for conversion funnel)
+        const ctx1 = document.getElementById('leadScoringChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Converted', 'Scored High', 'Pending', 'Low Priority'],
+                datasets: [{
+                    data: [25, 35, 20, 20],
+                    backgroundColor: ['#00ff96', '#ff00ff', '#00bfff', '#ff9500'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom', labels: { color: '#e0e0e0' } } }
+            }
+        });
+
+        // Workflow Status Chart (Bar for P0-P6 Axioms or tool status)
+        const ctx2 = document.getElementById('workflowChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['P0 Lineage', 'P1 Integrity', 'P2 Synthesis', 'P3 Resonance', 'P4 Collapse', 'P5 Evolution', 'P6 Ethics'],
+                datasets: [{
+                    label: 'Status Score',
+                    data: [95, 98, 92, 89, 94, 91, 97],
+                    backgroundColor: 'rgba(0, 255, 150, 0.7)',
+                    borderColor: '#00ff96',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true, max: 100, ticks: { color: '#e0e0e0' } },
+                    x: { ticks: { color: '#e0e0e0' } }
+                },
+                plugins: { legend: { labels: { color: '#e0e0e0' } } }
+            }
+        });
+    </script>
+</body>
+</html>

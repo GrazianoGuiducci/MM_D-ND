@@ -1,0 +1,144 @@
+<!--
+title: Artefatto di codice
+type: code_artifact
+language: html
+created_at: 2025-12-17T22:14:33.690Z
+updated_at: 2025-12-17T22:14:33.690Z
+tags: code, codeblock, artifact
+-->
+
+import numpy as np
+import matplotlib.pyplot as plt
+from mpmath import mp, zeta, im, re
+import time
+
+# ============================================================== 
+# CONFIGURAZIONE DEL NUCLEO (RIEMANN KERNEL)
+# ============================================================== 
+class RiemannConfig:
+    def __init__(self):
+        self.iterations = 15000     # Numero di punti (aumentare per più risoluzione)
+        self.t_start = 14.0         # Si parte dal primo zero non banale (~14.13)
+        self.t_step = 0.05          # Passo di avanzamento sulla linea critica
+        self.lambda_linear = 0.1    # Forza dell'attrattore lineare
+        self.P = 0.5 + 0.5j         # Proto-Assioma (Il Centro)
+        self.zoom_factor = 20.0     # Fattore di amplificazione per l'input Zeta
+
+# Configurazione precisione mpmath (essenziale per Zeta)
+mp.dps = 15 
+
+# ============================================================== 
+# TRASFORMAZIONI DI BASE (GLI OPERATORI)
+# ============================================================== 
+def T_A(z):
+    """Contrazione e Rotazione Sinistra"""
+    return z * 0.5 + 1j
+
+def T_B(z):
+    """Contrazione e Rotazione Destra"""
+    return (z + 1) * 0.5
+
+def linear_pull(z, P, strength):
+    """L'attrattore lineare (Gravità verso il centro)"""
+    return z + strength * (P - z)
+
+# ============================================================== 
+# IL MOTORE DETERMINISTICO (RIEMANN DRIVER)
+# ============================================================== 
+def get_zeta_signal(t):
+    """
+    Calcola il valore di Zeta sulla linea critica: 0.5 + i*t
+    Restituisce un segnale normalizzato per guidare la scelta.
+    """
+    # Calcolo Zeta nel punto critico
+    s = 0.5 + 1j * t
+    z_val = zeta(s)
+    
+    # Estrarre il segnale: Usiamo la fase (angolo) o la parte reale
+    # Se Re(Zeta) > 0 -> Scelta A, altrimenti Scelta B
+    # Questo mappa la geometria degli zeri sulla geometria frattale
+    signal = re(z_val) 
+    return float(signal)
+
+# ============================================================== 
+# MAIN LOOP (L'EVOLUZIONE DEL CAMPO)
+# ============================================================== 
+def run_riemann_simulation():
+    config = RiemannConfig()
+    
+    # Stato iniziale
+    current_z = 0.5 + 0.0j # Partiamo dall'asse reale
+    points = []
+    
+    print(f"// INIZIALIZZAZIONE RIEMANN KERNEL...")
+    print(f"// Target: Linea Critica Re(s)=0.5")
+    print(f"// Scanning da t={config.t_start}...")
+
+    start_time = time.time()
+    
+    # Loop Temporale (t scorre lungo la linea immaginaria)
+    t = config.t_start
+    
+    for i in range(config.iterations):
+        
+        # 1. ACQUISIZIONE SEGNALE (Non-Random)
+        # Il sistema "ascolta" la funzione Zeta
+        signal = get_zeta_signal(t)
+        
+        # 2. DECISIONE LOGICA (COLLASSO)
+        # Invece di lanciare dadi, usiamo il segno della parte reale di Zeta
+        # Questo crea una danza sincronizzata con gli zeri della funzione
+        if signal > 0:
+            target = T_A(current_z)
+        else:
+            target = T_B(current_z)
+            
+        # 3. IBRIDAZIONE LINEARE
+        # Applichiamo una leggera forza lineare per mantenere coesione
+        current_z = linear_pull(target, config.P, config.lambda_linear)
+        
+        # Salvataggio
+        points.append(current_z)
+        
+        # Avanzamento del tempo sulla linea critica
+        # Usiamo un passo non lineare per evitare risonanze semplici
+        t += config.t_step + (0.0001 * i) 
+
+        if i % 1000 == 0:
+            print(f"   > Iterazione {i}/{config.iterations} | t = {t:.2f}")
+
+    elapsed = time.time() - start_time
+    print(f"// COMPLETATO in {elapsed:.2f}s")
+    return points
+
+# ============================================================== 
+# VISUALIZZAZIONE
+# ============================================================== 
+def visualize(points):
+    x = [z.real for z in points]
+    y = [z.imag for z in points]
+    
+    plt.figure(figsize=(10, 10), facecolor='#000508')
+    ax = plt.gca()
+    ax.set_facecolor('#000508')
+    
+    # Plotting con mappa colore basata sull'ordine di arrivo (tempo)
+    plt.scatter(x, y, c=range(len(x)), cmap='twilight', s=0.8, alpha=0.6)
+    
+    # Cosmetica Cyberpunk
+    plt.title("D-ND RIEMANN KERNEL [Zeta-Driven IFS]", color='#00f3ff', fontfamily='monospace')
+    plt.xlabel("Re(z) [Struttura]", color='gray')
+    plt.ylabel("Im(z) [Potenziale]", color='gray')
+    ax.tick_params(axis='x', colors='gray')
+    ax.tick_params(axis='y', colors='gray')
+    plt.grid(True, color='#004455', linestyle='-', linewidth=0.5, alpha=0.3)
+    
+    # Evidenziare il Proto-Assioma
+    plt.scatter([0.5], [0.5], color='#ff0055', s=50, marker='x', label='Proto-Assioma (0.5, 0.5)')
+    plt.legend(facecolor='#001122', edgecolor='#00f3ff', labelcolor='white')
+
+    plt.show()
+
+if __name__ == "__main__":
+    data = run_riemann_simulation()
+    visualize(data)

@@ -1,0 +1,671 @@
+%==============================================================================
+% PAPER A - FOUNDATION PAPER
+% Target Journal: Physical Review A
+% Document Class: revtex4-2
+%==============================================================================
+%
+% D-ND COSMOLOGY FRAMEWORK - LATEX CONVERSION TEMPLATE
+%
+% This template demonstrates the complete LaTeX structure for Paper A, the
+% foundational paper of the D-ND academic suite. It serves as a reference
+% for adapting the other six papers to their respective target journals.
+%
+% JOURNAL ADAPTATION GUIDE:
+% - Paper A → Physical Review A (this file)
+% - Paper B → Physical Review E (change: \documentclass{revtex4-2})
+% - Paper C → Journal of Mathematical Physics (change: \documentclass[11pt]{aip})
+% - Paper D → Foundations of Physics (change: \documentclass[twocolumn]{springer})
+% - Paper E → Classical and Quantum Gravity (change: \documentclass{iopart})
+% - Paper F → Quantum (change: \documentclass{quantumarticle})
+% - Paper G → Cognitive Science/Minds and Machines (change: \documentclass{springer})
+%
+%==============================================================================
+
+\documentclass[aps,pra,11pt,notitlepage,nofootinbib]{revtex4-2}
+
+%==============================================================================
+% PACKAGES - CORE MATHEMATICS AND PHYSICS
+%==============================================================================
+
+\usepackage[utf-8]{inputenc}          % UTF-8 text encoding
+\usepackage[T1]{fontenc}              % Extended font encoding
+\usepackage{amsmath}                  % AMS mathematical environments
+\usepackage{amssymb}                  % AMS symbols (extended)
+\usepackage{mathrsfs}                 % Ralph Smith's formal script font (for \mathcal)
+\usepackage{braket}                   % Braket notation: \ket, \bra, \braket
+\usepackage{amsthm}                   % Theorem environment definitions
+
+%==============================================================================
+% PACKAGES - CROSS-REFERENCES AND CITATIONS
+%==============================================================================
+
+\usepackage{hyperref}                 % Hyperlinks in PDF
+\usepackage{cleveref}                 % Smart cross-references: \cref, \Cref
+\usepackage[square,numbers,sort&compress]{natbib}  % Bibliography with citations
+
+%==============================================================================
+% PACKAGES - DOCUMENT FORMATTING
+%==============================================================================
+
+\usepackage{geometry}                 % Page layout customization
+\usepackage{setspace}                 % Line spacing control
+\usepackage{graphicx}                 % Graphics/figures inclusion
+\usepackage{float}                    % Figure placement options [H], [t], etc.
+
+%==============================================================================
+% D-ND SHARED NOTATION PACKAGE
+%==============================================================================
+% This package (dnd_shared.sty) contains all D-ND specific notation commands
+% and theorem environments, ensuring consistency across all papers.
+%
+% Located at: domain/AWARENESS/3_π_PRAGMATIC/latex/dnd_shared.sty
+% The .sty file is included in this directory for compilation.
+
+\usepackage{dnd_shared}
+
+%==============================================================================
+% HYPERREF CONFIGURATION (PDF links and bookmarks)
+%==============================================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    bookmarksnumbered=true,
+    pdftitle={D-ND Cosmology Framework: Foundation Theory},
+    pdfauthor={D-ND Research Collective},
+    pdfsubject={Quantum Cosmology, Emergence, Classical Limit},
+    pdfkeywords={D-ND, emergence, quantum, cosmology, classical limit}
+}
+
+%==============================================================================
+% GEOMETRY CONFIGURATION
+%==============================================================================
+% Note: revtex4-2 manages margins automatically; customize if needed
+
+\geometry{
+    margin=1in,
+    includehead=true,
+    includefoot=true
+}
+
+%==============================================================================
+% CUSTOM MACROS (SUPPLEMENTARY)
+%==============================================================================
+% These supplement the shared commands in dnd_shared.sty
+
+% Quantum mechanics notation
+\newcommand{\Hilbert}{\mathcal{H}}    % Hilbert space
+\newcommand{\HilbertNT}{\Hilbert_{\text{NT}}}  % NT Hilbert space
+\newcommand{\Obs}{\mathcal{O}}        % Observable operator
+
+% D-ND specific derived quantities
+\newcommand{\emergence@threshold}{\emerge_{\text{th}}}  % Emergence threshold
+\newcommand{\emergence@critical}{\emerge^*}  % Critical emergence value
+\newcommand{\coupling@strength}{\alpha_{\text{couple}}}  % Coupling strength
+
+% Partial derivatives shorthand
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}  % ∂/∂
+\newcommand{\pdd}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}  % ∂²/∂∂
+
+% Time evolution
+\newcommand{\evolve}[1]{#1(t)}        % Time-evolved quantity
+
+%==============================================================================
+% BEGIN DOCUMENT
+%==============================================================================
+
+\begin{document}
+
+%==============================================================================
+% TITLE PAGE / ARTICLE METADATA
+%==============================================================================
+
+\title{The D-ND Framework: Quantum Emergence and Classical Reality}
+
+\author{D-ND Research Collective}
+\affiliation{Department of Theoretical Physics, Foundation Research Institute}
+
+\date{\today}
+
+%==============================================================================
+% ABSTRACT
+%==============================================================================
+
+\begin{abstract}
+
+The Domain-Nested-Dynamics (D-ND) framework presents a unified theory of quantum
+emergence and the emergence of classical reality from quantum mechanics. This
+foundation paper establishes the core axioms, mathematical structure, and physical
+implications of the framework. We introduce the emergence operator $\emerge$, the
+order parameter $\orderparam$, and the coupling constants $\chiDND$ and $\lambdaDND$.
+The framework demonstrates how classical dynamics emerge from quantum systems through
+a process of nested domain interactions, with implications for cosmology, quantum
+measurement, and the classical limit problem. We establish the theoretical foundation
+upon which the subsequent six papers build, extending to experimental signatures,
+mathematical generalizations, and cognitive physics applications.
+
+\end{abstract}
+
+%==============================================================================
+% SECTION 1: INTRODUCTION
+%==============================================================================
+
+\section{Introduction}
+\label{sec:introduction}
+
+The relationship between quantum mechanics and classical physics remains one of the
+most fundamental unresolved questions in physics. The emergence of classical behavior
+from quantum systems---the classical limit problem---continues to challenge our
+understanding of the foundations of physics. The D-ND framework addresses this through
+a novel mechanism of nested domain dynamics.
+
+\subsection{Motivation and Context}
+\label{subsec:motivation}
+
+Classical mechanics is an extraordinarily successful theory for describing macroscopic
+phenomena. Yet quantum mechanics governs the microscopic realm. How classical physics
+emerges from quantum mechanics is not obvious, and many approaches have been proposed:
+decoherence theory, Bohmian mechanics, many-worlds interpretations, and others.
+
+The D-ND framework takes a different approach, proposing that emergence occurs through
+a process of nested domain interactions, where each domain operates according to specific
+dynamical laws that couple through emergence operators.
+
+\subsection{Paper Roadmap}
+\label{subsec:roadmap}
+
+This paper (Paper A) establishes the theoretical foundation. The subsequent papers extend
+this framework:
+\begin{itemize}
+    \item \textbf{Paper B}: Physical processes and experimental signatures in quantum systems
+    \item \textbf{Paper C}: Mathematical generalizations using differential geometry
+    \item \textbf{Paper D}: Philosophical foundations and physics principles
+    \item \textbf{Paper E}: Cosmological implications and gravitational aspects
+    \item \textbf{Paper F}: Quantum information and entanglement structures
+    \item \textbf{Paper G}: Cognitive applications and consciousness physics
+\end{itemize}
+
+%==============================================================================
+% SECTION 2: AXIOMS OF THE D-ND FRAMEWORK
+%==============================================================================
+
+\section{Axioms of the D-ND Framework}
+\label{sec:axioms}
+
+We establish the D-ND framework through a set of core axioms. These axioms are
+fundamental assumptions that define the structure of the theory.
+
+\begin{axiom}[Nested Domain Structure]
+\label{ax:nested}
+Physical reality consists of nested domains $D_i$, where each domain $i$ operates
+according to its own dynamical laws $\mathcal{L}_i$, with interactions governed by
+emergence operators $\emerge_i$.
+\end{axiom}
+
+\begin{axiom}[Emergence Operator Principle]
+\label{ax:emergence}
+Between any two nested domains $D_i$ and $D_j$, there exists an emergence operator
+$\emerge_{ij}$ that characterizes the flow of information and correlations from
+quantum $(D_i)$ to classical $(D_j)$ domains.
+\end{axiom}
+
+\begin{axiom}[Order Parameter Dynamics]
+\label{ax:order}
+The emergence of classical behavior is characterized by an order parameter
+$\orderparam$ that measures the degree of classical behavior within the nested
+domain structure, with $0 \le \orderparam \le 1$.
+\end{axiom}
+
+\begin{axiom}[Conservation of Information]
+\label{ax:conservation}
+Total information content, including quantum correlations and classical observables,
+is conserved across domain transitions, though information distribution changes
+through emergence operators.
+\end{axiom}
+
+\begin{remark}
+These four axioms differ from conventional axioms of quantum mechanics. Rather than
+assuming the wavefunction and Born rule as fundamental, D-ND derives these from nested
+domain interactions. This provides an alternative foundational perspective.
+\end{remark}
+
+%==============================================================================
+% SECTION 3: EMERGENCE DYNAMICS
+%==============================================================================
+
+\section{Emergence Dynamics}
+\label{sec:emergence}
+
+The core mechanism of the D-ND framework is the emergence operator and its dynamics.
+
+\subsection{The Emergence Operator}
+\label{subsec:emergence_operator}
+
+The emergence operator $\emerge$ acts on quantum states in the form:
+
+\begin{equation}
+\label{eq:emergence_operator}
+\emerge \ket{\psi} = \lambda_{\emerge} \ket{\psi_{\text{classical}}}
+\end{equation}
+
+where $\lambda_{\emerge}$ is the emergence coupling strength and $\ket{\psi_{\text{classical}}}$
+is the classical approximation of the quantum state.
+
+\subsection{Order Parameter Evolution}
+\label{subsec:order_evolution}
+
+The order parameter $\orderparam$ governs the transition from quantum to classical:
+
+\begin{equation}
+\label{eq:order_parameter}
+\frac{d}{dt}\orderparam = -\Gamma \left(\orderparam - \orderparam_{\text{eq}}\right)
+\end{equation}
+
+where $\Gamma$ is a relaxation rate and $\orderparam_{\text{eq}}$ is the equilibrium
+value determined by the system parameters.
+
+\begin{proposition}
+\label{prop:order_convergence}
+For any system satisfying the D-ND axioms, the order parameter $\orderparam$ converges
+to an equilibrium value $\orderparam_{\text{eq}}$ exponentially in time.
+\end{proposition}
+
+\begin{proof}
+The differential equation \eqref{eq:order_parameter} is a first-order linear ODE with
+exponential solution:
+\begin{equation}
+\orderparam(t) = \orderparam_{\text{eq}} + \left(\orderparam(0) - \orderparam_{\text{eq}}\right)
+e^{-\Gamma t}
+\end{equation}
+This shows convergence to $\orderparam_{\text{eq}}$ as $t \to \infty$.
+\end{proof}
+
+\subsection{Measurement and Emergence}
+\label{subsec:measurement}
+
+The emergence measurement function $\emeasure$ quantifies the classical behavior:
+
+\begin{equation}
+\label{eq:emergence_measure}
+\emeasure = \frac{1}{2}\left(1 + \tanh\left(\beta(\emerge - \emerge_{\text{th}})\right)\right)
+\end{equation}
+
+where $\emerge_{\text{th}}$ is a threshold emergence value and $\beta$ controls the
+steepness of the transition.
+
+%==============================================================================
+% SECTIONS 4-5: CLASSICAL LIMIT (COMBINED)
+%==============================================================================
+
+\section{Classical Limit and Effective Dynamics}
+\label{sec:classical_limit}
+
+\subsection{Transition to Classical Mechanics}
+\label{subsec:classical_transition}
+
+As the order parameter $\orderparam$ increases toward unity, the system exhibits
+increasingly classical behavior. The Hamiltonian in the classical limit becomes:
+
+\begin{equation}
+\label{eq:classical_hamiltonian}
+H_{\text{classical}} = \lim_{\orderparam \to 1} \emerge^{\dagger} H_{\text{quantum}} \emerge
+\end{equation}
+
+\subsection{Correspondence with Classical Physics}
+\label{subsec:correspondence}
+
+The D-ND framework reproduces classical mechanics in the appropriate limit:
+
+\begin{theorem}[Classical Correspondence Limit]
+\label{thm:classical_correspondence}
+In the limit where $\orderparam \to 1$ and $\hbar_{\text{eff}} \to 0$, the equations
+of motion derived from D-ND reduce to classical Hamiltonian equations with:
+\begin{equation}
+\label{eq:classical_eom}
+\dot{q}_i = \frac{\partial H}{\partial p_i}, \quad \dot{p}_i = -\frac{\partial H}{\partial q_i}
+\end{equation}
+\end{theorem}
+
+%==============================================================================
+% SECTION 6: CURVATURE AND DIFFERENTIAL GEOMETRY
+%==============================================================================
+
+\section{Curvature and Geometric Structure}
+\label{sec:curvature}
+
+The space of emergence states admits a natural geometric structure characterized by
+curvature.
+
+\subsection{Emergence Manifold}
+\label{subsec:emergence_manifold}
+
+The space of possible emergence values forms a manifold $\mathcal{M}_{\emerge}$ with
+metric tensor:
+
+\begin{equation}
+\label{eq:emergence_metric}
+g_{ij} = \expect{\frac{\partial \emerge}{\partial \xi^i}\frac{\partial \emerge}{\partial \xi^j}}
+\end{equation}
+
+where $\xi^i$ are coordinates on the manifold.
+
+\subsection{Ricci Curvature}
+\label{subsec:ricci}
+
+The Ricci curvature tensor encodes information about the local structure of emergence:
+
+\begin{equation}
+\label{eq:ricci_curvature}
+R_{ij} = \frac{\partial^2 \ln g}{\partial \xi^i \partial \xi^j}
+\end{equation}
+
+Higher curvature indicates steeper emergence transitions.
+
+%==============================================================================
+% SECTION 7: EXPERIMENTAL SIGNATURES AND OBSERVATIONS
+%==============================================================================
+
+\section{Experimental Signatures}
+\label{sec:experimental}
+
+The D-ND framework makes predictions testable through various experimental approaches.
+
+\subsection{Signatures in Quantum Systems}
+\label{subsec:quantum_signatures}
+
+Key experimental signatures of D-ND emergence include:
+
+\begin{enumerate}
+    \item \textbf{Emergence threshold detection}: The emergence function $\emeasure$
+    should produce measurable signatures at the threshold $\emerge_{\text{th}}$.
+
+    \item \textbf{Order parameter dynamics}: The temporal evolution of $\orderparam$
+    should follow predictions of \eqref{eq:order_parameter}.
+
+    \item \textbf{Coupling constant measurements}: The coupling $\chiDND$ should be
+    determinable from spectral measurements.
+\end{enumerate}
+
+\subsection{Cosmological Tests}
+\label{subsec:cosmo_tests}
+
+The cosmological implications of D-ND lead to testable predictions for:
+\begin{itemize}
+    \item Structure formation timescales
+    \item Gravitational wave signatures
+    \item Cosmic microwave background properties
+\end{itemize}
+
+These are detailed in Paper E (Classical and Quantum Gravity).
+
+%==============================================================================
+% SECTION 8: CONCLUSION
+%==============================================================================
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+The D-ND framework provides a novel approach to the classical limit problem, grounded
+in a set of fundamental axioms about nested domain structure and emergence operators.
+We have established:
+
+\begin{enumerate}
+    \item The core axioms defining the D-ND framework (\secref{axioms})
+    \item The emergence operator and order parameter dynamics (\secref{emergence})
+    \item Correspondence with classical mechanics in the appropriate limit (\secref{classical_limit})
+    \item The geometric structure underlying emergence (\secref{curvature})
+    \item Experimental signatures for validation (\secref{experimental})
+\end{enumerate}
+
+This foundation supports the extended framework developed in the companion papers,
+which address:
+\begin{itemize}
+    \item Quantum measurement and decoherence (Paper B)
+    \item Mathematical generalizations (Paper C)
+    \item Philosophical foundations (Paper D)
+    \item Cosmology and gravity (Paper E)
+    \item Quantum information (Paper F)
+    \item Cognitive physics (Paper G)
+\end{itemize}
+
+Future work will refine the experimental signatures, extend to quantum field theory,
+and develop practical applications in quantum technology.
+
+%==============================================================================
+% REFERENCES
+%==============================================================================
+
+\begin{thebibliography}{99}
+
+% Format: \bibitem{key} Author(s), Title, Journal Volume (Year) Pages
+
+\bibitem{zurek2003} Zurek, W.~H., Rev.\ Mod.\ Phys.\ \textbf{75}, 715 (2003).
+
+\bibitem{wallace2012} Wallace, D., The Emergent Multiverse (Oxford University Press, 2012).
+
+\bibitem{griffiths1984} Griffiths, R.~B., J.\ Stat.\ Phys.\ \textbf{36}, 219 (1984).
+
+\bibitem{omnes1994} Omnès, R., The Interpretation of Quantum Mechanics (Princeton
+University Press, 1994).
+
+\bibitem{caldirola1976} Caldirola, P., Physica \textbf{A86}, 305 (1976).
+
+\bibitem{lamme2018} Lamme, V.~A.~F., Trends Cogn.\ Sci.\ \textbf{22}, 804 (2018).
+
+% Add additional references as needed
+% Using natbib format: \cite{key}, \citep{key}, \citet{key}
+
+\end{thebibliography}
+
+%==============================================================================
+% APPENDICES (OPTIONAL)
+%==============================================================================
+
+\appendix
+
+\section{Mathematical Notation Reference}
+\label{app:notation}
+
+This appendix provides a quick reference for the notation used throughout the paper.
+
+\subsection{Quantum Mechanical Notation}
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Symbol & Definition \\
+\hline
+$\ket{\psi}$ & Quantum state (ket vector) \\
+$\bra{\psi}$ & Dual state (bra vector) \\
+$\braket{\phi}{\psi}$ & Inner product \\
+$\Hilbert$ & Hilbert space \\
+$\Obs$ & Observable operator \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{D-ND Framework Notation}
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Symbol & Definition \\
+\hline
+$\NT$ & Nested Topology state $\ket{\text{NT}}$ \\
+$\emerge$ & Emergence operator \\
+$\emeasure$ & Emergence measurement function $M(t)$ \\
+$\orderparam$ & Order parameter for classical emergence \\
+$\chiDND$ & D-ND coupling constant \\
+$\lambdaDND$ & D-ND coupling strength \\
+$\Tcog$ & Cognitive timescale \\
+$\GS$ & Singularity Constant \\
+\hline
+\end{tabular}
+\end{center}
+
+%==============================================================================
+% JOURNAL-SPECIFIC ADAPTATION NOTES
+%==============================================================================
+
+% IMPORTANT: The following comments provide guidance for adapting this template
+% to the other six target journals. These are NOT part of the compiled PDF.
+
+% ============================================================================
+% PAPER A → PHYSICAL REVIEW A (CURRENT)
+% ============================================================================
+% Document class: revtex4-2
+% \documentclass[aps,pra,11pt,notitlepage,nofootinbib]{revtex4-2}
+%
+% Characteristics:
+% - Automatically handles two-column format for physical review journals
+% - \author and \affiliation commands are specific to revtex4-2
+% - Uses \cite{} and \ref{} natively
+% - Abstract must be in \begin{abstract}...\end{abstract} block
+% - References via \begin{thebibliography} or \bibliography{file}
+%
+% Adaptation: NO CHANGES NEEDED - this is the reference implementation
+
+% ============================================================================
+% PAPER B → PHYSICAL REVIEW E (SISTER JOURNAL TO A)
+% ============================================================================
+% Document class: revtex4-2 (same as A)
+% \documentclass[aps,pre,11pt,notitlepage,nofootinbib]{revtex4-2}
+%
+% Changes from Paper A:
+% 1. Change option from [aps,pra,...] to [aps,pre,...]
+% 2. Rest of document structure remains identical
+% 3. Physical Review E focuses on statistical and soft matter physics
+% 4. Citation and reference formats are identical to Physical Review A
+%
+% To adapt: Simply change the documentclass option from 'pra' to 'pre'
+% All sections, theorems, and notation remain valid.
+
+% ============================================================================
+% PAPER C → JOURNAL OF MATHEMATICAL PHYSICS (AIP)
+% ============================================================================
+% Document class: aip
+% \documentclass[11pt]{aip}
+%
+% Changes from Paper A:
+% 1. \documentclass[11pt]{aip} replaces revtex4-2
+% 2. \author{} and \affiliation{} may need adjustment:
+%    Replace with:
+%    \author{D-ND Research Collective}
+%    \address{Department of Theoretical Physics, Foundation Research Institute}
+% 3. Use \begin{abstract}...\end{abstract} (same as revtex4-2)
+% 4. Bibliography: may need to adjust to aip style (\bibliography{} recommended)
+% 5. Section headings and theorem formatting compatible with revtex4-2
+%
+% Key differences:
+% - AIP is single-column format typically
+% - Mathematical emphasis is higher
+% - May require more explicit theorem numbering
+%
+% To adapt: Change documentclass, author/affiliation fields, may need to adjust
+% \usepackage commands for aip compatibility (some packages may not be needed).
+
+% ============================================================================
+% PAPER D → FOUNDATIONS OF PHYSICS (SPRINGER)
+% ============================================================================
+% Document class: springer (or svjour3)
+% \documentclass[twocolumn]{springer}
+%   OR
+% \documentclass{svjour3}
+%
+% Changes from Paper A:
+% 1. \documentclass[twocolumn]{springer} or \documentclass{svjour3}
+% 2. \author{} and \title{} work similarly
+%    But use: \author{D-ND Research Collective \and Other Authors}
+% 3. \affiliation{} may change format
+% 4. Abstract format: may need \begin{abstract}...\end{abstract}
+% 5. Section headings compatible with revtex4-2
+% 6. Theorem environments may need adjustment:
+%    Springer uses slightly different theorem styling
+%
+% Key differences:
+% - Springer uses different citation style (numeric or author-year)
+% - May require \usepackage{spbasic} for some formatting
+% - Reference format may differ
+%
+% To adapt: Change documentclass, adjust author/title formatting, verify theorem
+% environments display correctly. Citation format may need adjustment.
+
+% ============================================================================
+% PAPER E → CLASSICAL AND QUANTUM GRAVITY (IOPART)
+% ============================================================================
+% Document class: iopart
+% \documentclass{iopart}
+%
+% Changes from Paper A:
+% 1. \documentclass{iopart}
+% 2. \author{}, \address{}, \ead{} (for email) specific to iopart:
+%    \author{D-ND Research Collective}
+%    \address{Department of Theoretical Physics, Foundation Research Institute}
+%    \ead{contact@institute.org}
+% 3. Abstract: \begin{abstract}...\end{abstract} (compatible)
+% 4. Keywords: \begin{keywords}...quantum...gravity...\end{keywords}
+% 5. Citation format using natbib compatible
+% 6. Theorem environments compatible with amsthm
+%
+% Key differences:
+% - IOP is popular for relativity and quantum gravity papers
+% - Automatically formats two-column layout
+% - Provides specific formatting for references to equations, figures
+%
+% To adapt: Change documentclass to iopart, adjust metadata fields (author,
+% address, email). Sections and theorem formatting remain compatible.
+
+% ============================================================================
+% PAPER F → QUANTUM (QUANTUMARTICLE)
+% ============================================================================
+% Document class: quantumarticle
+% \documentclass{quantumarticle}
+%
+% Changes from Paper A:
+% 1. \documentclass{quantumarticle}
+% 2. Title and author format:
+%    \author{D-ND Research Collective}
+%    \affiliation{Department of Theoretical Physics, Foundation Research Institute}
+% 3. Abstract: \begin{abstract}...\end{abstract} (compatible)
+% 4. Abstract in both English and other languages supported
+% 5. Keywords: \begin{keywords}...quantum information...\end{keywords}
+% 6. Citation format using hyperref (highly compatible)
+%
+% Key differences:
+% - Quantum journal emphasizes quantum information and computation
+% - Modern, open-access journal from Quantum organization
+% - Excellent PDF rendering and indexing
+% - Uses hyperref extensively
+%
+% To adapt: Change documentclass to quantumarticle, keep all other formatting.
+% This is one of the most compatible transformations.
+
+% ============================================================================
+% PAPER G → COGNITIVE SCIENCE / MINDS AND MACHINES (SPRINGER)
+% ============================================================================
+% Document class: springer (svjour3)
+% \documentclass{svjour3}
+%
+% Changes from Paper A:
+% 1. Same as Paper D (Springer document class)
+% 2. \documentclass{svjour3}
+% 3. Author and affiliation formatting per Springer standards
+% 4. Abstract and section formatting compatible
+% 5. Citation style per journal preference
+%
+% Key differences:
+% - Cognitive Science and Minds and Machines emphasizes interdisciplinary work
+% - May require different section organization
+% - Might benefit from separate sections for cognitive implications
+% - Philosophy of mind sections may be reordered
+%
+% To adapt: Use Springer document class (svjour3), adjust author/affiliation
+% formatting. All mathematical and theorem sections remain valid.
+
+%==============================================================================
+% END DOCUMENT
+%==============================================================================
+
+\end{document}

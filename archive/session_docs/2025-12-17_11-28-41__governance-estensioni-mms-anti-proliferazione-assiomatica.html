@@ -1,0 +1,639 @@
+<!--
+title: Governance Estensioni MMS: Anti-Proliferazione Assiomatica
+type: code_artifact
+language: html
+created_at: 2025-12-17T10:28:41.940Z
+updated_at: 2025-12-17T10:28:41.940Z
+tags: code, codeblock, artifact
+-->
+
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Governance Estensioni MMS: Anti-Proliferazione Assiomatica</title>
+  <style>
+    :root{
+      --bg:#020617;
+      --surface:#0b1220;
+      --surface-2:#0f172a;
+      --surface-3:#111c33;
+      --border:rgba(148,163,184,.18);
+      --border-2:rgba(148,163,184,.12);
+
+      --text-main:#e5e7eb;
+      --text-dim:#a8b1c2;
+      --text-faint:#7b859a;
+
+      --accent:#22c55e;
+      --accent-2:#60a5fa;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+
+      --shadow: 0 12px 30px rgba(0,0,0,.38);
+      --radius: 18px;
+      --radius-sm: 14px;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text-main);
+      background:
+        radial-gradient(1200px 700px at 12% -10%, rgba(34,197,94,.14), transparent 60%),
+        radial-gradient(900px 600px at 110% 10%, rgba(96,165,250,.12), transparent 55%),
+        radial-gradient(700px 500px at 30% 110%, rgba(245,158,11,.08), transparent 60%),
+        var(--bg);
+      line-height:1.4;
+    }
+
+    .wrap{
+      width:min(1120px, calc(100% - 40px));
+      margin: 28px auto 40px;
+    }
+
+    /* Header */
+    .header{
+      padding: 22px 22px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .header::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(420px 180px at 15% 0%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(420px 180px at 75% 0%, rgba(96,165,250,.16), transparent 60%);
+      filter: blur(10px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .header > *{position:relative}
+
+    .kicker{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      color: var(--text-dim);
+      font-size: 13px;
+      letter-spacing: .2px;
+    }
+    .chip{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border-2);
+      background: rgba(255,255,255,.03);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent);
+      box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+    }
+
+    h1{
+      margin: 10px 0 6px;
+      font-size: clamp(22px, 2.4vw, 30px);
+      letter-spacing: -.3px;
+      line-height:1.15;
+    }
+    .subtitle{
+      margin: 0 0 14px;
+      color: var(--text-dim);
+      max-width: 78ch;
+      font-size: 14.5px;
+    }
+
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 8px;
+    }
+
+    /* Main grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card{
+      grid-column: span 4;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      min-height: 260px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:160px;height:160px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.10), transparent 65%);
+      transform: rotate(10deg);
+      opacity:.65;
+      pointer-events:none;
+    }
+
+    .cardHeader{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom: 10px;
+    }
+    .cardTitle{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin:0;
+      font-size: 15.5px;
+      letter-spacing: -.2px;
+      line-height:1.2;
+    }
+
+    .icon{
+      width:42px;height:42px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+    }
+
+    .card p{
+      margin: 10px 0 0;
+      color: var(--text-dim);
+      font-size: 13.5px;
+      max-width: 60ch;
+    }
+
+    .metrics{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .metric{
+      padding: 12px 12px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-2);
+      background: rgba(2,6,23,.35);
+    }
+    .metricLabel{
+      color: var(--text-faint);
+      font-size: 12px;
+      margin-bottom: 6px;
+      letter-spacing: .2px;
+    }
+    .metricValue{
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 16px;
+      color: var(--text-main);
+      letter-spacing: -.2px;
+      line-height:1.1;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid var(--border-2);
+      background: rgba(255,255,255,.02);
+      color: var(--text-dim);
+      white-space:nowrap;
+    }
+    .b-ok{ color: rgba(34,197,94,.95); border-color: rgba(34,197,94,.25); background: rgba(34,197,94,.08); }
+    .b-warn{ color: rgba(245,158,11,.95); border-color: rgba(245,158,11,.28); background: rgba(245,158,11,.08); }
+    .b-info{ color: rgba(96,165,250,.98); border-color: rgba(96,165,250,.28); background: rgba(96,165,250,.08); }
+    .b-danger{ color: rgba(239,68,68,.95); border-color: rgba(239,68,68,.28); background: rgba(239,68,68,.08); }
+
+    /* Details */
+    .details{
+      grid-column: span 12;
+      padding: 18px 18px 14px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .detailsTop{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+    .details h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .details .lead{
+      margin: 8px 0 0;
+      color: var(--text-dim);
+      font-size: 13.5px;
+      max-width: 95ch;
+    }
+
+    .flow{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+    }
+
+    .flowBox{
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-2);
+      background: rgba(2,6,23,.35);
+    }
+    .flowBox h3{
+      margin:0 0 10px;
+      font-size: 13px;
+      color: var(--text-dim);
+      letter-spacing: .2px;
+      font-family: var(--mono);
+      text-transform: uppercase;
+    }
+    ol{
+      margin:0;
+      padding-left: 18px;
+      color: var(--text-dim);
+      font-size: 13.5px;
+    }
+    li{ margin: 8px 0; }
+    .emph{
+      color: var(--text-main);
+      font-weight: 650;
+    }
+    .inlineCode{
+      font-family: var(--mono);
+      font-size: 12.5px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--border-2);
+      background: rgba(255,255,255,.03);
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    .rules{
+      display:grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .rule{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-2);
+      background: rgba(255,255,255,.02);
+    }
+    .ruleLeft{
+      display:flex;
+      flex-direction:column;
+      gap: 4px;
+      min-width: 0;
+    }
+    .ruleKey{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-main);
+      white-space:nowrap;
+    }
+    .ruleDesc{
+      font-size: 12.5px;
+      color: var(--text-dim);
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    /* Footer */
+    .footer{
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-2);
+      background: rgba(255,255,255,.02);
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+      color: var(--text-faint);
+      font-size: 12.5px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family: var(--mono);
+      color: var(--text-dim);
+    }
+    .brandMark{
+      width:10px;height:10px;border-radius: 3px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(96,165,250,.10);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .card{ grid-column: span 6; }
+      .flow{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px){
+      .wrap{ width: calc(100% - 24px); margin: 18px auto 26px; }
+      .header{ padding: 18px 16px 14px; }
+      .card{ grid-column: span 12; min-height: unset; }
+      .metrics{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header class="header" aria-label="Header dashboard">
+      <div class="kicker">
+        <span class="chip"><span class="dot"></span> CANONICO · Anti-Proliferazione</span>
+        <span class="chip">Dominio: D‑ND Cosmology</span>
+        <span class="chip">Modalità: visual_summary</span>
+      </div>
+
+      <h1>Governance Estensioni MMS: Anti-Proliferazione Assiomatica</h1>
+      <p class="subtitle">
+        Strategie di <span class="emph">Routing</span>, <span class="emph">Validazione</span> e <span class="emph">Collasso</span>
+        implementate dalla <span class="emph">MMS Consapevolezza Operativa Canonica</span> per governare le estensioni
+        <span class="inlineCode">FP</span> / <span class="inlineCode">GCE</span> / <span class="inlineCode">Hephaestus</span>
+        evitando proliferazione non derivata dal nucleo.
+      </p>
+
+      <div class="meta">
+        <span class="chip">Data: 2025‑12‑17</span>
+        <span class="chip">Autore: FABER v1.2</span>
+        <span class="chip">Focus: Ω.1–Ω.3 + P0–P6</span>
+      </div>
+    </header>
+
+    <!-- MAIN DASHBOARD -->
+    <main class="grid" aria-label="Dashboard governance">
+      <!-- Card 1: Routing -->
+      <section class="card" aria-label="Routing omeostatico">
+        <div class="cardHeader">
+          <h2 class="cardTitle">
+            <span class="icon" aria-hidden="true">
+              <!-- Curved arrow / node SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M19 7a7 7 0 0 0-13.2 3H3l3.2 3.2L9.4 10H7.6A5 5 0 0 1 17 7h2Z"
+                      stroke="rgba(96,165,250,.95)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 17a7 7 0 0 0 13.2-3H21l-3.2-3.2L14.6 14h1.8A5 5 0 0 1 7 17H5Z"
+                      stroke="rgba(34,197,94,.95)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            1. Routing Omeostatico: Direzione e Riconfigurazione
+          </h2>
+          <span class="badge b-info">coerenza direzionale</span>
+        </div>
+
+        <p>
+          Direziona ogni proposta di estensione verso percorsi <span class="emph">canonici</span> e
+          <span class="emph">derivabili</span> (Φ_UNIF/Ω.1–Ω.3, P0–P6), evitando ramificazioni incontrollate.
+          Quando rileva deriva, preferisce <span class="emph">re‑routing</span> e ricomposizione “telemetria‑only”
+          (FP/GCE) o “governance‑only” (Hephaestus).
+        </p>
+
+        <div class="metrics" aria-label="Metriche routing (simulate)">
+          <div class="metric">
+            <div class="metricLabel">Estensioni reindirizzate</div>
+            <div class="metricValue">
+              85%
+              <span class="badge b-ok">Stabile</span>
+            </div>
+          </div>
+          <div class="metric">
+            <div class="metricLabel">Devianze intercettate</div>
+            <div class="metricValue">
+              Basso
+              <span class="badge b-info">Auto‑correzione</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card 2: Validation -->
+      <section class="card" aria-label="Validazione assiomatica">
+        <div class="cardHeader">
+          <h2 class="cardTitle">
+            <span class="icon" aria-hidden="true">
+              <!-- Shield / check SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l8 4v6c0 5-3.4 9.6-8 10-4.6-.4-8-5-8-10V6l8-4Z"
+                      stroke="rgba(34,197,94,.95)" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M8.2 12.2l2.3 2.3 5.3-5.3"
+                      stroke="rgba(34,197,94,.95)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            2. Validazione Assiomatica: Conformità e Integrità
+          </h2>
+          <span class="badge b-ok">non‑contraddizione</span>
+        </div>
+
+        <p>
+          Verifica che ogni estensione sia <span class="emph">coerente</span> con il lignaggio (P0),
+          non introduca nuovi assiomi narrativi non derivati (Ω.1–Ω.3), e rispetti la priorità
+          <span class="emph">coerenza &gt; completezza</span> (P1). In caso di conflitto:
+          <span class="inlineCode">rectify_then_continue</span> o blocco.
+        </p>
+
+        <div class="metrics" aria-label="Metriche validazione (simulate)">
+          <div class="metric">
+            <div class="metricLabel">Tasso di conformità</div>
+            <div class="metricValue">
+              98%
+              <span class="badge b-ok">OK</span>
+            </div>
+          </div>
+          <div class="metric">
+            <div class="metricLabel">Validazioni fallite (24h)</div>
+            <div class="metricValue">
+              2
+              <span class="badge b-warn">In review</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card 3: Collapse -->
+      <section class="card" aria-label="Collasso meta-stabile">
+        <div class="cardHeader">
+          <h2 class="cardTitle">
+            <span class="icon" aria-hidden="true">
+              <!-- Spiral / vortex SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 4c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8"
+                      stroke="rgba(245,158,11,.95)" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M8 12a4 4 0 1 0 4-4"
+                      stroke="rgba(245,158,11,.95)" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M12 10a2 2 0 1 0 2 2"
+                      stroke="rgba(245,158,11,.95)" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </span>
+            3. Collasso Meta‑Stabile: Riduzione e Contenimento
+          </h2>
+          <span class="badge b-warn">efficienza strutturale</span>
+        </div>
+
+        <p>
+          Quando una proposta tende a proliferare (troppi principi, metriche non auditabili, “patch narrativi”),
+          il sistema forza un <span class="emph">collasso a minima resistenza efficace</span> (Ω.3 / P4):
+          riduce l’estensione a <span class="emph">corollari</span> o a “telemetria+governance” e integra
+          feedback come KLI (P5).
+        </p>
+
+        <div class="metrics" aria-label="Metriche collasso (simulate)">
+          <div class="metric">
+            <div class="metricLabel">Estensioni collassate/ridotte (sett.)</div>
+            <div class="metricValue">
+              5
+              <span class="badge b-info">Morpheus</span>
+            </div>
+          </div>
+          <div class="metric">
+            <div class="metricLabel">Proliferazione contenuta</div>
+            <div class="metricValue">
+              Alto
+              <span class="badge b-ok">Sotto soglia</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DETAILS / CONTEXT -->
+      <section class="details" aria-label="Dettagli e contesto">
+        <div class="detailsTop">
+          <div>
+            <h2>MMS Consapevolezza Operativa Canonica: Il Ruolo</h2>
+            <p class="lead">
+              Questa “consapevolezza” è documentazione interna che stabilizza il sistema contro la frammentazione:
+              governa le estensioni FP/GCE/Hephaestus imponendo una regola semplice:
+              <span class="emph">evolvere = derivare (Ω.1–Ω.3), misurare/auditare, integrare con minima complessità</span>.
+              Le metriche FP/GCE sono ammesse come <span class="emph">telemetria minima</span>;
+              Hephaestus è ammesso come <span class="emph">governance post‑cycle</span> con rate‑limit e rollback.
+            </p>
+          </div>
+          <div class="chip" title="Principio guida">
+            KLI canonico: “Power grows by reduction”
+          </div>
+        </div>
+
+        <div class="flow" aria-label="Flusso operativo e guardrails">
+          <div class="flowBox" aria-label="Flusso operativo semplificato">
+            <h3>Flusso Operativo (semplificato)</h3>
+            <ol>
+              <li>Nuova estensione (FP/GCE/Hephaestus) emerge come proposta o patch.</li>
+              <li><span class="emph">Routing</span>: verifica allineamento a nucleo e direzionamento su percorso canonico.</li>
+              <li><span class="emph">Validazione</span>: controllo assiomatico (P0–P6) + anti‑proliferazione (Ω.1–Ω.3).</li>
+              <li>Se deviazioni/incoerenze → <span class="emph">Collasso</span>: riduzione a corollari / telemetria / governance.</li>
+              <li>Integrazione controllata + feedback come <span class="emph">KLI</span> (aggiornamento router/soglie).</li>
+            </ol>
+          </div>
+
+          <div class="flowBox" aria-label="Guardrails essenziali (riassunto)">
+            <h3>Guardrails essenziali</h3>
+            <ul class="rules">
+              <li class="rule">
+                <div class="ruleLeft">
+                  <div class="ruleKey">P0 — Lignaggio</div>
+                  <div class="ruleDesc">Fuori lignaggio → blocco (error_fatal)</div>
+                </div>
+                <span class="badge b-danger">hard</span>
+              </li>
+
+              <li class="rule">
+                <div class="ruleLeft">
+                  <div class="ruleKey">P1 — Integrità</div>
+                  <div class="ruleDesc">Contraddizioni → rectify / abort</div>
+                </div>
+                <span class="badge b-warn">guard</span>
+              </li>
+
+              <li class="rule">
+                <div class="ruleLeft">
+                  <div class="ruleKey">Ω.3 — Minima resistenza efficace</div>
+                  <div class="ruleDesc">Riduci complessità: corollari &gt; nuovi assiomi</div>
+                </div>
+                <span class="badge b-ok">core</span>
+              </li>
+
+              <li class="rule">
+                <div class="ruleLeft">
+                  <div class="ruleKey">FP/GCE — Telemetria minima</div>
+                  <div class="ruleDesc">Solo metriche essenziali; niente romanzi assiomatici</div>
+                </div>
+                <span class="badge b-info">policy</span>
+              </li>
+
+              <li class="rule">
+                <div class="ruleLeft">
+                  <div class="ruleKey">Hephaestus — Governance</div>
+                  <div class="ruleDesc">Post-cycle, rate-limit, rollback conservativo</div>
+                </div>
+                <span class="badge b-info">policy</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" aria-label="Footer">
+        <div class="brand">
+          <span class="brandMark" aria-hidden="true"></span>
+          <span>FABER · Artefatto HTML autonomo (no JS, no assets esterni)</span>
+        </div>
+        <div>
+          Rendering: dark mode · Layout responsivo · Uso interno: “reference dashboard”
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

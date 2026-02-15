@@ -1,0 +1,33 @@
+# Sub-repos con propria GitHub repo
+tools/APP/D-ND-Omega-Kernel/
+tools/APP/D-ND_semantic_OS/
+
+# Storico di lavoro (solo locale)
+tools/D-ND Workflow/
+
+# Mock non implementati
+tools/crud_publish/
+tools/sql_migrate/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local

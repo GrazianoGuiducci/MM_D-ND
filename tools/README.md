@@ -1,0 +1,1 @@
+Pacchetti Tool: manifest, schema, permissions, runner/UI.

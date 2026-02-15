@@ -1,0 +1,1 @@
+Documenti di consapevolezza del dominio (metaprompt, meta‑guide, spec di ruolo).

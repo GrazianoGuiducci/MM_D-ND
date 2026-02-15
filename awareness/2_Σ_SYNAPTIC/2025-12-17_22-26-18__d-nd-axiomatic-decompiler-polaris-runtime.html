@@ -1,0 +1,348 @@
+<!--
+title: D-ND AXIOMATIC DECOMPILER // POLARIS RUNTIME
+type: code_artifact
+language: html
+created_at: 2025-12-17T21:26:18.034Z
+updated_at: 2025-12-17T21:26:18.034Z
+tags: code, codeblock, artifact
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-ND AXIOMATIC DECOMPILER // POLARIS RUNTIME</title>
+    <style>
+        :root {
+            --bg-deep: #000508;
+            --cyan-mci: #00f3ff;
+            --magenta-ccca: #ff0055;
+            --ui-font: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: var(--bg-deep);
+            color: white;
+            font-family: var(--ui-font);
+        }
+
+        #world {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+
+        #interface {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+            padding: 20px;
+            box-sizing: border-box;
+            background: radial-gradient(circle at center, transparent 60%, rgba(0, 5, 8, 0.8) 100%);
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-left: 2px solid var(--cyan-mci);
+            padding-left: 15px;
+        }
+
+        h1 {
+            font-size: 14px;
+            margin: 0;
+            letter-spacing: 2px;
+            color: var(--cyan-mci);
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        h2 {
+            font-size: 10px;
+            margin: 5px 0 0 0;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        .stats-col {
+            position: absolute;
+            bottom: 40px;
+            left: 20px;
+            font-size: 11px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .stat-value {
+            color: white;
+            font-weight: bold;
+        }
+
+        .legend {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            text-align: right;
+        }
+
+        .legend-item {
+            font-size: 10px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .mci-dot { background-color: var(--cyan-mci); box-shadow: 0 0 8px var(--cyan-mci); }
+        .ccca-dot { background-color: var(--magenta-ccca); box-shadow: 0 0 8px var(--magenta-ccca); }
+
+        .scanline {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 2px;
+            opacity: 0.15;
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="interface">
+        <div class="header">
+            <h1>D-ND AXIOMATIC DECOMPILER</h1>
+            <h2>// POLARIS RUNTIME vΦ.1 (STRICT)</h2>
+        </div>
+
+        <div class="stats-col">
+            <div>FREQ_POSSIBILITY: <span class="stat-value" id="val-freq">0.6180</span> Hz</div>
+            <div>MCI_COLLAPSE_RATE: <span class="stat-value" id="val-mci">ACTIVE</span></div>
+            <div>CCCA_COHERENCE: <span class="stat-value" id="val-ccca">99.98%</span></div>
+            <div>ENTROPY_DELTA: <span class="stat-value" id="val-entropy">0.002</span></div>
+            <div><br>> KERNEL_ALIGNED...</div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">MCI INTENT STREAM <span class="dot mci-dot"></span></div>
+            <div class="legend-item">CCCA CONTEXT ORBIT <span class="dot ccca-dot"></span></div>
+        </div>
+        <div class="scanline"></div>
+    </div>
+
+    <div id="world"></div>
+
+    <!-- Import Map: Configurazione Assiomatica delle coordinate del campo -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const CONFIG = {
+            coreComplexity: 1,
+            particleCountMCI: 2500,
+            particleCountCCCA: 1500,
+            possibilityFrequency: 0.8,
+            corePulseSpeed: 2.0,
+            colors: {
+                bg: 0x000508,
+                mci: 0x00f3ff,
+                ccca: 0xff0055,
+                coreInner: 0x011627,
+                coreWire: 0x41ead4
+            }
+        };
+
+        // SETUP
+        const container = document.getElementById('world');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(CONFIG.colors.bg);
+        scene.fog = new THREE.FogExp2(CONFIG.colors.bg, 0.04);
+
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(15, 15, 25);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.4;
+
+        // ILLUMINAZIONE
+        const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+        scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(CONFIG.colors.mci, 3, 60);
+        scene.add(pointLight);
+
+        // NUCLEO POLARIS
+        const geometryCore = new THREE.IcosahedronGeometry(4, CONFIG.coreComplexity);
+        const materialCore = new THREE.MeshPhongMaterial({
+            color: CONFIG.colors.coreInner,
+            emissive: 0x011627,
+            flatShading: true,
+            transparent: true,
+            opacity: 0.85
+        });
+        const coreMesh = new THREE.Mesh(geometryCore, materialCore);
+        const wireGeo = new THREE.WireframeGeometry(geometryCore);
+        const wireMat = new THREE.LineBasicMaterial({ color: CONFIG.colors.coreWire, transparent: true, opacity: 0.4 });
+        const wireframe = new THREE.LineSegments(wireGeo, wireMat);
+        coreMesh.add(wireframe);
+        scene.add(coreMesh);
+
+        // SISTEMA MCI (Intento)
+        const mciGeometry = new THREE.BufferGeometry();
+        const mciPosArray = new Float32Array(CONFIG.particleCountMCI * 3);
+        const mciVelArray = new Float32Array(CONFIG.particleCountMCI);
+
+        for(let i = 0; i < CONFIG.particleCountMCI; i++) {
+            const r = 25 + Math.random() * 25;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            mciPosArray[i*3] = r * Math.sin(phi) * Math.cos(theta);
+            mciPosArray[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+            mciPosArray[i*3+2] = r * Math.cos(phi);
+            mciVelArray[i] = 0.04 + Math.random() * 0.08;
+        }
+
+        mciGeometry.setAttribute('position', new THREE.BufferAttribute(mciPosArray, 3));
+        const mciMaterial = new THREE.PointsMaterial({
+            color: CONFIG.colors.mci,
+            size: 0.1,
+            transparent: true,
+            opacity: 0.7,
+            blending: THREE.AdditiveBlending
+        });
+        const mciSystem = new THREE.Points(mciGeometry, mciMaterial);
+        scene.add(mciSystem);
+
+        // SISTEMA CCCA (Coerenza)
+        const cccaGeometry = new THREE.BufferGeometry();
+        const cccaPosArray = new Float32Array(CONFIG.particleCountCCCA * 3);
+        const cccaAngles = new Float32Array(CONFIG.particleCountCCCA);
+        const cccaRadii = new Float32Array(CONFIG.particleCountCCCA);
+
+        for(let i = 0; i < CONFIG.particleCountCCCA; i++) {
+            cccaAngles[i] = Math.random() * Math.PI * 2;
+            cccaRadii[i] = 7 + Math.random() * 6;
+        }
+
+        cccaGeometry.setAttribute('position', new THREE.BufferAttribute(cccaPosArray, 3));
+        const cccaMaterial = new THREE.PointsMaterial({
+            color: CONFIG.colors.ccca,
+            size: 0.08,
+            transparent: true,
+            opacity: 0.5,
+            blending: THREE.AdditiveBlending
+        });
+        const cccaSystem = new THREE.Points(cccaGeometry, cccaMaterial);
+        scene.add(cccaSystem);
+
+        // LOGICA INTERFERENZA (Mouse)
+        const targetMouse = new THREE.Vector2();
+        const currentMouse = new THREE.Vector2();
+        window.addEventListener('mousemove', (e) => {
+            targetMouse.x = (e.clientX / window.innerWidth - 0.5) * 2.5;
+            targetMouse.y = (e.clientY / window.innerHeight - 0.5) * 2.5;
+        });
+
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+            const elapsed = clock.getElapsedTime() * CONFIG.possibilityFrequency;
+
+            // Update Core
+            coreMesh.scale.setScalar(1 + Math.sin(elapsed * CONFIG.corePulseSpeed) * 0.06);
+            coreMesh.rotation.y += delta * 0.15;
+            coreMesh.rotation.x += delta * 0.05;
+
+            // Smooth Mouse
+            currentMouse.lerp(targetMouse, 0.05);
+
+            // Update MCI (Collapse)
+            const mciAttr = mciSystem.geometry.attributes.position;
+            const mciArr = mciAttr.array;
+            for(let i = 0; i < CONFIG.particleCountMCI; i++) {
+                const ix = i * 3;
+                let x = mciArr[ix], y = mciArr[ix+1], z = mciArr[ix+2];
+                const d = Math.sqrt(x*x + y*y + z*z);
+                const s = mciVelArray[i] * (1 + 10/d);
+
+                mciArr[ix] += (-x/d + currentMouse.x) * s;
+                mciArr[ix+1] += (-y/d - currentMouse.y) * s;
+                mciArr[ix+2] += (-z/d) * s;
+
+                if(d < 3.8) {
+                    const r = 45, t = Math.random() * 6.28, p = Math.acos(2 * Math.random() - 1);
+                    mciArr[ix] = r * Math.sin(p) * Math.cos(t);
+                    mciArr[ix+1] = r * Math.sin(p) * Math.sin(t);
+                    mciArr[ix+2] = r * Math.cos(p);
+                }
+            }
+            mciAttr.needsUpdate = true;
+
+            // Update CCCA (Orbit)
+            const cccaAttr = cccaSystem.geometry.attributes.position;
+            const cccaArr = cccaAttr.array;
+            for(let i = 0; i < CONFIG.particleCountCCCA; i++) {
+                cccaAngles[i] += delta * (0.3 + (5/cccaRadii[i]));
+                const r = cccaRadii[i], a = cccaAngles[i];
+                const x = r * Math.cos(a + i), y = r * Math.sin(a * 1.5) * 0.4, z = r * Math.sin(a + i);
+                cccaArr[i*3] = x * Math.cos(i) - z * Math.sin(i);
+                cccaArr[i*3+1] = y + (Math.sin(elapsed + i) * 0.4);
+                cccaArr[i*3+2] = x * Math.sin(i) + z * Math.cos(i);
+            }
+            cccaAttr.needsUpdate = true;
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // HUD Update
+        setInterval(() => {
+            document.getElementById('val-freq').innerText = (0.618 + Math.random()*0.02).toFixed(4) + " Hz";
+            document.getElementById('val-entropy').innerText = (Math.random()*0.005).toFixed(4);
+        }, 200);
+
+        animate();
+    </script>
+</body>
+</html>

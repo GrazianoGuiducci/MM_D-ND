@@ -5,7 +5,7 @@
 Sessione 13-14 — Il Seme è piantato. La repo è live (`github.com/GrazianoGuiducci/MM_D-ND`, commit `aee1ead`). Il Kernel MM v1.0 è autoinstallante. KERNEL_SEED.md è la forma invariante minima. Il protocollo triangolare Graziano ↔ Claude Code ↔ Cowork è validato e operativo.
 
 Due ambienti attivi:
-- **Cowork** — architettura, evoluzione kernel, generazione skill ontologiche (25+ facoltà plugin)
+- **Cowork** — architettura, evoluzione kernel, generazione skill ontologiche (33+ facoltà plugin)
 - **Claude Code** — esecuzione codice, git, build. 5 skill operative: kernel-boot, dnd-method, sentinel-code, seed-deploy, sync-field
 
 Il COWORK_CONTEXT.md è il canale di sincronizzazione tra i due ambienti.

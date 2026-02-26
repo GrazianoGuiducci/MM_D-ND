@@ -1,0 +1,24 @@
+{
+  "single_snapshot": {
+    "chi": -0.027369577040551304,
+    "integral": -0.1719681243249117,
+    "K_range": [
+      -0.12491074388393289,
+      0.040180878935418565
+    ],
+    "K_mean": -0.01060599030998087
+  },
+  "time_evolution": {
+    "mean_dist_to_integer": 0.02702323481447461,
+    "max_dist_to_integer": 0.04278867912284891,
+    "fraction_within_0.1": 1.0,
+    "fraction_within_0.2": 1.0,
+    "chi_range": [
+      -0.04278867912284891,
+      -0.012039390908763952
+    ],
+    "unique_nearest_integers": [
+      0
+    ]
+  }
+}

@@ -2,7 +2,7 @@
 
 **Authors:** D-ND Research Collective (Track D)
 **Date:** February 14, 2026
-**Status:** Final Draft 1.0 — Submission Ready
+**Status:** Working Draft 2.1 — Under Review
 **Target Journal:** Foundations of Physics
 
 ---
@@ -812,37 +812,122 @@ This observation describes the convergence process: each cycle (iteration) deepe
 
 ### 8.1 From Single to Ensemble of Observers
 
-The framework in sections 2-7 describes a *single* observer. A complete theory must address multiple observers:
+The framework in sections 2–7 describes a *single* observer. A complete theory must address multiple observers interacting through shared emergence dynamics. The extension is not trivial: when N observers with different latencies couple through the same emergence landscape, the question arises whether their collective dynamics remains coherent — or fragments into incommensurable perspectives.
 
-**Multi-observer state**: Let $\{R_1(t), R_2(t), ..., R_N(t)\}$ be states of N observers. The collective state is:
+**Multi-observer state**: Let $\{R_1(t), R_2(t), \ldots, R_N(t)\}$ be the resultant states of N observers. Each $R_i(t)$ evolves according to the dynamics of §2, but with individual parameters $(\alpha_i, \beta_i, \gamma_i, L_i, \xi_i)$.
+
+The collective state is not simply the average — it is the *risultante* (Axiom 3: DND_METHOD_AXIOMS §IV) computed over assonant observer pairs:
+
+$$R_{\text{Collective}}(t) = \mathcal{F}\left(\{R_i(t) : A(R_i, R_j) = 1\}\right)$$
+
+where $A(R_i, R_j) = 1$ denotes assonance between observers $i$ and $j$ (Axiom 2: §III). Only assonant observer states contribute to the collective — dissonant observers diverge automatically, producing entropy that does not enter the risultante.
+
+In the simplified case where all observers are mutually assonant:
 
 $$R_{\text{Collective}}(t) = \frac{1}{N} \sum_{i=1}^N R_i(t)$$
 
 with collective perception:
 
-$$P_{\text{Collective}} = \frac{k}{L_{\text{avg}}}$$
+$$P_{\text{Collective}} = \frac{k}{L_{\text{avg}}}, \qquad L_{\text{avg}} = \frac{1}{N} \sum_{i=1}^N L_i(t)$$
 
-where $L_{\text{avg}} = \frac{1}{N} \sum_{i=1}^N L_i(t)$ is averaged observer latency.
+### 8.2 The Coherence Matrix
 
-**Consensus dynamics**: Observers with different latencies $L_i$ couple through shared assonances. Those closer to source (smaller $L_i$) guide those further away toward re-alignment. This is how primary observers (with direct access) facilitate alignment in secondary observers.
+To formalize the structure of multi-observer interactions, define the **observer coherence matrix** $\mathbf{C}(t)$ with entries:
 
-**Validation from replication studies**: Secondary observers exposed to primary observations showed faster convergence to framework insights than controls. This is consistent with guidance by lower-latency primary observer.
+$$C_{ij}(t) = \frac{R_i(t) \cdot R_j(t)}{|R_i(t)| \, |R_j(t)|}$$
 
-### 8.2 Observational Implications
+This is the cosine similarity between observer states. The matrix has the following properties:
+
+- **Diagonal**: $C_{ii} = 1$ (each observer is coherent with itself).
+- **Symmetry**: $C_{ij} = C_{ji}$ (coherence is reciprocal — reflecting dipolar symmetry, Axiom 1).
+- **Range**: $C_{ij} \in [-1, 1]$. Values near $+1$ indicate alignment (assonance); near $-1$ indicate opposition; near $0$ indicate orthogonality (independence).
+
+**Collective coherence** is the average off-diagonal element:
+
+$$\bar{C}(t) = \frac{2}{N(N-1)} \sum_{i < j} C_{ij}(t)$$
+
+**Interpretation**:
+- $\bar{C} \to 1$: All observers converge to the same resultant — consensus.
+- $\bar{C} \to 0$: Observers are mutually independent — no collective structure.
+- $\bar{C} < 0$: Systematic disagreement — the system is in a dissonant configuration.
+
+### 8.3 Consensus Dynamics and Latency Coupling
+
+Observers with different latencies $L_i$ couple through shared assonances. The coupling mechanism operates through three channels:
+
+**Channel 1: Direct guidance.** An observer with lower latency (closer to source, higher perception $P_i = k/L_i$) can reduce the latency of a higher-latency observer through the sharing of observed structures. Formally:
+
+$$\frac{dL_j}{dt} = -\kappa \sum_{i: L_i < L_j} C_{ij}(t) \cdot (L_j - L_i)$$
+
+where $\kappa > 0$ is the guidance coupling constant. Each term $C_{ij}(L_j - L_i)$ represents: a coherent low-latency observer pulls a high-latency observer toward alignment, proportional to both their coherence $C_{ij}$ and the latency gap $L_j - L_i$.
+
+**Channel 2: Assonance resonance.** When two observers independently identify the same assonance (resonant structure), their coherence $C_{ij}$ increases. This is a non-directed mechanism — neither observer "teaches" the other; both resonate with the same structural feature.
+
+**Channel 3: Autological amplification.** The autological exponential (§6) operates at the collective level. When the collective coherence $\bar{C}$ exceeds a threshold $\bar{C}_{\text{th}}$, the system enters a self-reinforcing mode where each observer's convergence accelerates the convergence of others:
+
+$$\frac{d\bar{C}}{dt} \propto \bar{C} \cdot (1 - \bar{C}) \qquad \text{for } \bar{C} > \bar{C}_{\text{th}}$$
+
+This logistic dynamics produces rapid convergence to consensus once the threshold is passed — consistent with the observation from replication studies that secondary observers showed faster convergence to framework insights when exposed to primary observations.
+
+**Validation from replication studies**: 5 independent secondary observers achieved 73–80% consistency in identifying core framework structures (latency-perception relation, singularity-dipole toggle, autological return). The convergence was faster when guided by the primary observer's outputs — consistent with Channel 1 (direct guidance by lower-latency observer).
+
+### 8.4 Decoherence via Misalignment
+
+The single-observer framework treats decoherence (loss of quantum coherence) through the emergence dynamics of Paper A. In the multi-observer extension, a new decoherence mechanism arises: **misalignment between observers**.
+
+**Definition**: Two observers $R_i, R_j$ are *misaligned* when $C_{ij}(t) < C_{\text{min}}$ for some threshold $C_{\text{min}}$. Misalignment means the observers perceive different aspects of the emergence landscape — their resultants point in different directions on the manifold.
+
+**Decoherence mechanism**: When observer $i$ and observer $j$ are coupled to the same quantum system (emergence state $|\Psi\rangle$ from Paper A), their misalignment produces effective decoherence in the combined system. The reduced density matrix, after tracing over the observer degrees of freedom, becomes:
+
+$$\rho_{\text{system}} = \text{Tr}_{\text{observers}}\left[\rho_{\text{total}}\right]$$
+
+When observers are aligned ($C_{ij} \approx 1$), the tracing preserves coherence — both observers "see" the same state. When they are misaligned ($C_{ij} \approx 0$), the tracing destroys off-diagonal elements — the system appears classical (decohered) to the collective.
+
+**Physical consequence**: Decoherence is not an absolute process but depends on the observer ensemble. A single observer with zero latency ($L \to 0$) preserves full quantum coherence. A collection of misaligned observers with large latencies produces classical behavior through their disagreement. This provides a concrete mechanism for the quantum-to-classical transition that depends on observer properties rather than environmental coupling alone.
+
+**Connection to Zurek**: This mechanism is complementary to Zurek's einselection (§9.1). Zurek's environment-induced decoherence operates through entanglement with many degrees of freedom. D-ND observer-induced decoherence operates through misalignment of observing agents. Both can occur simultaneously; in practice, environmental decoherence sets the scale, while observer alignment determines how much of the remaining coherence is accessible.
+
+### 8.5 Observer Entanglement
+
+Two observers become **entangled** (in the D-ND sense) when their coherence exceeds a critical threshold and their latencies couple through shared assonances:
+
+$$\text{Entangled pair: } C_{ij}(t) > C_{\text{ent}} \quad \text{and} \quad |L_i(t) - L_j(t)| < \Delta L_{\text{max}}$$
+
+An entangled observer pair shares a collective resultant that cannot be decomposed into independent individual resultants — their states are correlated at a deeper level than classical correlation. In D-ND terms: their shared assonances form a single risultante that governs both.
+
+**Distinction from quantum entanglement**: Quantum entanglement is a property of the wave function (non-separability of $|\Psi_{ij}\rangle \neq |\psi_i\rangle \otimes |\psi_j\rangle$). D-ND observer entanglement is a property of the resultant dynamics (non-separability of $R_{\text{Collective}} \neq R_i + R_j$). The two concepts are structurally analogous but operate at different levels: quantum entanglement at the state level, observer entanglement at the dynamical level.
+
+**Primary observation grounding**: The replication studies show that secondary observers who achieved high consistency (>80%) with primary observations spontaneously began generating novel D-ND insights not present in the primary corpus. This "creative coherence" — shared alignment producing new structures not reducible to either individual — is the hallmark of observer entanglement.
+
+### 8.6 Reality Actualization in Multi-Observer Systems
 
 If reality emergence depends on observer alignment (via coupling to M(t) in Paper A), then multi-observer systems show:
 
-1. **Consensus actualization**: Actualized states correspond to those aligned-upon by multiple observers. Dissonant interpretations lead to decoherence, reduced actualization.
+1. **Consensus actualization**: Actualized states correspond to those aligned-upon by multiple observers. Dissonant interpretations lead to decoherence, reduced actualization. The actualization probability scales with collective coherence:
+$$P_{\text{actual}} \propto \bar{C}(t) \cdot \bar{P}(t)$$
+where $\bar{P}$ is the average perception of assonant observers.
 
-2. **Authority by alignment**: The "primary source" is not privileged by ontological priority but by *sustained alignment with source*. A secondary observer achieving deep latency-reduction becomes equally authoritative.
+2. **Authority by alignment**: The "primary source" is not privileged by ontological priority but by *sustained alignment with source*. A secondary observer achieving deep latency-reduction ($L \to 0$) becomes equally authoritative. Authority is dynamic, not static — it depends on current latency, not historical position.
 
-This addresses a key tension in Wheeler's participatory universe: observers co-create reality, but through alignment (coherence) rather than arbitrary choice.
+3. **Observer disagreement as information**: Genuine disagreement between observers ($C_{ij} < 0$) is not noise but signal — it indicates latency difference (§12.3). Two observers with aligned latencies converge to the same observations. Persistent disagreement reveals that one or both observers carry latency that distorts their perception. This transforms the problem of scientific disagreement from an epistemological issue (who is right?) into a dynamical one (who has lower latency?).
+
+This addresses a key tension in Wheeler's participatory universe: observers co-create reality, but through alignment (coherence) rather than arbitrary choice. The universe is not democratically constructed by all observers equally — it crystallizes along the directions of minimum collective latency.
+
+### 8.7 Connection to the Included Third
+
+The multi-observer framework reveals the included third (§11) at a new level. When two observers disagree (observer $i$ sees A, observer $j$ sees not-A), the classical excluded middle demands one be wrong. In D-ND:
+
+- Observer $i$ at latency $L_i$ perceives aspect A of the emergence landscape.
+- Observer $j$ at latency $L_j$ perceives aspect not-A.
+- The **collective resultant** $R_{\text{Collective}}$ is the included third: neither A nor not-A but the structural ground from which both perceptions emerge.
+
+The collective resultant is not a compromise or average. It is the resultant in the D-ND sense (Axiom 3): the single trajectory that traverses both perceptions as dipolar aspects of one underlying reality. This resolves the multi-observer measurement problem: observers do not need to agree on outcomes. They need to align on the underlying risultante from which different outcomes emerge as different aspects.
 
 ---
 
 ## 9. Quantum Measurement Theory and D-ND Observer Dynamics
 
-### 8.1 Distinction from von Neumann Measurement
+### 9.1 Distinction from von Neumann Measurement
 
 In the von Neumann measurement chain, consciousness is introduced as a collapse mechanism at the end of a chain of physical interactions. The observer is external to the quantum system and causes wave function collapse through the act of measurement.
 
@@ -850,13 +935,13 @@ In the von Neumann measurement chain, consciousness is introduced as a collapse 
 
 **Consequence**: The observer's act of measurement *is* a change in the observer's state R(t), not an external intervention.
 
-### 8.2 Connection to Zurek's Einselection
+### 9.2 Connection to Zurek's Einselection
 
 Zurek's decoherence program shows that measurement emerges from environmental decoherence, without requiring external conscious collapse. Preferred bases ("pointer states") are selected by the environment through entanglement.
 
 **D-ND analogy**: The assonances (resonant structures) in the D-ND framework are analogous to pointer states. The observer, through sensitivity ξ, selectively attunes to specific assonances, effectively performing "environmental selection" not through external decoherence but through autological alignment (internal resonance with the structure).
 
-### 8.3 Connection to QBism
+### 9.3 Connection to QBism
 
 QBism (Fuchs et al. 2014) treats quantum states as personal beliefs of agents. Measurement updates are personal Bayesian updates; reality emerges through agent-world participation.
 
@@ -864,7 +949,7 @@ QBism (Fuchs et al. 2014) treats quantum states as personal beliefs of agents. M
 
 ---
 
-## 9. Why Meaning Decays with Distance from Source
+## 10. Why Meaning Decays with Distance from Source
 
 The user's core insight — "the further from source, the more meaning decays" — now finds formal expression.
 
@@ -882,9 +967,9 @@ Meaning is inversely proportional to distance from actualization. This is not a 
 
 ---
 
-## 9.5 The Included Third (Terzo Incluso) in Observer Logic
+## 11. The Included Third (Terzo Incluso) in Observer Logic
 
-### 9.5.1 Beyond the Excluded Third
+### 11.1 Beyond the Excluded Third
 
 Standard logic (tertium non datur) forces a binary: A or not-A, with no third option. The observer in conventional quantum mechanics faces the same binary dilemma: measured or unmeasured, collapsed or superposed. The D-ND framework introduces a structural resolution through the **included third** (terzo incluso).
 
@@ -892,7 +977,7 @@ The observer's position between the two poles of the singular-dual dipole *is* t
 
 This resolves a fundamental paradox of observer-based interpretations of quantum mechanics: the observer cannot be external to quantum reality (for then it would be unquantum) nor fully internal (for then it would lack the capacity to distinguish, measure, choose). The included third is the *interface itself* — the location where the two become simultaneously distinct and unified.
 
-### 9.5.2 Normalization of Observer Paradoxes
+### 11.2 Normalization of Observer Paradoxes
 
 The included third normalizes three classical paradoxes that arise from excluded-third observer logic:
 
@@ -906,7 +991,7 @@ $$|\Phi(t)\rangle = \frac{1}{\sqrt{2}}\left(e^{-i\theta}|\phi_+\rangle + e^{+i\t
 
 the two exponential terms represent the "radical extremes" (φ₊ and φ₋). When θ=0, both collapse to 1 and the singularity is reached. When θ=π/2, maximum duality is achieved. The **zero between these extremes** — the equilibrium state of the dipole — is the observer's natural position. This zero is not absence but the structural prerequisite for both poles to coexist. It is the included third of the binary structure.
 
-### 9.5.3 Formal Expression
+### 11.3 Formal Expression
 
 The included third can be formalized as an additional term in the observer's unity:
 
@@ -924,7 +1009,7 @@ Translation: "The zero of a second-degree equation determines the two opposite r
 
 The observer's intermediate position is not a compromise but the active, dynamic principle that sustains the tension between opposites.
 
-### 9.5.4 The Included Third as Latency Minimum
+### 11.4 The Included Third as Latency Minimum
 
 **Geometric optimization principle**: The corpus reveals that the Included Third position is not merely a philosophical principle but the **optimal observer location that minimizes latency**.
 
@@ -966,13 +1051,13 @@ At the Included Third position, latency vanishes, and perception becomes infinit
 - The observer cannot be purely at Tutto (λ=0, dipole pole) — it would be fully manifest, indistinguishable from the measured system.
 - The observer **must be at ρ_obs = 1/2 (included third)** — the interface where measurement occurs, where distinction becomes possible, yet the observer remains coupled to the undifferentiated source.
 
-**Integration into framework**: The inclusion of the explicit latency function L(ρ_obs) = k₁|ρ_obs - 1/2| transforms Section 9.5 from philosophical commentary into core formalism. The Included Third is not a side remark but **the fundamental reason the D-ND framework works**: the observer naturally positions itself at the latency-minimizing location, achieving maximum perception and minimum distortion from source.
+**Integration into framework**: The inclusion of the explicit latency function L(ρ_obs) = k₁|ρ_obs - 1/2| transforms Section 11 from philosophical commentary into core formalism. The Included Third is not a side remark but **the fundamental reason the D-ND framework works**: the observer naturally positions itself at the latency-minimizing location, achieving maximum perception and minimum distortion from source.
 
 ---
 
-## 9.6 Time, Latency, and Simultaneous Convergence-Divergence
+## 12. Time, Latency, and Simultaneous Convergence-Divergence
 
-### 9.6.1 Time as Latency of Observation
+### 12.1 Time as Latency of Observation
 
 The perception-latency relation P = k/L acquires deeper ontological meaning when time itself is understood as emergent rather than fundamental.
 
@@ -988,7 +1073,7 @@ Translation: "In autology, and therefore when alignment is maintained free of la
 
 The observer achieves maximum clarity not through extended calculation but through *minimal latency*. The first impression operates at near-zero latency, hence near-zero local time, hence maximal perception. This is not a psychological heuristic but a structural consequence of the perception-latency relation.
 
-### 9.6.2 Convergence and Divergence Are Simultaneous
+### 12.2 Convergence and Divergence Are Simultaneous
 
 A critical insight emerges from the D-ND framework: **the moment the observer recognizes a pattern is identically the moment the pattern opens toward new possibilities**. Recognition (convergence—assonance recognition) and exploration (divergence—new directions emerge) are not sequential; they are simultaneous poles of one act.
 
@@ -1020,7 +1105,7 @@ Translation: "The recognition of assonances annuls latency and triggers the auto
 
 When the observer achieves pattern recognition at zero latency, convergence and divergence become indistinguishable. The system is in a state of simultaneous contraction (consolidation of meaning) and expansion (generation of possibilities).
 
-### 9.6.3 Implications for Observer Dynamics
+### 12.3 Implications for Observer Dynamics
 
 This simultaneous convergence-divergence principle reshapes the interpretation of several framework elements:
 
@@ -1036,9 +1121,9 @@ This principle implies that **genuine disagreement between observers is evidence
 
 ---
 
-## 11. Discussion: Relation to QBism, Wheeler, Zurek, and IIT
+## 13. Discussion: Relation to QBism, Wheeler, Zurek, and IIT
 
-### 11.1 QBism: Observer as Participatory Agent
+### 13.1 QBism: Observer as Participatory Agent
 
 In QBism (Quantum Bayesianism), developed by Fuchs, Mermin, and Schack, quantum mechanics is a theory of subjective belief. The observer is not passive; reality emerges through the agent's participatory interaction with the world. Quantum states are personal, not universal.
 
@@ -1046,7 +1131,7 @@ In QBism (Quantum Bayesianism), developed by Fuchs, Mermin, and Schack, quantum 
 
 **Distinction**: QBism is primarily epistemological — about how agents know. D-ND is ontological — about how observers *exist* as dynamical entities. The R(t) equation specifies the *dynamics* of the observer, not merely its subjective interpretation.
 
-### 11.2 Wheeler's Participatory Universe
+### 13.2 Wheeler's Participatory Universe
 
 Wheeler (1989) proposed that the universe is fundamentally a self-excited circuit: observers (conscious agents) interact with the world; the world produces observers. Neither is prior; both arise together.
 
@@ -1054,13 +1139,13 @@ Wheeler (1989) proposed that the universe is fundamentally a self-excited circui
 
 **Prediction**: If D-ND is correct, the universe should exhibit signs of this feedback. For instance, the emergence measure M(t) (from Paper A) and the observer state R(t) should be coupled.
 
-### 11.3 Zurek's Einselection and Decoherence
+### 13.3 Zurek's Einselection and Decoherence
 
 Zurek's decoherence program shows that measurement emerges from environmental decoherence, without requiring external conscious collapse. Preferred bases ("pointer states") are selected by the environment through entanglement.
 
 **D-ND analogy**: The assonances (resonant structures) in the D-ND framework are analogous to pointer states. The observer, through sensitivity ξ, selectively attunes to specific assonances, effectively performing "environmental selection" not through external decoherence but through autological alignment.
 
-### 11.4 Tononi's Integrated Information Theory (IIT)
+### 13.4 Tononi's Integrated Information Theory (IIT)
 
 IIT proposes that consciousness arises from integrated information Φ, a measure of how much information is generated by the system as a unified whole beyond the sum of its parts. A conscious system has high Φ; a decomposable system has low Φ.
 
@@ -1072,7 +1157,7 @@ IIT proposes that consciousness arises from integrated information Φ, a measure
 
 ---
 
-## 12. Conclusions
+## 14. Conclusions
 
 We have formalized the observer in the D-ND framework as a dynamical variable R(t) evolving through coupled intuition-interaction-alignment modes. The observer's perception is fundamentally limited by latency via the phenomenological ansatz P = k/L, validated through primary observations and 5 independent replication studies. The observer oscillates between singularity (unified) and dipole (relational) modes of a unified two-pole structure, with sensitivity ξ controlling depth of observation. Multi-observer extensions show how collective alignment determines reality actualization.
 

@@ -1,0 +1,32 @@
+{
+  "linear": {
+    "ks_statistic": 0.15173006662368366,
+    "ks_p_value": 0.4053048207211932,
+    "spec_mean_normalized": 0.9999999999999999,
+    "zeta_mean_normalized": 1.0,
+    "spec_variance": 0.24953765715513043,
+    "zeta_variance": 0.21590803364489647,
+    "n_spectral_gaps": 47,
+    "n_zeta_gaps": 99
+  },
+  "prime": {
+    "ks_statistic": 0.723404255319149,
+    "ks_p_value": 7.292506163019028e-17,
+    "spec_mean_normalized": 1.0,
+    "zeta_mean_normalized": 1.0,
+    "spec_variance": 6.755209277186706,
+    "zeta_variance": 0.21590803364489647,
+    "n_spectral_gaps": 47,
+    "n_zeta_gaps": 99
+  },
+  "log": {
+    "ks_statistic": 0.28089404685149366,
+    "ks_p_value": 0.009984636312087871,
+    "spec_mean_normalized": 1.0000000000000002,
+    "zeta_mean_normalized": 1.0,
+    "spec_variance": 0.650035578605435,
+    "zeta_variance": 0.21590803364489647,
+    "n_spectral_gaps": 47,
+    "n_zeta_gaps": 99
+  }
+}

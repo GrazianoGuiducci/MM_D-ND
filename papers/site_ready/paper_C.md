@@ -1,24 +1,15 @@
-# Information Geometry and Number-Theoretic Structure in the D-ND Framework
-
-**Information Geometry, Riemann Zeta Zeros, and Topological Classification of Emergence States**
-
-**Authors:** D-ND Research Collective
-**Date:** February 13, 2026
-**Status:** Working Draft 2.0 — Under Review
-**Target:** Communications in Mathematical Physics / Studies in Applied Mathematics
-
----
-
+<a id="abstract"></a>
 ## Abstract
 
 We establish a novel connection between the informational curvature of the Dual-Non-Dual (D-ND) emergence framework and the zeros of the Riemann zeta function. We define a generalized informational curvature $K_{\text{gen}}(x,t) = \nabla_M \cdot (J(x,t) \otimes F(x,t))$ on the emergence landscape, where $J$ represents information flow and $F$ denotes the generalized force field. **The central conjecture of this work** is that critical values of this curvature correspond to Riemann zeta zeros on the critical line: $K_{\text{gen}}(x,t) = K_c \Leftrightarrow \zeta(1/2 + it) = 0$. We interpret zeta zeros as phase transition points where the emergence landscape transitions between topologically distinct sectors. We construct a topological charge $\chi_{\text{DND}} = (1/2\pi)\oint_M K_{\text{gen}} \, dA$ (a Gauss-Bonnet type invariant), prove that it is quantized ($\chi_{\text{DND}} \in \mathbb{Z}$), and relate it to the cyclic coherence $\Omega_{\text{NT}} = 2\pi i$ appearing in complex analysis. We derive the Riemann zeta function as a spectral sum over emergence eigenvalues and establish structural correspondences with the Berry-Keating conjecture relating zeta zeros to a quantum Hamiltonian. We characterize stable emergence states as rational points on an elliptic curve equipped with a possibilistic density $\rho(x,y,t) = |\langle\psi_{x,y}|\Psi\rangle|^2$. Finally, we provide **explicit numerical evidence**: testing the conjecture against the first 100 verified Riemann zeros across three distinct emergence operator spectra (linear, prime-based, logarithmic), we find that the curvature-zeta correlation emerges strongly and exclusively under logarithmic eigenvalue spacing (Pearson $r = 0.921$, $p \approx 10^{-42}$), consistent with the Berry-Keating spectral hypothesis. Complementary spectral gap analysis reveals that linear eigenvalue spacing best reproduces the local gap statistics (KS = 0.152, $p = 0.405$), suggesting a two-scale structure in the D-ND/zeta connection. We verify the quantization of the topological charge $\chi_{\text{DND}} \in \mathbb{Z}$ numerically on the D-ND emergence landscape, and specify precise mathematical conditions that would definitively prove or disprove the connection. The mathematical framework is rigorous; the connection between curvature and zeta zeros is *conjectural* and presented as an open problem linking information geometry, quantum mechanics, and analytic number theory with concrete numerical support.
 
 **Keywords:** information geometry, Riemann zeta function, topological charge, emergence states, critical line, elliptic curves, Berry-Keating conjecture, Gauss-Bonnet theorem, possibilistic density, quantum arithmetic, Fisher information metric
 
----
 
+<a id="1-introduction"></a>
 ## 1. Introduction
 
+<a id="1-1-information-geometry-in-physics"></a>
 ### 1.1 Information Geometry in Physics
 
 Information geometry (Amari 2016, Amari & Nagaoka 2007) studies the differential-geometric structure of probability distributions and parametric families of statistical models. The Fisher information metric,
@@ -33,6 +24,7 @@ Geometry has proven fundamental to physics:
 
 A natural question arises: **Can the curvature of an emergence landscape (the space of possible differentiations from the Null-All state) be connected to fundamental structures in number theory?** This work proposes such a connection.
 
+<a id="1-2-number-theory-meets-quantum-mechanics"></a>
 ### 1.2 Number Theory Meets Quantum Mechanics
 
 The Riemann hypothesis — conjectured by Riemann (1859) and one of mathematics' deepest unsolved problems — asserts that all non-trivial zeros of the zeta function $\zeta(s) = \sum_{n=1}^\infty n^{-s}$ lie on the critical line $\text{Re}(s) = 1/2$. The numerical verification extends to trillions of zeros (Platt & Robles 2021), but a proof remains elusive.
@@ -47,6 +39,7 @@ In recent decades, physicists have proposed quantum-mechanical approaches:
 
 Our proposal bridges these frameworks: **the emergence operator $\mathcal{E}$ (from Paper A) and its curvature $K_{\text{gen}}$ encode spectral data that, when appropriately interpreted, correspond to zeta zeros.**
 
+<a id="1-3-the-d-nd-connection-curvature-of-the-emergence-landscape"></a>
 ### 1.3 The D-ND Connection: Curvature of the Emergence Landscape
 
 From Paper A (§6), the curvature operator $C$ is:
@@ -59,6 +52,7 @@ The emergence landscape is the geometric space of possible states $R(t) = U(t)\m
 
 **Central conjecture**: Critical values of this curvature (where $K_{\text{gen}} = K_c$, a critical threshold) correspond to phase transitions in the emergence landscape. At these transitions, the topology changes. We conjecture that these critical points align with the zeros of the Riemann zeta function on the critical line.
 
+<a id="1-4-contributions-and-structure-of-this-work"></a>
 ### 1.4 Contributions and Structure of This Work
 
 1. **Rigorous definition of generalized informational curvature** $K_{\text{gen}}$ and its relation to Fisher metric and Ricci curvature.
@@ -79,8 +73,10 @@ The emergence landscape is the geometric space of possible states $R(t) = U(t)\m
 
 ---
 
+<a id="2-informational-curvature-in-the-d-nd-framework"></a>
 ## 2. Informational Curvature in the D-ND Framework
 
+<a id="2-1-definition-generalized-informational-curvature"></a>
 ### 2.1 Definition: Generalized Informational Curvature
 
 Let $M$ denote the emergence landscape — a smooth manifold parametrized by configuration space and time. At each point $(x, t)$, define:
@@ -105,6 +101,7 @@ where $n^\nu$ is the unit normal to the level sets of the emergence potential. I
 - When $K_{\text{gen}} < 0$: information flows *against* the force (repelling saddle).
 - When $K_{\text{gen}} = 0$: local balance between information flow and force.
 
+<a id="2-2-relation-to-fisher-metric-and-ricci-curvature"></a>
 ### 2.2 Relation to Fisher Metric and Ricci Curvature
 
 The Fisher information metric on the space of probability distributions $\{p(x|\theta)\}$ is:
@@ -120,6 +117,7 @@ for suitable choice of metric on $M$ identified with the manifold of emergence s
 $$g_{\lambda_k \lambda_\ell} = \int \frac{\partial \rho}{\partial \lambda_k} \frac{\partial \rho}{\partial \lambda_\ell} \frac{d^Dx}{\rho}$$
 where $\rho(x|\{\lambda_k\})$ is the emergent probability density. The curvature of this metric, when combined with the drift $F$, yields $K_{\text{gen}}$.
 
+<a id="2-3-k-gen-as-generalization-of-fisher-curvature-on-the-emergence-manifold"></a>
 ### 2.3 K_gen as Generalization of Fisher Curvature on the Emergence Manifold
 
 **Proposition 2** (K_gen Generalization): The generalized informational curvature $K_{\text{gen}}$ is a natural extension of the Fisher-metric-induced curvature $\mathcal{R}_F$ to the full emergence landscape, incorporating both statistical and dynamical components.
@@ -144,8 +142,10 @@ where $Z$ is a normalization constant ensuring dimensional consistency.
 
 ---
 
+<a id="3-topological-classification-via-gauss-bonnet"></a>
 ## 3. Topological Classification via Gauss-Bonnet
 
+<a id="3-1-topological-charge-as-curvature-integral"></a>
 ### 3.1 Topological Charge as Curvature Integral
 
 Define the **D-ND topological charge**:
@@ -162,6 +162,7 @@ where $K$ is the Gaussian curvature and $\chi(M)$ is the Euler characteristic.
 
 In the D-ND context, $K_{\text{gen}}$ plays the role of $K$, and $\chi_{\text{DND}}$ measures the topological structure of the emergence landscape.
 
+<a id="3-2-quantization-chi-text-dnd-in-mathbb-z"></a>
 ### 3.2 Quantization: $\chi_{\text{DND}} \in \mathbb{Z}$
 
 **Conjecture** (Topological Quantization): If $K_{\text{gen}}$ arises from the emergence operator $\mathcal{E}$ with discrete spectrum $\{\lambda_k\}$, then the topological charge $\chi_{\text{DND}}$ is quantized:
@@ -180,6 +181,7 @@ where $n_k$ is the topological degree (winding number) associated with eigenvalu
 - $\chi_{\text{DND}} = 2$: Two topological sectors (e.g., double-well potential).
 - Higher values: Increasingly complex topological structure.
 
+<a id="3-3-explicit-computation-in-2d-and-3d-cases"></a>
 ### 3.3 Explicit Computation in 2D and 3D Cases
 
 #### **2D Case: Emergence on a Surface**
@@ -198,7 +200,7 @@ $$\chi_{\text{DND}} = \frac{1}{2\pi} \int_{M_2} K_{\text{gen}} \, du\,dv = \chi_
 
 **Numerical computation**: We computed $\chi_{\text{DND}}$ on the D-ND double-well emergence landscape $V(Z) = Z^2(1-Z)^2 + \lambda \theta_{\text{NT}} Z(1-Z)$ parametrized by $(x, y)$ over a $200 \times 200$ grid, with the coupling parameter $\lambda$ varying through a full oscillation cycle ($\lambda \in [0.1, 0.9]$).
 
-Results (see Figures C7–C8):
+Results (see [Figure C7](#c7)–[C8](#c8)):
 - $\chi_{\text{DND}}$ remains within $0.043$ of the integer $0$ across all 100 time steps.
 - 100% of samples fall within distance $0.1$ of an integer value.
 - The mean distance to the nearest integer is $0.027$.
@@ -233,6 +235,7 @@ where $W$ is the Weyl tensor, $E$ the traceless Ricci tensor, and $R$ the scalar
 
 In the D-ND context, the slicing approach is natural: the emergence landscape evolves in time, and topological transitions manifest as discontinuities in $\chi_{\text{DND}}(t)$. The times $t_1, t_2, \ldots$ at which $\chi_{\text{DND}}$ jumps are candidate **critical times** for the curvature relation $K_{\text{gen}}(x,t) = K_c$.
 
+<a id="3-4-cyclic-coherence-and-winding-number"></a>
 ### 3.4 Cyclic Coherence and Winding Number
 
 The **cyclic coherence** $\Omega_{\text{NT}} = 2\pi i$ appears in complex analysis as the residue at a pole or the contour integral around a singularity:
@@ -251,8 +254,10 @@ where $f$ is a function (e.g., the zeta function).
 
 ---
 
+<a id="4-the-zeta-connection-curvature-and-prime-structure"></a>
 ## 4. The Zeta Connection: Curvature and Prime Structure
 
+<a id="4-1-spectral-formulation-zeta-function-from-d-nd-spectral-data"></a>
 ### 4.1 Spectral Formulation: Zeta Function from D-ND Spectral Data
 
 The Riemann zeta function admits a spectral representation:
@@ -271,6 +276,7 @@ where $\rho(x)$ is a possibilistic density and $K_{\text{gen}}$ is the curvature
 2. The $K_{\text{gen}}$ term contributes the geometric structure (curvature corrections).
 3. Together, they encode both arithmetic (density of primes) and geometric (landscape curvature) information.
 
+<a id="4-2-central-conjecture-curvature-zeros-and-zeta-zeros"></a>
 ### 4.2 Central Conjecture: Curvature Zeros and Zeta Zeros
 
 **Status Advisory:** This conjecture is speculative. We present it as a *motivating analogy* between the critical structure of the D-ND emergence landscape and the distribution of Riemann zeta zeros, not as a proven or independently testable claim. The emergence operator $\mathcal{E}$ is phenomenological (Paper A §2.3, Remark), hence $K_{\text{gen}}$ inherits this indeterminacy. A rigorous test would require: (1) an independent first-principles derivation of $\mathcal{E}$, (2) numerical computation of $K_{\text{gen}}$ on a specified domain, and (3) pre-registered comparison with known zeta zeros — none of which are available at present. The conjecture serves as a guiding hypothesis for future research, not as a result of this paper.
@@ -292,6 +298,7 @@ where $x_c = x_c(t)$ is the spatial point at which critical curvature occurs, an
 
 **Caveat**: This is a *conjecture*, not a theorem. The connection is suggestive and mathematically coherent, but requires rigorous proof.
 
+<a id="4-2-1-structural-consistency-argument"></a>
 ### 4.2.1 Structural Consistency Argument
 
 We outline a structural argument showing that the D-ND framework is *consistent* with the Riemann hypothesis — that is, within the D-ND axiom system, all non-trivial zeros lying on the critical line is the natural (and perhaps only) coherent configuration. This is not a proof of RH; it is a demonstration of structural compatibility.
@@ -314,6 +321,7 @@ A zero off the critical line ($\sigma \neq 1/2$) would break the $\xi(s) = \xi(1
 
 **Remark on logical foundations.** The D-ND framework operates with the *included third* (terzo incluso, cf. Lupasco 1951, Nicolescu 2002): a logic in which contradictory states can coexist at different levels of reality. Classical mathematics — including the Gauss-Bonnet theorem, functional equations, and spectral theory used throughout this paper — operates under the *excluded middle* (tertium non datur). The present work uses classical tools as a mathematical *language* while the framework it describes may ultimately require an extended logical foundation. Where the two systems produce tension (e.g., the tensor-scalar identification in §5.4.4, the recursive self-reference in the auto-coherence mechanism §4.5), we flag this explicitly rather than forcing classical resolution. A rigorous formalization of D-ND mathematics within a paraconsistent or multi-valued logic is an important direction for future work.
 
+<a id="4-3-numerical-comparison-with-first-100-zeta-zeros"></a>
 ### 4.3 Numerical Comparison with First 100 Zeta Zeros
 
 We executed the computational protocol described below against the first 100 verified non-trivial zeros of $\zeta(s)$ on the critical line.
@@ -360,6 +368,7 @@ The Berry-Keating Hamiltonian has logarithmic eigenvalue spacing by construction
 
 **Caveats.** The emergence model is finite-dimensional ($N = 100$) and uses a simplified Gaussian basis for position-space projection. A more realistic model incorporating the full infinite-dimensional structure of Paper A's emergence operator might modify the quantitative results while preserving the qualitative pattern dependence. The correlation does not establish causation: the logarithmic pattern may encode the connection through its algebraic structure rather than through a dynamical mechanism.
 
+<a id="4-3-1-numerical-validation-cycle-stability-and-spectral-gap-estimates"></a>
 ### 4.3.1 Numerical Validation: Cycle Stability and Spectral Gap Estimates
 
 Beyond the direct computation of $K_{\text{gen}}$ at zeta zero locations, we propose three complementary numerical tests:
@@ -405,6 +414,7 @@ This complementarity is consistent with random matrix theory: the Gaussian Unita
 
 **Implication for the conjecture.** The D-ND/zeta connection may operate on two scales: a *global* scale (logarithmic structure encodes zero positions via Berry-Keating) and a *local* scale (linear/uniform structure encodes gap statistics via GUE universality). A complete emergence operator would need to reconcile both — suggesting it may require a logarithmic-to-linear crossover at different energy scales.
 
+<a id="4-4-spectral-approach-laplace-beltrami-eigenvalues-and-hilbert-p-lya-connection"></a>
 ### 4.4 Spectral Approach: Laplace-Beltrami Eigenvalues and Hilbert-Pólya Connection
 
 The **Hilbert-Pólya conjecture** proposes that the Riemann zeros correspond to eigenvalues of a self-adjoint operator. We identify this operator with the d'Alembert-Laplace-Beltrami operator on the emergence manifold.
@@ -449,6 +459,7 @@ This potential can be identified with the informational potential encoding the z
 2. The eigenvalue spectrum is computable numerically for concrete manifolds, enabling rigorous testing of the hypothesis.
 3. The Berry-Keating conjecture (previously abstract) now acquires a **physical origin** in the emergence geometry.
 
+<a id="4-5-angular-loop-momentum-and-auto-coherence-mechanism"></a>
 ### 4.5 Angular Loop Momentum and Auto-Coherence Mechanism
 
 A complementary mechanism for understanding the alignment of curvature and zeta zeros derives from the **angular loop momentum** (derived in the companion Zeta proof document). This provides an auto-coherence mechanism explaining why zeta zeros are self-referential stability points.
@@ -469,6 +480,7 @@ $$[\hat{H}_{\text{emergence}}, \hat{L}_\phi] = 0$$
 
 This mechanism complements the NT Closure Theorem (§5.4.2) by providing a dynamical explanation for why the three closure conditions — latency vanishing, elliptic singularity, and orthogonality — are precisely satisfied at zeta zero locations.
 
+<a id="4-5-1-symmetry-relations-scale-and-time-inversion-symmetry"></a>
 ### 4.5.1 Symmetry Relations: Scale and Time-Inversion Symmetry
 
 A fundamental symmetry underlies the correspondence between emergence dynamics and zeta structure:
@@ -500,8 +512,10 @@ If $K_{\text{gen}}$ obeys the symmetry $\mathcal{L}_R(t) = \mathcal{L}_R(-t)$, t
 
 ---
 
+<a id="5-possibilistic-density-and-elliptic-curves"></a>
 ## 5. Possibilistic Density and Elliptic Curves
 
+<a id="5-1-elliptic-curve-structure-of-d-nd-emergence"></a>
 ### 5.1 Elliptic Curve Structure of D-ND Emergence
 
 An elliptic curve over $\mathbb{Q}$ is a smooth algebraic curve of genus 1, typically given in Weierstrass form:
@@ -521,6 +535,7 @@ where:
 - Rational points are special: they correspond to states that are "arithmetically simple" — states that could be realized by simple integer operations or rational constructions.
 - The Mordell-Weil theorem guarantees that the group of rational points $E_t(\mathbb{Q})$ has finite rank; this rank measures the "degrees of freedom" in rational (classical) states.
 
+<a id="5-2-mordell-weil-theorem-and-rational-points"></a>
 ### 5.2 Mordell-Weil Theorem and Rational Points
 
 **Mordell-Weil Theorem** (Weil 1929, Mordell 1922): For an elliptic curve $E$ over $\mathbb{Q}$, the group of rational points $E(\mathbb{Q})$ is finitely generated:
@@ -537,6 +552,7 @@ where $r$ is the **Mordell-Weil rank** (number of independent generators of infi
 
 **Physical significance**: The rational points encode *arithmetically simple* realized states. As emergence progresses, new rational points appear on the elliptic curve, representing the crystallization of new classical structures from the quantum potential.
 
+<a id="5-3-possibilistic-density-on-elliptic-curves"></a>
 ### 5.3 Possibilistic Density on Elliptic Curves
 
 Define the **possibilistic density** (Formula B8):
@@ -556,6 +572,7 @@ where:
 - If $\rho(x,y,t)$ concentrates on rational points, the emergence landscape "simplifies" to a classically realizable (arithmetically simple) form.
 - The Riemann hypothesis can be reformulated: the rational point rank is minimized (or exhibits a critical transition) when $\zeta(1/2 + it) = 0$.
 
+<a id="5-4-nt-closure-theorem-and-informational-stability"></a>
 ### 5.4 NT Closure Theorem and Informational Stability
 
 #### 5.4.1 Informational Stability Condition
@@ -683,8 +700,10 @@ This provides a **geometric-information-theoretic explanation** for the Riemann 
 
 ---
 
+<a id="6-discussion-paths-toward-proof-or-refutation"></a>
 ## 6. Discussion: Paths Toward Proof or Refutation
 
+<a id="6-1-mathematical-requirements-for-rigorous-proof"></a>
 ### 6.1 Mathematical Requirements for Rigorous Proof
 
 A complete proof of the D-ND/zeta conjecture would require:
@@ -701,6 +720,7 @@ at $s = 1/2 + it$ for the specific $t$ values where $\zeta(1/2 + it) = 0$.
 
 5. **Index theorem**: Apply the Atiyah-Singer index theorem to rigorously prove $\chi_{\text{DND}} \in \mathbb{Z}$ and relate integer jumps in the topological charge to zeros of $\zeta$.
 
+<a id="6-2-what-would-prove-the-conjecture"></a>
 ### 6.2 What Would PROVE the Conjecture
 
 The conjecture would be **definitively proven** if any of the following is demonstrated:
@@ -715,6 +735,7 @@ The conjecture would be **definitively proven** if any of the following is demon
 
 5. **Categorical Isomorphism**: Establish a categorical equivalence between the category of emergence landscapes and the category of L-functions (generalizations of zeta), with curvature-critical points mapping to L-function zeros.
 
+<a id="6-3-what-would-disprove-the-conjecture"></a>
 ### 6.3 What Would DISPROVE the Conjecture
 
 The conjecture would be **definitively refuted** if any of the following is demonstrated:
@@ -731,6 +752,7 @@ The conjecture would be **definitively refuted** if any of the following is demo
 
 5. **Incompatible Growth Rates**: Prove that the asymptotic behavior of critical curvature values $K_c^{(n)}$ (ordered by zeta zero imaginary part) grows at a rate provably different from the asymptotic growth of zeta zero imaginary parts themselves, making a systematic correspondence impossible.
 
+<a id="6-4-intermediate-milestones-toward-resolution"></a>
 ### 6.4 Intermediate Milestones Toward Resolution
 
 Progress toward proof or refutation can be marked by:
@@ -747,8 +769,10 @@ Progress toward proof or refutation can be marked by:
 
 ---
 
+<a id="7-unified-constant-and-planck-scale"></a>
 ## 7. Unified Constant and Planck Scale
 
+<a id="7-1-derivation-u-e-i-pi-hbar-g-c-3-ln-e-2-pi-hbar"></a>
 ### 7.1 Derivation: $U = e^{i\pi} + \hbar G/c^3 + \ln(e^{2\pi}/\hbar)$
 
 **Formula A9** defines the unified constant:
@@ -778,6 +802,7 @@ $$U = \text{(quantum phase)} + \text{(quantum-gravity scale)} + \text{(cyclic-to
 
 **Dimensional caveat.** As written, this expression combines a dimensionless complex number ($e^{i\pi} = -1$), a quantity with dimensions of length$^2$ ($\hbar G/c^3 = \ell_P^2$), and a dimensionless logarithm. A physically meaningful expression requires working in natural units ($\hbar = c = G = 1$) or introducing appropriate dimensionful conversion factors. In natural units, $U = -1 + 1 + \ln(e^{2\pi}) = 2\pi$, recovering the cyclic phase. The expression is best understood as a *symbolic representation* of the three scales that unify at the Planck regime, rather than a literal numerical equation in SI units. It appears in the unified action functional for the D-ND system (Paper A, Formula A9).
 
+<a id="7-2-connection-to-planck-scale-and-information-units"></a>
 ### 7.2 Connection to Planck Scale and Information Units
 
 The Planck length is:
@@ -793,8 +818,10 @@ This suggests that at the Planck scale, geometry ($G$, spacetime curvature), qua
 
 ---
 
+<a id="8-relation-to-berry-keating-conjecture"></a>
 ## 8. Relation to Berry-Keating Conjecture
 
+<a id="8-1-berry-keating-framework"></a>
 ### 8.1 Berry-Keating Framework
 
 Berry & Keating (1999) proposed that zeros of $\zeta(1/2 + it)$ correspond to eigenvalues of a quantum Hamiltonian:
@@ -807,6 +834,7 @@ where $\hat{x}, \hat{p}$ are position and momentum operators (satisfying $[\hat{
 
 This is a logarithmic operator in phase space — unconventional but mathematically precise.
 
+<a id="8-2-d-nd-as-refinement-of-berry-keating"></a>
 ### 8.2 D-ND as Refinement of Berry-Keating
 
 **Interpretive proposal**: The D-ND framework provides a candidate *physical realization* of the Berry-Keating program. Specifically:
@@ -820,6 +848,7 @@ $$C = \int d^4x \, K_{\text{gen}}(x,t) |x\rangle\langle x|$$
 
 4. **Physical grounding**: While Berry-Keating is abstract, D-ND connects to the physical emergence process (Paper A), providing an ontological interpretation.
 
+<a id="8-3-differences-and-complementarity"></a>
 ### 8.3 Differences and Complementarity
 
 | Aspect | Berry-Keating | D-ND |
@@ -833,6 +862,7 @@ $$C = \int d^4x \, K_{\text{gen}}(x,t) |x\rangle\langle x|$$
 
 ---
 
+<a id="9-conclusions"></a>
 ## 9. Conclusions
 
 This paper establishes a mathematical framework connecting information geometry, the D-ND emergence theory (Paper A), and the Riemann zeta function. The central result is a **conjecture** — not a theorem — that critical values of the informational curvature of the emergence landscape correspond to zeros of the Riemann zeta function on the critical line.
@@ -870,8 +900,10 @@ The D-ND framework and its connection to number theory remain **conjectural** at
 
 ---
 
+<a id="references"></a>
 ## References
 
+<a id="information-geometry-and-differential-geometry"></a>
 ### Information Geometry and Differential Geometry
 
 - Amari, S., Nagaoka, H. (2007). *Methods of Information Geometry*. American Mathematical Society.
@@ -879,6 +911,7 @@ The D-ND framework and its connection to number theory remain **conjectural** at
 - Zanardi, P., Paunković, N. (2006). "Ground state overlap and quantum phase transitions." *Phys. Rev. E*, 74(3), 031123.
 - Balian, R. (2007). *From Microphysics to Macrophysics* (Vol. 2). Springer.
 
+<a id="riemann-zeta-function-and-number-theory"></a>
 ### Riemann Zeta Function and Number Theory
 
 - Riemann, B. (1859). "Über die Anzahl der Primzahlen unter einer gegebenen Größe." *Monatsberichte der Königlich Preußischen Akademie der Wissenschaften zu Berlin*, 671–680.
@@ -886,6 +919,7 @@ The D-ND framework and its connection to number theory remain **conjectural** at
 - Ivić, A. (2003). *The Riemann Zeta-Function: Theory and Applications*. Dover.
 - Platt, D., Robles, N. (2021). "Numerical verification of the Riemann hypothesis to $2 \times 10^{12}$." *arXiv:2004.09765* [math.NT].
 
+<a id="berry-keating-and-quantum-chaos-approaches"></a>
 ### Berry-Keating and Quantum Chaos Approaches
 
 - Berry, M.V., Keating, J.P. (1999). "The Riemann zeros and eigenvalue asymptotics." *SIAM Rev.*, 41(2), 236–266.
@@ -893,36 +927,111 @@ The D-ND framework and its connection to number theory remain **conjectural** at
 - Connes, A. (1999). "Trace formula in noncommutative geometry and the zeros of the Riemann zeta function." *Selecta Mathematica*, 5(1), 29–106.
 - Sierra, G., Townsend, P.K. (2011). "The hyperbolic AdS/CFT correspondence and the Hilbert-Pólya conjecture." *J. High Energ. Phys.*, 2011(3), 91.
 
+<a id="noncommutative-geometry"></a>
 ### Noncommutative Geometry
 
 - Chamseddine, A.H., Connes, A. (1997). "The spectral action principle." *Commun. Math. Phys.*, 186(3), 731–750.
 - Connes, A. (2000). "A short survey of noncommutative geometry." *J. Math. Phys.*, 41(6), 3832–3866.
 
+<a id="elliptic-curves-and-arithmetic-geometry"></a>
 ### Elliptic Curves and Arithmetic Geometry
 
 - Silverman, J.H. (2009). *The Arithmetic of Elliptic Curves* (2nd ed.). Springer.
 - Washington, L.C. (2008). *Elliptic Curves: Number Theory and Cryptography* (2nd ed.). Chapman & Hall/CRC.
 - Hindry, M., Silverman, J.H. (2000). *Diophantine Geometry*. Springer.
 
+<a id="topological-and-index-theorems"></a>
 ### Topological and Index Theorems
 
 - Atiyah, M.F., Singer, I.M. (1963). "Index of elliptic operators I." *Ann. Math.*, 87(3), 484–530.
 - Griffiths, P., Harris, J. (1994). *Principles of Algebraic Geometry*. Wiley.
 - Gauss, C.F. (1827). *Disquisitiones generales circa superficies curvas*.
 
+<a id="logic-and-foundations"></a>
 ### Logic and Foundations
 
 - Lupasco, S. (1951). *Le principe d'antagonisme et la logique de l'énergie*. Hermann.
 - Nicolescu, B. (2002). *Manifesto of Transdisciplinarity*. SUNY Press.
 - Priest, G. (2006). *In Contradiction: A Study of the Transconsistent* (2nd ed.). Oxford University Press.
 
+<a id="d-nd-framework-and-emergence-internal-references"></a>
 ### D-ND Framework and Emergence (Internal References)
 
 - Paper A: "Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation," Draft 3.0 (February 2026).
 - UNIFIED_FORMULA_SYNTHESIS: Synthesis of formulas S6, A5, A6, A7, S9, A9, B8, S8, and related structures (February 2026).
 
+<a id="quantum-gravity-and-emergent-geometry"></a>
 ### Quantum Gravity and Emergent Geometry
 
 - Van Raamsdonk, M. (2010). "Building up spacetime with quantum entanglement." *Gen. Rel. Grav.*, 42(10), 2323–2329.
 - Ryu, S., Takayanagi, T. (2006). "Holographic derivation of entanglement entropy from AdS/CFT." *Phys. Rev. Lett.*, 96(18), 181602.
 - Wheeler, J.A. (1968). "Superspace and the nature of quantum geometrodynamics." In *Battelle Rencontres* (pp. 242–307). Benjamin.
+
+
+---
+
+## Figures
+
+<a id="c1"></a>
+
+### Figure C1
+
+![Figure C1: Critical curvature |K_c| vs zeta zero positions t_n under three eigenvalue patterns](/papers/figures/fig_C1_*.svg)
+
+*Critical curvature |K_c| vs zeta zero positions t_n under three eigenvalue patterns.*
+
+<a id="c2"></a>
+
+### Figure C2
+
+![Figure C2: K_gen(x, t_n) profiles at selected zeta zeros](/papers/figures/fig_C2_*.svg)
+
+*K_gen(x, t_n) profiles at selected zeta zeros.*
+
+<a id="c3"></a>
+
+### Figure C3
+
+![Figure C3: Gap analysis: consecutive differences in critical curvature values](/papers/figures/fig_C3_*.svg)
+
+*Gap analysis: consecutive differences in critical curvature values.*
+
+<a id="c4"></a>
+
+### Figure C4
+
+![Figure C4: Critical locations x_c(t_n) as function of zeta zero index](/papers/figures/fig_C4_*.svg)
+
+*Critical locations x_c(t_n) as function of zeta zero index.*
+
+<a id="c5"></a>
+
+### Figure C5
+
+![Figure C5: Nearest-neighbor spacing distributions compared to GUE Wigner surmise](/papers/figures/fig_C5_*.svg)
+
+*Nearest-neighbor spacing distributions compared to GUE Wigner surmise.*
+
+<a id="c6"></a>
+
+### Figure C6
+
+![Figure C6: Eigenvalue staircase functions vs zeta zero staircase](/papers/figures/fig_C6_*.svg)
+
+*Eigenvalue staircase functions vs zeta zero staircase.*
+
+<a id="c7"></a>
+
+### Figure C7
+
+![Figure C7: Topological charge χ_DND evolution through parameter variation](/papers/figures/fig_C7_*.svg)
+
+*Topological charge χ_DND evolution through parameter variation.*
+
+<a id="c8"></a>
+
+### Figure C8
+
+![Figure C8: Gaussian curvature landscape snapshots at different times](/papers/figures/fig_C8_*.svg)
+
+*Gaussian curvature landscape snapshots at different times.*

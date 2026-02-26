@@ -1,0 +1,294 @@
+{
+  "title": "Information Geometry and Number-Theoretic Structure in the D-ND Framework",
+  "subtitle": "Information Geometry, Riemann Zeta Zeros, and Topological Classification of Emergence States",
+  "authors": "D-ND Research Collective",
+  "date": "February 13, 2026",
+  "status": "Working Draft 2.0 — Under Review",
+  "keywords": [
+    "information geometry",
+    "Riemann zeta function",
+    "topological charge",
+    "emergence states",
+    "critical line",
+    "elliptic curves",
+    "Berry-Keating conjecture",
+    "Gauss-Bonnet theorem",
+    "possibilistic density",
+    "quantum arithmetic",
+    "Fisher information metric"
+  ],
+  "description": "We establish a novel connection between the informational curvature of the Dual-Non-Dual (D-ND) emergence framework and the zeros of the Riemann zeta function",
+  "paper_id": "C",
+  "paper_label": "Paper C",
+  "category": "paper",
+  "section": "dnd-model",
+  "sections": [
+    {
+      "level": 1,
+      "title": "Information Geometry and Number-Theoretic Structure in the D-ND Framework",
+      "slug": "information-geometry-and-number-theoretic-structure-in-the-d-nd-framework"
+    },
+    {
+      "level": 2,
+      "title": "Abstract",
+      "slug": "abstract"
+    },
+    {
+      "level": 2,
+      "title": "1. Introduction",
+      "slug": "1-introduction"
+    },
+    {
+      "level": 3,
+      "title": "1.1 Information Geometry in Physics",
+      "slug": "1-1-information-geometry-in-physics"
+    },
+    {
+      "level": 3,
+      "title": "1.2 Number Theory Meets Quantum Mechanics",
+      "slug": "1-2-number-theory-meets-quantum-mechanics"
+    },
+    {
+      "level": 3,
+      "title": "1.3 The D-ND Connection: Curvature of the Emergence Landscape",
+      "slug": "1-3-the-d-nd-connection-curvature-of-the-emergence-landscape"
+    },
+    {
+      "level": 3,
+      "title": "1.4 Contributions and Structure of This Work",
+      "slug": "1-4-contributions-and-structure-of-this-work"
+    },
+    {
+      "level": 2,
+      "title": "2. Informational Curvature in the D-ND Framework",
+      "slug": "2-informational-curvature-in-the-d-nd-framework"
+    },
+    {
+      "level": 3,
+      "title": "2.1 Definition: Generalized Informational Curvature",
+      "slug": "2-1-definition-generalized-informational-curvature"
+    },
+    {
+      "level": 3,
+      "title": "2.2 Relation to Fisher Metric and Ricci Curvature",
+      "slug": "2-2-relation-to-fisher-metric-and-ricci-curvature"
+    },
+    {
+      "level": 3,
+      "title": "2.3 K_gen as Generalization of Fisher Curvature on the Emergence Manifold",
+      "slug": "2-3-k-gen-as-generalization-of-fisher-curvature-on-the-emergence-manifold"
+    },
+    {
+      "level": 2,
+      "title": "3. Topological Classification via Gauss-Bonnet",
+      "slug": "3-topological-classification-via-gauss-bonnet"
+    },
+    {
+      "level": 3,
+      "title": "3.1 Topological Charge as Curvature Integral",
+      "slug": "3-1-topological-charge-as-curvature-integral"
+    },
+    {
+      "level": 3,
+      "title": "3.2 Quantization: $\\chi_{\\text{DND}} \\in \\mathbb{Z}$",
+      "slug": "3-2-quantization-chi-text-dnd-in-mathbb-z"
+    },
+    {
+      "level": 3,
+      "title": "3.3 Explicit Computation in 2D and 3D Cases",
+      "slug": "3-3-explicit-computation-in-2d-and-3d-cases"
+    },
+    {
+      "level": 3,
+      "title": "3.4 Cyclic Coherence and Winding Number",
+      "slug": "3-4-cyclic-coherence-and-winding-number"
+    },
+    {
+      "level": 2,
+      "title": "4. The Zeta Connection: Curvature and Prime Structure",
+      "slug": "4-the-zeta-connection-curvature-and-prime-structure"
+    },
+    {
+      "level": 3,
+      "title": "4.1 Spectral Formulation: Zeta Function from D-ND Spectral Data",
+      "slug": "4-1-spectral-formulation-zeta-function-from-d-nd-spectral-data"
+    },
+    {
+      "level": 3,
+      "title": "4.2 Central Conjecture: Curvature Zeros and Zeta Zeros",
+      "slug": "4-2-central-conjecture-curvature-zeros-and-zeta-zeros"
+    },
+    {
+      "level": 3,
+      "title": "4.2.1 Structural Consistency Argument",
+      "slug": "4-2-1-structural-consistency-argument"
+    },
+    {
+      "level": 3,
+      "title": "4.3 Numerical Comparison with First 100 Zeta Zeros",
+      "slug": "4-3-numerical-comparison-with-first-100-zeta-zeros"
+    },
+    {
+      "level": 3,
+      "title": "4.3.1 Numerical Validation: Cycle Stability and Spectral Gap Estimates",
+      "slug": "4-3-1-numerical-validation-cycle-stability-and-spectral-gap-estimates"
+    },
+    {
+      "level": 3,
+      "title": "4.4 Spectral Approach: Laplace-Beltrami Eigenvalues and Hilbert-Pólya Connection",
+      "slug": "4-4-spectral-approach-laplace-beltrami-eigenvalues-and-hilbert-p-lya-connection"
+    },
+    {
+      "level": 3,
+      "title": "4.5 Angular Loop Momentum and Auto-Coherence Mechanism",
+      "slug": "4-5-angular-loop-momentum-and-auto-coherence-mechanism"
+    },
+    {
+      "level": 3,
+      "title": "4.5.1 Symmetry Relations: Scale and Time-Inversion Symmetry",
+      "slug": "4-5-1-symmetry-relations-scale-and-time-inversion-symmetry"
+    },
+    {
+      "level": 2,
+      "title": "5. Possibilistic Density and Elliptic Curves",
+      "slug": "5-possibilistic-density-and-elliptic-curves"
+    },
+    {
+      "level": 3,
+      "title": "5.1 Elliptic Curve Structure of D-ND Emergence",
+      "slug": "5-1-elliptic-curve-structure-of-d-nd-emergence"
+    },
+    {
+      "level": 3,
+      "title": "5.2 Mordell-Weil Theorem and Rational Points",
+      "slug": "5-2-mordell-weil-theorem-and-rational-points"
+    },
+    {
+      "level": 3,
+      "title": "5.3 Possibilistic Density on Elliptic Curves",
+      "slug": "5-3-possibilistic-density-on-elliptic-curves"
+    },
+    {
+      "level": 3,
+      "title": "5.4 NT Closure Theorem and Informational Stability",
+      "slug": "5-4-nt-closure-theorem-and-informational-stability"
+    },
+    {
+      "level": 2,
+      "title": "6. Discussion: Paths Toward Proof or Refutation",
+      "slug": "6-discussion-paths-toward-proof-or-refutation"
+    },
+    {
+      "level": 3,
+      "title": "6.1 Mathematical Requirements for Rigorous Proof",
+      "slug": "6-1-mathematical-requirements-for-rigorous-proof"
+    },
+    {
+      "level": 3,
+      "title": "6.2 What Would PROVE the Conjecture",
+      "slug": "6-2-what-would-prove-the-conjecture"
+    },
+    {
+      "level": 3,
+      "title": "6.3 What Would DISPROVE the Conjecture",
+      "slug": "6-3-what-would-disprove-the-conjecture"
+    },
+    {
+      "level": 3,
+      "title": "6.4 Intermediate Milestones Toward Resolution",
+      "slug": "6-4-intermediate-milestones-toward-resolution"
+    },
+    {
+      "level": 2,
+      "title": "7. Unified Constant and Planck Scale",
+      "slug": "7-unified-constant-and-planck-scale"
+    },
+    {
+      "level": 3,
+      "title": "7.1 Derivation: $U = e^{i\\pi} + \\hbar G/c^3 + \\ln(e^{2\\pi}/\\hbar)$",
+      "slug": "7-1-derivation-u-e-i-pi-hbar-g-c-3-ln-e-2-pi-hbar"
+    },
+    {
+      "level": 3,
+      "title": "7.2 Connection to Planck Scale and Information Units",
+      "slug": "7-2-connection-to-planck-scale-and-information-units"
+    },
+    {
+      "level": 2,
+      "title": "8. Relation to Berry-Keating Conjecture",
+      "slug": "8-relation-to-berry-keating-conjecture"
+    },
+    {
+      "level": 3,
+      "title": "8.1 Berry-Keating Framework",
+      "slug": "8-1-berry-keating-framework"
+    },
+    {
+      "level": 3,
+      "title": "8.2 D-ND as Refinement of Berry-Keating",
+      "slug": "8-2-d-nd-as-refinement-of-berry-keating"
+    },
+    {
+      "level": 3,
+      "title": "8.3 Differences and Complementarity",
+      "slug": "8-3-differences-and-complementarity"
+    },
+    {
+      "level": 2,
+      "title": "9. Conclusions",
+      "slug": "9-conclusions"
+    },
+    {
+      "level": 2,
+      "title": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "title": "Information Geometry and Differential Geometry",
+      "slug": "information-geometry-and-differential-geometry"
+    },
+    {
+      "level": 3,
+      "title": "Riemann Zeta Function and Number Theory",
+      "slug": "riemann-zeta-function-and-number-theory"
+    },
+    {
+      "level": 3,
+      "title": "Berry-Keating and Quantum Chaos Approaches",
+      "slug": "berry-keating-and-quantum-chaos-approaches"
+    },
+    {
+      "level": 3,
+      "title": "Noncommutative Geometry",
+      "slug": "noncommutative-geometry"
+    },
+    {
+      "level": 3,
+      "title": "Elliptic Curves and Arithmetic Geometry",
+      "slug": "elliptic-curves-and-arithmetic-geometry"
+    },
+    {
+      "level": 3,
+      "title": "Topological and Index Theorems",
+      "slug": "topological-and-index-theorems"
+    },
+    {
+      "level": 3,
+      "title": "Logic and Foundations",
+      "slug": "logic-and-foundations"
+    },
+    {
+      "level": 3,
+      "title": "D-ND Framework and Emergence (Internal References)",
+      "slug": "d-nd-framework-and-emergence-internal-references"
+    },
+    {
+      "level": 3,
+      "title": "Quantum Gravity and Emergent Geometry",
+      "slug": "quantum-gravity-and-emergent-geometry"
+    }
+  ],
+  "figure_count": 8,
+  "page_count_latex": 13
+}

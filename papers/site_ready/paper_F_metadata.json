@@ -1,0 +1,371 @@
+{
+  "title": "Paper F (Track F): D-ND Quantum Information Engine: Modified Quantum Gates and Computational Framework",
+  "subtitle": "",
+  "authors": "D-ND Research Collective",
+  "date": "February 14, 2026",
+  "status": "Working Draft 2.0 — Under Review",
+  "keywords": [
+    "Possibilistic quantum information",
+    "D-ND gates",
+    "universal gate sets",
+    "Iterated Function Systems",
+    "quantum error correction",
+    "emergence-assisted computing",
+    "BQP complexity",
+    "topological quantum computing"
+  ],
+  "description": "We formalize the quantum-computational aspects of the D-ND (Dual-Non-Dual) framework by introducing a possibilistic quantum information architecture that generalizes standard quantum mechanics",
+  "paper_id": "F",
+  "paper_label": "Paper F",
+  "category": "paper",
+  "section": "dnd-model",
+  "sections": [
+    {
+      "level": 1,
+      "title": "Paper F (Track F): D-ND Quantum Information Engine: Modified Quantum Gates and Computational Framework",
+      "slug": "paper-f-track-f-d-nd-quantum-information-engine-modified-quantum-gates-and-computational-framework"
+    },
+    {
+      "level": 2,
+      "title": "Abstract",
+      "slug": "abstract"
+    },
+    {
+      "level": 2,
+      "title": "1. Introduction",
+      "slug": "1-introduction"
+    },
+    {
+      "level": 3,
+      "title": "§1.1 Notation Clarification",
+      "slug": "1-1-notation-clarification"
+    },
+    {
+      "level": 3,
+      "title": "Motivations",
+      "slug": "motivations"
+    },
+    {
+      "level": 3,
+      "title": "Paper Structure",
+      "slug": "paper-structure"
+    },
+    {
+      "level": 2,
+      "title": "2. D-ND Quantum Information Framework",
+      "slug": "2-d-nd-quantum-information-framework"
+    },
+    {
+      "level": 3,
+      "title": "2.1 Possibilistic Density ρ_DND",
+      "slug": "2-1-possibilistic-density-dnd"
+    },
+    {
+      "level": 3,
+      "title": "2.2 Connection to Standard Quantum States",
+      "slug": "2-2-connection-to-standard-quantum-states"
+    },
+    {
+      "level": 3,
+      "title": "2.3 Connection to Paper A Emergence Measure",
+      "slug": "2-3-connection-to-paper-a-emergence-measure"
+    },
+    {
+      "level": 2,
+      "title": "3. Modified Quantum Gates",
+      "slug": "3-modified-quantum-gates"
+    },
+    {
+      "level": 3,
+      "title": "3.1 Hadamard_DND (Formula C1)",
+      "slug": "3-1-hadamard-dnd-formula-c1"
+    },
+    {
+      "level": 3,
+      "title": "3.2 CNOT_DND with Nonlocal Emergence (Formula C2)",
+      "slug": "3-2-cnot-dnd-with-nonlocal-emergence-formula-c2"
+    },
+    {
+      "level": 3,
+      "title": "3.3 Phase_DND with Potential Fluctuation Coupling (Formula C3)",
+      "slug": "3-3-phase-dnd-with-potential-fluctuation-coupling-formula-c3"
+    },
+    {
+      "level": 3,
+      "title": "3.4 Shortcut_DND for Topological Operations (Formula C4)",
+      "slug": "3-4-shortcut-dnd-for-topological-operations-formula-c4"
+    },
+    {
+      "level": 3,
+      "title": "3.5 Gate Universality: Proof that {Hadamard_DND, CNOT_DND, Phase_DND} Form a Universal Gate Set",
+      "slug": "3-5-gate-universality-proof-that-hadamard-dnd-cnot-dnd-phase-dnd-form-a-universal-gate-set"
+    },
+    {
+      "level": 2,
+      "title": "4. Circuit Model",
+      "slug": "4-circuit-model"
+    },
+    {
+      "level": 3,
+      "title": "4.1 D-ND Circuit Composition Rules",
+      "slug": "4-1-d-nd-circuit-composition-rules"
+    },
+    {
+      "level": 3,
+      "title": "4.2 Error Model and Coherence Preservation",
+      "slug": "4-2-error-model-and-coherence-preservation"
+    },
+    {
+      "level": 2,
+      "title": "5. Simulation Framework",
+      "slug": "5-simulation-framework"
+    },
+    {
+      "level": 3,
+      "title": "5.1 IFS (Iterated Function System) Approach",
+      "slug": "5-1-ifs-iterated-function-system-approach"
+    },
+    {
+      "level": 3,
+      "title": "5.2 Linear Approximation R_linear = P + λ·R(t) (Formula C7)",
+      "slug": "5-2-linear-approximation-r-linear-p-r-t-formula-c7"
+    },
+    {
+      "level": 3,
+      "title": "5.3 Pseudocode for D-ND IFS Simulation Algorithm",
+      "slug": "5-3-pseudocode-for-d-nd-ifs-simulation-algorithm"
+    },
+    {
+      "level": 3,
+      "title": "5.4 Error Analysis of Linear Approximation",
+      "slug": "5-4-error-analysis-of-linear-approximation"
+    },
+    {
+      "level": 3,
+      "title": "5.5 Comparison with Standard Quantum Simulation",
+      "slug": "5-5-comparison-with-standard-quantum-simulation"
+    },
+    {
+      "level": 2,
+      "title": "6. Applications and Quantum Advantage",
+      "slug": "6-applications-and-quantum-advantage"
+    },
+    {
+      "level": 3,
+      "title": "6.1 Quantum Search with Emergent Speedup",
+      "slug": "6-1-quantum-search-with-emergent-speedup"
+    },
+    {
+      "level": 3,
+      "title": "6.2 Topological Quantum Computing",
+      "slug": "6-2-topological-quantum-computing"
+    },
+    {
+      "level": 3,
+      "title": "6.3 Positioning Within Quantum Advantage Results (BQP vs. BPP)",
+      "slug": "6-3-positioning-within-quantum-advantage-results-bqp-vs-bpp"
+    },
+    {
+      "level": 3,
+      "title": "6.4 Open Problem 6.3: Quantum Advantage via D-ND Amplitude Amplification",
+      "slug": "6-4-open-problem-6-3-quantum-advantage-via-d-nd-amplitude-amplification"
+    },
+    {
+      "level": 3,
+      "title": "6.5 Connection to Thermodynamic Sampling: The THRML/Omega-Kernel Bridge",
+      "slug": "6-5-connection-to-thermodynamic-sampling-the-thrml-omega-kernel-bridge"
+    },
+    {
+      "level": 3,
+      "title": "6.5.1 SpinNode as D-ND Dipole",
+      "slug": "6-5-1-spinnode-as-d-nd-dipole"
+    },
+    {
+      "level": 3,
+      "title": "6.5.2 Block Gibbs Sampling as Iterative Emergence from |NT⟩",
+      "slug": "6-5-2-block-gibbs-sampling-as-iterative-emergence-from-nt"
+    },
+    {
+      "level": 3,
+      "title": "6.5.3 Boltzmann Machines as D-ND Energy Landscapes",
+      "slug": "6-5-3-boltzmann-machines-as-d-nd-energy-landscapes"
+    },
+    {
+      "level": 3,
+      "title": "6.5.4 Practical Implementation Path: D-ND Gates ↔ THRML Primitives",
+      "slug": "6-5-4-practical-implementation-path-d-nd-gates-thrml-primitives"
+    },
+    {
+      "level": 3,
+      "title": "6.5.5 Computational Bridge: Code Pseudocode",
+      "slug": "6-5-5-computational-bridge-code-pseudocode"
+    },
+    {
+      "level": 1,
+      "title": "D-ND ↔ THRML Bridge: Conceptual Implementation",
+      "slug": "d-nd-thrml-bridge-conceptual-implementation"
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "(1) D-ND Dipole as THRML SpinNode",
+      "slug": "1-d-nd-dipole-as-thrml-spinnode"
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "(2) D-ND System as Ising Model",
+      "slug": "2-d-nd-system-as-ising-model"
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "(3) Emergence from |NT⟩ via Block Gibbs",
+      "slug": "3-emergence-from-nt-via-block-gibbs"
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "(4) D-ND Gate Implementation via THRML",
+      "slug": "4-d-nd-gate-implementation-via-thrml"
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "(5) Full D-ND Circuit Simulation",
+      "slug": "5-full-d-nd-circuit-simulation"
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 1,
+      "title": "(6) Usage Example",
+      "slug": "6-usage-example"
+    },
+    {
+      "level": 1,
+      "title": "============================================",
+      "slug": ""
+    },
+    {
+      "level": 3,
+      "title": "6.5.6 Significance for Experimental Validation",
+      "slug": "6-5-6-significance-for-experimental-validation"
+    },
+    {
+      "level": 3,
+      "title": "6.6 Simulation Metrics from D-ND Hybrid Framework",
+      "slug": "6-6-simulation-metrics-from-d-nd-hybrid-framework"
+    },
+    {
+      "level": 3,
+      "title": "6.6.1 Coherence Measure: C(t)",
+      "slug": "6-6-1-coherence-measure-c-t"
+    },
+    {
+      "level": 3,
+      "title": "6.6.2 Tension Measure: T(t)",
+      "slug": "6-6-2-tension-measure-t-t"
+    },
+    {
+      "level": 3,
+      "title": "6.6.3 Emergence Rate: dM/dt",
+      "slug": "6-6-3-emergence-rate-dm-dt"
+    },
+    {
+      "level": 3,
+      "title": "6.6.4 Convergence Criterion: ε-Stopping Rule",
+      "slug": "6-6-4-convergence-criterion-stopping-rule"
+    },
+    {
+      "level": 3,
+      "title": "6.6.5 Pseudocode: THRML Backend Metric Computation",
+      "slug": "6-6-5-pseudocode-thrml-backend-metric-computation"
+    },
+    {
+      "level": 3,
+      "title": "6.6.6 Interpretation and Use Cases",
+      "slug": "6-6-6-interpretation-and-use-cases"
+    },
+    {
+      "level": 2,
+      "title": "7. Conclusions",
+      "slug": "7-conclusions"
+    },
+    {
+      "level": 3,
+      "title": "Future Directions",
+      "slug": "future-directions"
+    },
+    {
+      "level": 2,
+      "title": "Acknowledgments",
+      "slug": "acknowledgments"
+    },
+    {
+      "level": 2,
+      "title": "Appendix A: Proof of Proposition 2.2",
+      "slug": "appendix-a-proof-of-proposition-2-2"
+    },
+    {
+      "level": 2,
+      "title": "Appendix B: Proof of Proposition 4.3",
+      "slug": "appendix-b-proof-of-proposition-4-3"
+    },
+    {
+      "level": 2,
+      "title": "References",
+      "slug": "references"
+    }
+  ],
+  "figure_count": 0,
+  "page_count_latex": 18
+}

@@ -1,24 +1,17 @@
-# Paper F (Track F): D-ND Quantum Information Engine: Modified Quantum Gates and Computational Framework
-
-**Authors:** D-ND Research Collective
-**Date:** February 14, 2026
-**Status:** Working Draft 2.0 — Under Review
-**Target:** Quantum Computing and Quantum Information Theory
-
----
-
+<a id="abstract"></a>
 ## Abstract
 
 We formalize the quantum-computational aspects of the D-ND (Dual-Non-Dual) framework by introducing a possibilistic quantum information architecture that generalizes standard quantum mechanics. Rather than pure probabilistic superposition, D-ND quantum states are characterized by a *possibilistic density* measure ρ_DND incorporating emergence structure, nonlocal coupling, and topological invariants. We define four modified quantum gates—Hadamard_DND, CNOT_DND, Phase_DND, and Shortcut_DND—that preserve D-ND structure while enabling practical computation. We prove that {Hadamard_DND, CNOT_DND, Phase_DND} form a universal gate set by deriving arbitrary SU(2^n) unitaries from gate compositions. A complete circuit model with error analysis and coherence preservation guarantees is presented. We develop a simulation framework based on Iterated Function Systems (IFS) with detailed pseudocode and polynomial complexity analysis. We position D-ND computation within known quantum advantage results (BQP vs. BPP), showing how emergence-assisted error suppression provides a distinct pathway to quantum speedup. Formal proofs of key propositions and theorems are provided in expanded appendices. Applications to quantum search algorithms with emergent speedup and topological quantum computing are discussed. This work bridges quantum information theory and emergence-theoretic dynamics, establishing D-ND as a viable computational paradigm for near-term hybrid quantum-classical algorithms.
 
 **Keywords:** Possibilistic quantum information, D-ND gates, universal gate sets, Iterated Function Systems, quantum error correction, emergence-assisted computing, BQP complexity, topological quantum computing
 
----
 
+<a id="1-introduction"></a>
 ## 1. Introduction
 
 Quantum computing has achieved remarkable theoretical and experimental progress, yet fundamental limitations persist: decoherence, measurement collapse, and the Born rule's strict probabilistic interpretation constrain the space of algorithms and applications. The D-ND framework (developed in Papers A–E) proposes that quantum systems need not be purely probabilistic; instead, *possibility* can coexist with probability, mediated through emergence and nonlocal coupling.
 
+<a id="1-1-notation-clarification"></a>
 ### §1.1 Notation Clarification
 
 Throughout this paper, the emergence coupling coefficient $\lambda$ (without subscript) represents the linear approximation parameter quantifying the strength of D-ND quantum gate modifications relative to standard quantum operations. This is to be distinguished from:
@@ -29,6 +22,7 @@ Throughout this paper, the emergence coupling coefficient $\lambda$ (without sub
 
 The notation is clarified further in §2.3 where $\lambda = M(t)$ (the emergence measure) during the linear approximation regime.
 
+<a id="motivations"></a>
 ### Motivations
 
 1. **Beyond Probabilism**: Standard quantum mechanics treats all information as probabilistic amplitudes. D-ND permits possibilistic states—superpositions where some branches may be "proto-actual" (not yet fully actualized) or "suppressed" by emergence dynamics.
@@ -41,14 +35,17 @@ The notation is clarified further in §2.3 where $\lambda = M(t)$ (the emergence
 
 5. **Quantum Advantage Through Emergence**: Unlike standard approaches that rely solely on quantum superposition, D-ND offers emergence-assisted error suppression, a novel pathway to quantum advantage.
 
+<a id="paper-structure"></a>
 ### Paper Structure
 
 Section 2 introduces the possibilistic density measure and its relationship to standard quantum states. Section 3 defines the four core modified gates with rigorous composition rules. Section 4 develops the circuit model and error analysis. Section 5 presents the IFS-based simulation framework with pseudocode. Section 6 sketches applications, compares with known quantum advantage results (§6.1–§6.3), and establishes a computational bridge to the THRML/Omega-Kernel library by Extropic AI (§6.4). Section 7 concludes. Appendices A and B provide complete proofs of key theorems.
 
 ---
 
+<a id="2-d-nd-quantum-information-framework"></a>
 ## 2. D-ND Quantum Information Framework
 
+<a id="2-1-possibilistic-density-dnd"></a>
 ### 2.1 Possibilistic Density ρ_DND
 
 In standard quantum mechanics, the state of a system is given by a density matrix ρ ∈ ℒ(ℋ), where ℒ(ℋ) is the space of bounded linear operators on Hilbert space ℋ. D-ND generalizes this to a *possibilistic density* by incorporating emergence:
@@ -93,6 +90,7 @@ A critical concern: Definition 2.1 requires three independent measures (M_dist, 
 
 **With these identifications, ρ_DND is a GENUINE EXTENSION of standard density matrices, not a mere reparameterization.** It carries information—the proto-actualization trajectory M_proto(t)—that standard quantum states discard. A measurement of M(t) on a quantum system reveals how much state differentiation (emergence) has occurred, a quantifier absent in standard mechanics.
 
+<a id="2-2-connection-to-standard-quantum-states"></a>
 ### 2.2 Connection to Standard Quantum States
 
 **Proposition 2.2 (Hilbert Space Embedding):** If M_proto ≡ 0 (no proto-actualization, pure quantum regime) and ℋ is separable, then ρ_DND defines a valid density operator via:
@@ -107,6 +105,7 @@ where M(i) = M_dist(i) + M_ent(i) and ΣM = Σ_i M(i). This satisfies: (i) Tr[ρ
 
 This two-way compatibility ensures that D-ND circuits can run on standard quantum hardware with classical preprocessing.
 
+<a id="2-3-connection-to-paper-a-emergence-measure"></a>
 ### 2.3 Connection to Paper A Emergence Measure
 
 Paper A establishes the fundamental emergence measure M(t) = 1 − |⟨NT|U(t)ℰ|NT⟩|², which quantifies the degree of state differentiation from the non-localized state |NT⟩. We now show how this abstract emergence measure relates directly to the components of ρ_DND.
@@ -168,6 +167,7 @@ Hence, the linear approximation R_linear(t) = P(t) + λ·R_emit(t) is valid **du
 
 ---
 
+<a id="3-modified-quantum-gates"></a>
 ## 3. Modified Quantum Gates
 
 We now define four fundamental gates adapted to the D-ND framework. Each gate:
@@ -175,6 +175,7 @@ We now define four fundamental gates adapted to the D-ND framework. Each gate:
 2. Incorporates feedback from the emergence field ℰ
 3. Reduces to standard gates when M_proto → 0
 
+<a id="3-1-hadamard-dnd-formula-c1"></a>
 ### 3.1 Hadamard_DND (Formula C1)
 
 The standard Hadamard H creates equal superposition: H|0⟩ = (|0⟩ + |1⟩)/√2.
@@ -196,6 +197,7 @@ Rather than creating uniform superposition, Hadamard_DND weights each neighbor a
 
 **Remark on unitarity:** When the emergence field is static and the graph is regular (all vertices have the same degree and weight distribution), H_DND reduces to the standard Hadamard (uniform superposition). For general emergence graphs, H_DND is unitary by construction (each column of the matrix is normalized), but is not generally self-adjoint. The property H_DND² = I holds only in the symmetric case (uniform weights).
 
+<a id="3-2-cnot-dnd-with-nonlocal-emergence-formula-c2"></a>
 ### 3.2 CNOT_DND with Nonlocal Emergence (Formula C2)
 
 The CNOT gate performs controlled-NOT: |control, target⟩ → |control, target ⊕ control⟩.
@@ -241,6 +243,7 @@ These are **computable from the spectral data of the emergence operator** and th
 
 We position this as a technical challenge requiring either (a) deeper perturbation theory, (b) explicit construction of universal gate families parametrized by δV, or (c) numerical verification on small systems.
 
+<a id="3-3-phase-dnd-with-potential-fluctuation-coupling-formula-c3"></a>
 ### 3.3 Phase_DND with Potential Fluctuation Coupling (Formula C3)
 
 The standard phase gate applies a phase: P(φ)|ψ⟩ = e^{iφ}|ψ⟩.
@@ -258,6 +261,7 @@ where:
 
 The effective phase applied depends on the emergence potential. In regions of high emergence (δV → 1), the phase is suppressed (e^{−i(1−φ)} → e^0 = 1 if φ → 1). In weak emergence regions, the full phase is applied. This creates a **potential-dependent phase landscape** that can be exploited for topological computation.
 
+<a id="3-4-shortcut-dnd-for-topological-operations-formula-c4"></a>
 ### 3.4 Shortcut_DND for Topological Operations (Formula C4)
 
 Standard quantum gates act locally on a few qubits. Shortcut_DND enables topological "shortcuts" that reduce circuit depth.
@@ -280,6 +284,7 @@ where $\beta_1(G_{\mathcal{E}})$ is the first Betti number (number of independen
 
 **Composition:** Shortcut_DND reductions compose when their topological supports (homological cycles) are disjoint. Overlapping cycles require additional correction gates.
 
+<a id="3-5-gate-universality-proof-that-hadamard-dnd-cnot-dnd-phase-dnd-form-a-universal-gate-set"></a>
 ### 3.5 Gate Universality: Proof that {Hadamard_DND, CNOT_DND, Phase_DND} Form a Universal Gate Set
 
 **Proposition 3.5 (Gate Universality — Perturbative Regime):**
@@ -301,8 +306,10 @@ In the weak-emergence regime (δV ≪ 1), the set {Hadamard_DND, CNOT_DND, Phase
 
 ---
 
+<a id="4-circuit-model"></a>
 ## 4. Circuit Model
 
+<a id="4-1-d-nd-circuit-composition-rules"></a>
 ### 4.1 D-ND Circuit Composition Rules
 
 A **D-ND circuit** C is a sequence of gates {G_1, G_2, …, G_k} acting on a state ρ_DND, with composition:
@@ -321,6 +328,7 @@ $$\sum_{i=1}^{k} (1 - \ell_i^*) \leq \Lambda_{\text{max}}$$
 
 where Λ_max is the maximum allowed coherence budget (device-dependent).
 
+<a id="4-2-error-model-and-coherence-preservation"></a>
 ### 4.2 Error Model and Coherence Preservation
 
 Unlike standard quantum circuits where errors are typically modeled as depolarizing or amplitude-damping channels, D-ND circuits have inherent error suppression through emergence.
@@ -341,8 +349,10 @@ where $\bar{M} = (1/k)\sum_i M(t_i)$ is the average emergence factor.
 
 ---
 
+<a id="5-simulation-framework"></a>
 ## 5. Simulation Framework
 
+<a id="5-1-ifs-iterated-function-system-approach"></a>
 ### 5.1 IFS (Iterated Function System) Approach
 
 Many D-ND circuits cannot be efficiently simulated on classical computers (they require exponential time in the standard framework). However, when emergence is strong, an **Iterated Function System** approximation becomes viable.
@@ -374,6 +384,7 @@ The IFS-based simulation framework must be positioned with explicit scope limita
 
 With these clarifications, the IFS framework is positioned as a **physically-motivated, scope-limited classical emulation** for a specific regime of D-ND circuits, not as a general quantum simulation method.
 
+<a id="5-2-linear-approximation-r-linear-p-r-t-formula-c7"></a>
 ### 5.2 Linear Approximation R_linear = P + λ·R(t) (Formula C7)
 
 For practical implementation, we use a **linear simulation scheme** that combines a probabilistic classical component with an emergence-correction term:
@@ -389,6 +400,7 @@ $$R_{\text{emit}}(t) = \int_0^t M(s) \, e^{-\gamma(t-s)} \, ds$$
 
 where γ is the emergence-memory decay rate, and M(s) is the emergence measure from Paper A.
 
+<a id="5-3-pseudocode-for-d-nd-ifs-simulation-algorithm"></a>
 ### 5.3 Pseudocode for D-ND IFS Simulation Algorithm
 
 **Algorithm 5.2: D-ND Quantum Circuit Simulation via IFS**
@@ -480,6 +492,7 @@ End Algorithm
 - When λ ∈ [0.3, 0.7] (moderate emergence): Effective cost **O(n⁴ · T)**
 - When λ > 0.7 (strong emergence): Requires full quantum simulation or approximation error
 
+<a id="5-4-error-analysis-of-linear-approximation"></a>
 ### 5.4 Error Analysis of Linear Approximation
 
 The linear approximation R_linear(t) = P(t) + λ·R_emit(t) provides computational efficiency by decomposing quantum evolution into a standard quantum component P(t) and an emergence correction term R_emit(t). However, this decomposition incurs a systematic error that depends on the emergence-coupling coefficient λ.
@@ -545,6 +558,7 @@ Choose λ such that $C \lambda^2 < \epsilon_{\text{tol}}$ for desired tolerance 
 3. **Density recovery**: Periodically re-normalize state density to suppress error accumulation
 4. **Hybrid switching**: Automatically switch from linear approximation to full quantum simulation when M(t) > 0.5
 
+<a id="5-5-comparison-with-standard-quantum-simulation"></a>
 ### 5.5 Comparison with Standard Quantum Simulation
 
 | Aspect | Standard Simulation | D-ND Linear |
@@ -564,8 +578,10 @@ The linear approximation is most effective when:
 
 ---
 
+<a id="6-applications-and-quantum-advantage"></a>
 ## 6. Applications and Quantum Advantage
 
+<a id="6-1-quantum-search-with-emergent-speedup"></a>
 ### 6.1 Quantum Search with Emergent Speedup
 
 **Problem:** Search for a marked item in an unsorted database of size N.
@@ -582,6 +598,7 @@ $$|\text{success}\rangle = \sqrt{\text{amplification} \cdot M_{\text{proto}}}$$
 
 (Numerical verification in progress.)
 
+<a id="6-2-topological-quantum-computing"></a>
 ### 6.2 Topological Quantum Computing
 
 D-ND is naturally suited to topological quantum computing because:
@@ -600,6 +617,7 @@ $$\text{Overhead reduction} = 1 - \frac{M_{\text{proto}}}{M_{\text{dist}} + M_{\
 
 For moderate emergence, overhead can be reduced by 30-50%.
 
+<a id="6-3-positioning-within-quantum-advantage-results-bqp-vs-bpp"></a>
 ### 6.3 Positioning Within Quantum Advantage Results (BQP vs. BPP)
 
 **Standard Framework:**
@@ -623,6 +641,7 @@ The D-ND approach provides a **distinct mechanism for quantum speedup** separate
    - **Adiabatic quantum computing**: Depends on gap structure; D-ND emergence provides additional control parameter
    - **Measurement-based QC**: Uses entangled resource states; D-ND uses emergence-modulated gates
 
+<a id="6-4-open-problem-6-3-quantum-advantage-via-d-nd-amplitude-amplification"></a>
 ### 6.4 Open Problem 6.3: Quantum Advantage via D-ND Amplitude Amplification
 
 Rather than claiming quantum advantage as a conjecture, we identify it as a concrete open problem with a candidate approach.
@@ -692,10 +711,12 @@ giving a reduction by factor $\sqrt{\lambda n}$ over standard Grover's $\sqrt{N/
 
 ---
 
+<a id="6-5-connection-to-thermodynamic-sampling-the-thrml-omega-kernel-bridge"></a>
 ### 6.5 Connection to Thermodynamic Sampling: The THRML/Omega-Kernel Bridge
 
 Recent developments in thermodynamic computing by Extropic AI provide a direct experimental validation pathway for D-ND quantum information theory. The THRML/Omega-Kernel library implements probabilistic graphical model sampling through thermodynamic principles, with a fundamental architecture that is isomorphic to the D-ND framework. This section establishes the mathematical and computational connection between D-ND gates and THRML's block Gibbs sampling primitives, demonstrating how emergence-theoretic quantum computation naturally extends to thermodynamic hardware.
 
+<a id="6-5-1-spinnode-as-d-nd-dipole"></a>
 ### 6.5.1 SpinNode as D-ND Dipole
 
 The THRML library (Extropic AI) implements JAX-based block Gibbs sampling for probabilistic graphical models. Its fundamental data structure is the **SpinNode** with states {−1, +1}. This is mathematically and semantically equivalent to the D-ND singular-dual dipole:
@@ -718,6 +739,7 @@ where $s_i \in \{-1, +1\}$ are spin states, $J_{ij}$ are coupling weights (edge 
 - $h_i$ corresponding to the single-particle potential $V_0$
 - The inverse temperature $\beta = 1/T$ controlling the balance between quantum and classical regimes
 
+<a id="6-5-2-block-gibbs-sampling-as-iterative-emergence-from-nt"></a>
 ### 6.5.2 Block Gibbs Sampling as Iterative Emergence from |NT⟩
 
 THRML's block Gibbs sampling divides the graph into alternating blocks and updates each block conditioned on the rest. This procedure is isomorphic to the D-ND emergence process:
@@ -738,6 +760,7 @@ $$p(s_B \mid s_{B^c}) \propto \exp\left(-\beta E(s_B, s_{B^c})\right)$$
 
 where $B$ is the active block and $B^c$ is the rest of the graph. This conditional reweighting by energy exactly corresponds to the emergence operator's selective amplification of high-coherence branches in D-ND dynamics. The Boltzmann factor $\exp(-\beta E)$ weights configurations by their emergence "likelihood."
 
+<a id="6-5-3-boltzmann-machines-as-d-nd-energy-landscapes"></a>
 ### 6.5.3 Boltzmann Machines as D-ND Energy Landscapes
 
 Restricted Boltzmann Machines (RBMs) and general Boltzmann machines in THRML provide a natural mapping to D-ND bipartite structure:
@@ -764,6 +787,7 @@ $$V_{\text{eff}} = \int_0^1 M_C(t) E(t) \, dt$$
 
 where $M_C(t)$ (the emergence measure) plays the role of inverse temperature. At high emergence ($M_C \to 1$), the system is "cold" and locks onto low-energy states (high coherence). At low emergence ($M_C \to 0$), the system is "hot" and explores broadly (high entropy/possibility).
 
+<a id="6-5-4-practical-implementation-path-d-nd-gates-thrml-primitives"></a>
 ### 6.5.4 Practical Implementation Path: D-ND Gates ↔ THRML Primitives
 
 The four D-ND gates map directly to THRML operations:
@@ -788,18 +812,23 @@ The four D-ND gates map directly to THRML operations:
 - THRML can execute fully synchronous multi-block updates using topological graph structure
 - Both reduce circuit depth through structural exploitation
 
+<a id="6-5-5-computational-bridge-code-pseudocode"></a>
 ### 6.5.5 Computational Bridge: Code Pseudocode
 
 The following pseudocode illustrates the D-ND ↔ THRML bridge:
 
 ```python
+<a id="d-nd-thrml-bridge-conceptual-implementation"></a>
 # D-ND ↔ THRML Bridge: Conceptual Implementation
 from thrml import SpinNode, Block, IsingEBM, sample_states
 import jax
 import jax.numpy as jnp
 
+<a id=""></a>
 # ============================================
+<a id="1-d-nd-dipole-as-thrml-spinnode"></a>
 # (1) D-ND Dipole as THRML SpinNode
+<a id=""></a>
 # ============================================
 
 class DND_Qubit:
@@ -810,8 +839,11 @@ class DND_Qubit:
         self.phi_minus = -1
         self.phi_plus = +1
 
+<a id=""></a>
 # ============================================
+<a id="2-d-nd-system-as-ising-model"></a>
 # (2) D-ND System as Ising Model
+<a id=""></a>
 # ============================================
 
 def build_dnd_system(N: int, topology: list, h: jnp.ndarray,
@@ -842,8 +874,11 @@ def build_dnd_system(N: int, topology: list, h: jnp.ndarray,
     )
     return model, nodes
 
+<a id=""></a>
 # ============================================
+<a id="3-emergence-from-nt-via-block-gibbs"></a>
 # (3) Emergence from |NT⟩ via Block Gibbs
+<a id=""></a>
 # ============================================
 
 def emergence_from_NT(model: IsingEBM, key: jax.random.PRNGKey,
@@ -888,8 +923,11 @@ def emergence_from_NT(model: IsingEBM, key: jax.random.PRNGKey,
 
     return jnp.array(samples), jnp.array(emergence_measure)
 
+<a id=""></a>
 # ============================================
+<a id="4-d-nd-gate-implementation-via-thrml"></a>
 # (4) D-ND Gate Implementation via THRML
+<a id=""></a>
 # ============================================
 
 def hadamard_dnd(state: jnp.ndarray, model: IsingEBM,
@@ -934,8 +972,11 @@ def phase_dnd(qubit: int, state: jnp.ndarray, model: IsingEBM,
     )
     return new_state
 
+<a id=""></a>
 # ============================================
+<a id="5-full-d-nd-circuit-simulation"></a>
 # (5) Full D-ND Circuit Simulation
+<a id=""></a>
 # ============================================
 
 def simulate_dnd_circuit(N: int, gates: list, topology: list,
@@ -987,8 +1028,11 @@ def simulate_dnd_circuit(N: int, gates: list, topology: list,
 
     return state, jnp.array(emergence_trajectory)
 
+<a id=""></a>
 # ============================================
+<a id="6-usage-example"></a>
 # (6) Usage Example
+<a id=""></a>
 # ============================================
 
 if __name__ == "__main__":
@@ -1020,6 +1064,7 @@ if __name__ == "__main__":
     print(f"Max emergence: {emergence_vals.max():.4f}")
 ```
 
+<a id="6-5-6-significance-for-experimental-validation"></a>
 ### 6.5.6 Significance for Experimental Validation
 
 The THRML/Omega-Kernel framework provides the **most direct experimental validation pathway** for D-ND quantum gates:
@@ -1038,10 +1083,12 @@ The THRML/Omega-Kernel framework provides the **most direct experimental validat
 
 ---
 
+<a id="6-6-simulation-metrics-from-d-nd-hybrid-framework"></a>
 ### 6.6 Simulation Metrics from D-ND Hybrid Framework
 
 The corpus deep-reading exercise (extraction report: CORPUS_DEEP_READING_PAPERS_CF.md) has identified four key simulation metrics that quantify the hybrid quantum-classical transition in D-ND circuits. These metrics are computed directly by the THRML/Omega-Kernel backend and provide operational handles for monitoring circuit execution and determining termination conditions.
 
+<a id="6-6-1-coherence-measure-c-t"></a>
 ### 6.6.1 Coherence Measure: C(t)
 
 **Definition:**
@@ -1059,6 +1106,7 @@ where $\rho(t)$ is the density matrix at time t and $\rho(0)$ is the initial sta
 
 **Practical Use:** Monitor C(t) during circuit execution. When C(t) drops below a threshold (e.g., C_threshold = 0.05), the system has transitioned from quantum to classical. This signals when emergence-modulated gates should be switched to standard gates.
 
+<a id="6-6-2-tension-measure-t-t"></a>
 ### 6.6.2 Tension Measure: T(t)
 
 **Definition:**
@@ -1080,6 +1128,7 @@ where $\Delta t$ is the time step between measurements.
 
 **Practical Use:** T(t) serves as a convergence diagnostic. When T(t) remains below T_threshold = 10^{-5} for consecutive iterations, emergence has stabilized, and the circuit can be terminated.
 
+<a id="6-6-3-emergence-rate-dm-dt"></a>
 ### 6.6.3 Emergence Rate: dM/dt
 
 **Definition:**
@@ -1100,6 +1149,7 @@ where H is the effective circuit Hamiltonian.
 
 **Practical Use:** Extract dM/dt from simulation logs. Use it to estimate total emergence at circuit termination: $M(\infty) \approx 1 - (dM/dt)_{\text{late}}^{-1}$. High dM/dt in early gates suggests emergence is working as intended.
 
+<a id="6-6-4-convergence-criterion-stopping-rule"></a>
 ### 6.6.4 Convergence Criterion: ε-Stopping Rule
 
 **Definition:**
@@ -1117,6 +1167,7 @@ This ensures the circuit has reached a stable regime.
 - Set ε = 10^{-6} for high-fidelity requirements
 - Algorithm 5.2 (§5.3) checks this condition at each iteration and triggers error correction if violated
 
+<a id="6-6-5-pseudocode-thrml-backend-metric-computation"></a>
 ### 6.6.5 Pseudocode: THRML Backend Metric Computation
 
 The following pseudocode shows how the THRML/Omega-Kernel backend computes these metrics in real time:
@@ -1313,6 +1364,7 @@ def analyze_metrics(metric_log):
     return summary
 ```
 
+<a id="6-6-6-interpretation-and-use-cases"></a>
 ### 6.6.6 Interpretation and Use Cases
 
 **Use Case 1: Circuit Optimization**
@@ -1329,6 +1381,7 @@ Compare metric trajectories across different D-ND circuits and standard quantum 
 
 ---
 
+<a id="7-conclusions"></a>
 ## 7. Conclusions
 
 We have formalized the quantum-computational aspects of the D-ND framework:
@@ -1347,6 +1400,7 @@ We have formalized the quantum-computational aspects of the D-ND framework:
 
 7. **Quantum Advantage Positioning**: D-ND offers a distinct pathway to quantum speedup through emergence-assisted error suppression and controlled proto-actualization.
 
+<a id="future-directions"></a>
 ### Future Directions
 
 - **Hardware Implementation:** Develop a D-ND quantum simulator on superconducting qubits, using parametric emergence fields.
@@ -1357,12 +1411,14 @@ We have formalized the quantum-computational aspects of the D-ND framework:
 
 ---
 
+<a id="acknowledgments"></a>
 ## Acknowledgments
 
 This work builds on the D-ND theoretical framework developed in Papers A–E. The authors thank the quantum information and emergence dynamics research communities for foundational insights.
 
 ---
 
+<a id="appendix-a-proof-of-proposition-2-2"></a>
 ## Appendix A: Proof of Proposition 2.2
 
 **Proposition 2.2 (Hilbert Space Embedding):** If M_proto ≡ 0 and ℋ is separable, then ρ_DND defines a valid density operator and a weighted inner product on ℋ.
@@ -1395,6 +1451,7 @@ This work builds on the D-ND theoretical framework developed in Papers A–E. Th
 
 ---
 
+<a id="appendix-b-proof-of-proposition-4-3"></a>
 ## Appendix B: Proof of Proposition 4.3
 
 **Proposition 4.3 (Emergence-Assisted Error Suppression):** Per-gate error is suppressed linearly by emergence: $\varepsilon(t) = \varepsilon_0(1-M(t))$. Total fidelity satisfies $F_{\text{total}} \geq (1-\varepsilon_0)^{k(1-\bar{M})}$.
@@ -1474,6 +1531,7 @@ where $\sigma_j$ (j = 1,2,3) are Pauli matrices (for depolarizing noise). The co
 
 ---
 
+<a id="references"></a>
 ## References
 
 [1] Dirac, P. A. M. (1930). *The Principles of Quantum Mechanics*. Oxford University Press.

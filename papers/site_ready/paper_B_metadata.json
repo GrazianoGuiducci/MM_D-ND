@@ -1,0 +1,436 @@
+{
+  "title": "Phase Transitions and Lagrangian Dynamics in the D-ND Continuum: Complete Formulation and Validation",
+  "subtitle": "",
+  "authors": "D-ND Research Collective",
+  "date": "February 14, 2026",
+  "status": "Working Draft 3.0 — Under Review",
+  "keywords": [
+    "Lagrangian formalism",
+    "D-ND continuum",
+    "phase transitions",
+    "quantum-classical bridge",
+    "Ginzburg-Landau",
+    "Noether symmetries",
+    "conservation laws",
+    "critical exponents",
+    "information condensation",
+    "auto-optimization",
+    "variational principles",
+    "order parameter",
+    "emergence measure"
+  ],
+  "description": "Building on the quantum-theoretic foundations of Paper A (Track A), we present a complete Lagrangian formulation of the Dual-Non-Dual (D-ND) continuum with explicit conservation laws, phase transitions, and information-theoretic dynamics",
+  "paper_id": "B",
+  "paper_label": "Paper B",
+  "category": "paper",
+  "section": "dnd-model",
+  "sections": [
+    {
+      "level": 1,
+      "title": "Phase Transitions and Lagrangian Dynamics in the D-ND Continuum: Complete Formulation and Validation",
+      "slug": "phase-transitions-and-lagrangian-dynamics-in-the-d-nd-continuum-complete-formulation-and-validation"
+    },
+    {
+      "level": 2,
+      "title": "Abstract",
+      "slug": "abstract"
+    },
+    {
+      "level": 2,
+      "title": "1. Introduction: Why Lagrangian Formalism?",
+      "slug": "1-introduction-why-lagrangian-formalism"
+    },
+    {
+      "level": 3,
+      "title": "1.1 Motivation and Framework Connection",
+      "slug": "1-1-motivation-and-framework-connection"
+    },
+    {
+      "level": 3,
+      "title": "1.2 Core Contributions of This Work",
+      "slug": "1-2-core-contributions-of-this-work"
+    },
+    {
+      "level": 2,
+      "title": "2. Complete Lagrangian $L_{DND}$: Derivation from D-ND Axioms",
+      "slug": "2-complete-lagrangian-l-dnd-derivation-from-d-nd-axioms"
+    },
+    {
+      "level": 3,
+      "title": "2.0 The D-ND System as a Singular-Dual Dipole",
+      "slug": "2-0-the-d-nd-system-as-a-singular-dual-dipole"
+    },
+    {
+      "level": 3,
+      "title": "2.1 Decomposition and Physical Interpretation",
+      "slug": "2-1-decomposition-and-physical-interpretation"
+    },
+    {
+      "level": 3,
+      "title": "2.2 Kinetic Term: $L_{kin} = \\frac{1}{2}m\\dot{Z}^2$",
+      "slug": "2-2-kinetic-term-l-kin-frac-1-2-m-dot-z-2"
+    },
+    {
+      "level": 3,
+      "title": "2.3 Potential Term: $V_{eff}(R, NT)$ and $L_{pot} = -V(Z, \\theta_{NT}, \\lambda_{DND})$",
+      "slug": "2-3-potential-term-v-eff-r-nt-and-l-pot-v-z-theta-nt-lambda-dnd"
+    },
+    {
+      "level": 3,
+      "title": "2.4 Interaction Term: $L_{int}$ and Inter-Sector Coupling",
+      "slug": "2-4-interaction-term-l-int-and-inter-sector-coupling"
+    },
+    {
+      "level": 3,
+      "title": "2.5 Quality of Organization: $L_{QOS} = -K \\cdot S(Z)$",
+      "slug": "2-5-quality-of-organization-l-qos-k-cdot-s-z"
+    },
+    {
+      "level": 3,
+      "title": "2.6 Gravitational Term: $L_{grav} = -G(Z, \\text{curvature})$",
+      "slug": "2-6-gravitational-term-l-grav-g-z-text-curvature"
+    },
+    {
+      "level": 3,
+      "title": "2.7 Fluctuation Forcing: $L_{fluct} = \\varepsilon \\sin(\\omega t + \\theta) \\rho(x,t)$",
+      "slug": "2-7-fluctuation-forcing-l-fluct-varepsilon-sin-omega-t-theta-rho-x-t"
+    },
+    {
+      "level": 3,
+      "title": "2.8 Summary: Complete Lagrangian",
+      "slug": "2-8-summary-complete-lagrangian"
+    },
+    {
+      "level": 2,
+      "title": "3. Euler-Lagrange Equations of Motion",
+      "slug": "3-euler-lagrange-equations-of-motion"
+    },
+    {
+      "level": 3,
+      "title": "3.1 Variational Principle and Canonical Derivation",
+      "slug": "3-1-variational-principle-and-canonical-derivation"
+    },
+    {
+      "level": 3,
+      "title": "3.2 Canonical Equation of Motion",
+      "slug": "3-2-canonical-equation-of-motion"
+    },
+    {
+      "level": 3,
+      "title": "3.3 Noether's Theorem and Conservation Laws",
+      "slug": "3-3-noether-s-theorem-and-conservation-laws"
+    },
+    {
+      "level": 4,
+      "title": "Energy Conservation from Temporal Translation",
+      "slug": "energy-conservation-from-temporal-translation"
+    },
+    {
+      "level": 4,
+      "title": "Information Current from Spacetime Structure",
+      "slug": "information-current-from-spacetime-structure"
+    },
+    {
+      "level": 4,
+      "title": "Cyclic Coherence and Quantization",
+      "slug": "cyclic-coherence-and-quantization"
+    },
+    {
+      "level": 3,
+      "title": "3.4 Physical Interpretation of Equations",
+      "slug": "3-4-physical-interpretation-of-equations"
+    },
+    {
+      "level": 3,
+      "title": "3.5 Auto-Optimization Force: $F_{auto}(R(t)) = -\\nabla_R L(R(t))$",
+      "slug": "3-5-auto-optimization-force-f-auto-r-t-nabla-r-l-r-t"
+    },
+    {
+      "level": 3,
+      "title": "3.6 Periodic Orbits and Cyclic Coherence: $\\Omega_{NT} = 2\\pi i$",
+      "slug": "3-6-periodic-orbits-and-cyclic-coherence-omega-nt-2-pi-i"
+    },
+    {
+      "level": 2,
+      "title": "4. Phase Transitions, Bifurcation Analysis, and Critical Exponents",
+      "slug": "4-phase-transitions-bifurcation-analysis-and-critical-exponents"
+    },
+    {
+      "level": 3,
+      "title": "4.1 Phase Diagram: $(\\theta_{NT}, \\lambda_{DND})$ Space",
+      "slug": "4-1-phase-diagram-theta-nt-lambda-dnd-space"
+    },
+    {
+      "level": 3,
+      "title": "4.2 Bifurcation Structure and Critical Exponent Derivation",
+      "slug": "4-2-bifurcation-structure-and-critical-exponent-derivation"
+    },
+    {
+      "level": 4,
+      "title": "Critical Exponents in Mean-Field Theory",
+      "slug": "critical-exponents-in-mean-field-theory"
+    },
+    {
+      "level": 4,
+      "title": "Ginzburg-Landau Universality Class and Effective Dimension",
+      "slug": "ginzburg-landau-universality-class-and-effective-dimension"
+    },
+    {
+      "level": 4,
+      "title": "4.2.2 Validity Regime of Mean-Field Exponents",
+      "slug": "4-2-2-validity-regime-of-mean-field-exponents"
+    },
+    {
+      "level": 3,
+      "title": "4.3 Spinodal Decomposition Analysis",
+      "slug": "4-3-spinodal-decomposition-analysis"
+    },
+    {
+      "level": 3,
+      "title": "4.4 Numerical Phase Diagram",
+      "slug": "4-4-numerical-phase-diagram"
+    },
+    {
+      "level": 3,
+      "title": "4.5 Distinguishing D-ND from Standard Landau Theory",
+      "slug": "4-5-distinguishing-d-nd-from-standard-landau-theory"
+    },
+    {
+      "level": 4,
+      "title": "4.5.1 Prediction 1: Time-Dependent Coupling Parameter $\\lambda_{DND}(t)$",
+      "slug": "4-5-1-prediction-1-time-dependent-coupling-parameter-lambda-dnd-t"
+    },
+    {
+      "level": 4,
+      "title": "4.5.2 Prediction 2: Directed Information Condensation and Entropy Production Rate",
+      "slug": "4-5-2-prediction-2-directed-information-condensation-and-entropy-production-rate"
+    },
+    {
+      "level": 4,
+      "title": "4.5.3 Prediction 3: Singular-Dual Dipole Hysteresis",
+      "slug": "4-5-3-prediction-3-singular-dual-dipole-hysteresis"
+    },
+    {
+      "level": 4,
+      "title": "4.5.4 Summary: Three Falsifiable D-ND Predictions",
+      "slug": "4-5-4-summary-three-falsifiable-d-nd-predictions"
+    },
+    {
+      "level": 2,
+      "title": "5. Quantum-Classical Bridge: $M(t) \\leftrightarrow Z(t)$",
+      "slug": "5-quantum-classical-bridge-m-t-leftrightarrow-z-t"
+    },
+    {
+      "level": 3,
+      "title": "5.1 Connection to Paper A §5.4",
+      "slug": "5-1-connection-to-paper-a-5-4"
+    },
+    {
+      "level": 3,
+      "title": "5.2 Effective Potential from Spectral Structure of the Emergence Operator",
+      "slug": "5-2-effective-potential-from-spectral-structure-of-the-emergence-operator"
+    },
+    {
+      "level": 3,
+      "title": "5.3 Z(t) Master Equation: From Quantum to Classical Dynamics",
+      "slug": "5-3-z-t-master-equation-from-quantum-to-classical-dynamics"
+    },
+    {
+      "level": 4,
+      "title": "5.3.1 Derivation of Master Equation B1 from the D-ND Lagrangian",
+      "slug": "5-3-1-derivation-of-master-equation-b1-from-the-d-nd-lagrangian"
+    },
+    {
+      "level": 3,
+      "title": "5.4 Discrete-Continuous Correspondence: From Paper A to Paper B",
+      "slug": "5-4-discrete-continuous-correspondence-from-paper-a-to-paper-b"
+    },
+    {
+      "level": 3,
+      "title": "5.5 Validity and Consistency Check",
+      "slug": "5-5-validity-and-consistency-check"
+    },
+    {
+      "level": 2,
+      "title": "6. Numerical Validation and Dynamical Analysis",
+      "slug": "6-numerical-validation-and-dynamical-analysis"
+    },
+    {
+      "level": 3,
+      "title": "6.1 Convergence and Attractor Analysis",
+      "slug": "6-1-convergence-and-attractor-analysis"
+    },
+    {
+      "level": 3,
+      "title": "6.2 Energy Dissipation and Energy-Momentum Conservation",
+      "slug": "6-2-energy-dissipation-and-energy-momentum-conservation"
+    },
+    {
+      "level": 3,
+      "title": "6.3 Lyapunov Exponent Calculation",
+      "slug": "6-3-lyapunov-exponent-calculation"
+    },
+    {
+      "level": 3,
+      "title": "6.4 Bifurcation Diagram",
+      "slug": "6-4-bifurcation-diagram"
+    },
+    {
+      "level": 3,
+      "title": "6.5 Theory vs. Simulation Comparison",
+      "slug": "6-5-theory-vs-simulation-comparison"
+    },
+    {
+      "level": 2,
+      "title": "7. Information Dynamics and Dissipation",
+      "slug": "7-information-dynamics-and-dissipation"
+    },
+    {
+      "level": 3,
+      "title": "7.1 Dissipation, Arrow of Time, and Irreversibility",
+      "slug": "7-1-dissipation-arrow-of-time-and-irreversibility"
+    },
+    {
+      "level": 3,
+      "title": "7.2 Self-Organized Criticality",
+      "slug": "7-2-self-organized-criticality"
+    },
+    {
+      "level": 3,
+      "title": "7.3 Information Condensation: Error Dissipation Mechanism",
+      "slug": "7-3-information-condensation-error-dissipation-mechanism"
+    },
+    {
+      "level": 2,
+      "title": "8. Discussion: Observer Emergence and Beyond Landau Theory",
+      "slug": "8-discussion-observer-emergence-and-beyond-landau-theory"
+    },
+    {
+      "level": 3,
+      "title": "8.1 Observer as Dynamical Variable and Singular-Dual Bifurcation",
+      "slug": "8-1-observer-as-dynamical-variable-and-singular-dual-bifurcation"
+    },
+    {
+      "level": 3,
+      "title": "8.2 Comparison with Standard Phase Transition Theories",
+      "slug": "8-2-comparison-with-standard-phase-transition-theories"
+    },
+    {
+      "level": 4,
+      "title": "D-ND vs. Landau Theory",
+      "slug": "d-nd-vs-landau-theory"
+    },
+    {
+      "level": 4,
+      "title": "D-ND vs. Ising Model Universality",
+      "slug": "d-nd-vs-ising-model-universality"
+    },
+    {
+      "level": 4,
+      "title": "D-ND vs. Kosterlitz-Thouless Transitions",
+      "slug": "d-nd-vs-kosterlitz-thouless-transitions"
+    },
+    {
+      "level": 3,
+      "title": "8.3 What D-ND Phase Transitions Add Beyond Standard Frameworks",
+      "slug": "8-3-what-d-nd-phase-transitions-add-beyond-standard-frameworks"
+    },
+    {
+      "level": 3,
+      "title": "8.4 Extension to Information Geometry (Paper C) and Cosmological Applications (Paper E)",
+      "slug": "8-4-extension-to-information-geometry-paper-c-and-cosmological-applications-paper-e"
+    },
+    {
+      "level": 4,
+      "title": "Higher-Dimensional Order Parameters (Paper C)",
+      "slug": "higher-dimensional-order-parameters-paper-c"
+    },
+    {
+      "level": 4,
+      "title": "Cosmological Extension (Paper E)",
+      "slug": "cosmological-extension-paper-e"
+    },
+    {
+      "level": 3,
+      "title": "8.5 Experimental Signatures and Quantitative Predictions",
+      "slug": "8-5-experimental-signatures-and-quantitative-predictions"
+    },
+    {
+      "level": 4,
+      "title": "Prediction 1: Information Current Dynamics and Energy Flow Asymmetry",
+      "slug": "prediction-1-information-current-dynamics-and-energy-flow-asymmetry"
+    },
+    {
+      "level": 4,
+      "title": "Prediction 2: Spinodal Decomposition Rate and Metastability Boundary",
+      "slug": "prediction-2-spinodal-decomposition-rate-and-metastability-boundary"
+    },
+    {
+      "level": 4,
+      "title": "Prediction 3: Coherence Loss Correlation and Classical Order Emergence",
+      "slug": "prediction-3-coherence-loss-correlation-and-classical-order-emergence"
+    },
+    {
+      "level": 2,
+      "title": "9. Conclusions",
+      "slug": "9-conclusions"
+    },
+    {
+      "level": 2,
+      "title": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "title": "Primary Sources (D-ND Framework)",
+      "slug": "primary-sources-d-nd-framework"
+    },
+    {
+      "level": 3,
+      "title": "Variational Methods and Lagrangian Mechanics",
+      "slug": "variational-methods-and-lagrangian-mechanics"
+    },
+    {
+      "level": 3,
+      "title": "Phase Transitions and Critical Phenomena",
+      "slug": "phase-transitions-and-critical-phenomena"
+    },
+    {
+      "level": 3,
+      "title": "Noether's Theorem and Symmetry",
+      "slug": "noether-s-theorem-and-symmetry"
+    },
+    {
+      "level": 3,
+      "title": "Quantum Decoherence and Lindblad Dynamics",
+      "slug": "quantum-decoherence-and-lindblad-dynamics"
+    },
+    {
+      "level": 3,
+      "title": "Cosmology and Quantum Gravity",
+      "slug": "cosmology-and-quantum-gravity"
+    },
+    {
+      "level": 3,
+      "title": "Information-Theoretic Approaches",
+      "slug": "information-theoretic-approaches"
+    },
+    {
+      "level": 3,
+      "title": "Logic of the Included Third",
+      "slug": "logic-of-the-included-third"
+    },
+    {
+      "level": 2,
+      "title": "Appendix A: Notation Summary",
+      "slug": "appendix-a-notation-summary"
+    },
+    {
+      "level": 2,
+      "title": "Appendix B: Key Equations Summary",
+      "slug": "appendix-b-key-equations-summary"
+    }
+  ],
+  "figure_count": 0,
+  "page_count_latex": 25
+}

@@ -1,22 +1,15 @@
-# Phase Transitions and Lagrangian Dynamics in the D-ND Continuum: Complete Formulation and Validation
-
-**Authors:** D-ND Research Collective
-**Date:** February 14, 2026
-**Status:** Working Draft 3.0 — Under Review
-**Target:** Physical Review D / Foundations of Physics
-
----
-
+<a id="abstract"></a>
 ## Abstract
 
 Building on the quantum-theoretic foundations of Paper A (Track A), we present a complete Lagrangian formulation of the Dual-Non-Dual (D-ND) continuum with explicit conservation laws, phase transitions, and information-theoretic dynamics. The observer emerges as the Resultant $R(t)$, parameterized by a single classical order parameter $Z(t) \in [0,1]$, evolving through a Null-All (Nulla-Tutto) space under variational principles. We formulate the **complete Lagrangian** $L_{DND} = L_{kin} + L_{pot} + L_{int} + L_{QOS} + L_{grav} + L_{fluct}$, decomposing quantum emergence (from Paper A §5) into classically tractable terms. From the **effective potential** $V_{eff}(R, NT) = -\lambda(R^2 - NT^2)^2 - \kappa(R \cdot NT)^n$ and interaction term $L_{int} = \sum_k g_k(R_k NT_k + NT_k R_k) + \delta V f_{Pol}(S)$, we derive via Euler-Lagrange the fundamental equation of motion: $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$. We establish **Noether's theorem applied to D-ND symmetries**, deriving conserved quantities including energy $E(t)$ and information current $\mathcal{J}_{\text{info}}(t)$ that govern emergence irreversibility. The cyclic coherence condition $\Omega_{NT} = 2\pi i$ defines periodic orbits and quantization. We establish a comprehensive **phase diagram** in parameter space $(\theta_{NT}, \lambda_{DND})$ exhibiting sharp transitions consistent with the **Ginzburg-Landau universality class**, with detailed derivation of critical exponents ($\beta=1/2, \gamma=1, \delta=3, \nu=1/2$ for mean-field) and spinodal decomposition analysis. We present the **Z(t) master equation** $R(t+1) = P(t) \cdot \exp(\pm\lambda Z(t)) \cdot \int [\text{generative} - \text{dissipation}] dt'$ connecting quantum coherence to classical order. Numerical integration via adaptive Runge-Kutta validates theory: convergence to attractors with $L^2$ error $\sim 8.84 \times 10^{-8}$, Lyapunov exponents confirming stability structure, and bifurcation diagrams matching theory. We introduce **information condensation** mechanism via error dissipation term $\xi \cdot \partial R/\partial t$ that drives classical order from quantum superposition. Finally, we demonstrate how D-ND phase transitions transcend standard Landau theory through the role of information dynamics and compare explicitly with Ising model universality and Kosterlitz-Thouless transitions. This work completes the D-ND framework by providing deterministic, computable dynamics for observer emergence in a continuum of potentiality.
 
 **Keywords:** Lagrangian formalism, D-ND continuum, phase transitions, quantum-classical bridge, Ginzburg-Landau, Noether symmetries, conservation laws, critical exponents, information condensation, auto-optimization, variational principles, order parameter, emergence measure
 
----
 
+<a id="1-introduction-why-lagrangian-formalism"></a>
 ## 1. Introduction: Why Lagrangian Formalism?
 
+<a id="1-1-motivation-and-framework-connection"></a>
 ### 1.1 Motivation and Framework Connection
 
 In Paper A (Track A), we established the quantum emergence measure $M(t) = 1 - |\langle NT|U(t)\mathcal{E}|NT\rangle|^2$ as the fundamental driver of state differentiation in a closed D-ND system. However, the quantum description, while rigorous, leaves a gap: **how do we compute observables and predict macroscopic dynamics without solving the full $N$-body quantum problem?**
@@ -38,6 +31,7 @@ The effective potential $V_{eff}(Z)$ is determined by the spectral structure of 
 - **Paper E (Cosmological Extension)**: Couples the $Z(t)$ dynamics to cosmological scale factors and gravitational fields. The gravitational Lagrangian term $L_{grav} = -\alpha K_{gen}(Z) \cdot Z$ becomes dynamical in Paper E.
 - **Singular-Dual Dipole Structure**: The present framework shows that the observer emerges through bifurcation from a singular (undifferentiated) pole toward a dual pole, parameterized by $Z(t)$.
 
+<a id="1-2-core-contributions-of-this-work"></a>
 ### 1.2 Core Contributions of This Work
 
 1. **Complete Lagrangian Decomposition**: Explicit formulas for $L_{kin}, L_{pot}, L_{int}, L_{QOS}, L_{grav}, L_{fluct}$ with physical interpretations.
@@ -55,8 +49,10 @@ The effective potential $V_{eff}(Z)$ is determined by the spectral structure of 
 
 ---
 
+<a id="2-complete-lagrangian-l-dnd-derivation-from-d-nd-axioms"></a>
 ## 2. Complete Lagrangian $L_{DND}$: Derivation from D-ND Axioms
 
+<a id="2-0-the-d-nd-system-as-a-singular-dual-dipole"></a>
 ### 2.0 The D-ND System as a Singular-Dual Dipole
 
 Before decomposing the full Lagrangian, we establish the fundamental ontological structure: **The D-ND system is inherently a dipole oscillating between singular and dual poles.** This is not a metaphor but a precise mathematical statement.
@@ -72,6 +68,7 @@ This dipole perspective unifies Paper A's quantum framework with the classical L
 
 **The Third Included ($T_I$) as Proto-Axiom:** The singular-dual dipole structure implies a logical element that classical binary logic excludes: the *Third Included* ($T_I$). In the logic of the excluded middle (*tertium non datur*), every proposition is either true or false. The D-ND framework replaces this with the *logic of the included third* (Lupasco 1951; Nicolescu 2002): there exists a state $T_I$ that is neither $\Phi_+$ nor $\Phi_-$ but precedes and generates both. In the Lagrangian formalism, $T_I$ corresponds to the saddle point of $V_{\text{eff}}(Z)$ at $Z = Z_c$ — the critical point where the system has not yet committed to either the Null or Totality attractor. The Third Included is not a compromise between opposites but the *generative proto-axiom* from which the dipole structure itself emerges. It enters the Lagrangian as the linear symmetry-breaking term $\lambda_{\text{DND}} \cdot \theta_{NT} \cdot Z(1-Z)$, which lifts the degeneracy of the double-well and selects the direction of emergence.
 
+<a id="2-1-decomposition-and-physical-interpretation"></a>
 ### 2.1 Decomposition and Physical Interpretation
 
 The total Lagrangian for the Resultant $R(t)$ parameterized by $Z(t)$ is:
@@ -86,6 +83,7 @@ This decomposition arises naturally from the D-ND framework:
 - **Gravitational** ($L_{grav}$): Coupling to geometric/curvature degrees of freedom (extended in Paper E, cosmological extension). Links observer emergence to spacetime geometry.
 - **Fluctuation** ($L_{fluct}$): Stochastic forcing from quantum vacuum or thermal effects. Seeds exploration of the singular-dual continuum.
 
+<a id="2-2-kinetic-term-l-kin-frac-1-2-m-dot-z-2"></a>
 ### 2.2 Kinetic Term: $L_{kin} = \frac{1}{2}m\dot{Z}^2$
 
 **Derivation:** The rate of change of differentiation from $|NT\rangle$ is measured by $\dot{M}(t) = \dot{Z}(t)$. The kinetic energy cost for rapid transitions is:
@@ -96,6 +94,7 @@ where $m$ is the effective inertial mass (set to $m=1$ in natural units). Physic
 
 **Interpretation:** High $\dot{Z}$ (rapid emergence) requires large kinetic energy, suppressing infinitely fast transitions—a key feature of causality and locality.
 
+<a id="2-3-potential-term-v-eff-r-nt-and-l-pot-v-z-theta-nt-lambda-dnd"></a>
 ### 2.3 Potential Term: $V_{eff}(R, NT)$ and $L_{pot} = -V(Z, \theta_{NT}, \lambda_{DND})$
 
 **From Paper A §5.4**, the effective potential satisfies:
@@ -132,6 +131,7 @@ following the standard convention $L = T - V$ (kinetic minus potential).
 
 **Physical meaning:** The system naturally segregates into pure states (Null or Totality) because mixed states (intermediate $Z$) are dynamically unstable.
 
+<a id="2-4-interaction-term-l-int-and-inter-sector-coupling"></a>
 ### 2.4 Interaction Term: $L_{int}$ and Inter-Sector Coupling
 
 **From Paper A §2.5**, the Hamiltonian decomposes as:
@@ -157,6 +157,7 @@ already incorporated into the double-well potential through the $\lambda_{DND} \
 
 **Physical meaning:** The interaction term enforces global coherence—the dual and anti-dual sectors remain entangled during evolution, preventing decoherence into classical product states.
 
+<a id="2-5-quality-of-organization-l-qos-k-cdot-s-z"></a>
 ### 2.5 Quality of Organization: $L_{QOS} = -K \cdot S(Z)$
 
 **Definition:** To drive the system toward ordered (low-entropy) configurations:
@@ -173,6 +174,7 @@ the Shannon entropy of the distribution $(Z, 1-Z)$.
 
 **Coupling constant $K$:** Dimensional analysis: $[K] = \text{energy}$. For the D-ND system, $K \sim \hbar \omega_0$ where $\omega_0$ is a characteristic frequency.
 
+<a id="2-6-gravitational-term-l-grav-g-z-text-curvature"></a>
 ### 2.6 Gravitational Term: $L_{grav} = -G(Z, \text{curvature})$
 
 **Placeholder:** This term represents coupling to geometric or field-theoretic degrees of freedom. In the current simplified model:
@@ -186,6 +188,7 @@ $$L_{grav} = -\alpha \, K_{gen}(Z) \cdot Z$$
 
 where $K_{gen}$ is the generalized informational curvature from Paper A §6.
 
+<a id="2-7-fluctuation-forcing-l-fluct-varepsilon-sin-omega-t-theta-rho-x-t"></a>
 ### 2.7 Fluctuation Forcing: $L_{fluct} = \varepsilon \sin(\omega t + \theta) \rho(x,t)$
 
 **Definition (from UNIFIED_FORMULA_SYNTHESIS):**
@@ -204,6 +207,7 @@ $$L_{fluct} = \varepsilon \sin(\omega t + \theta) \cdot Z(t)$$
 
 **Physical interpretation:** Represents stochastic forcing from quantum vacuum fluctuations or thermal noise. In deterministic studies (this paper), $\varepsilon \approx 0$; in stochastic extensions, $\varepsilon > 0$ drives transitions between attractors.
 
+<a id="2-8-summary-complete-lagrangian"></a>
 ### 2.8 Summary: Complete Lagrangian
 
 $$\boxed{L_{DND} = \frac{1}{2}\dot{Z}^2 - V(Z, \theta_{NT}, \lambda_{DND}) - K \cdot S(Z) + g_0 \theta_{NT} Z(1-Z) + 0 + \varepsilon \sin(\omega t + \theta) Z}$$
@@ -212,8 +216,10 @@ where the last two terms are placeholders (gravitational and fluctuation forcing
 
 ---
 
+<a id="3-euler-lagrange-equations-of-motion"></a>
 ## 3. Euler-Lagrange Equations of Motion
 
+<a id="3-1-variational-principle-and-canonical-derivation"></a>
 ### 3.1 Variational Principle and Canonical Derivation
 
 The action is:
@@ -235,6 +241,7 @@ $$\frac{d}{dt}(\dot{Z}) - \left(-\frac{\partial V}{\partial Z}\right) + c\dot{Z}
 
 where $c$ is the dissipation coefficient (from Paper A §3.6: $\Gamma = \sigma^2_V/\hbar^2 \langle(\Delta\hat{V}_0)^2\rangle$, mapped to $c$).
 
+<a id="3-2-canonical-equation-of-motion"></a>
 ### 3.2 Canonical Equation of Motion
 
 Collecting all terms:
@@ -252,12 +259,14 @@ $$\boxed{\ddot{Z} + c\dot{Z} + \frac{\partial V}{\partial Z} = 0}$$
 
 This is the **fundamental equation of motion** for the D-ND continuum.
 
+<a id="3-3-noether-s-theorem-and-conservation-laws"></a>
 ### 3.3 Noether's Theorem and Conservation Laws
 
 **Conserved Quantities from D-ND Symmetries**
 
 Noether's theorem states that every continuous symmetry of the action $S = \int L \, dt$ corresponds to a conserved quantity. We apply this to the D-ND Lagrangian to derive conservation laws governing emergence.
 
+<a id="energy-conservation-from-temporal-translation"></a>
 #### Energy Conservation from Temporal Translation
 
 **Symmetry:** Time translation invariance—the Lagrangian is independent of explicit time (except through $\varepsilon \sin(\omega t + \theta)$, which we set to zero for the conservative system).
@@ -270,6 +279,7 @@ $$\frac{dE}{dt} = \dot{Z}\ddot{Z} + \dot{Z}\frac{\partial V}{\partial Z} = -c(\d
 
 Energy monotonically decreases, manifesting the irreversible character of emergence.
 
+<a id="information-current-from-spacetime-structure"></a>
 #### Information Current from Spacetime Structure
 
 **Symmetry:** While the D-ND system does not possess explicit translational invariance in an external spacetime, we can define an internal "information flux" by examining how the action changes under "shifts" in the order parameter landscape.
@@ -286,6 +296,7 @@ $$\frac{dS_{\text{emerge}}}{dt} = c(\dot{Z})^2 + \text{dissipation terms} \geq 0
 
 This quantifies the irreversibility of emergence: entropy produced by dissipation is never negative, establishing a **second law of emergence**.
 
+<a id="cyclic-coherence-and-quantization"></a>
 #### Cyclic Coherence and Quantization
 
 **Symmetry:** Gauge-like symmetry under phase rotations in the non-dual sector.
@@ -295,12 +306,14 @@ $$\boxed{\Omega_{NT} = 2\pi i}$$
 
 This quantization condition ensures that periodic orbits return to their starting point with fixed phase, quantizing the energy spectrum in the undamped limit.
 
+<a id="3-4-physical-interpretation-of-equations"></a>
 ### 3.4 Physical Interpretation of Equations
 
 - **Inertial term** ($\ddot{Z}$): Resistance to acceleration; larger effective mass $m$ means slower response to forces.
 - **Damping term** ($c\dot{Z}$): Energy dissipation due to absorption into the environment or non-local degrees of freedom (controlled by the Lindblad decoherence rate $\Gamma$ from Paper A).
 - **Potential force** ($\partial V/\partial Z$): The gradient of $V$ drives $Z$ toward minima (stable attractors). At $Z=0$ or $Z=1$, the force vanishes (equilibrium); at $Z=1/2$, the force is maximal (unstable saddle point).
 
+<a id="3-5-auto-optimization-force-f-auto-r-t-nabla-r-l-r-t"></a>
 ### 3.5 Auto-Optimization Force: $F_{auto}(R(t)) = -\nabla_R L(R(t))$
 
 **From UNIFIED_FORMULA_SYNTHESIS (formula B7):**
@@ -313,6 +326,7 @@ $$F_{auto} = \frac{\partial V}{\partial Z}$$
 
 **Physical meaning:** The system automatically optimizes—selects trajectories that minimize the action functional. This is the classical mechanism underlying emergence: the Resultant $R(t)$ evolves to minimize the total action, a principle that unifies mechanics, field theory, and information dynamics.
 
+<a id="3-6-periodic-orbits-and-cyclic-coherence-omega-nt-2-pi-i"></a>
 ### 3.6 Periodic Orbits and Cyclic Coherence: $\Omega_{NT} = 2\pi i$
 
 **From UNIFIED_FORMULA_SYNTHESIS (formula S8):**
@@ -335,10 +349,12 @@ $$E_n = \hbar \omega_0 (n + 1/2), \quad n = 0, 1, 2, \ldots$$
 
 ---
 
+<a id="4-phase-transitions-bifurcation-analysis-and-critical-exponents"></a>
 ## 4. Phase Transitions, Bifurcation Analysis, and Critical Exponents
 
 **Remark (Relationship to Standard Universality Classes):** The critical exponents derived below ($\beta = 1/2$, $\gamma = 1$, $\delta = 3$, $\nu = 1/2$) are the canonical mean-field values of Ginzburg-Landau theory, known since the 1960s (Landau & Lifshitz 1980). We do not claim these exponents as novel predictions of D-ND. Rather, we demonstrate that D-ND emergence dynamics belong to the Ginzburg-Landau universality class in the mean-field regime — a consistency check establishing that the framework reproduces known physics in the appropriate limit. The potentially novel D-ND predictions lie in three areas: (1) the *time-dependent coupling* $\lambda_{\text{DND}}(t)$ (§4.5, Prediction 1), which has no counterpart in static Landau theory; (2) the *directed information condensation* with entropy production $\sigma(t) > 0$ monotonically decreasing (§4.5, Prediction 2); and (3) the *rate-dependent hysteresis super-linearity* (§4.5, Prediction 3). These three predictions distinguish D-ND from standard Ginzburg-Landau and are experimentally testable.
 
+<a id="4-1-phase-diagram-theta-nt-lambda-dnd-space"></a>
 ### 4.1 Phase Diagram: $(\theta_{NT}, \lambda_{DND})$ Space
 
 We explore the parameter space systematically. Critical points of the potential satisfy:
@@ -355,6 +371,7 @@ For typical parameter ranges ($\lambda_{DND} \approx 0.1$, $\theta_{NT} \approx 
 
 Thus, **$Z = 1/2$ is the primary interior critical point**.
 
+<a id="4-2-bifurcation-structure-and-critical-exponent-derivation"></a>
 ### 4.2 Bifurcation Structure and Critical Exponent Derivation
 
 **Bifurcation type:** As $\lambda_{DND}$ varies, the landscape changes from symmetric (at $\lambda_{DND} = 0$) to asymmetric (at $\lambda_{DND} > 0$), exhibiting a **pitchfork bifurcation**:
@@ -363,6 +380,7 @@ Thus, **$Z = 1/2$ is the primary interior critical point**.
 - At $\lambda_{DND} = \lambda_c$: Bifurcation point; attractors coincide at $Z_c$.
 - For $\lambda_{DND} > \lambda_c$: Asymmetric attractors with one preferred.
 
+<a id="critical-exponents-in-mean-field-theory"></a>
 #### Critical Exponents in Mean-Field Theory
 
 **Order parameter exponent $\beta$:** Near the bifurcation point, the equilibrium order parameter behaves as:
@@ -423,6 +441,7 @@ $$C \propto |\lambda - \lambda_c|^{-\alpha}$$
 In mean-field theory, the specific heat exhibits logarithmic singularities:
 $$\boxed{\alpha = 0 \quad \text{(logarithmic divergence)}}$$
 
+<a id="ginzburg-landau-universality-class-and-effective-dimension"></a>
 #### Ginzburg-Landau Universality Class and Effective Dimension
 
 **Theory (from Paper A §5.4):** The effective potential $V(Z)$ has the form:
@@ -456,6 +475,7 @@ $$1 = (1/2)(3 - 1) = 1 \quad ✓$$
 
 **D-ND interpretation:** The D-ND system exhibits second-order phase transitions with mean-field (Ginzburg-Landau) behavior due to the global nature of the order parameter $Z(t)$. The fact that the system is described by a single scalar field (rather than requiring spatial correlations) means it naturally inhabits the mean-field regime, explaining why the exponents are exactly $\beta=1/2, \gamma=1,$ etc., without finite-size corrections. This places the framework in direct contact with experimental condensed-matter physics, enabling quantitative comparison with real phase-transition data from systems with global order parameters (e.g., superconductors, ferrofluids).
 
+<a id="4-2-2-validity-regime-of-mean-field-exponents"></a>
 #### 4.2.2 Validity Regime of Mean-Field Exponents
 
 **Critical Caveat on Universality Class Applicability:**
@@ -506,6 +526,7 @@ A key prediction of the D-ND framework is that **the universality class itself c
 
 Testing this transition (e.g., by varying the interaction range in an analog quantum simulator) would provide **falsifiable evidence for the D-ND framework's predictions about criticality**, distinguishing it from standard Landau theory where universality class is fixed by symmetry and dimension alone.
 
+<a id="4-3-spinodal-decomposition-analysis"></a>
 ### 4.3 Spinodal Decomposition Analysis
 
 **Spinodal lines:** The spinodal curve $\lambda_s(\theta_{NT})$ defines the limit of metastability—the boundary beyond which the system cannot remain in a mixed state even as a local minimum of the free energy.
@@ -528,6 +549,7 @@ $$\boxed{\lambda_{DND}^{\text{spinodal}} = \frac{1}{\theta_{NT}}}$$
 
 **Interpretation:** For $\lambda_{DND} < 1/\theta_{NT}$, the system exhibits stable mixed states around $Z = 1/2$. For $\lambda_{DND} > 1/\theta_{NT}$, the mixed state becomes locally unstable and spontaneous phase separation occurs (spinodal decomposition), with the system rapidly evolving toward the nearest stable attractor.
 
+<a id="4-4-numerical-phase-diagram"></a>
 ### 4.4 Numerical Phase Diagram
 
 **Parameter scan:**
@@ -548,12 +570,14 @@ $$\boxed{\lambda_{DND}^{\text{spinodal}} = \frac{1}{\theta_{NT}}}$$
 
 **Physical meaning:** The intrinsic bias toward Null (52.8% basin) when $\lambda = 0$ suggests that undifferentiated potentiality is the natural resting state, and manifestation requires active inter-sector coupling.
 
+<a id="4-5-distinguishing-d-nd-from-standard-landau-theory"></a>
 ### 4.5 Distinguishing D-ND from Standard Landau Theory
 
 **Central Question:** If the critical exponents match Landau theory exactly ($\beta=1/2, \gamma=1, \delta=3, \nu=1/2$), what observable distinguishes D-ND from standard Landau theory? The singular-dual dipole framing is conceptually interesting but must make **quantitative, falsifiable predictions** to differentiate D-ND from well-established phenomenology.
 
 This section identifies three concrete D-ND predictions, each testable in principle.
 
+<a id="4-5-1-prediction-1-time-dependent-coupling-parameter-lambda-dnd-t"></a>
 #### 4.5.1 Prediction 1: Time-Dependent Coupling Parameter $\lambda_{DND}(t)$
 
 **Standard Landau Theory:** The phase transition is governed by a fixed potential $V(Z) = a(T-T_c)Z^2 + bZ^4$, where the coupling constant $a(T)$ depends on temperature but is **constant during a given experiment at fixed $T$**.
@@ -581,6 +605,7 @@ For a system that undergoes emergence from $Z(0) \approx 0.1$ to $Z(t_f) \approx
 - **D-ND prediction**: Measured $\beta$ exhibits **time-dependent drift**: $\beta(t_1) \approx 0.48$, $\beta(t_2) \approx 0.52$, $\beta(t_3) \approx 0.49$ (within error bars, but with systematic variation).
 - **Falsification criterion**: If $\beta$ remains constant across emergence epochs to within 2% uncertainty, D-ND is falsified in favor of standard Landau theory.
 
+<a id="4-5-2-prediction-2-directed-information-condensation-and-entropy-production-rate"></a>
 #### 4.5.2 Prediction 2: Directed Information Condensation and Entropy Production Rate
 
 **Standard Landau Theory:** Entropy production near a phase transition is described by linear response theory. The entropy flow is symmetric around the critical point: forward and backward passages through the transition produce equal (time-reversed) entropy signatures.
@@ -614,6 +639,7 @@ That is, $\sigma(t)$ is a **positive, monotonically decreasing function** approa
 - **D-ND prediction**: $\sigma(t)$ is monotonically positive and decreasing: e.g., $\sigma(t=0) = 0.1$ entropy units/time, $\sigma(t=5) = 0.05$, $\sigma(t=\infty) = 0$. The decay should follow $\sigma(t) \sim \sigma_0 e^{-\alpha t}$ for some $\alpha > 0$.
 - **Falsification criterion**: If $\sigma(t)$ exhibits reversible fluctuations (as in Landau) rather than monotonic decrease, D-ND is falsified.
 
+<a id="4-5-3-prediction-3-singular-dual-dipole-hysteresis"></a>
 #### 4.5.3 Prediction 3: Singular-Dual Dipole Hysteresis
 
 **Standard Landau Theory:** Phase transitions are described by a symmetric potential $V(Z) = a(T-T_c)Z^2 + bZ^4$. When cooled through the critical point, the system bifurcates either to $Z=0$ or $Z=1$ with equal probability (by symmetry). The hysteresis curve (following $Z$ as temperature is swept forward and backward) is symmetric: heating and cooling follow the same path.
@@ -659,6 +685,7 @@ For typical D-ND parameters, $\delta \approx 0.2$–0.3, making the hysteresis w
 - **D-ND prediction**: Log-log slope = $1 + \delta \approx 1.2$–1.3 (steeper than Landau).
 - **Falsification criterion**: If log-log slope is $1.0 \pm 0.1$ (consistent with Landau), D-ND is falsified. If slope is $\geq 1.2$, D-ND is supported.
 
+<a id="4-5-4-summary-three-falsifiable-d-nd-predictions"></a>
 #### 4.5.4 Summary: Three Falsifiable D-ND Predictions
 
 | Prediction | Observable | D-ND Expectation | Landau Expectation | Falsification Criterion |
@@ -669,8 +696,10 @@ For typical D-ND parameters, $\delta \approx 0.2$–0.3, making the hysteresis w
 
 ---
 
+<a id="5-quantum-classical-bridge-m-t-leftrightarrow-z-t"></a>
 ## 5. Quantum-Classical Bridge: $M(t) \leftrightarrow Z(t)$
 
+<a id="5-1-connection-to-paper-a-5-4"></a>
 ### 5.1 Connection to Paper A §5.4
 
 In Paper A, we established that the classical order parameter emerges from coarse-graining the quantum emergence measure:
@@ -693,6 +722,7 @@ $$\ddot{Z} + c_{eff} \dot{Z} + \frac{\partial V_{eff}}{\partial Z} = \xi(t)$$
 
 with $c_{eff} = 2\gamma_{avg}$ (mean dephasing rate from the Lindblad equation, Paper A §3.6).
 
+<a id="5-2-effective-potential-from-spectral-structure-of-the-emergence-operator"></a>
 ### 5.2 Effective Potential from Spectral Structure of the Emergence Operator
 
 **Derivation (from Paper A §2.2–2.3 and §5.4):** The effective potential is determined by the spectral properties of the emergence operator $\mathcal{E}$ and Hamiltonian $H$. From Paper A, the emergence operator has spectral decomposition:
@@ -723,8 +753,10 @@ Thus for Paper A: $\lambda_{DND} = 1 - 2(1/2) = 0$ (perfect symmetry) and $\thet
 
 **Double-well form:** The quartic term $Z^2(1-Z)^2$ arises from symmetry constraints (boundary conditions $V(0) = V(1)$, instability at $Z=1/2$) and belongs to the Ginzburg-Landau universality class.
 
+<a id="5-3-z-t-master-equation-from-quantum-to-classical-dynamics"></a>
 ### 5.3 Z(t) Master Equation: From Quantum to Classical Dynamics
 
+<a id="5-3-1-derivation-of-master-equation-b1-from-the-d-nd-lagrangian"></a>
 #### 5.3.1 Derivation of Master Equation B1 from the D-ND Lagrangian
 
 **Objective:** Derive the discrete-time evolution equation for $R(t)$ from the fundamental Euler-Lagrange equation.
@@ -808,6 +840,7 @@ where the Lagrangian $L$ encodes the D-ND dynamics. This stationary-action persp
 
 ---
 
+<a id="5-4-discrete-continuous-correspondence-from-paper-a-to-paper-b"></a>
 ### 5.4 Discrete-Continuous Correspondence: From Paper A to Paper B
 
 The discrete master equation (§5.3) must be derivable as a coarse-grained limit of Paper A's continuous quantum dynamics. Here we establish this correspondence explicitly.
@@ -907,6 +940,7 @@ where:
 
 **Bifurcation Point:** A phase transition occurs when this criterion becomes an equality—the system barely maintains stability. At this critical point, even infinitesimal perturbations cause rapid evolution toward a symmetry-broken state.
 
+<a id="5-5-validity-and-consistency-check"></a>
 ### 5.5 Validity and Consistency Check
 
 The quantum-classical bridge is valid when:
@@ -922,8 +956,10 @@ This matches the numerical simulation in Paper A §7.5 within $\pm 0.5\%$, confi
 
 ---
 
+<a id="6-numerical-validation-and-dynamical-analysis"></a>
 ## 6. Numerical Validation and Dynamical Analysis
 
+<a id="6-1-convergence-and-attractor-analysis"></a>
 ### 6.1 Convergence and Attractor Analysis
 
 **Integration method:** Adaptive Runge-Kutta (RK45) via `scipy.integrate.solve_ivp` with tolerances $rtol = atol = 10^{-8}$.
@@ -945,6 +981,7 @@ This matches the numerical simulation in Paper A §7.5 within $\pm 0.5\%$, confi
 
 **Interpretation:** Trajectories converge to attractors within numerical precision. The $L^2$ error confirms the accuracy of the numerical method.
 
+<a id="6-2-energy-dissipation-and-energy-momentum-conservation"></a>
 ### 6.2 Energy Dissipation and Energy-Momentum Conservation
 
 In the presence of damping ($c > 0$), the instantaneous energy decreases monotonically:
@@ -960,6 +997,7 @@ $$\frac{dE_{\text{system}}}{dt} + \frac{dE_{\text{dissipated}}}{dt} = 0$$
 
 where $E_{\text{dissipated}}(t) = \int_0^t c(\dot{Z})^2 dt'$ is the cumulative energy lost to dissipation.
 
+<a id="6-3-lyapunov-exponent-calculation"></a>
 ### 6.3 Lyapunov Exponent Calculation
 
 **Definition:** For a dynamical system $\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x})$, the Lyapunov exponent measures the average exponential rate of divergence of nearby trajectories:
@@ -995,6 +1033,7 @@ Complex eigenvalues with negative real part: $\lambda_{L} = -0.25 \pm i \cdot 0.
 
 **Interpretation:** The Lyapunov exponent $\text{Re}(\lambda_L) = -0.25 < 0$ confirms that the attractor is stable (exponential approach with relaxation time $\tau = 1/0.25 = 4$ time units). The oscillatory approach (complex eigenvalues) manifests as the damped oscillations observed numerically.
 
+<a id="6-4-bifurcation-diagram"></a>
 ### 6.4 Bifurcation Diagram
 
 **Construction:** For fixed $\theta_{NT} = 1.0$, vary $\lambda_{DND}$ from $0$ to $1.0$ in steps of $0.05$. For each value, integrate from $Z(0) = 1/2 + 10^{-6}$ (to break symmetry), record $Z(t)$ for $t > 50$ (transient removed), and plot the attractor set.
@@ -1006,6 +1045,7 @@ Complex eigenvalues with negative real part: $\lambda_{L} = -0.25 \pm i \cdot 0.
 
 **Bifurcation type:** Pitchfork bifurcation (consistent with $Z_2$ symmetry breaking).
 
+<a id="6-5-theory-vs-simulation-comparison"></a>
 ### 6.5 Theory vs. Simulation Comparison
 
 **Theoretical predictions (§3):**
@@ -1021,8 +1061,10 @@ Complex eigenvalues with negative real part: $\lambda_{L} = -0.25 \pm i \cdot 0.
 
 ---
 
+<a id="7-information-dynamics-and-dissipation"></a>
 ## 7. Information Dynamics and Dissipation
 
+<a id="7-1-dissipation-arrow-of-time-and-irreversibility"></a>
 ### 7.1 Dissipation, Arrow of Time, and Irreversibility
 
 The dissipative term $c\dot{Z}$ breaks time-reversal symmetry, making emergence **irreversible**. Without dissipation ($c=0$), the system oscillates around $Z=1/2$; with dissipation, it monotonically approaches a stable attractor.
@@ -1033,12 +1075,14 @@ $$\Gamma = \frac{\sigma^2_V}{\hbar^2}\langle(\Delta\hat{V}_0)^2\rangle$$
 
 where $\sigma^2_V$ parameterizes fluctuations in the pre-differentiation landscape $\hat{V}_0$. This provides a **second law of emergence**: entropy increases as the system differentiates from $|NT\rangle$, consistent with thermodynamics.
 
+<a id="7-2-self-organized-criticality"></a>
 ### 7.2 Self-Organized Criticality
 
 The phase diagram exhibits sharp basin boundaries and near-equal basin sizes (52.8% vs 47.2%), indicating **self-organized criticality**: small parameter variations near critical points produce large changes in outcome, yet the system robustly avoids purely chaotic dynamics.
 
 This is characteristic of systems near critical points in condensed matter (phase transitions), suggesting that observer emergence is fundamentally a **critical phenomenon** governed by universal laws.
 
+<a id="7-3-information-condensation-error-dissipation-mechanism"></a>
 ### 7.3 Information Condensation: Error Dissipation Mechanism
 
 **Classical Order Emergence from Quantum Superposition**
@@ -1082,8 +1126,10 @@ Thus, **the emergence of classical deterministic behavior is thermodynamically "
 
 ---
 
+<a id="8-discussion-observer-emergence-and-beyond-landau-theory"></a>
 ## 8. Discussion: Observer Emergence and Beyond Landau Theory
 
+<a id="8-1-observer-as-dynamical-variable-and-singular-dual-bifurcation"></a>
 ### 8.1 Observer as Dynamical Variable and Singular-Dual Bifurcation
 
 The D-ND framework realizes the vision of observer emergence as a **dynamical process of bifurcation from a singular undifferentiated pole toward dual manifested poles**:
@@ -1100,8 +1146,10 @@ This describes a damped drift from the singular pole ($Z \approx 0$) toward one 
 
 **Physical picture:** The observer emerges through a dynamical bifurcation process. At $t=0$, the system is singular and non-dual. As time progresses, quantum fluctuations (parameterized by $\varepsilon \sin(\omega t + \theta)$ in $L_{fluct}$) probe the potential landscape $V(Z)$. The system explores different degrees of bifurcation ($Z(t)$ sweeping from 0 toward 0.5). At the unstable fixed point $Z=1/2$, the system faces a choice: bifurcate toward Null ($Z \to 0$) or toward Totality ($Z \to 1$). Dissipation and information condensation suppress the superposition, stabilizing one branch. Once one branch is chosen, the system rapidly flows to the attractor (via the potential gradient $-\partial V/\partial Z$) and gets locked there by dissipation. The classical observer has been born—a specific configuration (Null or Totality) persisting indefinitely. The entire process is described by the Lagrangian and governed by the D-ND axioms, with no external agent needed.
 
+<a id="8-2-comparison-with-standard-phase-transition-theories"></a>
 ### 8.2 Comparison with Standard Phase Transition Theories
 
+<a id="d-nd-vs-landau-theory"></a>
 #### D-ND vs. Landau Theory
 
 **Landau theory of phase transitions** provides a phenomenological description of critical phenomena through the effective potential $V(\mathcal{M})$ expanded in the order parameter $\mathcal{M}$:
@@ -1114,6 +1162,7 @@ $$V(\mathcal{M}) = a(T-T_c)\mathcal{M}^2 + b\mathcal{M}^4 + \ldots$$
 3. **Closed-system framework:** Unlike Landau theory (which treats the system in contact with a thermal bath), D-ND describes emergence in a closed quantum system through intrinsic decoherence.
 4. **Quantum-classical correspondence:** D-ND provides explicit mapping between quantum coherence measure $M(t)$ and classical order parameter $Z(t)$, rather than treating them as independent entities.
 
+<a id="d-nd-vs-ising-model-universality"></a>
 #### D-ND vs. Ising Model Universality
 
 The **Ising model** exhibits the same Ginzburg-Landau critical exponents as D-ND:
@@ -1126,6 +1175,7 @@ Both belong to the same universality class (mean-field for dimension $d \geq 4$,
 - **Ising**: Each spin is a fundamental degree of freedom; no notion of "potentiality" beneath the spins.
 - **D-ND**: Each classical configuration (0 or 1) emerges from a quantum superposition of all possibilities ($|NT\rangle$). The continuum $[0,1]$ parameterizes how much the system has differentiated from primordial potentiality.
 
+<a id="d-nd-vs-kosterlitz-thouless-transitions"></a>
 #### D-ND vs. Kosterlitz-Thouless Transitions
 
 The **Kosterlitz-Thouless (KT) transition** is a different universality class appearing in 2D systems with U(1) symmetry (e.g., superfluid transition in $^4$He, XY model):
@@ -1142,6 +1192,7 @@ The **Kosterlitz-Thouless (KT) transition** is a different universality class ap
 - Exponents consistent with Ginzburg-Landau, not KT
 - Applicability: D-ND would reduce to KT-like behavior if extended to 2D with continuous symmetry; current 1D formulation avoids this regime
 
+<a id="8-3-what-d-nd-phase-transitions-add-beyond-standard-frameworks"></a>
 ### 8.3 What D-ND Phase Transitions Add Beyond Standard Frameworks
 
 **Central novel contribution:** The D-ND framework shows that phase transitions are not merely the result of competing energy minimization (as in Landau/Ising), but arise from **informational dynamics** in which:
@@ -1156,8 +1207,10 @@ The **Kosterlitz-Thouless (KT) transition** is a different universality class ap
 
 5. **Critical behavior arises from the structure of potentiality itself.** The position of the critical point ($\lambda_c$) and exponents ($\beta, \gamma, \delta, \nu$) depend on the spectral properties of $\mathcal{E}$ (via $\lambda_{DND}$, $\theta_{NT}$), tying criticality to the microscopic quantum structure in a way standard theory does not.
 
+<a id="8-4-extension-to-information-geometry-paper-c-and-cosmological-applications-paper-e"></a>
 ### 8.4 Extension to Information Geometry (Paper C) and Cosmological Applications (Paper E)
 
+<a id="higher-dimensional-order-parameters-paper-c"></a>
 #### Higher-Dimensional Order Parameters (Paper C)
 
 The present formulation is restricted to a single scalar order parameter $Z(t) \in [0,1]$. However, the D-ND framework naturally extends to **higher-dimensional information-geometric descriptions**, as developed in Paper C.
@@ -1172,6 +1225,7 @@ where $g_{ij}(Z)$ is the information-geometric metric on $\mathcal{M}$. The pote
 
 This extension justifies the scalar reduction of the present work: near any attractor (e.g., $Z \to 1$ for Totality), the motion is effectively one-dimensional (along the outward normal to the submanifold), so the scalar approximation captures the leading dynamics.
 
+<a id="cosmological-extension-paper-e"></a>
 #### Cosmological Extension (Paper E)
 
 In Paper E, the localized $Z(t)$ order parameter is promoted to a **field** $Z(\mathbf{x}, t)$ depending on both space $\mathbf{x}$ and time $t$. The Lagrangian becomes a full field theory:
@@ -1192,8 +1246,10 @@ $$\text{(Einstein equations with Z source)} = 8\pi T^{\mu\nu}_Z$$
 
 In the cosmological setting, this explains how observer emergence and cosmic evolution are intertwined: as the universe evolves and cools (analogous to decreasing $\lambda_{DND}$ parameter), phase transitions trigger formation of localized regions of high $Z$ (emergence of classical galaxies, structures, observers), which in turn warp the spacetime geometry according to Einstein's equations. The universe and its observers co-evolve.
 
+<a id="8-5-experimental-signatures-and-quantitative-predictions"></a>
 ### 8.5 Experimental Signatures and Quantitative Predictions
 
+<a id="prediction-1-information-current-dynamics-and-energy-flow-asymmetry"></a>
 #### Prediction 1: Information Current Dynamics and Energy Flow Asymmetry
 
 From §3.3, the information current $\mathcal{J}_{\text{info}}(t) = -(\partial V/\partial Z) \cdot Z(t)$ characterizes the flow of informational potential as the system bifurcates from singularity. The energy flow should exhibit:
@@ -1208,6 +1264,7 @@ $$\frac{\tau_{\text{Null}}}{\tau_{\text{Totality}}} = \sqrt{\frac{|\partial^2 V/
 
 **Experimental test:** In circuit QED or trapped-ion systems (Paper A §7.2), measure energy flow during phase transition. D-ND predicts specific asymmetries and energy-flow patterns absent from standard decoherence models.
 
+<a id="prediction-2-spinodal-decomposition-rate-and-metastability-boundary"></a>
 #### Prediction 2: Spinodal Decomposition Rate and Metastability Boundary
 
 From §4.3, the spinodal line is $\lambda_{DND}^{\text{spinodal}} = 1/\theta_{NT}$. Beyond this line, the relaxation time diverges:
@@ -1216,6 +1273,7 @@ $$\tau_{\text{relax}} \sim \frac{1}{c\sqrt{\lambda_{DND} - 1/\theta_{NT}}} \quad
 
 **Experimental prediction:** Vary coupling strength and measure transition time. D-ND predicts a square-root divergence approaching the spinodal, distinct from the weaker divergence of standard Landau theory.
 
+<a id="prediction-3-coherence-loss-correlation-and-classical-order-emergence"></a>
 #### Prediction 3: Coherence Loss Correlation and Classical Order Emergence
 
 From §7.3, classical order emergence is causally coupled to coherence dissipation. The rate of order emergence accelerates with increasing information dissipation strength $\xi$.
@@ -1227,6 +1285,7 @@ $$\frac{dZ}{dt} = \text{(drift)} + \text{(coherence-loss feedback)}$$
 
 ---
 
+<a id="9-conclusions"></a>
 ## 9. Conclusions
 
 We have developed a complete Lagrangian formulation of the D-ND continuum, extending the quantum framework of Paper A to classical, computable dynamics. The central insight is that **observer emergence is a process of bifurcation from an undifferentiated singular pole toward dual manifested poles**, parameterized by the order parameter $Z(t)$ and governed by variational principles. Key achievements:
@@ -1265,45 +1324,54 @@ Future work will extend to higher-dimensional order parameters and metrics (Pape
 
 ---
 
+<a id="references"></a>
 ## References
 
+<a id="primary-sources-d-nd-framework"></a>
 ### Primary Sources (D-ND Framework)
 
 - Paper A (Track A). "Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework." This work, 2026.
 
+<a id="variational-methods-and-lagrangian-mechanics"></a>
 ### Variational Methods and Lagrangian Mechanics
 
 - Goldstein, H., Poole, C.P., Safko, J.L. (2002). *Classical Mechanics* (3rd ed.). Addison-Wesley.
 - Lanczos, C. (1970). *The Variational Principles of Mechanics* (4th ed.). Dover.
 
+<a id="phase-transitions-and-critical-phenomena"></a>
 ### Phase Transitions and Critical Phenomena
 
 - Landau, L.D., Lifshitz, E.M. (1980). *Statistical Physics, Part 1* (3rd ed.). Pergamon Press.
 - Kadanoff, L.P. (1966). "Scaling laws for Ising models near $T_c$." *Physics*, 2(6), 263–283.
 - Wilson, K.G. (1971). "Renormalization group and critical phenomena." *Phys. Rev. B*, 4(9), 3174–3205.
 
+<a id="noether-s-theorem-and-symmetry"></a>
 ### Noether's Theorem and Symmetry
 
 - Goldstein, H. (1980). *Classical Mechanics* (2nd ed.), Chapter 12. Addison-Wesley.
 - Neuenschwander, D.E. (2011). *Emmy Noether's Wonderful Theorem*. Johns Hopkins University Press.
 
+<a id="quantum-decoherence-and-lindblad-dynamics"></a>
 ### Quantum Decoherence and Lindblad Dynamics
 
 - Lindblad, G. (1976). "On the generators of quantum dynamical semigroups." *Commun. Math. Phys.*, 48(2), 119–130.
 - Zurek, W.H. (2003). "Decoherence and the transition from quantum to classical." *Rev. Mod. Phys.*, 75(3), 715–775.
 - Breuer, H.-P., Petruccione, F. (2002). *The Theory of Open Quantum Systems*. Oxford University Press.
 
+<a id="cosmology-and-quantum-gravity"></a>
 ### Cosmology and Quantum Gravity
 
 - Wheeler, J.A. (1968). "Superspace and the nature of quantum geometrodynamics." In C. DeWitt & J.A. Wheeler (Eds.), *Battelle Rencontres* (pp. 242–307).
 - Hartle, J.B., Hawking, S.W. (1983). "Wave function of the universe." *Phys. Rev. D*, 28(12), 2960–2975.
 - Page, D.N., Wootters, W.K. (1983). "Evolution without evolution." *Phys. Rev. D*, 27(12), 2885–2892.
 
+<a id="information-theoretic-approaches"></a>
 ### Information-Theoretic Approaches
 
 - Tononi, G., et al. (2016). "Integrated information theory: from consciousness to its physical substrate." *Nat. Rev. Neurosci.*, 17(7), 450–461.
 - Chamseddine, A.H., Connes, A. (1997). "The spectral action principle." *Commun. Math. Phys.*, 186(3), 731–750.
 
+<a id="logic-of-the-included-third"></a>
 ### Logic of the Included Third
 
 - Lupasco, S. (1951). *Le principe d'antagonisme et la logique de l'énergie*. Hermann, Paris.
@@ -1311,6 +1379,7 @@ Future work will extend to higher-dimensional order parameters and metrics (Pape
 
 ---
 
+<a id="appendix-a-notation-summary"></a>
 ## Appendix A: Notation Summary
 
 | Symbol | Meaning | Units/Range |
@@ -1332,6 +1401,7 @@ Future work will extend to higher-dimensional order parameters and metrics (Pape
 
 ---
 
+<a id="appendix-b-key-equations-summary"></a>
 ## Appendix B: Key Equations Summary
 
 **Equation of Motion:**

@@ -1,0 +1,107 @@
+%==============================================================================
+% dnd_shared.sty - D-ND Cosmology Framework: Shared Package
+%==============================================================================
+% This package defines all shared notation and commands for the D-ND academic
+% suite, allowing consistent usage across all seven papers targeting different
+% journals. This eliminates duplication and ensures notational consistency.
+%
+% Usage: \usepackage{dnd_shared}
+%==============================================================================
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dnd_shared}[2025/02/14 D-ND Framework Shared Commands]
+
+%==============================================================================
+% REQUIRED DEPENDENCIES
+%==============================================================================
+% These packages must be loaded before dnd_shared is used
+\RequirePackage{amsmath}      % Mathematical environments and symbols
+\RequirePackage{amssymb}      % Extended math symbols
+\RequirePackage{mathrsfs}     % Ralph Smith's formal script font
+\RequirePackage{braket}       % \ket, \bra, \braket notation
+\RequirePackage{amsthm}       % Theorem environments
+
+%==============================================================================
+% CORE D-ND NOTATION COMMANDS
+%==============================================================================
+% Quantum State: |NT⟩
+\newcommand{\NT}{\ket{\text{NT}}}
+
+% Emergence operator: ℰ
+\newcommand{\emerge}{\mathcal{E}}
+
+% Time-dependent observables
+\newcommand{\emeasure}{M(t)}           % Emergence measurement function
+\newcommand{\orderparam}{Z(t)}         % Order parameter
+\newcommand{\resultant}{R(t)}          % Resultant parameter
+
+% Generators and key constants
+\newcommand{\Kgen}{K_{\text{gen}}}     % Generator constant
+\newcommand{\chiDND}{\chi_{\text{DND}}}  % DND coupling constant
+\newcommand{\OmegaNT}{\Omega_{\text{NT}}}  % NT frequency
+\newcommand{\rhoDND}{\rho_{\text{DND}}}  % DND density parameter
+\newcommand{\rhoLECO}{\rho_{\text{LECO}}}  % Least Emerged Classical Oscillator density
+
+% Variance parameters: σ²
+\newcommand{\sigmaE}{\sigma^2_{\mathcal{E}}}  % Emergence variance
+\newcommand{\sigmaV}{\sigma^2_{V}}            % Velocity variance
+
+% Lambda parameters (coupling constants)
+\newcommand{\lambdak}{\lambda_k}           % k-mode coupling
+\newcommand{\lambdaDND}{\lambda_{\text{DND}}}  % DND coupling strength
+\newcommand{\lambdaauto}{\lambda_{\text{auto}}}  % Autonomous coupling
+\newcommand{\lambdacosmo}{\lambda_{\text{cosmo}}}  % Cosmological coupling
+
+% Cognitive and physics constants
+\newcommand{\Tcog}{T_{\text{cog}}}     % Cognitive timescale
+\newcommand{\GS}{G_{\text{S}}}         % Singularity Constant
+
+%==============================================================================
+% MATHEMATICAL OPERATORS AND NOTATION
+%==============================================================================
+
+% Derived operators that use core commands
+\newcommand{\emerge@squared}{\emerge^2}
+\newcommand{\emerge@normalized}{\tilde{\emerge}}
+
+% Commonly used mathematical constructs
+\newcommand{\expect}[1]{\langle #1 \rangle}        % Expectation value
+\newcommand{\commutator}[2]{\left[#1, #2\right]}  % Commutator
+\newcommand{\anticommutator}[2]{\left\{#1, #2\right\}}  % Anticommutator
+
+%==============================================================================
+% THEOREM ENVIRONMENTS
+% (Defined here for consistency across all papers - journal-specific formatting
+%  will override appearance, but environments remain consistent)
+%==============================================================================
+
+\theoremstyle{plain}
+\newtheorem{axiom}{Axiom}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+
+%==============================================================================
+% SECTION REFERENCING UTILITIES
+% (Useful for consistent cross-referencing across papers)
+%==============================================================================
+
+% Commands for consistent section references
+\newcommand{\secref}[1]{Section~\ref{sec:#1}}
+\newcommand{\eqref@dnd}[1]{Eq.~\eqref{eq:#1}}
+\newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\tabref}[1]{Table~\ref{tab:#1}}
+
+%==============================================================================
+% PACKAGE END
+%==============================================================================
+
+\endinput

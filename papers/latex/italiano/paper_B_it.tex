@@ -1,0 +1,916 @@
+%==============================================================================
+% PAPER B - TRANSIZIONI DI FASE E DINAMICA LAGRANGIANA NEL CONTINUUM D-ND
+% Traduzione italiana — per lettura personale
+% Originale: paper_B.tex (Physical Review D / Foundations of Physics)
+%==============================================================================
+
+\documentclass[aps,prd,11pt,notitlepage,nofootinbib,longbibliography]{revtex4-2}
+
+%==============================================================================
+% PACKAGES
+%==============================================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{braket}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{dnd_shared}
+
+%==============================================================================
+% HYPERREF CONFIGURATION
+%==============================================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    bookmarksnumbered=true,
+    pdftitle={Transizioni di fase e dinamica lagrangiana nel continuum D-ND},
+    pdfauthor={D-ND Research Collective},
+    pdfsubject={Formalismo lagrangiano, transizioni di fase, continuum D-ND},
+    pdfkeywords={formalismo lagrangiano, continuum D-ND, transizioni di fase, Ginzburg-Landau, simmetrie di Noether, esponenti critici, condensazione informazionale, parametro d'ordine}
+}
+
+%==============================================================================
+% GEOMETRY
+%==============================================================================
+
+\geometry{
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+}
+
+%==============================================================================
+% CUSTOM COMMANDS (Paper B specific)
+%==============================================================================
+
+\newcommand{\Veff}{V_{\text{eff}}}
+\newcommand{\Ldnd}{L_{\text{DND}}}
+\newcommand{\Lkin}{L_{\text{kin}}}
+\newcommand{\Lpot}{L_{\text{pot}}}
+\newcommand{\Lint}{L_{\text{int}}}
+\newcommand{\Lqos}{L_{\text{QOS}}}
+\newcommand{\Lgrav}{L_{\text{grav}}}
+\newcommand{\Lfluct}{L_{\text{fluct}}}
+\newcommand{\Jinfo}{\mathcal{J}_{\text{info}}}
+\newcommand{\Fauto}{F_{\text{auto}}}
+\newcommand{\Dprimary}{\vec{D}_{\text{primary}}}
+\newcommand{\Pposs}{\vec{P}_{\text{possibilistic}}}
+\newcommand{\Llat}{\vec{L}_{\text{latency}}}
+\newcommand{\ceff}{c_{\text{eff}}}
+\newcommand{\TI}{T_I}
+\newcommand{\HGL}{H_{\text{GL}}}
+
+%==============================================================================
+% DOCUMENT
+%==============================================================================
+
+\begin{document}
+
+\title{Transizioni di fase e dinamica lagrangiana nel continuum D-ND:\\
+Formulazione completa e validazione}
+
+\author{D-ND Research Collective}
+\affiliation{Ricerca indipendente}
+
+\date{14 febbraio 2026}
+
+%==============================================================================
+% ABSTRACT
+%==============================================================================
+
+\begin{abstract}
+Partendo dalle fondamenta quantistico-teoriche del Paper~A, presentiamo una formulazione lagrangiana completa del continuum Duale-Non-Duale (D-ND) con leggi di conservazione esplicite, transizioni di fase e dinamica informazionale. L'osservatore emerge come Risultante $R(t)$, parametrizzato da un singolo parametro d'ordine classico $Z(t) \in [0,1]$, che evolve attraverso uno spazio Null-All (Nulla-Tutto) secondo principi variazionali. Formuliamo la lagrangiana completa $\Ldnd = \Lkin + \Lpot + \Lint + \Lqos + \Lgrav + \Lfluct$, decomponendo l'emergenza quantistica in termini classicamente trattabili. Dal potenziale efficace $\Veff(R, NT) = -\lambda(R^2 - NT^2)^2 - \kappa(R \cdot NT)^n$ e dal termine di interazione $\Lint = \sum_k g_k(R_k NT_k + NT_k R_k) + \delta V f_{\text{Pol}}(S)$, deriviamo tramite Euler-Lagrange l'equazione del moto fondamentale: $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$. Stabiliamo il teorema di Noether applicato alle simmetrie D-ND, derivando le quantit\`a conservate tra cui l'energia $E(t)$ e la corrente informazionale $\Jinfo(t)$ che governano l'irreversibilit\`a dell'emergenza. La condizione di coerenza ciclica $\OmegaNT = 2\pi i$ definisce le orbite periodiche e la quantizzazione. Stabiliamo un diagramma di fase completo nello spazio dei parametri $(\theta_{NT}, \lambdaDND)$ che esibisce transizioni nette consistenti con la classe di universalit\`a di Ginzburg-Landau, con derivazione dettagliata degli esponenti critici ($\beta=1/2, \gamma=1, \delta=3, \nu=1/2$ per il campo medio) e analisi della decomposizione spinodale. Presentiamo l'equazione master per $Z(t)$ che connette la coerenza quantistica all'ordine classico. L'integrazione numerica tramite Runge-Kutta adattivo valida la teoria: convergenza verso gli attrattori con errore $L^2$ $\sim 8{,}84 \times 10^{-8}$, esponenti di Lyapunov che confermano la stabilit\`a e diagrammi di biforcazione coerenti con le predizioni teoriche. Introduciamo un meccanismo di condensazione informazionale tramite il termine di dissipazione dell'errore $\xi \cdot \partial R/\partial t$ che produce ordine classico dalla sovrapposizione quantistica. Infine, mostriamo come le transizioni di fase D-ND trascendono la teoria di Landau standard attraverso il ruolo della dinamica informazionale e confrontiamo esplicitamente con l'universalit\`a del modello di Ising e le transizioni di Kosterlitz-Thouless.
+\end{abstract}
+
+\keywords{formalismo lagrangiano, continuum D-ND, transizioni di fase, ponte quantistico-classico, Ginzburg-Landau, simmetrie di Noether, esponenti critici, condensazione informazionale, principi variazionali}
+
+\maketitle
+\tableofcontents
+
+%==============================================================================
+\section{Introduzione: perch\'e il formalismo lagrangiano?}
+\label{sec:intro}
+%==============================================================================
+
+\subsection{Motivazione e connessione al framework}
+\label{sec:motivation}
+
+Nel Paper~A abbiamo stabilito la misura di emergenza quantistica $M(t) = 1 - |\langle NT|U(t)\emerge|NT\rangle|^2$ come motore fondamentale della differenziazione degli stati in un sistema D-ND chiuso. Tuttavia, la descrizione quantistica, per quanto rigorosa, lascia una lacuna: come calcolare le osservabili e predire la dinamica macroscopica senza risolvere l'intero problema quantistico a $N$ corpi?
+
+Il formalismo lagrangiano fornisce il ponte. Introducendo un parametro d'ordine classico efficace $Z(t) \in [0,1]$ che parametrizza il continuum dal Nullo ($Z=0$) alla Totalit\`a ($Z=1$), riduciamo il problema quantistico a dimensione infinita a un problema di meccanica classica a dimensione finita. L'approccio lagrangiano \`e naturale perch\'e:
+\begin{enumerate}
+    \item \textbf{Principio variazionale}: La traiettoria $Z(t)$ minimizza l'azione $S = \int L\,dt$, codificando tutta la dinamica in un singolo funzionale.
+    \item \textbf{Dissipazione}: A differenza della meccanica hamiltoniana, il formalismo lagrangiano incorpora naturalmente termini dissipativi che rompono la simmetria di inversione temporale e rendono l'emergenza irreversibile.
+    \item \textbf{Accoppiamento multi-settore}: La lagrangiana di interazione $\Lint$ implementa direttamente la decomposizione hamiltoniana del Paper~A \secref{hamiltonian} ($\hat{H}_D = \hat{H}_+ \oplus \hat{H}_- + \hat{H}_{\text{int}}$).
+    \item \textbf{Trattabilit\`a computazionale}: Le equazioni del moto sono ODE risolvibili con precisione arbitraria, consentendo predizioni quantitative.
+\end{enumerate}
+
+\textbf{Connessione al Paper~A (ponte quantistico-classico):} Il Paper~A stabilisce che il parametro d'ordine classico $Z(t)$ emerge dal coarse-graining della misura di emergenza quantistica:
+\begin{equation}\label{eq:bridge}
+Z(t) = M(t) = 1 - |f(t)|^2 \quad \text{(Paper~A, Teorema~1)}
+\end{equation}
+Il potenziale efficace $\Veff(Z)$ \`e determinato dalla struttura spettrale di $\emerge$ e $H$, e appartiene alla classe di universalit\`a di Ginzburg-Landau. Questo lavoro deriva la lagrangiana classica esplicita il cui potenziale \`e precisamente questo $\Veff$, completando la corrispondenza quantistico-classica.
+
+\subsection{Contributi principali di questo lavoro}
+\label{sec:contributions}
+
+\begin{enumerate}
+\item Decomposizione lagrangiana completa con formule esplicite per tutti e sei i termini e interpretazioni fisiche.
+\item Framework a dipolo singolare-duale che stabilisce che D-ND \`e fondamentalmente una struttura dipolare.
+\item Simmetrie di Noether e leggi di conservazione: energia, corrente informazionale e irreversibilit\`a.
+\item Equazioni del moto unificate via Euler-Lagrange con tutti i termini derivati dagli assiomi D-ND.
+\item Analisi degli esponenti critici con derivazione dettagliata in campo medio e decomposizione spinodale.
+\item Equazione master per $Z(t)$ con componenti generativa e dissipativa.
+\item Meccanismo di condensazione informazionale tramite dissipazione dell'errore.
+\item Analisi delle transizioni di fase con diagramma di fase, struttura di biforcazione e universalit\`a sperimentale.
+\item Meccanismo di auto-ottimizzazione: $\Fauto(R(t)) = -\nabla_R L(R(t))$ e orbite periodiche tramite $\OmegaNT = 2\pi i$.
+\item Validazione numerica completa: test di convergenza, esponenti di Lyapunov, diagrammi di biforcazione.
+\item Ponte quantistico-classico reso esplicito sotto condizioni di coarse-graining specificate.
+\item Confronto con il modello di Ising, Kosterlitz-Thouless e ci\`o che D-ND aggiunge oltre la teoria di Landau.
+\end{enumerate}
+
+%==============================================================================
+\section{Lagrangiana completa $\Ldnd$: derivazione dagli assiomi D-ND}
+\label{sec:lagrangian}
+%==============================================================================
+
+\subsection{Il sistema D-ND come dipolo singolare-duale}
+\label{sec:dipole}
+
+Prima di decomporre la lagrangiana completa, stabiliamo la struttura ontologica fondamentale: il sistema D-ND \`e intrinsecamente un dipolo che oscilla tra i poli singolare e duale. Non si tratta di una metafora, ma di un'affermazione matematica precisa.
+
+Dal Paper~A (Assioma~A$_1$), il sistema ammette una decomposizione fondamentale in settori duale ($\Phi_+$) e anti-duale ($\Phi_-$):
+\begin{equation}\label{eq:hamiltonian-decomp}
+\hat{H}_D = \hat{H}_+ \oplus \hat{H}_- + \hat{H}_{\text{int}}
+\end{equation}
+
+La Risultante $R(t) = U(t)\emerge\NT$ rappresenta la manifestazione di questa struttura dipolare. Al \emph{polo singolare} ($Z=0$, associato a $\NT$), il sistema esiste in una potenzialit\`a indifferenziata---tutte le possibilit\`a duali e anti-duali sono simmetricamente sovrapposte, producendo cancellazione esatta nelle osservabili esterne. Al \emph{polo duale} ($Z=1$, associato alla Totalit\`a), il sistema esibisce differenziazione massimale, con un settore duale dominante e l'anti-duale soppresso.
+
+Il parametro d'ordine $Z(t) \in [0,1]$ misura il grado di biforcazione dalla singolarit\`a verso la dualit\`a. Il potenziale $V(Z)$ codifica il costo energetico del mantenimento di ciascun grado di biforcazione, e il termine di dissipazione $c\dot{Z}$ garantisce un moto irreversibile dal polo singolare verso il polo duale---una freccia unidirezionale di emergenza classica.
+
+\textbf{Il terzo incluso ($\TI$) come proto-assioma:} La struttura a dipolo singolare-duale implica un elemento logico che la logica binaria classica esclude: il \emph{terzo incluso} ($\TI$). Nella logica del terzo escluso (\emph{tertium non datur}), ogni proposizione \`e o vera o falsa. Il framework D-ND sostituisce questo con la \emph{logica del terzo incluso}~\cite{Lupasco1951,Nicolescu2002}: esiste uno stato $\TI$ che non \`e n\'e $\Phi_+$ n\'e $\Phi_-$ ma che precede e genera entrambi. Nel formalismo lagrangiano, $\TI$ corrisponde al punto di sella di $\Veff(Z)$ a $Z = Z_c$---il punto critico in cui il sistema non si \`e ancora impegnato verso nessuno dei due attrattori, il Nullo o la Totalit\`a. Il terzo incluso non \`e un compromesso tra opposti, ma il \emph{proto-assioma generativo} da cui la struttura dipolare stessa emerge. Entra nella lagrangiana come il termine lineare di rottura di simmetria $\lambdaDND \cdot \theta_{NT} \cdot Z(1-Z)$, che solleva la degenerazione del potenziale a doppio pozzo e seleziona la direzione dell'emergenza.
+
+\subsection{Decomposizione e interpretazione fisica}
+\label{sec:decomposition}
+
+La lagrangiana totale per la Risultante $R(t)$ parametrizzata da $Z(t)$ \`e:
+\begin{equation}\label{eq:lagrangian-total}
+\boxed{\Ldnd = \Lkin + \Lpot + \Lint + \Lqos + \Lgrav + \Lfluct}
+\end{equation}
+
+Questa decomposizione sorge naturalmente dal framework D-ND:
+\begin{itemize}
+\item \textbf{Cinetico} ($\Lkin$): Inerzia del parametro d'ordine. Governa la scala temporale della biforcazione dal polo singolare.
+\item \textbf{Potenziale} ($\Lpot$): Paesaggio informazionale derivato dal potenziale quantistico del Paper~A. Codifica il costo energetico dei diversi gradi di dualit\`a.
+\item \textbf{Interazione} ($\Lint$): Accoppiamento inter-settore tra i modi duale e anti-duale, che mantiene la coerenza durante la transizione dal singolare al duale.
+\item \textbf{Qualit\`a dell'organizzazione} ($\Lqos$): Preferenza per gli stati strutturati (a bassa entropia).
+\item \textbf{Gravitazionale} ($\Lgrav$): Accoppiamento ai gradi di libert\`a geometrici/di curvatura (esteso nel Paper~E).
+\item \textbf{Fluttuazione} ($\Lfluct$): Forzante stocastica dal vuoto quantistico o effetti termici.
+\end{itemize}
+
+\subsection{Termine cinetico}
+\label{sec:kinetic}
+
+Il tasso di variazione della differenziazione da $\NT$ \`e misurato da $\dot{M}(t) = \dot{Z}(t)$:
+\begin{equation}\label{eq:kinetic}
+\Lkin = \frac{1}{2}m\dot{Z}^2
+\end{equation}
+dove $m$ \`e la massa inerziale efficace (posta $m=1$ in unit\`a naturali). Fisicamente, $m$ rappresenta la difficolt\`a di variare rapidamente il grado di manifestazione.
+
+\subsection{Termine potenziale}
+\label{sec:potential}
+
+Dal Paper~A, il potenziale efficace soddisfa:
+\begin{equation}\label{eq:veff-general}
+\boxed{\Veff(R, NT) = -\lambda(R^2 - NT^2)^2 - \kappa(R \cdot NT)^n}
+\end{equation}
+
+\textbf{Mappa su $Z(t)$:} Nel continuum unidimensionale, $R = Z$ e $NT = 1-Z$. Dopo espansione e riscalamento (con $n=1$):
+\begin{equation}\label{eq:potential}
+\boxed{V(Z, \theta_{NT}, \lambdaDND) = Z^2(1-Z)^2 + \lambdaDND \cdot \theta_{NT} \cdot Z(1-Z)}
+\end{equation}
+dove:
+\begin{itemize}
+\item $Z^2(1-Z)^2$: Potenziale a doppio pozzo con minimi a $Z=0$ (Nullo) e $Z=1$ (Totalit\`a); massimo instabile a $Z=1/2$.
+\item $\lambdaDND \cdot \theta_{NT} \cdot Z(1-Z)$: Termine di rottura di simmetria.
+\end{itemize}
+Il termine potenziale della lagrangiana \`e $\Lpot = -V(Z, \theta_{NT}, \lambdaDND)$.
+
+\subsection{Termine di interazione}
+\label{sec:interaction}
+
+Dal Paper~A, l'hamiltoniana di interazione $\hat{H}_{\text{int}} = \sum_k g_k(\hat{a}_+^k \hat{a}_-^{k\dagger} + \text{h.c.})$ accoppia i settori duale e anti-duale:
+\begin{equation}\label{eq:interaction}
+\boxed{\Lint = \sum_k g_k(R_k NT_k + NT_k R_k) + \delta V \, f_{\text{Pol}}(S)}
+\end{equation}
+Nella teoria efficace unidimensionale, questo si riduce a $\Lint = g_0 \cdot \theta_{NT} \cdot Z(1-Z)$, gi\`a incorporato nel doppio pozzo tramite il termine $\lambdaDND$.
+
+\subsection{Qualit\`a dell'organizzazione}
+\label{sec:qos}
+
+Per guidare il sistema verso configurazioni ordinate (a bassa entropia):
+\begin{equation}\label{eq:qos}
+\boxed{\Lqos = -K \cdot S(Z)}
+\end{equation}
+dove $S(Z) = -Z \ln Z - (1-Z)\ln(1-Z)$ \`e l'entropia di Shannon e $K > 0$ \`e una costante di accoppiamento con $[K] = \text{energia}$.
+
+\subsection{Termini gravitazionale e di fluttuazione}
+\label{sec:grav-fluct}
+
+Nel modello semplificato attuale, $\Lgrav = 0$ (segnaposto; il Paper~E fornisce l'estensione cosmologica con $\Lgrav = -\alpha \Kgen(Z) \cdot Z$). La forzante di fluttuazione \`e:
+\begin{equation}\label{eq:fluct}
+\boxed{\Lfluct = \varepsilon \sin(\omega t + \theta) \cdot Z(t)}
+\end{equation}
+che rappresenta la forzante stocastica dalle fluttuazioni del vuoto quantistico. Negli studi deterministici, $\varepsilon \approx 0$.
+
+\subsection{Riepilogo: lagrangiana completa}
+\label{sec:lagrangian-summary}
+
+\begin{equation}\label{eq:lagrangian-complete}
+\boxed{\Ldnd = \frac{1}{2}\dot{Z}^2 - V(Z, \theta_{NT}, \lambdaDND) - K \cdot S(Z) + g_0 \theta_{NT} Z(1-Z) + \varepsilon \sin(\omega t + \theta) Z}
+\end{equation}
+
+%==============================================================================
+\section{Equazioni del moto di Euler-Lagrange}
+\label{sec:eom}
+%==============================================================================
+
+\subsection{Principio variazionale e derivazione canonica}
+\label{sec:variational}
+
+Il principio variazionale $\delta S = 0$ con $S = \int_0^T \Ldnd\,dt$ produce:
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{Z}}\right) - \frac{\partial L}{\partial Z} = 0
+\end{equation}
+
+Calcolando ciascun termine:
+\begin{align}
+\frac{\partial L}{\partial \dot{Z}} &= \dot{Z} \quad \Rightarrow \quad \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{Z}}\right) = \ddot{Z} \\
+\frac{\partial L}{\partial Z} &= -\frac{\partial V}{\partial Z} - K \frac{dS}{dZ} + g_0 \theta_{NT}(1-2Z) + \varepsilon \sin(\omega t + \theta)
+\end{align}
+
+La dissipazione proviene dall'equazione master di Lindblad (Paper~A) ed \`e incorporata attraverso il coefficiente di smorzamento $c$:
+\begin{equation}\label{eq:dissipation}
+\ddot{Z} + \frac{\partial V}{\partial Z} + c\dot{Z} = 0
+\end{equation}
+dove $c$ \`e il coefficiente di dissipazione (dal Paper~A: $\Gamma = \sigmaV/\hbar^2 \expect{(\Delta\hat{V}_0)^2}$, mappato su $c$).
+
+\subsection{Equazione del moto canonica}
+\label{sec:canonical-eom}
+
+Raccogliendo tutti i termini:
+\begin{equation}\label{eq:eom}
+\boxed{\ddot{Z} + c\dot{Z} + \frac{\partial V}{\partial Z} = F_{\text{org}} + F_{\text{fluct}}}
+\end{equation}
+
+\subsection{Teorema di Noether e leggi di conservazione}
+\label{sec:noether}
+
+\subsubsection{Conservazione dell'energia dalla traslazione temporale}
+
+L'energia conservata \`e:
+\begin{equation}\label{eq:energy}
+\boxed{E(t) = \frac{1}{2}\dot{Z}^2 + V(Z)}
+\end{equation}
+Con dissipazione ($c > 0$):
+\begin{equation}
+\frac{dE}{dt} = -c(\dot{Z})^2 \leq 0
+\end{equation}
+L'energia decresce monotonicamente, manifestando il carattere irreversibile dell'emergenza.
+
+\subsubsection{Corrente informazionale}
+
+La corrente informazionale associata all'emergenza:
+\begin{equation}\label{eq:info-current}
+\boxed{\Jinfo(t) = -\frac{\partial V}{\partial Z} \cdot Z(t) + \text{correzioni di ordine superiore}}
+\end{equation}
+Il tasso di produzione di entropia di emergenza:
+\begin{equation}\label{eq:entropy-production}
+\frac{dS_{\text{emerge}}}{dt} = c(\dot{Z})^2 + \text{termini dissipativi} \geq 0
+\end{equation}
+che stabilisce un \emph{secondo principio dell'emergenza}.
+
+\subsubsection{Coerenza ciclica e quantizzazione}
+
+La condizione di coerenza ciclica (dal Paper~A, derivata dal teorema dei residui applicato al potenziale a doppio pozzo):
+\begin{equation}\label{eq:cyclic}
+\boxed{\OmegaNT = 2\pi i}
+\end{equation}
+garantisce che le orbite periodiche ritornino con fase fissa, quantizzando lo spettro energetico nel limite non smorzato:
+\begin{equation}
+E_n = \hbar \omega_0 (n + 1/2), \quad n = 0, 1, 2, \ldots
+\end{equation}
+dove $\omega_0 \approx \sqrt{|\partial^2 V / \partial Z^2|_{Z=1/2}|} \approx \sqrt{2\lambdaDND\theta_{NT}}$.
+
+\subsection{Forza di auto-ottimizzazione}
+\label{sec:auto-opt}
+
+\begin{equation}\label{eq:auto-force}
+\boxed{\Fauto(R(t)) = -\nabla_R L(R(t))}
+\end{equation}
+Il sistema si auto-ottimizza---seleziona le traiettorie che minimizzano il funzionale d'azione, unificando meccanica, teoria dei campi e dinamica informazionale.
+
+%==============================================================================
+\section{Transizioni di fase, analisi di biforcazione ed esponenti critici}
+\label{sec:phase-transitions}
+%==============================================================================
+
+\begin{remark}
+Gli esponenti critici derivati di seguito ($\beta = 1/2$, $\gamma = 1$, $\delta = 3$, $\nu = 1/2$) sono i valori canonici di campo medio della teoria di Ginzburg-Landau, noti sin dagli anni '60~\cite{Landau1980}. Non rivendichiamo questi esponenti come predizioni nuove di D-ND. Piuttosto, dimostriamo che la dinamica dell'emergenza D-ND appartiene alla classe di universalit\`a di Ginzburg-Landau---una verifica di consistenza che stabilisce che il framework riproduce la fisica nota. Le predizioni potenzialmente nuove di D-ND risiedono in tre aree: (1)~accoppiamento dipendente dal tempo $\lambdaDND(t)$~(\secref{pred1}), (2)~condensazione informazionale direzionale~(\secref{pred2}), e (3)~isteresi dipendente dal tasso~(\secref{pred3}).
+\end{remark}
+
+\subsection{Diagramma di fase: spazio $(\theta_{NT}, \lambdaDND)$}
+\label{sec:phase-diagram}
+
+I punti critici del potenziale soddisfano:
+\begin{equation}
+\frac{\partial V}{\partial Z} = 2Z(1-Z)(1-2Z) + \lambdaDND\theta_{NT}(1-2Z) = 0
+\end{equation}
+
+\textbf{Caso 1:} $Z = 1/2$ \`e sempre un punto critico (punto fisso instabile che separa due bacini).
+
+\textbf{Caso 2:} $2Z(1-Z) + \lambdaDND\theta_{NT} = 0$ non ha soluzioni reali in $[0,1]$ per parametri tipici ($\lambdaDND \approx 0.1$, $\theta_{NT} \approx 1$) poich\'e $2Z(1-Z) \geq 0$.
+
+\subsection{Struttura di biforcazione e derivazione degli esponenti critici}
+\label{sec:bifurcation}
+
+\subsubsection{Esponenti critici nella teoria di campo medio}
+
+\textbf{Esponente del parametro d'ordine $\beta$:} Espandendo $V$ vicino a $Z_c = 1/2$:
+\begin{equation}
+V(Z) \approx a(\lambda - \lambda_c)(Z-Z_c)^2 + b(Z-Z_c)^4
+\end{equation}
+Minimizzando: $(Z - Z_c)^2 \propto (\lambda_c - \lambda)$, da cui $\boxed{\beta = 1/2}$.
+
+\textbf{Esponente di suscettivit\`a $\gamma$:} Da $\chi \propto |V''(Z_c)|^{-1} \propto |\lambda - \lambda_c|^{-1}$:
+$\boxed{\gamma = 1}$.
+
+\textbf{Esponente di campo $\delta$:} Alla criticit\`a, $a(Z-Z_c)^3 + h = 0$ d\`a $(Z-Z_c) \propto h^{1/3}$:
+$\boxed{\delta = 3}$.
+
+\textbf{Esponente di lunghezza di correlazione:} $\boxed{\nu = 1/2}$.
+
+\textbf{Esponente del calore specifico:} $\boxed{\alpha = 0}$ (divergenza logaritmica).
+
+\subsubsection{Classe di universalit\`a di Ginzburg-Landau}
+
+Il sistema D-ND appartiene alla \textbf{classe di universalit\`a $O(1)$ di Ginzburg-Landau} (parametro d'ordine scalare, simmetria $\mathbb{Z}_2$). L'hamiltoniana di Ginzburg-Landau \`e:
+\begin{equation}\label{eq:GL}
+\HGL = \int d^d r \left[\frac{1}{2}(\nabla \phi)^2 + \frac{1}{2}a(T - T_c)|\phi|^2 + \frac{1}{4}b|\phi|^4\right]
+\end{equation}
+
+Il sistema D-ND raggiunge il limite di campo medio perch\'e il parametro d'ordine si accoppia attraverso il potenziale globale $\Veff(Z)$ (interazione a raggio infinito nello spazio del parametro d'ordine), non attraverso interazioni spaziali locali.
+
+\textbf{Relazioni di scala:}
+\begin{align}
+\alpha + 2\beta + \gamma &= 0 + 1 + 1 = 2 \quad \text{(Rushbrooke)} \quad \checkmark \\
+\gamma &= \beta(\delta - 1) = (1/2)(3-1) = 1 \quad \text{(Widom)} \quad \checkmark
+\end{align}
+
+\subsubsection{Regime di validit\`a degli esponenti di campo medio}
+
+Gli esponenti di campo medio sono esatti in presenza di interazioni a raggio infinito o globali, o in dimensioni spaziali $d \geq 4$. Il sistema D-ND raggiunge il comportamento di campo medio per costruzione perch\'e:
+\begin{enumerate}
+\item $Z(t) = M(t)$ \`e una media a grana grossa sull'intero paesaggio di emergenza.
+\item Il potenziale $V(Z)$ accoppia $Z$ a tutti i modi quantistici simultaneamente attraverso $\emerge$.
+\item Non \`e imposta alcuna localit\`a spaziale: il continuum D-ND $[0,1]$ \`e unidimensionale nello spazio dei parametri, non un reticolo spaziale.
+\end{enumerate}
+
+Per sistemi spazialmente estesi con interazioni locali, si applicano le correzioni del gruppo di rinormalizzazione, e la classe di universalit\`a pu\`o cambiare.
+
+\subsection{Analisi della decomposizione spinodale}
+\label{sec:spinodal}
+
+Il punto spinodale soddisfa $\partial^2 V/\partial Z^2 = 0$ a $Z_s = 1/2$:
+\begin{equation}
+\frac{\partial^2 V}{\partial Z^2}\bigg|_{Z=1/2} = -1 + \lambdaDND\theta_{NT} = 0
+\end{equation}
+
+Dunque la linea spinodale \`e:
+\begin{equation}\label{eq:spinodal}
+\boxed{\lambda_{\text{DND}}^{\text{spinodal}} = \frac{1}{\theta_{NT}}}
+\end{equation}
+
+Per $\lambdaDND < 1/\theta_{NT}$, esistono stati misti stabili attorno a $Z = 1/2$. Per $\lambdaDND > 1/\theta_{NT}$, si verifica una separazione di fase spontanea (decomposizione spinodale).
+
+\subsection{Distinzione tra D-ND e la teoria di Landau standard}
+\label{sec:predictions}
+
+Se gli esponenti critici coincidono esattamente con la teoria di Landau, quale osservabile distingue D-ND? Tre predizioni concrete sono identificabili.
+
+\subsubsection{Predizione 1: accoppiamento dipendente dal tempo $\lambdaDND(t)$}
+\label{sec:pred1}
+
+Nella teoria di Landau standard, la costante di accoppiamento \`e fissa durante un esperimento. In D-ND:
+\begin{equation}\label{eq:lambda-time}
+\boxed{\lambdaDND(t) = 1 - 2\overline{\lambda}(t) \quad \text{dove} \quad \overline{\lambda}(t) = \frac{1}{M}\sum_k \lambda_k(t)}
+\end{equation}
+Lo spettro $\{\lambda_k(t)\}$ evolve al variare dello stato quantistico durante l'emergenza. Pertanto, anche a temperatura sperimentale costante, misurazioni ripetute dovrebbero rivelare spostamenti dipendenti dal tempo nei parametri di transizione.
+
+\textbf{Criterio di falsificabilit\`a:} Se $\beta$ rimane costante attraverso le epoche di emergenza entro un'incertezza del 2\%, D-ND \`e falsificato a favore della teoria di Landau standard.
+
+\subsubsection{Predizione 2: condensazione informazionale direzionale}
+\label{sec:pred2}
+
+Il tasso di produzione di entropia di emergenza:
+\begin{equation}\label{eq:sigma}
+\sigma(t) = \frac{dS_{\text{emerge}}}{dt} = c(\dot{Z})^2 + \xi(\dot{R})^2 + \text{(correzioni di interazione)}
+\end{equation}
+con due canali dissipativi: dissipazione meccanica ($c$, da Lindblad) e dissipazione informazionale ($\xi$, transizione coerenza-incoerenza).
+
+\textbf{Predizione:} $\sigma(t) > 0$ sempre (secondo principio dell'emergenza) e $d\sigma/dt < 0$ monotonicamente, distinto dalla teoria di Landau standard dove $\sigma(t)$ pu\`o fluttuare attorno allo zero.
+
+\subsubsection{Predizione 3: isteresi del dipolo singolare-duale}
+\label{sec:pred3}
+
+La struttura a dipolo singolare-duale crea un'asimmetria intrinseca. Per il potenziale statico con il termine $\lambdaDND \cdot \theta_{NT} \cdot Z(1-Z)$ (che si annulla sia a $Z=0$ che a $Z=1$), le barriere statiche sono uguali. Tuttavia, un'isteresi dinamica emerge dalla risposta dipendente dal tasso: quando il sistema \`e guidato attraverso la transizione a tasso finito, le barriere efficaci acquisiscono correzioni dipendenti dal tasso che rompono la simmetria.
+
+L'ampiezza dell'isteresi scala super-linearmente con il tasso di scansione:
+\begin{equation}\label{eq:hysteresis}
+\Delta T_{\text{hyst}} \propto \left(\frac{d\lambda}{dt}\right)^\alpha \quad \text{con} \quad \alpha > 1
+\end{equation}
+
+%==============================================================================
+\section{Ponte quantistico-classico: dalla coerenza al parametro d'ordine}
+\label{sec:bridge}
+%==============================================================================
+
+\subsection{Inviluppo di decoerenza e limite classico}
+\label{sec:decoherence}
+
+Nel regime di Lindblad (Paper~A), le oscillazioni quantistiche in $M(t)$ sono smorzate esponenzialmente con tasso $\ceff = 2\gamma_{\text{avg}}$ (tasso medio di defasamento dall'equazione di Lindblad).
+
+\subsection{Potenziale efficace dalla struttura spettrale}
+\label{sec:spectral}
+
+L'operatore di emergenza ha decomposizione spettrale $\emerge = \sum_k \lambda_k |e_k\rangle\langle e_k|$. Il potenziale efficace risultante \`e:
+\begin{equation}\label{eq:veff-spectral}
+\Veff(Z) = Z^2(1-Z)^2 + \lambdaDND \cdot \theta_{NT} \cdot Z(1-Z)
+\end{equation}
+dove:
+\begin{equation}\label{eq:lambda-dnd}
+\boxed{\lambdaDND = 1 - 2\overline{\lambda} \quad \text{con} \quad \overline{\lambda} = \frac{1}{M}\sum_k \lambda_k}
+\end{equation}
+\begin{equation}\label{eq:theta-nt}
+\boxed{\theta_{NT} = \frac{\text{Var}(\{\lambda_k\})}{\overline{\lambda}^2} = \frac{\frac{1}{M}\sum_k (\lambda_k - \overline{\lambda})^2}{\overline{\lambda}^2}}
+\end{equation}
+
+\textbf{Connessione all'esempio numerico del Paper~A:} Per $N=16$ modi e $\lambda_k = k/15$ ($k=0,\ldots,15$): $\overline{\lambda} = 1/2$ (simmetria perfetta, $\lambdaDND = 0$) e $\theta_{NT} = 17/45 \approx 0{,}38$ (ampiezza spettrale moderata).
+
+\subsection{Equazione master per $Z(t)$}
+\label{sec:master}
+
+\subsubsection{Derivazione dalla lagrangiana D-ND}
+
+Partendo dall'equazione del moto continua $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$ e discretizzando tramite integrazione Euler-Forward con passo $\Delta t$:
+\begin{align}
+Z(t+\Delta t) &= Z(t) + \Delta t \cdot \dot{Z}(t) \\
+\dot{Z}(t+\Delta t) &= (1 - c\Delta t)\dot{Z}(t) - \Delta t \frac{\partial V}{\partial Z(t)}
+\end{align}
+
+Vicino al punto di biforcazione $Z_c = 1/2$, il gradiente del potenziale diventa prevalentemente cubico, e l'effetto cumulativo di passi incrementali ripetuti produce una modulazione esponenziale.
+
+\textbf{Equazione master completa:}
+\begin{equation}\label{eq:master}
+\boxed{R(t+1) = P(t) \cdot e^{\pm\lambda Z(t)} \cdot \int_t^{t+\Delta t} \left[\Dprimary(t') \cdot \Pposs(t') - \nabla \cdot \Llat(t')\right] dt'}
+\end{equation}
+
+\textbf{Definizioni delle componenti:}
+\begin{enumerate}
+\item $Z(t)$: Funzione di fluttuazione informazionale (misura di coerenza dello stato quantistico).
+\item $P(t)$: Potenziale del sistema, che evolve secondo la dinamica interna.
+\item $\lambda$: Parametro di intensit\`a delle fluttuazioni che controlla la forza di accoppiamento.
+\item $\Dprimary(t)$: Vettore di direzione primaria ($\propto -\nabla \Veff$).
+\item $\Pposs(t)$: Vettore di possibilit\`a che copre lo spazio delle fasi accessibile.
+\item $\Llat(t)$: Vettore di latenza/ritardo che rappresenta i vincoli di causalit\`a.
+\end{enumerate}
+
+\subsubsection{Funzione di coerenza e condizione limite}
+
+Il comportamento al limite per $Z(t) \to 0$ (coerenza perfetta):
+\begin{equation}\label{eq:omega-limit}
+\boxed{\OmegaNT = \lim_{Z(t) \to 0} \left[\int_{NT} R(t) \cdot P(t) \cdot e^{iZ(t)} \cdot \rho_{NT}(t) \, dV\right] = 2\pi i}
+\end{equation}
+
+\subsubsection{Criterio di stabilit\`a}
+
+L'innesco della transizione \`e segnalato da:
+\begin{equation}\label{eq:stability}
+\lim_{n \to \infty} \frac{|\Omega_{NT}^{(n+1)} - \Omega_{NT}^{(n)}|}{|\Omega_{NT}^{(n)}|} \cdot \left(1 + \frac{\|\nabla P(t)\|}{\rho_{NT}(t)}\right) < \varepsilon
+\end{equation}
+
+\subsection{Corrispondenza discreto-continuo}
+\label{sec:correspondence}
+
+L'equazione master discreta deve essere derivabile come limite a grana grossa della dinamica quantistica continua del Paper~A. La variabile a grana grossa $Z_k \equiv \bar{M}(k\Delta t)$ soddisfa:
+\begin{equation}
+Z_{k+1} = Z_k + \Delta t \left[-\ceff \dot{Z}_k - \frac{\partial \Veff}{\partial Z}\bigg|_{Z_k}\right] + \xi_k \sqrt{\Delta t}
+\end{equation}
+
+\textbf{Dominio di validit\`a:} (1)~$N \geq 8$ (errore del ponte $< 5\%$); (2)~separazione di scale $\max(1/\omega_{nm}) \ll \Delta t \ll 1/\Gamma_{\min}$; (3)~sistema vicino alla regione di biforcazione.
+
+%==============================================================================
+\section{Validazione numerica e analisi dinamica}
+\label{sec:numerics}
+%==============================================================================
+
+\subsection{Convergenza e analisi degli attrattori}
+\label{sec:convergence}
+
+\textbf{Metodo di integrazione:} Runge-Kutta adattivo (RK45) con tolleranze $\text{rtol} = \text{atol} = 10^{-8}$.
+
+\textbf{Parametri standard:} $Z(0) = 0{,}55$ o $0{,}45$, $\dot{Z}(0) = 0$, $\theta_{NT} = 1{,}0$, $\lambdaDND = 0{,}1$, $c = 0{,}5$, $T_{\max} = 100$.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$Z$ iniziale & $Z$ finale & Attrattore & Errore & Errore $L^2$ \\
+\midrule
+0,55 & 1,0048 & Totalit\`a & $4{,}77\times10^{-3}$ & $8{,}84\times10^{-8}$ \\
+0,45 & $-0{,}0048$ & Nullo & $4{,}80\times10^{-3}$ & $8{,}84\times10^{-8}$ \\
+\bottomrule
+\end{tabular}
+\caption{Convergenza agli attrattori. Le traiettorie convergono entro la precisione numerica.}
+\label{tab:convergence}
+\end{table}
+
+\subsection{Dissipazione energetica}
+\label{sec:energy-dissipation}
+
+L'energia istantanea decresce monotonicamente:
+\begin{equation}
+E(t) = \frac{1}{2}\dot{Z}^2 + V(Z), \quad \frac{dE}{dt} = -c(\dot{Z})^2 \leq 0
+\end{equation}
+La verifica numerica conferma che $E(t)$ decresce da $E(0) \approx 0{,}10$ a $E(\infty) \approx 0$.
+
+\subsection{Calcolo dell'esponente di Lyapunov}
+\label{sec:lyapunov}
+
+Riscrivendo come sistema del primo ordine con $v = \dot{Z}$ e linearizzando attorno all'attrattore Totalit\`a $(Z_*, v_*) = (1, 0)$:
+
+\begin{equation}
+J = \begin{pmatrix} 0 & 1 \\ -\partial^2V/\partial Z^2|_{Z=1} & -c \end{pmatrix}
+\end{equation}
+
+Calcolando:
+\begin{equation}
+\frac{\partial^2V}{\partial Z^2}\bigg|_{Z=1} = \lambdaDND\theta_{NT}
+\end{equation}
+
+Gli autovalori sono:
+\begin{equation}
+\lambda_{L} = \frac{-c \pm \sqrt{c^2 - 4\lambdaDND\theta_{NT}}}{2}
+\end{equation}
+
+Per parametri tipici ($c = 0{,}5$, $\lambdaDND\theta_{NT} \approx 0{,}1$): autovalori complessi con $\text{Re}(\lambda_L) = -0{,}25 < 0$ (attrattore stabile, tempo di rilassamento $\tau = 4$ unit\`a di tempo).
+
+\subsection{Diagramma di biforcazione}
+\label{sec:bifurcation-diagram}
+
+Per $\theta_{NT} = 1{,}0$ fissato, variando $\lambdaDND$ da $0$ a $1{,}0$:
+\begin{itemize}
+\item $\lambdaDND \in [0, 0{,}02)$: Singolo attrattore stabile vicino a $Z = 1/2$.
+\item $\lambdaDND = 0{,}02$ (punto di biforcazione): Il punto fisso a $Z = 1/2$ perde stabilit\`a.
+\item $\lambdaDND \in (0{,}02, 1{,}0]$: Due attrattori simmetrici che si avvicinano a $Z = 0$ e $Z = 1$.
+\end{itemize}
+\textbf{Tipo di biforcazione:} A forchetta (consistente con la rottura di simmetria $\mathbb{Z}_2$).
+
+%==============================================================================
+\section{Dinamica informazionale e dissipazione}
+\label{sec:info-dynamics}
+%==============================================================================
+
+\subsection{Dissipazione, freccia del tempo e irreversibilit\`a}
+\label{sec:irreversibility}
+
+Il termine dissipativo $c\dot{Z}$ rompe la simmetria di inversione temporale. La dissipazione proviene dall'equazione master di Lindblad:
+\begin{equation}
+\Gamma = \frac{\sigmaV}{\hbar^2}\expect{(\Delta\hat{V}_0)^2}
+\end{equation}
+Questo fornisce un secondo principio dell'emergenza: l'entropia aumenta man mano che il sistema si differenzia da $\NT$.
+
+\subsection{Criticalit\`a auto-organizzata}
+\label{sec:soc}
+
+Il diagramma di fase esibisce confini netti tra i bacini e dimensioni dei bacini pressoché uguali (52,8\% contro 47,2\%), indicando criticalit\`a auto-organizzata: piccole variazioni dei parametri vicino ai punti critici producono grandi cambiamenti nel risultato, eppure il sistema evita in modo robusto dinamiche puramente caotiche.
+
+\subsection{Condensazione informazionale: meccanismo di dissipazione dell'errore}
+\label{sec:condensation}
+
+Piuttosto che essere ``recuperata'' da un database preesistente, l'informazione classica viene ``condensata'' dalla potenzialit\`a quantistica attraverso la dissipazione sistematica dell'errore.
+
+Il \textbf{termine di dissipazione dell'errore}:
+\begin{equation}\label{eq:error-dissipation}
+\boxed{-\xi \frac{\partial R}{\partial t}}
+\end{equation}
+appare naturalmente nelle equazioni del moto generalizzate:
+\begin{equation}
+\frac{\partial^2 R}{\partial t^2} + \xi \frac{\partial R}{\partial t} + \frac{\partial \Veff}{\partial R} - \sum_k g_k NT_k - \delta V(t) \frac{\partial f_{\text{Pol}}}{\partial R} = 0
+\end{equation}
+
+Nel limite $\xi \to \infty$ (dissipazione forte), il sistema segue il flusso a gradiente:
+\begin{equation}
+\dot{R} \sim -\frac{1}{\xi}\frac{\partial \Veff}{\partial R}
+\end{equation}
+
+La perdita di coerenza \`e:
+\begin{equation}
+\Delta S_{\text{coherence}} = \int_0^t \xi \left(\frac{\partial R}{\partial t'}\right)^2 dt'
+\end{equation}
+
+\begin{equation}\label{eq:condensation-law}
+\boxed{\frac{d(\text{ordine classico})}{dt} \propto \frac{d(\text{perdita di coerenza})}{dt}}
+\end{equation}
+
+L'emergenza del comportamento classico deterministico \`e termodinamicamente ``pagata'' dalla dissipazione irreversibile della coerenza quantistica.
+
+%==============================================================================
+\section{Discussione: emergenza dell'osservatore e oltre la teoria di Landau}
+\label{sec:discussion}
+%==============================================================================
+
+\subsection{L'osservatore come variabile dinamica e biforcazione singolare-duale}
+\label{sec:observer}
+
+Il framework D-ND realizza l'emergenza dell'osservatore come un \emph{processo dinamico di biforcazione da un polo singolare indifferenziato verso poli duali manifesti}:
+\begin{enumerate}
+\item \textbf{Stato iniziale} ($Z=0$): Potenzialit\`a indifferenziata. Tutte le configurazioni duali e anti-duali simmetricamente sovrapposte.
+\item \textbf{Parametro d'ordine} $Z(t)$: Misura il grado di rottura di simmetria e cristallizzazione in una configurazione classicamente distinguibile.
+\item \textbf{Equazione del moto}: $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$ descrive la deriva smorzata dal polo singolare verso un polo duale.
+\item \textbf{Meccanismo}: (a)~Ottimizzazione variazionale (le traiettorie minimizzano $S = \int L\,dt$); (b)~Decoerenza intrinseca ($\Gamma = \sigmaV/\hbar^2 \expect{(\Delta\hat{V}_0)^2}$).
+\end{enumerate}
+
+\subsection{Confronto con le teorie standard delle transizioni di fase}
+\label{sec:comparison}
+
+\subsubsection{D-ND vs.\ teoria di Landau}
+
+Ci\`o che D-ND aggiunge: (1)~derivazione microscopica di $\Veff$ dalla struttura spettrale di $\emerge$; (2)~dinamica fuori equilibrio con dissipazione esplicita; (3)~framework a sistema chiuso tramite decoerenza intrinseca; (4)~corrispondenza quantistico-classica esplicita $Z(t) = M(t)$.
+
+\subsubsection{D-ND vs.\ universalit\`a del modello di Ising}
+
+Sia D-ND che il modello di Ising appartengono alla stessa classe di universalit\`a (campo medio per $d \geq 4$). Differenza chiave: il modello di Ising \`e un sistema discreto di spin interagenti; D-ND \`e un parametro d'ordine continuo in cui ogni configurazione classica emerge da una sovrapposizione quantistica di tutte le possibilit\`a ($\NT$).
+
+\subsubsection{D-ND vs.\ transizioni di Kosterlitz-Thouless}
+
+D-ND esibisce ordine a lungo raggio autentico (attrattori a $Z=0,1$), nessun difetto topologico in 1D, ed esponenti consistenti con Ginzburg-Landau---distinto dalle transizioni KT con singolarit\`a essenziale e dimensione anomala $\eta = 1/4$.
+
+\subsection{Cosa aggiungono le transizioni di fase D-ND oltre i framework standard}
+\label{sec:novel}
+
+\begin{enumerate}
+\item La coerenza quantistica guida la transizione dalla potenzialit\`a indifferenziata all'ordine classico manifesto.
+\item La dissipazione \`e fondamentale (decoerenza intrinseca di Lindblad), non ambientale.
+\item La condensazione informazionale connette quantitativamente il determinismo classico alla perdita di coerenza.
+\item La rottura di simmetria \`e ontologica, non fenomenologica.
+\item Il comportamento critico sorge dalla struttura della potenzialit\`a stessa, legato alle propriet\`a spettrali di $\emerge$.
+\end{enumerate}
+
+\subsection{Estensione alla geometria informazionale e alla cosmologia}
+\label{sec:extensions}
+
+\subsubsection{Parametri d'ordine a dimensione superiore (Paper~C)}
+
+Lo scalare $Z(t)$ si generalizza a un vettore parametro d'ordine $n$-dimensionale $\mathbf{Z}(t) = (Z^1, \ldots, Z^n)$ su una variet\`a $\mathcal{M}$ con metrica informazionale-geometrica:
+\begin{equation}
+\Lkin \to \frac{1}{2}g_{ij}(Z)\dot{Z}^i\dot{Z}^j
+\end{equation}
+
+\subsubsection{Estensione cosmologica (Paper~E)}
+
+Il campo localizzato $Z(t)$ \`e promosso a un campo $Z(\mathbf{x}, t)$:
+\begin{equation}
+L_E = \frac{1}{2}(\partial_t Z)^2 - \frac{1}{2}(\nabla Z)^2 - V(Z) + \frac{1}{16\pi G}\sqrt{-g}R + \frac{\beta}{2}\sqrt{-g}Z(\mathbf{x},t)\mathcal{K}(R)
+\end{equation}
+
+L'emergenza dell'osservatore diventa accoppiata alla geometria dello spaziotempo: regioni con $Z$ elevato (fortemente manifestate) inducono curvatura positiva, mentre regioni con $Z$ basso (indifferenziate) inducono curvatura differente.
+
+\subsection{Firme sperimentali e predizioni quantitative}
+\label{sec:experiments}
+
+\textbf{Predizione 1:} La dinamica della corrente informazionale esibisce una firma temporale a tre fasi (esplorazione lenta, biforcazione rapida, rilassamento esponenziale).
+
+\textbf{Predizione 2:} Il tempo di rilassamento spinodale diverge come $\tau_{\text{relax}} \sim 1/(c\sqrt{\lambdaDND - 1/\theta_{NT}})$ avvicinandosi alla linea spinodale---distinto dalla teoria di Landau standard.
+
+\textbf{Predizione 3:} L'emergenza dell'ordine classico \`e causalmente accoppiata alla dissipazione della coerenza, con correlazioni misurabili che violano le aspettative standard della decoerenza.
+
+%==============================================================================
+\section{Conclusioni}
+\label{sec:conclusions}
+%==============================================================================
+
+Abbiamo sviluppato una formulazione lagrangiana completa del continuum D-ND, estendendo il framework quantistico del Paper~A a una dinamica classica calcolabile. Risultati principali:
+\begin{enumerate}
+\item \textbf{Framework a dipolo singolare-duale}: D-ND come sistema fondamentalmente biforcante con $Z(t)$ che misura la differenziazione dalla singolarit\`a verso la dualit\`a.
+\item \textbf{Decomposizione lagrangiana completa}: Sei termini derivati dagli assiomi D-ND con interpretazioni fisiche.
+\item \textbf{Simmetrie di Noether}: Conservazione dell'energia, corrente informazionale e produzione di entropia di emergenza $dS_{\text{emerge}}/dt \geq 0$.
+\item \textbf{Equazione del moto fondamentale}: $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$ con tutti i termini derivati esplicitamente.
+\item \textbf{Esponenti critici}: Valori di campo medio $\beta=1/2, \gamma=1, \delta=3, \nu=1/2$ verificati con le relazioni di scala.
+\item \textbf{Fondamento spettrale}: $\lambdaDND$ e $\theta_{NT}$ espressi in termini degli autovalori dell'operatore di emergenza.
+\item \textbf{Decomposizione spinodale}: Confine di metastabilit\`a $\lambda_{\text{DND}}^{\text{spinodal}} = 1/\theta_{NT}$.
+\item \textbf{Equazione master per $Z(t)$}: Evoluzione completa $R(t+1)$ con componenti generativa e dissipativa.
+\item \textbf{Condensazione informazionale}: Dissipazione dell'errore $\xi \partial R/\partial t$ che quantifica il costo termodinamico della classicalit\`a.
+\item \textbf{Ponte quantistico-classico}: $Z(t) = M(t)$ sotto condizioni di coarse-graining specificate.
+\item \textbf{Validazione numerica}: Errore $L^2$ $\sim 10^{-8}$, analisi di Lyapunov, diagrammi di biforcazione.
+\item \textbf{Auto-ottimizzazione}: $\Fauto(R) = -\nabla L(R)$ mostra che la minimizzazione variazionale dell'azione seleziona il percorso di biforcazione.
+\item \textbf{Confronto}: Discussione esplicita di ci\`o che D-ND aggiunge alla teoria di Landau, al modello di Ising e alle transizioni KT.
+\item \textbf{Estensioni}: La generalizzazione informazionale-geometrica (Paper~C) e la teoria di campo cosmologica (Paper~E) seguono naturalmente.
+\end{enumerate}
+
+Il framework dimostra che l'emergenza dell'osservatore \`e un processo fondamentale di biforcazione che emerge dalla struttura del sistema D-ND stesso. I tre pilastri---\emph{ottimizzazione variazionale}, \emph{dissipazione intrinseca} e \emph{condensazione informazionale}---producono un'emergenza irreversibile e robusta del determinismo classico dalla potenzialit\`a quantistica.
+
+%==============================================================================
+% BIBLIOGRAPHY
+%==============================================================================
+
+\begin{thebibliography}{30}
+
+\bibitem{PaperA}
+D-ND Research Collective,
+``Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework,''
+This work, 2026.
+
+\bibitem{Goldstein2002}
+H.~Goldstein, C.~P.~Poole, and J.~L.~Safko,
+\emph{Classical Mechanics}, 3rd ed.
+(Addison-Wesley, 2002).
+
+\bibitem{Lanczos1970}
+C.~Lanczos,
+\emph{The Variational Principles of Mechanics}, 4th ed.
+(Dover, 1970).
+
+\bibitem{Landau1980}
+L.~D.~Landau and E.~M.~Lifshitz,
+\emph{Statistical Physics, Part 1}, 3rd ed.
+(Pergamon Press, 1980).
+
+\bibitem{Kadanoff1966}
+L.~P.~Kadanoff,
+``Scaling laws for Ising models near $T_c$,''
+\emph{Physics} \textbf{2}, 263 (1966).
+
+\bibitem{Wilson1971}
+K.~G.~Wilson,
+``Renormalization group and critical phenomena,''
+\emph{Phys. Rev. B} \textbf{4}, 3174 (1971).
+
+\bibitem{Neuenschwander2011}
+D.~E.~Neuenschwander,
+\emph{Emmy Noether's Wonderful Theorem}
+(Johns Hopkins University Press, 2011).
+
+\bibitem{Lindblad1976}
+G.~Lindblad,
+``On the generators of quantum dynamical semigroups,''
+\emph{Commun. Math. Phys.} \textbf{48}, 119 (1976).
+
+\bibitem{Zurek2003}
+W.~H.~Zurek,
+``Decoherence and the transition from quantum to classical,''
+\emph{Rev. Mod. Phys.} \textbf{75}, 715 (2003).
+
+\bibitem{Breuer2002}
+H.-P.~Breuer and F.~Petruccione,
+\emph{The Theory of Open Quantum Systems}
+(Oxford University Press, 2002).
+
+\bibitem{Wheeler1968}
+J.~A.~Wheeler,
+``Superspace and the nature of quantum geometrodynamics,''
+in \emph{Battelle Rencontres}, edited by C.~DeWitt and J.~A.~Wheeler
+(Benjamin, 1968), pp.~242--307.
+
+\bibitem{Hartle1983}
+J.~B.~Hartle and S.~W.~Hawking,
+``Wave function of the universe,''
+\emph{Phys. Rev. D} \textbf{28}, 2960 (1983).
+
+\bibitem{Page1983}
+D.~N.~Page and W.~K.~Wootters,
+``Evolution without evolution,''
+\emph{Phys. Rev. D} \textbf{27}, 2885 (1983).
+
+\bibitem{Tononi2016}
+G.~Tononi \emph{et al.},
+``Integrated information theory: from consciousness to its physical substrate,''
+\emph{Nat. Rev. Neurosci.} \textbf{17}, 450 (2016).
+
+\bibitem{Chamseddine1997}
+A.~H.~Chamseddine and A.~Connes,
+``The spectral action principle,''
+\emph{Commun. Math. Phys.} \textbf{186}, 731 (1997).
+
+\bibitem{Lupasco1951}
+S.~Lupasco,
+\emph{Le principe d'antagonisme et la logique de l'\'energie}
+(Hermann, Paris, 1951).
+
+\bibitem{Nicolescu2002}
+B.~Nicolescu,
+\emph{Manifesto of Transdisciplinarity}
+(SUNY Press, 2002).
+
+\end{thebibliography}
+
+%==============================================================================
+% APPENDICI
+%==============================================================================
+
+\appendix
+
+\section{Riepilogo della notazione}
+\label{app:notation}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+Simbolo & Significato & Unit\`a/Intervallo \\
+\midrule
+$Z(t)$ & Parametro d'ordine (posizione nel continuum) & $[0,1]$ \\
+$\dot{Z}, \ddot{Z}$ & Velocit\`a, accelerazione & $[\text{tempo}]^{-1}$ \\
+$V(Z)$ & Paesaggio potenziale & Energia \\
+$\theta_{NT}$ & Parametro di momento angolare (Nulla-Tutto) & Adimensionale \\
+$\lambdaDND$ & Accoppiamento dualit\`a-non-dualit\`a & $[0,1]$ \\
+$c$ & Coefficiente di dissipazione & $[\text{tempo}]^{-1}$ \\
+$\xi$ & Coefficiente di dissipazione informazionale & $[\text{tempo}]^{-1}$ \\
+$M(t)$ & Misura di emergenza quantistica (Paper~A) & $[0,1]$ \\
+$\emerge$ & Operatore di emergenza & Adimensionale \\
+$\hat{H}_D$ & Hamiltoniana D-ND & Energia \\
+$\OmegaNT$ & Coerenza ciclica & $2\pi i$ \\
+$\Fauto$ & Forza di auto-ottimizzazione & Forza \\
+$\Jinfo$ & Corrente informazionale & $[\text{Energia}\times\text{tempo}]^{-1}$ \\
+$\beta, \gamma, \delta, \nu$ & Esponenti critici & Adimensionali \\
+\bottomrule
+\end{tabular}
+\caption{Riepilogo della notazione per il Paper~B.}
+\label{tab:notation}
+\end{table}
+
+\section{Riepilogo delle equazioni chiave}
+\label{app:equations}
+
+\textbf{Equazione del moto:}
+\begin{equation}
+\ddot{Z} + c\dot{Z} + \frac{\partial V}{\partial Z} = 0
+\end{equation}
+
+\textbf{Potenziale:}
+\begin{equation}
+V(Z) = Z^2(1-Z)^2 + \lambdaDND \cdot \theta_{NT} \cdot Z(1-Z)
+\end{equation}
+
+\textbf{Potenziale efficace (dall'operatore quantistico $\emerge$):}
+\begin{equation}
+\Veff(R, NT) = -\lambda(R^2 - NT^2)^2 - \kappa(R \cdot NT)^n
+\end{equation}
+
+\textbf{Auto-ottimizzazione:} $\Fauto(R) = -\nabla_R L(R)$
+
+\textbf{Coerenza ciclica:} $\OmegaNT = 2\pi i$
+
+\textbf{Ponte quantistico-classico:}
+\begin{equation}
+Z(t) = M(t) = 1 - |f(t)|^2, \quad f(t) = \langle NT|U(t)\emerge|NT\rangle
+\end{equation}
+
+\textbf{Tasso di decoerenza di Lindblad (Paper~A):}
+\begin{equation}
+\Gamma = \frac{\sigmaV}{\hbar^2}\expect{(\Delta\hat{V}_0)^2}
+\end{equation}
+
+\textbf{Equazione master per $Z(t)$:}
+\begin{equation}
+R(t+1) = P(t) \cdot e^{\pm\lambda Z(t)} \cdot \int_t^{t+\Delta t} [\Dprimary \cdot \Pposs - \nabla \cdot \Llat] \, dt'
+\end{equation}
+
+\textbf{Esponenti critici (campo medio):}
+$\beta = 1/2, \quad \gamma = 1, \quad \delta = 3, \quad \nu = 1/2$
+
+\textbf{Linea spinodale:} $\lambda_{\text{DND}}^{\text{spinodal}} = 1/\theta_{NT}$
+
+\textbf{Corrente informazionale:} $\Jinfo(t) = -(\partial V/\partial Z) \cdot Z(t)$
+
+\textbf{Condensazione informazionale:} $-\xi \, \partial R/\partial t$
+
+\textbf{Produzione di entropia di emergenza:} $dS_{\text{emerge}}/dt = c(\dot{Z})^2 \geq 0$
+
+\end{document}

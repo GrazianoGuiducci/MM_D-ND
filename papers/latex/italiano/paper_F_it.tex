@@ -1,0 +1,1048 @@
+%==============================================================================
+% PAPER F - MOTORE DI INFORMAZIONE QUANTISTICA D-ND
+% Traduzione italiana — per lettura personale
+% Originale: paper_F.tex (Quantum / Physical Review A / Quantum Science and Technology)
+%==============================================================================
+
+\documentclass[aps,pra,11pt,notitlepage,nofootinbib,longbibliography]{revtex4-2}
+
+%==============================================================================
+% PACKAGES
+%==============================================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{braket}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{cleveref}
+% natbib loaded by revtex4-2 automatically
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{dnd_shared}
+
+%==============================================================================
+% HYPERREF CONFIGURATION
+%==============================================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    bookmarksnumbered=true,
+    pdftitle={Motore di informazione quantistica D-ND: gate quantistici modificati e framework computazionale},
+    pdfauthor={D-ND Research Collective},
+    pdfsubject={Calcolo quantistico, gate D-ND, densità possibilistica},
+    pdfkeywords={informazione quantistica possibilistica, gate D-ND, insiemi universali di gate, IFS, correzione di errore quantistica, calcolo assistito dall'emergenza}
+}
+
+%==============================================================================
+% GEOMETRY
+%==============================================================================
+
+\geometry{
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+}
+
+%==============================================================================
+% LISTINGS STYLE (for pseudocode)
+%==============================================================================
+
+\lstset{
+    basicstyle=\small\ttfamily,
+    frame=single,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny,
+    xleftmargin=2em,
+    framexleftmargin=1.5em
+}
+
+%==============================================================================
+% CUSTOM COMMANDS (Paper F specific)
+%==============================================================================
+
+\newcommand{\Mdist}{M_{\text{dist}}}
+\newcommand{\Ment}{M_{\text{ent}}}
+\newcommand{\Mproto}{M_{\text{proto}}}
+\newcommand{\HDND}{H_{\text{DND}}}
+\newcommand{\CNOTDND}{\text{CNOT}_{\text{DND}}}
+\newcommand{\PDND}{P_{\text{DND}}}
+\newcommand{\Rlinear}{R_{\text{linear}}}
+\newcommand{\Remit}{R_{\text{emit}}}
+\newcommand{\CNOTstd}{\text{CNOT}_{\text{std}}}
+
+% Conjecture environment
+\theoremstyle{plain}
+\newtheorem{conjecture}[theorem]{Congettura}
+\newtheorem{openproblem}[theorem]{Problema aperto}
+
+%==============================================================================
+% DOCUMENT
+%==============================================================================
+
+\begin{document}
+
+\title{Motore di informazione quantistica D-ND:\\Gate quantistici modificati e framework computazionale}
+
+\author{D-ND Research Collective}
+\affiliation{Ricerca indipendente}
+\date{14 febbraio 2026}
+
+\begin{abstract}
+Formalizziamo gli aspetti computazionali quantistici del framework D-ND (Duale-Non-Duale)
+introducendo un'architettura di informazione quantistica possibilistica che generalizza la
+meccanica quantistica standard. Invece della pura sovrapposizione probabilistica, gli stati
+quantistici D-ND sono caratterizzati da una misura di \emph{densit\`a possibilistica}
+$\rhoDND$ che incorpora struttura di emergenza, accoppiamento non locale e invarianti
+topologici. Definiamo quattro gate quantistici modificati---$\HDND$, $\CNOTDND$, $\PDND$
+e Shortcut$_{\text{DND}}$---che preservano la struttura D-ND consentendo al contempo il
+calcolo pratico. Dimostriamo che $\{\HDND, \CNOTDND, \PDND\}$ formano un insieme universale
+di gate nel regime perturbativo, derivando unitari SU$(2^n)$ arbitrari dalle composizioni
+dei gate. Viene presentato un modello di circuito completo con analisi degli errori e
+garanzie di preservazione della coerenza. Sviluppiamo un framework di simulazione basato su
+sistemi di funzioni iterate (IFS) con pseudocodice e analisi della complessit\`a polinomiale.
+Posizioniamo il calcolo D-ND nel contesto dei risultati noti sul vantaggio quantistico
+(BQP vs.\ BPP), mostrando come la soppressione degli errori assistita dall'emergenza fornisca
+un percorso distinto verso l'accelerazione quantistica. Vengono discusse applicazioni agli
+algoritmi di ricerca quantistica e al calcolo quantistico topologico. Questo lavoro collega
+la teoria dell'informazione quantistica alla dinamica dell'emergenza, stabilendo il framework
+D-ND come paradigma computazionale praticabile per algoritmi ibridi quantistico-classici a
+breve termine.
+\end{abstract}
+
+\keywords{Informazione quantistica possibilistica, gate D-ND, insiemi universali di gate,
+sistemi di funzioni iterate, correzione di errore quantistica, calcolo assistito dall'emergenza,
+complessit\`a BQP, calcolo quantistico topologico}
+
+\maketitle
+
+%==============================================================================
+\section{Introduzione}
+\label{sec:intro}
+%==============================================================================
+
+Il calcolo quantistico ha raggiunto notevoli progressi teorici e sperimentali, eppure
+persistono limitazioni fondamentali: la decoerenza, il collasso della misura e
+l'interpretazione strettamente probabilistica della regola di Born vincolano lo spazio degli
+algoritmi e delle applicazioni. Il framework D-ND (sviluppato nei Paper A--E) propone che i
+sistemi quantistici non debbano essere puramente probabilistici; piuttosto, la
+\emph{possibilit\`a} pu\`o coesistere con la probabilit\`a, mediata attraverso l'emergenza
+e l'accoppiamento non locale.
+
+\subsection{Chiarimento sulla notazione}
+\label{sec:notation}
+
+In tutto questo lavoro, il coefficiente di accoppiamento dell'emergenza $\lambda$ (senza
+pedice) rappresenta il parametro di approssimazione lineare che quantifica l'intensit\`a
+delle modifiche ai gate quantistici D-ND rispetto alle operazioni quantistiche standard.
+Questo si distingue da:
+$\lambdak$ del Paper~A: autovalori dell'operatore di emergenza nel substrato quantistico;
+$\lambdaDND$ del Paper~B: costante di accoppiamento del potenziale nell'hamiltoniana
+duale-non-duale;
+$\lambdaauto$ del Paper~D: tasso di convergenza autologica nella dinamica dell'osservatore;
+$\lambdacosmo$ del Paper~E: accoppiamento di emergenza cosmologica.
+La notazione viene ulteriormente chiarita nel \S\ref{sec:paperA-connection}, dove
+$\lambda = M(t)$ (la misura di emergenza) durante il regime di approssimazione lineare.
+
+\subsection{Motivazioni}
+
+\begin{enumerate}
+\item \textbf{Oltre il probabilismo}: La meccanica quantistica standard tratta tutta
+l'informazione come ampiezze probabilistiche. Il framework D-ND ammette stati
+possibilistici---sovrapposizioni in cui alcuni rami possono essere
+``proto-attuali'' (non ancora pienamente attualizzati) o ``soppressi'' dalla dinamica
+dell'emergenza.
+
+\item \textbf{Emergenza non locale}: Invece di considerare la non localit\`a come
+un'azione spettrale a distanza, il framework D-ND la modella come struttura nel campo di
+emergenza $\emerge$. I gate quantistici possono essere progettati per sfruttare questa
+struttura.
+
+\item \textbf{Robustezza topologica}: Il framework D-ND incorpora invarianti topologici
+(cicli omologici, numeri di Betti) che forniscono correzione naturale degli errori e
+miglioramento della fedelt\`a dei gate.
+
+\item \textbf{Ibrido classico-quantistico}: Il framework di simulazione lineare consente
+un'emulazione classica efficiente di certi circuiti D-ND, riducendo i requisiti hardware.
+
+\item \textbf{Vantaggio quantistico attraverso l'emergenza}: A differenza degli approcci
+standard che si affidano unicamente alla sovrapposizione quantistica, il framework D-ND
+offre la soppressione degli errori assistita dall'emergenza, un nuovo percorso verso il
+vantaggio quantistico.
+\end{enumerate}
+
+\subsection{Struttura del lavoro}
+
+La Sezione~\ref{sec:framework} introduce la misura di densit\`a possibilistica e la sua
+relazione con gli stati quantistici standard. La Sezione~\ref{sec:gates} definisce i
+quattro gate modificati fondamentali con regole di composizione rigorose. La
+Sezione~\ref{sec:circuit} sviluppa il modello di circuito e l'analisi degli errori. La
+Sezione~\ref{sec:simulation} presenta il framework di simulazione basato su IFS con
+pseudocodice. La Sezione~\ref{sec:applications} delinea le applicazioni, confronta con i
+risultati noti sul vantaggio quantistico e stabilisce un ponte computazionale verso la
+libreria THRML/Omega-Kernel di Extropic AI. La Sezione~\ref{sec:conclusions} conclude.
+Le Appendici~\ref{app:prop22} e \ref{app:prop43} forniscono le dimostrazioni delle
+proposizioni chiave.
+
+%==============================================================================
+\section{Framework di informazione quantistica D-ND}
+\label{sec:framework}
+%==============================================================================
+
+\subsection{Densit\`a possibilistica $\rhoDND$}
+\label{sec:rho-dnd}
+
+Nella meccanica quantistica standard, lo stato di un sistema \`e dato da una matrice
+densit\`a $\rho \in \mathcal{L}(\mathcal{H})$, dove $\mathcal{L}(\mathcal{H})$ \`e lo
+spazio degli operatori lineari limitati sullo spazio di Hilbert $\mathcal{H}$. Il framework
+D-ND generalizza questo a una \emph{densit\`a possibilistica} incorporando l'emergenza.
+
+\begin{definition}[Densit\`a possibilistica --- Formula B10]
+\label{def:rho-dnd}
+Siano $\Mdist$, $\Ment$, $\Mproto$ tre misure reali non negative sugli stati base dello
+spazio di Hilbert:
+\begin{itemize}
+\item $\Mdist$: \emph{capacit\`a distributiva} (quanto lo stato \`e ``distribuito'' tra gli
+elementi della base)
+\item $\Ment$: \emph{intensit\`a dell'entanglement} (grado della struttura di correlazione
+non locale)
+\item $\Mproto$: \emph{misura di proto-attualizzazione} (quanto un ramo \`e ``pronto'' a
+diventare classico)
+\end{itemize}
+Allora la \textbf{densit\`a possibilistica} \`e:
+\begin{equation}
+\rhoDND = \frac{\Mdist + \Ment + \Mproto}{\sum_{\text{all states}} (\Mdist + \Ment + \Mproto)}
+= \frac{M}{\Sigma M}
+\label{eq:rho-dnd}
+\end{equation}
+dove $M = \Mdist + \Ment + \Mproto$ e $\Sigma M$ \`e la misura totale su tutto il sistema.
+\end{definition}
+
+\textbf{Interpretazione:}
+Ogni componente di $M$ rappresenta un aspetto diverso dell'``essere disponibile al calcolo'':
+$\Mdist$ tiene conto dell'ampiezza della sovrapposizione (analoga all'entropia di Shannon
+nello spazio delle possibilit\`a); $\Ment$ cattura la struttura non locale (i rami che
+partecipano a correlazioni a lungo raggio hanno $\Ment$ pi\`u elevata); e $\Mproto$ misura
+quanto un ramo \`e vicino all'attualit\`a classica.
+
+\textbf{Osservazione sull'indipendenza delle misure e il contenuto operativo.}
+La Definizione~\ref{def:rho-dnd} richiede tre misure le cui definizioni devono essere fondate
+operativamente:
+\begin{enumerate}
+\item \textbf{$\Mdist$ (Capacit\`a distributiva)}: L'entropia di Shannon della distribuzione
+di probabilit\`a sugli stati base,
+\begin{equation}
+\Mdist = -\sum_i p_i \log p_i
+\end{equation}
+dove $p_i = |\langle i|\psi\rangle|^2$ sono le probabilit\`a degli stati base.
+
+\item \textbf{$\Ment$ (Intensit\`a dell'entanglement)}: Per sistemi bipartiti, la negativit\`a
+(Vidal \& Werner, 2002~\cite{Vidal2002}):
+\begin{equation}
+\Ment = \max(0, \text{Neg}(\rho_{AB})) = \max_k(0, -\lambda_k)
+\end{equation}
+dove $\lambda_k$ sono gli autovalori della trasposta parziale.
+
+\item \textbf{$\Mproto$ (Misura di proto-attualizzazione)}: Definita a partire dalla misura
+di emergenza del Paper~A:
+\begin{equation}
+\Mproto(t) = 1 - M(t) = |\langle\text{NT}|U(t)\emerge|\text{NT}\rangle|^2
+\end{equation}
+\end{enumerate}
+
+Con queste identificazioni, $\rhoDND$ \`e un'autentica estensione delle matrici densit\`a
+standard, che contiene informazione---la traiettoria di proto-attualizzazione
+$\Mproto(t)$---che gli stati quantistici standard scartano.
+
+\subsection{Connessione con gli stati quantistici standard}
+\label{sec:standard-connection}
+
+\begin{proposition}[Immersione nello spazio di Hilbert]
+\label{prop:hilbert-embedding}
+Se $\Mproto \equiv 0$ (nessuna proto-attualizzazione, regime quantistico puro) e
+$\mathcal{H}$ \`e separabile, allora $\rhoDND$ definisce un operatore densit\`a valido
+tramite:
+\begin{equation}
+\hat{\rho}_{\text{DND}} = \sum_i \frac{M(i)}{\Sigma M} |i\rangle\langle i|
+\end{equation}
+dove $M(i) = \Mdist(i) + \Ment(i)$ e $\Sigma M = \sum_i M(i)$. Questo soddisfa:
+(i)~$\text{Tr}[\hat{\rho}_{\text{DND}}] = 1$, (ii)~$\hat{\rho}_{\text{DND}} \geq 0$,
+(iii)~$\hat{\rho}_{\text{DND}} = \hat{\rho}_{\text{DND}}^\dagger$.
+Il prodotto interno
+$\langle\psi|\phi\rangle_{\text{DND}} = \text{Tr}[|\psi\rangle\langle\phi|\hat{\rho}_{\text{DND}}]
+= \sum_i a_i^* b_i \rho_{\text{DND}}(i)$
+(dove $|\psi\rangle = \sum_i a_i|i\rangle$, $|\phi\rangle = \sum_i b_i|i\rangle$) definisce
+una struttura di spazio di Hilbert pesata che si riduce al prodotto interno standard quando
+$M(i)$ \`e uniforme.
+\end{proposition}
+
+\emph{Dimostrazione}: Si veda l'Appendice~\ref{app:prop22}.
+
+\subsection{Connessione con la misura di emergenza del Paper A}
+\label{sec:paperA-connection}
+
+Il Paper~A stabilisce la misura di emergenza fondamentale
+$M(t) = 1 - |\langle\text{NT}|U(t)\emerge|\text{NT}\rangle|^2$,
+che quantifica il grado di differenziazione dello stato rispetto allo stato non localizzato
+$\NT$.
+
+\begin{proposition}[$M(t)$ e proto-attualizzazione]
+\label{prop:M-proto}
+La misura di proto-attualizzazione $\Mproto$ pu\`o essere identificata con il complemento
+della misura di emergenza del Paper~A:
+\begin{equation}
+\Mproto(t) = 1 - M(t) = |\langle\text{NT}|U(t)\emerge|\text{NT}\rangle|^2
+\end{equation}
+\end{proposition}
+
+\textbf{Interpretazione:}
+Quando $M(t) = 0$ (emergenza precoce): $\Mproto = 1$, il che significa che tutti i modi
+rimangono proto-attuali. Quando $M(t) = 1$ (emergenza tardiva): $\Mproto = 0$, il che
+significa che tutti i modi sono pienamente attualizzati. Il regime di transizione
+($0 < M(t) < 1$) \`e la finestra D-ND in cui domina il comportamento ibrido
+quantistico-classico.
+
+\begin{proposition}[Misure distributiva e di entanglement]
+\label{prop:M-decomp}
+Le tre componenti soddisfano il vincolo:
+\begin{equation}
+\Mdist(t) + \Ment(t) = M(t), \qquad \Mproto(t) = 1 - M(t)
+\end{equation}
+cosicch\'e $\Mdist(t) + \Ment(t) + \Mproto(t) = 1$. La misura di emergenza $M(t)$ governa
+la partizione: man mano che l'emergenza progredisce, il peso si trasferisce da $\Mproto$ a
+$\Mdist + \Ment$.
+\end{proposition}
+
+\begin{proposition}[Riduzione agli stati quantistici standard]
+\label{prop:reduction}
+Quando $M(t) \to 1$ (equivalentemente $\Mproto \to 0$), la densit\`a possibilistica
+$\rhoDND$ si riduce a uno stato quantistico standard:
+\begin{equation}
+\lim_{M(t) \to 1} \rhoDND = \rho_{\text{standard}} =
+\frac{\Mdist + \Ment}{\sum_{\text{states}}(\Mdist + \Ment)}
+\end{equation}
+che soddisfa le probabilit\`a della regola di Born sotto misurazione.
+\end{proposition}
+
+\textbf{Osservazione sulle implicazioni per i circuiti:} Nei circuiti D-ND pratici,
+$\lambda = M(t)$. Pertanto l'approssimazione lineare
+$\Rlinear(t) = P(t) + \lambda \cdot \Remit(t)$ \`e valida durante l'emergenza precoce
+($M(t) < 0{,}5$), dove la proto-attualizzazione \`e dominante e la componente classica
+$P(t)$ \`e piccola.
+
+%==============================================================================
+\section{Gate quantistici modificati}
+\label{sec:gates}
+%==============================================================================
+
+Definiamo quattro gate fondamentali adattati al framework D-ND. Ogni gate:
+(1)~preserva la struttura di $\rhoDND$;
+(2)~incorpora retroazione dal campo di emergenza $\emerge$;
+(3)~si riduce ai gate standard quando $\Mproto \to 0$.
+
+\subsection{Hadamard$_{\text{DND}}$ (Formula C1)}
+\label{sec:hadamard}
+
+L'Hadamard standard $H$ crea una sovrapposizione uniforme:
+$H|0\rangle = (|0\rangle + |1\rangle)/\sqrt{2}$.
+
+\begin{definition}
+\label{def:hadamard-dnd}
+Il gate \textbf{Hadamard$_{\text{DND}}$} modifica la ridistribuzione della densit\`a
+accoppiandola alla struttura di emergenza su grafo:
+\begin{equation}
+\HDND |v\rangle = \frac{1}{\mathcal{N}_v}
+\sum_{u \in \text{Nbr}(v)} w_u \cdot \delta V_u \, |u\rangle
+\label{eq:hadamard-dnd}
+\end{equation}
+dove $v$ \`e un vertice nel grafo di emergenza (etichetta di stato), $\delta V_u$ \`e il
+gradiente del potenziale del campo di emergenza al nodo vicino $u$, $w_u$ \`e il peso di
+emergenza (autovalore di $\emerge$ in $u$), $\text{Nbr}(v)$ \`e l'intorno di $v$, e
+$\mathcal{N}_v = \sqrt{\sum_{u \in \text{Nbr}(v)} |w_u \cdot \delta V_u|^2}$ \`e il
+fattore di normalizzazione che assicura l'unitariet\`a.
+\end{definition}
+
+\textbf{Interpretazione fisica:}
+Invece di creare una sovrapposizione uniforme, $\HDND$ pesa ogni vicino in base alla sua
+``prontezza'' di emergenza ($w_u$) e al gradiente del potenziale locale. Un $\delta V$
+elevato concentra la sovrapposizione; un $\delta V$ basso consente una distribuzione pi\`u
+ampia. La normalizzazione $\mathcal{N}_v$ assicura $\|\HDND|v\rangle\| = 1$.
+
+\textbf{Osservazione sull'unitariet\`a:} Quando il campo di emergenza \`e statico e il
+grafo \`e regolare, $\HDND$ si riduce all'Hadamard standard. Per grafi di emergenza generali,
+$\HDND$ \`e unitario per costruzione ma non \`e generalmente autoaggiunto.
+$\HDND^2 = I$ vale solo nel caso simmetrico.
+
+\subsection{CNOT$_{\text{DND}}$ con emergenza non locale (Formula C2)}
+\label{sec:cnot}
+
+\begin{definition}
+\label{def:cnot-dnd}
+Il gate \textbf{CNOT$_{\text{DND}}$} incorpora l'accoppiamento di emergenza non locale:
+\begin{equation}
+\CNOTDND = \CNOTstd \cdot e^{-i\,s\,\ell^*}
+\label{eq:cnot-dnd}
+\end{equation}
+dove $\CNOTstd = \left(\begin{smallmatrix} I & 0 \\ 0 & X \end{smallmatrix}\right)$ \`e il
+gate CNOT standard, $s = \frac{1}{n}\sum_{i \neq j} |\langle i|H|j\rangle|$ \`e il parametro
+di distribuzione non locale, e $\ell^* = 1 - \delta V$ \`e il fattore di coerenza
+dell'emergenza con $\delta V = \|\nabla\emerge\|/\|\emerge\| \in [0,1]$.
+\end{definition}
+
+\textbf{Effetto:}
+Il fattore di fase $e^{-is\ell^*}$ applica una fase non locale globale che dipende sia dal
+tasso di distribuzione $s$ sia dal fattore di coerenza $\ell^*$. Quando $\delta V$ \`e
+elevato (emergenza forte), $\ell^*$ \`e piccolo e il gate si avvicina al CNOT standard.
+Quando $\delta V$ \`e basso, viene applicata la piena fase non locale.
+
+\textbf{Composizione:} $\CNOTDND^2 = e^{-2is\ell^*} \cdot I$ (involutorio a meno di una
+fase globale).
+
+\subsection{Phase$_{\text{DND}}$ con accoppiamento alla fluttuazione del potenziale (Formula C3)}
+\label{sec:phase}
+
+\begin{definition}
+\label{def:phase-dnd}
+Il gate \textbf{Phase$_{\text{DND}}$} accoppia la dinamica di fase al potenziale di
+emergenza:
+\begin{equation}
+\PDND(\phi)|v\rangle = e^{-i(1 - \phi_{\text{phase}} \cdot \delta V)} |v\rangle
+\label{eq:phase-dnd}
+\end{equation}
+dove $\phi_{\text{phase}}$ \`e il parametro di fase classico e $\delta V$ \`e il gradiente
+del potenziale di emergenza in $v$.
+\end{definition}
+
+\textbf{Interpretazione:}
+La fase effettiva dipende dal potenziale di emergenza. In regime di emergenza forte
+($\delta V \to 1$), la fase \`e soppressa. In regime di emergenza debole, viene applicata la
+fase piena. Questo crea un paesaggio di fase dipendente dal potenziale, sfruttabile per il
+calcolo topologico.
+
+\subsection{Shortcut$_{\text{DND}}$ per operazioni topologiche (Formula C4)}
+\label{sec:shortcut}
+
+\begin{definition}[Principio di riduzione della profondit\`a del circuito]
+\label{def:shortcut-dnd}
+Data una struttura di entanglement bersaglio su $m$ qubit (che normalmente richiede $|E|$
+operazioni CNOT), il fattore di compressione topologica $\chi \in (0, 1]$ derivato dal primo
+numero di Betti del grafo di emergenza determina il conteggio ridotto dei gate:
+\begin{equation}
+m_{\text{reduced}} = \lceil \chi \cdot |E| \rceil, \qquad
+\chi = \frac{\beta_1(G_\emerge)}{\beta_1(G_\emerge) + |E|}
+\label{eq:shortcut}
+\end{equation}
+dove $\beta_1(G_\emerge)$ \`e il primo numero di Betti del grafo di emergenza.
+\end{definition}
+
+\textbf{Osservazione:} Shortcut$_{\text{DND}}$ non \`e un singolo gate unitario ma una
+strategia di compilazione dei circuiti: specifica come riordinare i gate $\CNOTDND$ usando
+informazione topologica per ridurre la profondit\`a del circuito. Il circuito risultante
+implementa la stessa struttura di entanglement con meno gate.
+
+\subsection{Universalit\`a dei gate (regime perturbativo)}
+\label{sec:universality}
+
+\begin{proposition}[Universalit\`a dei gate]
+\label{prop:universality}
+Nel regime di emergenza debole ($\delta V \ll 1$), l'insieme $\{\HDND, \CNOTDND, \PDND\}$
+forma un insieme universale di gate quantistici per i circuiti D-ND: per ogni unitario
+$U \in \text{SU}(2^n)$, esiste una sequenza finita di gate da questo insieme che approssima
+$U$ con precisione arbitraria.
+\end{proposition}
+
+\begin{proof}
+\textbf{Universalit\`a standard:} $\{H, \text{CNOT}, P(\pi/4)\}$ forma un insieme
+universale di gate (Nielsen \& Chuang~\cite{Nielsen2010}; teorema di Kitaev-Solovay).
+
+\textbf{Riduzione al limite:} Quando $\delta V \to 0$, i gate D-ND si riducono ai gate
+standard: $\HDND \to H$, $\CNOTDND \to \text{CNOT}$, $\PDND \to P(\phi)$ (dalle
+Definizioni~\ref{def:hadamard-dnd}--\ref{def:phase-dnd}).
+
+\textbf{Estensione perturbativa:} Per piccoli $\delta V > 0$, ogni gate D-ND differisce
+dalla sua controparte standard di $O(\delta V)$:
+$\|G_{\text{DND}} - G_{\text{standard}}\| = O(\delta V)$. La composizione di $N$ gate
+accumula un errore al pi\`u $N \cdot O(\delta V)$. Poich\'e l'insieme di gate standard \`e
+universale e le perturbazioni sono regolari, l'insieme di gate D-ND rimane denso in
+SU$(2^n)$ per $\delta V$ sufficientemente piccoli.
+
+\textbf{Stima dell'errore:} Per un circuito di $N$ gate con intensit\`a di emergenza
+$\delta V$: $\varepsilon_{\text{approx}} \leq N \cdot C \cdot \delta V$, dove $C$ dipende
+dalla geometria del gate. Scegliendo
+$\delta V < \varepsilon_{\text{target}}/(N \cdot C)$ si raggiunge la precisione desiderata.
+\end{proof}
+
+\begin{openproblem}[Universalit\`a in regime di emergenza forte]
+Se $\{\HDND, \CNOTDND, \PDND\}$ rimanga universale per $\delta V \in (0, 1]$ arbitrari \`e
+una questione aperta. Una dimostrazione costruttiva richiederebbe famiglie parametriche
+esplicite di decomposizioni universali di gate su $\delta V$, oppure un argomento topologico
+che mostri che l'insieme di gate genera un sottogruppo denso di SU$(2^n)$ per tutti i valori
+di $\delta V$.
+\end{openproblem}
+
+%==============================================================================
+\section{Modello di circuito}
+\label{sec:circuit}
+%==============================================================================
+
+\subsection{Regole di composizione dei circuiti D-ND}
+
+Un \textbf{circuito D-ND} $C$ \`e una sequenza di gate $\{G_1, G_2, \ldots, G_k\}$ agenti
+su $\rhoDND$, con composizione:
+\begin{equation}
+C(\rhoDND) = G_k \circ G_{k-1} \circ \cdots \circ G_1(\rhoDND)
+\end{equation}
+
+\textbf{Vincolo 4.1 (Consistenza dell'emergenza):} Tra gate consecutivi $G_i$ e $G_{i+1}$,
+il campo di emergenza $\emerge$ deve soddisfare:
+\begin{equation}
+\text{spec}(\emerge_i) \cap \text{spec}(\emerge_{i+1}) \neq \emptyset
+\end{equation}
+il che assicura la continuit\`a del paesaggio di emergenza.
+
+\textbf{Vincolo 4.2 (Preservazione della coerenza):} La perdita di coerenza totale \`e
+limitata:
+\begin{equation}
+\sum_{i=1}^{k} (1 - \ell_i^*) \leq \Lambda_{\max}
+\end{equation}
+dove $\Lambda_{\max}$ \`e il budget massimo di coerenza consentito.
+
+\subsection{Modello degli errori e preservazione della coerenza}
+\label{sec:error-model}
+
+\begin{proposition}[Soppressione degli errori assistita dall'emergenza]
+\label{prop:error-suppression}
+Sia $C$ un circuito D-ND di $k$ gate con operatori di Lindblad dipendenti dall'emergenza
+$L_k^{\text{DND}}(t) = L_k \cdot (1 - M(t))$. Allora il tasso di errore per gate \`e
+soppresso linearmente:
+\begin{equation}
+\varepsilon(t) = \varepsilon_0 \cdot (1 - M(t))
+\label{eq:error-suppression}
+\end{equation}
+e la fedelt\`a totale del circuito soddisfa:
+\begin{equation}
+F_{\text{total}} = \prod_{i=1}^{k} [1 - \varepsilon_0(1 - M(t_i))]
+\geq (1 - \varepsilon_0)^{k(1-\bar{M})}
+\label{eq:fidelity}
+\end{equation}
+dove $\bar{M} = (1/k)\sum_i M(t_i)$ \`e il fattore medio di emergenza.
+\end{proposition}
+
+\emph{Dimostrazione}: Si veda l'Appendice~\ref{app:prop43}.
+
+\textbf{Implicazione:} I circuiti D-ND con forte emergenza media ($\bar{M}$ vicino a 1)
+raggiungono un significativo miglioramento della fedelt\`a rispetto ai circuiti standard. La
+soppressione \`e lineare per gate ma si compone favorevolmente lungo circuiti profondi.
+Questo complementa la correzione di errore quantistica standard.
+
+%==============================================================================
+\section{Framework di simulazione}
+\label{sec:simulation}
+%==============================================================================
+
+\subsection{Approccio IFS (Sistema di funzioni iterate)}
+\label{sec:ifs}
+
+Quando l'emergenza \`e forte, un'approssimazione tramite sistema di funzioni iterate diventa
+praticabile.
+
+\begin{definition}
+\label{def:ifs}
+Siano $\{f_1, f_2, \ldots, f_n\}$ mappe di contrazione sullo spazio delle densit\`a
+(Definizione~\ref{def:rho-dnd}), con fattori di contrazione
+$\{\lambda_1, \ldots, \lambda_n\}$ (ogni $\lambda_i < 1$). Un IFS \`e:
+\begin{equation}
+\rho_{\text{DND}}^{(n+1)} = \sum_{i=1}^{n} p_i \, f_i(\rho_{\text{DND}}^{(n)})
+\end{equation}
+dove $p_i$ sono pesi determinati dalla struttura del grafo di emergenza.
+\end{definition}
+
+\textbf{Limiti di applicabilit\`a:} Il framework IFS si applica specificamente ai circuiti
+D-ND nel regime di emergenza lineare ($M(t) < 0{,}5$, $\lambda < 0{,}5$). \emph{Non}
+affermiamo che circuiti quantistici arbitrari possano essere simulati classicamente in tempo
+polinomiale. Per i circuiti quantistici completi ($M(t) \to 1$), si applica la simulazione
+standard BQP-hard. La struttura IFS emerge naturalmente dalla dinamica D-ND perch\'e
+l'operatore di emergenza crea strutture ramificate autosimilari (Paper~C \S3.1). Si veda
+Barnsley~\cite{Barnsley1988} per i fondamenti matematici degli IFS.
+
+\subsection{Approssimazione lineare $\Rlinear = P + \lambda \cdot R(t)$ (Formula C7)}
+\label{sec:linear-approx}
+
+Per l'implementazione pratica:
+\begin{equation}
+\Rlinear(t) = P(t) + \lambda \cdot \Remit(t)
+\label{eq:linear-approx}
+\end{equation}
+dove $P(t)$ \`e la componente probabilistica (simulazione quantistica standard con
+$\Mproto = 0$), $\lambda$ \`e il coefficiente di accoppiamento dell'emergenza, e:
+\begin{equation}
+\Remit(t) = \int_0^t M(s) \, e^{-\gamma(t-s)} \, ds
+\end{equation}
+dove $\gamma$ \`e il tasso di decadimento della memoria di emergenza.
+
+\subsection{Pseudocodice per la simulazione IFS D-ND}
+\label{sec:pseudocode}
+
+\begin{lstlisting}[caption={Simulazione di circuito quantistico D-ND tramite IFS},label={lst:ifs}]
+Input: rho_0, circuito C, tempo T, lambda, gamma, epsilon
+Output: rho_finale, statistiche_misura
+
+1. INIZIALIZZAZIONE
+   P(0) <- rho_0
+   M(0) <- CalcoloMisuraEmergenza(rho_0)
+   t <- 0, dt <- T / NumPassi
+
+2. PER OGNI gate G_i in C:
+   3. P(t+dt) <- SimQuantisticaStandard(P(t), G_i, dt)
+   4. M(t+dt) <- M(t) + dt * dM/dt(t)
+   5. R_emit(t+dt) <- exp(-gamma*dt)*R_emit(t)
+                     + dt*M(t)
+   6. dU_corr <- MappaEsponenziale(dV, lambda, ell*)
+      P(t+dt) <- dU_corr * P(t+dt) * dU_corr_dag
+   7. epsilon_eff <- eps_0 * (1 - M(t+dt))
+   8. rho_DND(t+dt) <- P(t+dt) + lambda*R_emit(t+dt)
+      Rinormalizza
+   9. t <- t + dt
+
+10. RESTITUISCI rho_DND(T), misure
+\end{lstlisting}
+
+\textbf{Complessit\`a:} $O(n^3 \cdot T)$ quando $\lambda < 0{,}3$ (emergenza debole),
+$O(n^4 \cdot T)$ per emergenza moderata, e $O(2^n \cdot T)$ per emergenza forte (regime di
+simulazione standard).
+
+\subsection{Analisi degli errori dell'approssimazione lineare}
+\label{sec:error-analysis}
+
+\begin{proposition}[Stima dell'errore per l'approssimazione lineare]
+\label{prop:error-bound}
+Siano $R_{\text{exact}}(t)$ l'evoluzione esatta dello stato D-ND e
+$\Rlinear(t) = P(t) + \lambda \cdot \Remit(t)$. Allora:
+\begin{equation}
+\|R_{\text{exact}}(t) - \Rlinear(t)\| \leq C \cdot \lambda^2 \cdot \|\Remit(t)\|^2
+\label{eq:error-bound}
+\end{equation}
+dove $C \approx T \cdot \log(n) \cdot \rho_{\max}$ per un circuito di profondit\`a $T$ su
+$n$ qubit con spettro di emergenza limitato da $\rho_{\max}$.
+\end{proposition}
+
+\emph{Traccia della dimostrazione:} L'evoluzione esatta soddisfa
+$R_{\text{exact}} = \mathcal{U}_{\text{full}} R(0)$ mentre l'approssimazione lineare usa
+$\mathcal{U}_{\text{linear}} = \mathcal{U}_{\text{standard}} + \lambda\mathcal{U}_{\text{correction}}$.
+L'errore $\Delta = \mathcal{U}_{\text{full}} - \mathcal{U}_{\text{linear}} = O(\lambda^2)$
+per la teoria delle perturbazioni.
+
+\textbf{Regime di validit\`a:} $M(t) < 0{,}5$ (emergenza da precoce a intermedia). Per
+$\lambda < 0{,}3$, l'errore relativo rimane inferiore all'1,2\%, adeguato per applicazioni
+NISQ. Per $\lambda \geq 0{,}5$, l'approssimazione lineare decade e si rende necessaria la
+simulazione quantistica completa.
+
+\subsection{Confronto con la simulazione quantistica standard}
+\label{sec:comparison}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Aspetto} & \textbf{Standard} & \textbf{D-ND lineare} \\
+\midrule
+Complessit\`a temporale & $O(2^n \cdot T)$ & $O(n^3 \cdot T)$ quando $\lambda < 0{,}3$ \\
+Memoria & $O(2^n)$ & $O(n^2)$ \\
+Accuratezza (em.\ bassa) & Perfetta & $\sim$99\% \\
+Hardware & Processore quantistico & Classico + oracolo di emergenza \\
+Gestione errori & QEC a livello di circuito & Soppressione assistita dall'emergenza \\
+\bottomrule
+\end{tabular}
+\caption{Confronto tra gli approcci di simulazione.}
+\label{tab:comparison}
+\end{table}
+
+%==============================================================================
+\section{Applicazioni e vantaggio quantistico}
+\label{sec:applications}
+%==============================================================================
+
+\subsection{Ricerca quantistica con accelerazione emergente}
+\label{sec:quantum-search}
+
+\textbf{Problema:} Ricercare un elemento marcato in un database non ordinato di dimensione
+$N$. L'algoritmo di Grover standard raggiunge un'accelerazione $O(\sqrt{N})$.
+
+\textbf{Miglioramento D-ND:} Utilizzando gate $\HDND$ che pesano preferenzialmente i rami
+ad alta emergenza, possiamo concentrare la densit\`a possibilistica sull'elemento marcato.
+
+\begin{conjecture}
+\label{conj:search}
+Per circuiti in cui l'emergenza \`e controllata ($\Mproto \propto t$), la ricerca quantistica
+D-ND pu\`o ottenere un miglioramento per fattore costante rispetto al Grover standard, con
+complessit\`a di interrogazione $O(\sqrt{N}/\alpha)$ dove $\alpha \geq 1$ \`e un fattore di
+amplificazione dell'emergenza.
+\end{conjecture}
+
+\textbf{Osservazione sui limiti inferiori:} Il teorema BBBV (Bennett et
+al.~\cite{Bennett1997}) stabilisce che qualsiasi ricerca quantistica richiede
+$\Omega(\sqrt{N})$ interrogazioni all'oracolo. Qualsiasi accelerazione D-ND oltre questo
+limite richiederebbe un modello di oracolo fondamentalmente diverso. Il miglioramento
+affermato qui \`e un fattore costante $\alpha$ all'interno del modello di oracolo standard.
+
+\subsection{Calcolo quantistico topologico}
+\label{sec:topological}
+
+Il framework D-ND \`e naturalmente adatto al calcolo quantistico topologico:
+(1)~gli stati sono protetti da invarianti topologici (cicli omologici nel grafo di
+emergenza); (2)~l'intreccio (braiding) tramite Shortcut$_{\text{DND}}$ implementa
+efficientemente lo scambio di anioni non abeliani; (3)~il campo di emergenza fornisce una
+protezione topologica aggiuntiva oltre alla soppressione intrinseca degli errori.
+
+Per emergenza moderata, la riduzione del sovraccarico \`e:
+\begin{equation}
+\text{Riduzione del sovraccarico} = 1 - \frac{\Mproto}{\Mdist + \Ment}
+\end{equation}
+
+\subsection{Posizionamento nell'ambito di BQP vs.\ BPP}
+\label{sec:bqp}
+
+Il framework D-ND fornisce un meccanismo distinto per l'accelerazione quantistica:
+\begin{enumerate}
+\item \textbf{Complessit\`a assistita dall'emergenza:} La misura di emergenza $M(t)$
+fornisce una risorsa controllabile in modo continuo.
+\item \textbf{Classe di complessit\`a ibrida:} Definiamo BQP$_{\text{DND}}$ come la classe
+dei problemi risolvibili da circuiti D-ND con sovraccarico di emergenza polinomiale.
+\item \textbf{Vantaggio dalla soppressione degli errori:} La
+Proposizione~\ref{prop:error-suppression} mostra
+$\varepsilon(t) = \varepsilon_0(1 - M(t))$, consentendo circuiti pi\`u profondi con
+emergenza forte.
+\end{enumerate}
+
+\subsection{Problema aperto: vantaggio quantistico tramite amplificazione di ampiezza D-ND}
+\label{sec:open-problem}
+
+\begin{openproblem}
+Dimostrare o confutare che i circuiti quantistici D-ND possano raggiungere un'accelerazione
+superpolinomiale per una classe naturale di problemi, utilizzando un'amplificazione di
+ampiezza modulata dall'emergenza distinta dal Grover standard.
+\end{openproblem}
+
+\textbf{Approccio candidato:} Inizializzare a $\NT$. Applicare l'oracolo modulato
+dall'emergenza
+$O_{\text{DND}}(t) = I - (1 + M(t))|x^*\rangle\langle x^*|$ e l'operatore di diffusione
+$D_{\text{DND}}(t) = (1-M(t)) D_{\text{Grover}} + M(t) D_{\text{random}}$. Il conteggio
+delle iterazioni diventa:
+\begin{equation}
+T_{\text{DND}} \sim \frac{\sqrt{N/k}}{\sqrt{1 + \lambda\Psi_C}}
+\end{equation}
+dove $\Psi_C$ \`e un fattore di miglioramento della coerenza derivato dalla struttura del
+circuito. La complessit\`a totale delle interrogazioni rimane $\Omega(\sqrt{N/k})$ per il
+teorema BBBV, quindi ci\`o va inteso come un miglioramento per fattore costante per $n$
+fissato.
+
+\subsection{Connessione con il campionamento termodinamico: il ponte THRML/Omega-Kernel}
+\label{sec:thrml}
+
+Recenti sviluppi nel calcolo termodinamico da parte di Extropic AI forniscono un percorso
+diretto di validazione sperimentale per la teoria dell'informazione quantistica D-ND. La
+libreria THRML/Omega-Kernel implementa il campionamento di modelli grafici probabilistici
+attraverso principi termodinamici, con un'architettura isomorfa al framework D-ND.
+
+\subsubsection{SpinNode come dipolo D-ND}
+
+Lo SpinNode di THRML con stati $\{-1, +1\}$ corrisponde al dipolo singolare-duale D-ND:
+\begin{equation}
+\text{SpinNode} \in \{-1, +1\} \leftrightarrow
+\text{dipolo D-ND} \in \{|\varphi_+\rangle, |\varphi_-\rangle\}
+\end{equation}
+Il modello basato sull'energia di Ising $E = -\sum_{i,j} J_{ij}s_is_j - \sum_i h_is_i$ si
+mappa sul potenziale efficace D-ND $V_{\text{eff}}$ con $J_{ij}$ come hamiltoniana di
+interazione e $h_i$ come potenziale a singola particella.
+
+\subsubsection{Campionamento di Gibbs a blocchi come emergenza iterativa}
+
+Il campionamento di Gibbs a blocchi di THRML---che suddivide il grafo in blocchi alternati con
+aggiornamenti condizionali---\`e isomorfo al processo di emergenza D-ND: lo stato iniziale
+casuale $\leftrightarrow$ campionamento da $\NT$; ogni passata di Gibbs $\leftrightarrow$
+un'applicazione di $\emerge$; convergenza all'equilibrio $\leftrightarrow$ emergenza completa
+con $M \approx 1$.
+
+Ogni passata di Gibbs campiona
+$p(s_B|s_{B^c}) \propto \exp(-\beta E(s_B, s_{B^c}))$, dove il fattore di Boltzmann
+$\exp(-\beta E)$ corrisponde all'amplificazione selettiva dei rami ad alta coerenza da parte
+dell'operatore di emergenza.
+
+\subsubsection{Corrispondenza dei gate}
+
+I quattro gate D-ND si mappano sulle operazioni THRML:
+$\HDND \leftrightarrow$ ridistribuzione a blocchi;
+$\CNOTDND \leftrightarrow$ aggiornamento condizionale inter-blocco;
+$\PDND \leftrightarrow$ modulazione di temperatura/bias;
+Shortcut$_{\text{DND}} \leftrightarrow$ aggiornamento simultaneo multi-blocco.
+
+\subsubsection{Importanza per la validazione sperimentale}
+
+Il framework THRML fornisce un percorso diretto di validazione sperimentale:
+(1)~codebase esistente e funzionante (JAX, accelerata su GPU);
+(2)~roadmap hardware termodinamico (processori Extropic AI);
+(3)~ponte ibrido classico-quantistico;
+(4)~verifica dell'emergenza tramite distribuzioni di probabilit\`a condizionali;
+(5)~compatibilit\`a algoritmica (varianti di Grover, VQE, QAOA).
+
+\subsection{Metriche di simulazione dal framework ibrido D-ND}
+\label{sec:metrics}
+
+Quattro metriche chiave quantificano la transizione ibrida quantistico-classica:
+
+\textbf{Misura di coerenza:}
+$C(t) = |\langle\Psi(t)|\Psi(0)\rangle|^2 = \text{Tr}[\rho(t)\rho(0)]$.
+Quando $C(t) = 1$: coerenza perfetta. Quando $C(t) \to 0$: decoerenza completa.
+
+\textbf{Misura di tensione:}
+$T(t) = \|\partial\rho/\partial t\|^2 = \text{Tr}[(\dot{\rho})^\dagger\dot{\rho}]$.
+$T(t)$ elevata: emergenza attiva. $T(t)$ bassa: equilibrio.
+
+\textbf{Tasso di emergenza:}
+$dM/dt = (d/dt)[1 - |\langle\text{NT}|U(t)\emerge|\text{NT}\rangle|^2]$.
+$dM/dt$ rapido: forte accoppiamento di emergenza.
+
+\textbf{Criterio di convergenza:}
+$|C(t) - C(t-1)| < \varepsilon$ per una tolleranza $\varepsilon$ specificata dall'utente.
+
+%==============================================================================
+\section{Conclusioni}
+\label{sec:conclusions}
+%==============================================================================
+
+Abbiamo formalizzato gli aspetti computazionali quantistici del framework D-ND:
+
+\begin{enumerate}
+\item \textbf{Densit\`a possibilistica $\rhoDND$} unifica la sovrapposizione quantistica con
+la struttura di emergenza, abilitando uno spazio informativo pi\`u ricco.
+
+\item \textbf{Quattro gate modificati} ($\HDND$, $\CNOTDND$, $\PDND$,
+Shortcut$_{\text{DND}}$) forniscono un insieme completo di gate adattato alla dinamica D-ND.
+
+\item \textbf{Universalit\`a dei gate} (Proposizione~\ref{prop:universality}) dimostra che
+l'insieme di gate pu\`o approssimare unitari SU$(2^n)$ arbitrari nel regime perturbativo.
+L'universalit\`a in regime di emergenza forte rimane un problema aperto.
+
+\item \textbf{Soppressione degli errori assistita dall'emergenza}
+(Proposizione~\ref{prop:error-suppression}) mostra il miglioramento della fedelt\`a con
+$\varepsilon(t) = \varepsilon_0(1-M(t))$, complementare alla QEC standard.
+
+\item \textbf{Framework di simulazione lineare} consente l'approssimazione classica in tempo
+polinomiale quando $\lambda < 0{,}3$, riducendo i requisiti hardware.
+
+\item \textbf{Applicazioni} alla ricerca quantistica (miglioramento per fattore costante),
+al calcolo quantistico topologico (sovraccarico ridotto) e al ponte con il calcolo
+termodinamico THRML sono dimostrate.
+\end{enumerate}
+
+\textbf{Direzioni future:}
+Implementazione hardware su qubit superconduttori;
+libreria di algoritmi D-ND per ottimizzazione e apprendimento automatico;
+realizzazione efficiente dell'oracolo di emergenza;
+integrazione con algoritmi quantistici variazionali;
+validazione sperimentale su dispositivi NISQ.
+
+%==============================================================================
+\section*{Ringraziamenti}
+%==============================================================================
+
+Questo lavoro si basa sul framework teorico D-ND sviluppato nei Paper A--E. Gli autori
+ringraziano le comunit\`a di ricerca in informazione quantistica e dinamica dell'emergenza
+per le intuizioni fondamentali.
+
+%==============================================================================
+% APPENDICES
+%==============================================================================
+
+\appendix
+
+\section{Dimostrazione della Proposizione~\ref{prop:hilbert-embedding}}
+\label{app:prop22}
+
+\begin{proof}
+\textbf{Costruzione dell'operatore densit\`a:} Quando $\Mproto = 0$, si ha
+$M(i) = \Mdist(i) + \Ment(i) \geq 0$ per ogni stato base $|i\rangle$. Si definisca
+$\Sigma M = \sum_i M(i) > 0$. Allora:
+\begin{equation}
+\hat{\rho}_{\text{DND}} = \sum_i \frac{M(i)}{\Sigma M} |i\rangle\langle i|
+\end{equation}
+
+\textbf{Propriet\`a della matrice densit\`a:}
+(i)~$\text{Tr}[\hat{\rho}_{\text{DND}}] = \sum_i M(i)/\Sigma M = 1$;
+(ii)~tutti gli autovalori $M(i)/\Sigma M \geq 0$;
+(iii)~$\hat{\rho}_{\text{DND}}$ \`e diagonale in una base reale, quindi autoaggiunta.
+
+\textbf{Prodotto interno pesato:} Per $|\psi\rangle = \sum_i a_i|i\rangle$ e
+$|\phi\rangle = \sum_j b_j|j\rangle$:
+\begin{equation}
+\langle\psi|\phi\rangle_{\text{DND}} = \text{Tr}[|\psi\rangle\langle\phi|\hat{\rho}_{\text{DND}}]
+= \sum_i a_i^* b_i \frac{M(i)}{\Sigma M}
+\end{equation}
+
+\textbf{Verifica dello spazio di Hilbert:}
+La sesquilinearit\`a segue dalla linearit\`a della traccia e della somma.
+Simmetria coniugata: $\langle\psi|\phi\rangle^*_{\text{DND}} = \sum_i a_i b_i^* M(i)/\Sigma M
+= \langle\phi|\psi\rangle_{\text{DND}}$.
+Definita positivit\`a: $\langle\psi|\psi\rangle_{\text{DND}} = \sum_i |a_i|^2 M(i)/\Sigma M \geq 0$,
+con uguaglianza se e solo se $a_i = 0$ per tutti gli $i$ nel supporto di $M$.
+
+\textbf{Recupero della regola di Born:}
+$P(i) = \langle i|\hat{\rho}_{\text{DND}}|i\rangle = M(i)/\Sigma M$.
+Quando $M(i)$ \`e uniforme, il prodotto interno pesato si riduce al prodotto interno
+standard.
+\end{proof}
+
+\section{Dimostrazione della Proposizione~\ref{prop:error-suppression}}
+\label{app:prop43}
+
+\begin{proof}
+\textbf{Equazione di Lindblad dipendente dall'emergenza:}
+L'evoluzione con decoerenza e accoppiamento dell'emergenza segue:
+\begin{equation}
+\frac{d\rho}{dt} = -\frac{i}{\hbar}[H, \rho] + \mathcal{D}_{\text{DND}}[\rho]
+\end{equation}
+dove $\mathcal{D}_{\text{DND}}[\rho] = \sum_k (L_k^{\text{DND}} \rho (L_k^{\text{DND}})^\dagger
+- \tfrac{1}{2}\{(L_k^{\text{DND}})^\dagger L_k^{\text{DND}}, \rho\})$ con
+$L_k^{\text{DND}}(t) = L_k \cdot (1 - M(t))$.
+
+\textbf{Errore per gate:} Il tasso effettivo di Lindblad scala come $(1-M(t))^2$ all'ordine
+dominante. Per $\varepsilon_0 \ll 1$, l'errore per gate \`e
+$\varepsilon(t) = \varepsilon_0(1-M(t))$ (da
+$\|L_k^{\text{DND}}\| = (1-M(t))\|L_k\|$).
+
+\textbf{Fedelt\`a del circuito:} La fedelt\`a per gate \`e
+$F_i = 1 - \varepsilon_0(1-M(t_i))$. Per $k$ gate:
+\begin{equation}
+\ln F_{\text{total}} = \sum_{i=1}^{k} \ln[1 - \varepsilon_0(1-M(t_i))]
+\approx -\varepsilon_0 \sum_{i=1}^{k} (1-M(t_i)) = -\varepsilon_0 k(1-\bar{M})
+\end{equation}
+Dunque $F_{\text{total}} \approx e^{-\varepsilon_0 k(1-\bar{M})}$.
+
+\textbf{Confronto:} Circuito standard ($M=0$):
+$F_{\text{std}} \approx e^{-\varepsilon_0 k}$.
+Miglioramento della fedelt\`a D-ND: $F_{\text{DND}}/F_{\text{std}} = e^{\varepsilon_0 k\bar{M}}$.
+
+\textbf{Rappresentazione di Kraus:} Gli operatori di Kraus
+$K_0 = \sqrt{1-\varepsilon_0(1-M(t))}I$ e
+$K_j = \sqrt{\varepsilon_0(1-M(t))/3}\,\sigma_j$ ($j=1,2,3$) soddisfano la completezza
+$\sum_j K_j^\dagger K_j = I$ e confermano la probabilit\`a di errore
+$\varepsilon_0(1-M(t))$ per gate.
+\end{proof}
+
+%==============================================================================
+% REFERENCES
+%==============================================================================
+
+\begin{thebibliography}{20}
+
+\bibitem{Dirac1930}
+P.~A.~M. Dirac,
+\emph{The Principles of Quantum Mechanics} (Oxford University Press, 1930).
+
+\bibitem{Nielsen2010}
+M.~A. Nielsen and I.~L. Chuang,
+\emph{Quantum Computation and Quantum Information} (Cambridge University Press, 2010).
+
+\bibitem{Aharonov1997}
+D.~Aharonov and M.~Ben-Or,
+``Fault-tolerant quantum computation with constant error,''
+\emph{SIAM J. Comput.} \textbf{38}(4), 1207--1282 (1997).
+
+\bibitem{Nayak2008}
+C.~Nayak, S.~H. Simon, A.~Stern, M.~Freedman, and S.~Das Sarma,
+``Non-Abelian anyons and topological quantum computation,''
+\emph{Rev. Mod. Phys.} \textbf{80}(3), 1083 (2008).
+
+\bibitem{AspuruGuzik2005}
+A.~Aspuru-Guzik, A.~D. Dutoi, P.~J. Love, and M.~Head-Gordon,
+``Simulated quantum computation of molecular energies,''
+\emph{Science} \textbf{309}(5741), 1704--1707 (2005).
+
+\bibitem{Harrow2009}
+A.~W. Harrow, A.~Hassidim, and S.~Lloyd,
+``Quantum algorithm for linear systems of equations,''
+\emph{Phys. Rev. Lett.} \textbf{103}(15), 150502 (2009).
+
+\bibitem{Grover1997}
+L.~K. Grover,
+``Quantum mechanics helps in searching for a needle in a haystack,''
+\emph{Phys. Rev. Lett.} \textbf{79}(2), 325 (1997).
+
+\bibitem{Kitaev2003}
+A.~Y. Kitaev,
+``Fault-tolerant quantum computation by anyons,''
+\emph{Ann. Phys.} \textbf{303}(1), 2--30 (2003).
+
+\bibitem{PaperA}
+D-ND Research Collective,
+``Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation''
+(this volume).
+
+\bibitem{PaperE}
+D-ND Research Collective,
+``Cosmological Extension of the Dual-Non-Dual Framework''
+(this volume).
+
+\bibitem{Hutchinson1981}
+J.~E. Hutchinson,
+``Fractals and self-similarity,''
+\emph{Indiana Univ. Math. J.} \textbf{30}(5), 713--747 (1981).
+
+\bibitem{Falconer1990}
+K.~J. Falconer,
+\emph{Fractal Geometry: Mathematical Foundations and Applications} (John Wiley \& Sons, 1990).
+
+\bibitem{Shor1997}
+P.~W. Shor,
+``Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer,''
+\emph{SIAM J. Comput.} \textbf{26}(5), 1484--1509 (1997).
+
+\bibitem{Preskill2018}
+J.~Preskill,
+``Quantum computing in the NISQ era and beyond,''
+\emph{Quantum} \textbf{2}, 79 (2018).
+
+\bibitem{Wootters1998}
+W.~K. Wootters,
+``Entanglement of formation of an arbitrary state of two qubits,''
+\emph{Phys. Rev. Lett.} \textbf{80}(10), 2245 (1998).
+
+\bibitem{Vidal2002}
+G.~Vidal and R.~F. Werner,
+``Computable measure of entanglement,''
+\emph{Phys. Rev. A} \textbf{65}(3), 032314 (2002).
+
+\bibitem{Barnsley1988}
+M.~F. Barnsley,
+\emph{Fractals Everywhere} (Academic Press, 1988).
+
+\bibitem{Bennett1997}
+C.~H. Bennett, E.~Bernstein, G.~Brassard, and U.~Vazirani,
+``Strengths and weaknesses of quantum computing,''
+\emph{SIAM J. Comput.} \textbf{26}(5), 1510--1523 (1997).
+
+\bibitem{Lupasco1951}
+S.~Lupasco,
+\emph{Le principe d'antagonisme et la logique de l'\'energie} (Hermann, 1951).
+
+\bibitem{Nicolescu2002}
+B.~Nicolescu,
+\emph{Manifesto of Transdisciplinarity} (SUNY Press, 2002).
+
+\end{thebibliography}
+
+\end{document}

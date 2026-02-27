@@ -1,0 +1,1012 @@
+%==============================================================================
+% PAPER E - ESTENSIONE COSMOLOGICA DEL FRAMEWORK DUALE-NON-DUALE
+% Traduzione italiana — per lettura personale
+% Originale: paper_E.tex (Classical and Quantum Gravity / Foundations of Physics)
+%==============================================================================
+
+\documentclass[aps,prd,11pt,notitlepage,nofootinbib,longbibliography]{revtex4-2}
+
+%==============================================================================
+% PACKAGES
+%==============================================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{braket}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{dnd_shared}
+
+%==============================================================================
+% HYPERREF CONFIGURATION
+%==============================================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    bookmarksnumbered=true,
+    pdftitle={Estensione cosmologica del framework Duale-Non-Duale},
+    pdfauthor={D-ND Research Collective},
+    pdfsubject={Emergenza D-ND, cosmologia, equazioni di Einstein modificate},
+    pdfkeywords={emergenza D-ND, cosmologia, equazioni di Einstein modificate, inflazione, energia oscura, singolarità NT, coerenza ciclica, tensore energia-impulso informazionale, cosmologia quantistica, formazione delle strutture, firme nella CMB, vincoli DESI BAO}
+}
+
+%==============================================================================
+% GEOMETRY
+%==============================================================================
+
+\geometry{
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+}
+
+%==============================================================================
+% CUSTOM COMMANDS (Paper E specific)
+%==============================================================================
+
+\newcommand{\Tinfo}{T_{\mu\nu}^{\text{info}}}
+\newcommand{\MC}{M_C(t)}
+\newcommand{\MCz}{M_C(z)}
+\newcommand{\wemerge}{w_{\text{emerge}}}
+\newcommand{\rhoinfo}{\rho_{\text{info}}}
+\newcommand{\Pinfo}{P_{\text{info}}}
+\newcommand{\rhoLambda}{\rho_\Lambda}
+\newcommand{\ThetaNT}{\Theta_{\text{NT}}}
+\newcommand{\Lcollapse}{\mathcal{L}_{\text{field-collapse}}}
+\newcommand{\Lemerge}{\mathcal{L}_{\text{emerge}}}
+\newcommand{\Zfield}{Z_{\text{field}}}
+\newcommand{\fNL}{f_{\text{NL}}}
+
+%==============================================================================
+% DOCUMENT
+%==============================================================================
+
+\begin{document}
+
+\title{Estensione cosmologica del framework Duale-Non-Duale:\\
+Emergenza alle scale universali}
+
+\author{D-ND Research Collective}
+\affiliation{Ricerca indipendente}
+
+\date{14 febbraio 2026}
+
+%==============================================================================
+% ABSTRACT
+%==============================================================================
+
+\begin{abstract}
+Estendiamo il framework Duale-Non-Duale (D-ND) dall'emergenza quantomeccanica (Paper~A) alle scale cosmologiche, proponendo che la struttura su larga scala dell'universo e la sua evoluzione dinamica emergano dall'interazione tra la potenzialit\`a quantistica ($\NT$) e l'operatore di emergenza ($\emerge$) modulato dalla curvatura dello spaziotempo. Introduciamo equazioni di campo di Einstein modificate (S7) che incorporano un tensore energia-impulso informazionale: $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G \Tinfo$, dove $\Tinfo$ deriva dall'integrale spaziale dell'operatore di curvatura $C$ e cattura l'effetto dell'emergenza quantistica sulla geometria classica dello spaziotempo. In modo cruciale, stabiliamo che l'equazione (S7) non \`e un ansatz fenomenologico ma una necessit\`a strutturale derivata dall'Assioma~P4 (Manifestazione Olografica): qualsiasi geometria dello spaziotempo deve codificare il meccanismo di collasso del campo di emergenza $\Phi_A$. Il tensore informazionale \`e fondato termodinamicamente nei gradienti di energia libera di Gibbs, soddisfa la legge di conservazione $\nabla^\mu \Tinfo = 0$ tramite l'identit\`a di Bianchi e preserva l'invarianza per diffeomorfismi. Deriviamo equazioni di Friedmann modificate che incorporano la dinamica dell'emergenza D-ND, mostrando come l'inflazione emerga come una fase di rapida differenziazione quantistica coincidente con una transizione di dominio a parete di Bloch, e come l'energia oscura corrisponda al potenziale non-relazionale residuo $V_0$. La condizione di singolarit\`a Non-Triviale (NT) $\ThetaNT = \lim_{t\to 0} (R(t)e^{i\omega t}) = R_0$ sostituisce la singolarit\`a classica con una condizione al contorno alla soglia di emergenza. Stabiliamo che il tempo stesso emerge dall'irreversibilit\`a termodinamica, fondata nella disuguaglianza di Clausius $\oint dQ/T \leq 0$ e nel pipeline cognitivo a sei fasi dall'indeterminazione alla determinazione. L'antigravit\`a \`e rivelata come il polo ortogonale della gravit\`a attraverso la meccanica del vettore di Poynting, corrispondente alla struttura dipolare delle equazioni modificate, e fornisce tre test concreti di falsificabilit\`a: (1)~firme di parete di Bloch nella polarizzazione della CMB, (2)~struttura degli autovalori di Riemann nei dati delle oscillazioni acustiche barioniche DESI, e (3)~deviazione dell'equazione di stato dell'energia oscura $w(z) = -1 + 0{,}05(1-\MCz)$ misurabile da DESI Anno-2 (2025) e decisiva entro l'Anno-3 (2026). Stabiliamo una condizione di coerenza ciclica $\OmegaNT = 2\pi i$ che governa la topologia temporale complessiva dell'evoluzione cosmica, connettendosi alla cosmologia ciclica conforme e alla conservazione dell'informazione attraverso i cicli cosmici. Presentiamo una tabella completa di predizioni osservative che spazia tra CMB, crescita delle strutture, energia oscura, onde gravitazionali e struttura su larga scala, con confronti quantitativi rispetto a $\Lambda$CDM, Cosmologia Quantistica a Loop e Cosmologia Ciclica Conforme. Il framework \`e falsificabile e riceve una fondazione teorica sostanziale dalle strutture matematiche estratte dal corpus.
+\end{abstract}
+
+\keywords{emergenza D-ND, cosmologia, equazioni di Einstein modificate, inflazione, energia oscura, singolarit\`a NT, coerenza ciclica, tensore energia-impulso informazionale, cosmologia quantistica, formazione delle strutture, firme nella CMB, vincoli DESI BAO}
+
+\maketitle
+\tableofcontents
+
+%==============================================================================
+\section{Introduzione}
+\label{sec:intro}
+%==============================================================================
+
+\subsection{Il problema cosmologico dell'emergenza}
+\label{sec:cosmo-problem}
+
+L'universo esibisce un'asimmetria fondamentale: \`e iniziato in uno stato straordinariamente semplice, quasi omogeneo (come evidenziato dall'isotropia del fondo cosmico a microonde a una parte su $10^5$) e si \`e evoluto verso configurazioni sempre pi\`u complesse e strutturate---galassie, stelle, vita. Eppure le leggi che governano questa evoluzione sono simmetriche rispetto al tempo a livello microscopico. Tre meccanismi tentano di risolvere questo paradosso:
+
+\begin{enumerate}
+    \item \textbf{Dinamica inflazionaria}: L'espansione esponenziale amplifica le fluttuazioni del vuoto quantistico alle scale classiche \cite{Guth1981,Linde1986}.
+    \item \textbf{Decoerenza ambientale alle scale cosmiche}: L'approccio di Wheeler-DeWitt e altri approcci di gravit\`a quantistica, sebbene resti poco chiaro come un universo a sistema chiuso ``decoerisce''.
+    \item \textbf{Gravit\`a entropica ed emergenza olografica}: La geometria dello spaziotempo stessa emerge dalla struttura dell'entanglement quantistico \cite{Verlinde2011,RyuTakayanagi2006}.
+\end{enumerate}
+
+Tuttavia nessuno di questi affronta direttamente: \emph{Come emerge lo spaziotempo classico da un substrato quantistico all'interno di un sistema chiuso?}
+
+\subsection{Lacuna nella teoria cosmologica}
+\label{sec:gap}
+
+La cosmologia standard presuppone una metrica classica dello spaziotempo $g_{\mu\nu}$ fin dall'inizio e cerca di spiegare come le \emph{strutture} si formino al suo interno. La cosmologia quantistica (Wheeler-DeWitt, cosmologia quantistica a loop) tenta di descrivere l'universo a partire da uno stato quantistico, ma incontra difficolt\`a con il problema del tempo: se l'universo \`e atemporale al livello quantistico, come emerge la freccia temporale?
+
+Il Paper~A (il framework quantistico D-ND) fornisce un meccanismo per l'emergenza a sistema chiuso alle scale microscopiche tramite lo stato primordiale $\NT$ e l'operatore di emergenza $\emerge$. Questo lavoro estende tale meccanismo alla cosmologia, proponendo:
+
+\begin{itemize}
+    \item \textbf{L'universo inizia in uno stato di massima non-dualit\`a quantistica} ($\NT$), contenente tutte le possibilit\`a con uguale peso.
+    \item \textbf{La curvatura dello spaziotempo agisce come filtro di emergenza}, modulando quali modi quantistici si attualizzano in configurazioni classiche.
+    \item \textbf{Le equazioni di Einstein modificate accoppiano la geometria all'emergenza informazionale}, creando un circuito di retroazione in cui l'emergenza quantistica modella la curvatura, che a sua volta regola l'ulteriore emergenza.
+\end{itemize}
+
+\subsection{Contributi}
+\label{sec:contributions}
+
+\begin{enumerate}
+    \item \textbf{Equazioni di Einstein modificate} con tensore energia-impulso informazionale $\Tinfo$ derivato dalla dinamica dell'emergenza D-ND.
+    \item \textbf{Derivazione della legge di conservazione}: Dimostrazione esplicita che $\nabla^\mu \Tinfo = 0$ dall'identit\`a di Bianchi, garantendo la consistenza.
+    \item \textbf{Derivazione delle equazioni di Friedmann modificate} che incorporano la dinamica della misura di emergenza, mostrando l'inflazione come una fase di rapida evoluzione di $\MC$.
+    \item \textbf{Risoluzione della singolarit\`a iniziale} tramite la condizione di singolarit\`a NT $\ThetaNT$, riformulando il Big Bang come condizione al contorno sull'emergenza.
+    \item \textbf{Condizione di coerenza ciclica} $\OmegaNT = 2\pi i$ che governa l'evoluzione cosmica multi-ciclo e la conservazione dell'informazione.
+    \item \textbf{Predizioni vincolate da DESI}: Confronto quantitativo con i dati delle oscillazioni acustiche barioniche del 2024, che mostra deviazioni testabili al livello dell'1--3\%.
+    \item \textbf{Framework comparativo}: Predizioni dettagliate rispetto a $\Lambda$CDM, Cosmologia Quantistica a Loop e Cosmologia Ciclica Conforme.
+    \item \textbf{Framework di falsificabilit\`a}: Predizioni esplicite che distinguono la cosmologia D-ND dai concorrenti in regimi specifici.
+\end{enumerate}
+
+%==============================================================================
+\section{Equazioni di Einstein modificate con tensore energia-impulso informazionale}
+\label{sec:einstein}
+%==============================================================================
+
+\subsection{Il tensore energia-impulso informazionale}
+\label{sec:info-tensor}
+
+Proponiamo una generalizzazione delle equazioni di campo di Einstein che incorpora l'effetto dell'emergenza quantistica sullo spaziotempo:
+\begin{equation}\label{eq:S7}
+    \boxed{G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G \Tinfo}
+\end{equation}
+dove $\Tinfo$ \`e il tensore energia-impulso informazionale, alimentato dall'azione dell'operatore di emergenza sulla geometria dello spaziotempo.
+
+\textbf{Definizione} di $\Tinfo$:
+\begin{equation}\label{eq:Tinfo-def}
+    \Tinfo = \frac{\hbar}{c^2} \int d^3\mathbf{x} \, \Kgen(\mathbf{x},t) \, \partial_\mu R(t) \, \partial_\nu R(t)
+\end{equation}
+dove:
+\begin{itemize}
+    \item $\Kgen(\mathbf{x},t) = \nabla \cdot (J(\mathbf{x},t) \otimes F(\mathbf{x},t))$ \`e la densit\`a di curvatura informazionale generalizzata
+    \item $J(\mathbf{x},t)$ \`e la densit\`a di flusso informazionale
+    \item $F(\mathbf{x},t)$ \`e un campo di forza generalizzato che codifica l'azione di $\emerge$
+    \item $R(t) = U(t)\emerge C\NT$ \`e lo stato cosmico emergente (con modulazione di curvatura $C$)
+\end{itemize}
+
+\begin{remark}[Consistenza dimensionale e interpretazione di campo effettivo]
+Nella definizione precedente, $R(t) = U(t)\emerge C\NT$ \`e uno stato quantistico. Per ottenere un tensore energia-impulso dimensionalmente consistente, identifichiamo $R(t)$ con un campo scalare classico effettivo $\phi(x,t)$ attraverso la procedura di coarse-graining del Paper~A \S5.2: $\phi(x,t) \equiv \langle x|R(t)\rangle$ nella rappresentazione delle posizioni, che ha dimensioni di $[\text{lunghezza}]^{-3/2}$. Il prodotto $\partial_\mu \phi \, \partial_\nu \phi$ ha dunque dimensioni di $[\text{lunghezza}]^{-5}$, e con il prefattore $\hbar/c^2$ e l'integrale spaziale $\int d^3\mathbf{x}$, il tensore $\Tinfo$ acquisisce le dimensioni corrette di $[\text{energia}][\text{lunghezza}]^{-3}$ (densit\`a di energia). Nel limite semiclassico, questo si riduce al tensore energia-impulso canonico per un campo scalare con potenziale modificato D-ND.
+\end{remark}
+
+\textbf{Forma esplicita della perturbazione metrica:}
+
+Il tensore energia-impulso informazionale si accoppia alla geometria dello spaziotempo attraverso perturbazioni metriche. La metrica dello spaziotempo perturbato \`e:
+\begin{equation}\label{eq:metric-pert}
+    \boxed{g_{\mu\nu}(x,t) = g_{\mu\nu}^{(0)} + h_{\mu\nu}(\Kgen, e^{\pm\lambda Z})}
+\end{equation}
+dove $g_{\mu\nu}^{(0)}$ \`e la metrica piatta di Minkowski, $h_{\mu\nu}$ \`e la perturbazione metrica che codifica le correzioni D-ND, e i segni $\pm$ riflettono la struttura dipolare: $+$ codifica la convergenza (gravit\`a), $-$ codifica la divergenza (antigravit\`a).
+
+\textbf{Derivazione della perturbazione metrica da $\Kgen$:}
+
+Nel limite di campo debole ($|h_{\mu\nu}| \ll 1$), la perturbazione a traccia invertita $\bar{h}_{\mu\nu} = h_{\mu\nu} - \frac{1}{2}\eta_{\mu\nu}h$ soddisfa:
+\begin{equation}\label{eq:linearized}
+    \Box \bar{h}_{\mu\nu} = -16\pi G \, \Tinfo
+\end{equation}
+
+Risolvendo tramite la funzione di Green ritardata:
+\begin{equation}\label{eq:green-soln}
+    h_{\mu\nu}(\mathbf{x},t) = 4G \int \frac{\Tinfo(\mathbf{x}',t_{\text{ret}})}{|\mathbf{x}-\mathbf{x}'|} d^3\mathbf{x}'
+\end{equation}
+
+Questo stabilisce il ponte esplicito tra la dinamica lagrangiana D-ND (Paper~B) e la geometria cosmologica dello spaziotempo.
+
+\subsubsection{La costante di singolarit\`a $\GS$ e il suo ruolo proto-assiomatico}
+
+La costante gravitazionale $G_N$ nelle equazioni di campo di Einstein acquisisce un'interpretazione pi\`u profonda all'interno del framework D-ND. Dalla struttura proto-assiomatica (cfr.\ Paper~A \S2.3), $G_N$ \`e identificata come la manifestazione fisica della \textbf{Costante di Singolarit\`a} $\GS$---il riferimento unitario per tutte le costanti di accoppiamento al di fuori del regime duale.
+
+\begin{definition}
+La Costante di Singolarit\`a $\GS$ \`e il parametro proto-assiomatico che media tra il potenziale non-relazionale $V_0$ e i settori emergenti $\Phi_+, \Phi_-$:
+\begin{equation}\label{eq:GS-def}
+    \GS \equiv \frac{\hbar \cdot \Gamma_{\text{emerge}}}{\langle(\Delta\hat{V}_0)^2\rangle}
+\end{equation}
+dove $\Gamma_{\text{emerge}}$ \`e il tasso di emergenza e $\langle(\Delta\hat{V}_0)^2\rangle$ \`e la varianza del potenziale non-relazionale.
+\end{definition}
+
+Nel limite di bassa energia, macroscopico: $\GS \to G_N = 6{,}674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$. Con questa identificazione, l'equazione~\eqref{eq:S7} diventa $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi \GS \cdot \Tinfo$, dove il fattore $8\pi \GS$ \`e il prodotto della costante di singolarit\`a proto-assiomatica con il fattore geometrico $8\pi$ che sorge dalla struttura di Gauss-Bonnet dello spaziotempo quadridimensionale.
+
+\subsection{Derivazione dalla lagrangiana D-ND: inferenza strutturale dall'Assioma P4}
+\label{sec:derivation-P4}
+
+Il tensore energia-impulso informazionale \textbf{non \`e un ansatz fenomenologico} ma un \textbf{requisito strutturale} derivato dagli assiomi D-ND, specificamente dall'\textbf{Assioma~P4 (Manifestazione Olografica, corrispondente all'Assioma~A$_6$ del Paper~A)}.
+
+L'Assioma~P4 stabilisce che ogni manifestazione fisica fluisce attraverso il collasso del campo potenziale $\Phi_A$ nella realt\`a classica $R$. In termini di Semantica Generale, la mappa (geometria dello spaziotempo) e il territorio (campo quantistico) sono strutturalmente accoppiati: la geometria deve codificare il meccanismo di collasso. Pertanto:
+\begin{equation}\label{eq:P4-consequence}
+    \boxed{\text{Qualsiasi geometria dello spaziotempo deve codificare la dinamica di collasso di } \Phi_A}
+\end{equation}
+
+\textbf{Derivazione dal principio d'azione:}
+
+Consideriamo la densit\`a lagrangiana estesa D-ND:
+\begin{equation}\label{eq:L-DND-cosmo}
+    \mathcal{L}_{\text{D-ND}} = \frac{R}{16\pi G} + \mathcal{L}_M + \Lemerge + \Lcollapse
+\end{equation}
+dove:
+\begin{itemize}
+    \item $R/(16\pi G)$ \`e la lagrangiana standard di Einstein-Hilbert
+    \item $\mathcal{L}_M$ \`e la lagrangiana della materia
+    \item $\Lemerge = \Kgen \cdot \MC \cdot (\partial_\mu \phi)(\partial^\mu \phi)$ accoppia la misura di emergenza ai gradienti del campo scalare
+    \item $\Lcollapse = -\frac{\hbar}{c^3}\nabla_\mu \nabla_\nu \ln \Zfield$ \`e il gradiente di energia libera del collasso di campo, dove $\Zfield = \int \mathcal{D}\phi \, e^{-S[\phi]/\hbar}$ \`e la funzione di partizione del campo
+\end{itemize}
+
+La variazione di $S = \int d^4x \sqrt{-g} \mathcal{L}_{\text{D-ND}}$ rispetto a $g_{\mu\nu}$ produce:
+\begin{equation}\label{eq:variation}
+    \frac{\delta S}{\delta g_{\mu\nu}} = 0 \implies G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G(T_{\mu\nu}^{(M)} + \Tinfo)
+\end{equation}
+dove il contributo informazionale sorge dal termine di collasso di campo:
+\begin{equation}\label{eq:Tinfo-derived}
+    \Tinfo = \frac{\hbar}{8\pi c^2} \Kgen \, \dot{M}_C(t) \, (\partial_\mu \phi)(\partial_\nu \phi)
+\end{equation}
+
+\begin{remark}[Status dell'ansatz elevato a conseguenza assiomatica]
+\textbf{Relazione con il sistema assiomatico del Paper~A:} Gli assiomi cosmologici P0--P4 costituiscono un'estensione degli assiomi fondazionali A$_1$--A$_6$ del Paper~A. Specificamente: P0 generalizza A$_2$ (non-dualit\`a come invarianza ontologica), P1 estende A$_5$ (consistenza autologica come autoconservazione), P2 si connette ad A$_3$ (input-output evolutivo come metabolismo dialettico) e P4 \`e identico ad A$_6$ (manifestazione olografica). P3 (Dinamica dell'Emergenza) combina elementi di A$_1$ e A$_3$.
+
+La derivazione segue direttamente dagli assiomi D-ND P0--P4:
+\begin{itemize}
+    \item \textbf{P0 (Invarianza Ontologica):} Le forme sono manifestazioni dell'unit\`a; l'essenza \`e invariabile
+    \item \textbf{P1 (Autoconservazione):} Il sistema rigetta le contraddizioni; l'integrit\`a strutturale prevale
+    \item \textbf{P2 (Metabolismo Dialettico):} Il campo assimila informazione attraverso transizioni di fase
+    \item \textbf{P4 (Manifestazione Olografica):} Il collasso coerente \`e guidato da vincoli topologici
+\end{itemize}
+Tuttavia, una derivazione pienamente indipendente da principi primi di gravit\`a quantistica (ad es., il principio dell'azione spettrale di Chamseddine-Connes o la sicurezza asintotica) rimane un problema aperto.
+\end{remark}
+
+\subsection{Relazione con la gravit\`a entropica di Verlinde}
+\label{sec:verlinde}
+
+Verlinde (2011, 2016) propone che la gravit\`a emerga da forze entropiche sulle configurazioni di particelle \cite{Verlinde2011,Verlinde2016}. L'approccio D-ND \`e complementare: piuttosto che derivare la gravit\`a dai gradienti di entropia delle configurazioni di materia esistenti, la deriviamo dall'\emph{emergenza} di quelle configurazioni stesse:
+\begin{equation}\label{eq:verlinde-connection}
+    F_{\text{entropic}} \propto \nabla(\Delta S) \leftrightarrow F_{\text{emerge}} \propto \nabla \dot{M}_C(t)
+\end{equation}
+
+Il tensore energia-impulso informazionale $\Tinfo$ fornisce dunque una realizzazione dinamica della gravit\`a entropica alla transizione quantistico-classica.
+
+\subsection{Derivazione esplicita della conservazione del tensore energia-impulso informazionale}
+\label{sec:conservation}
+
+Un requisito fondamentale di qualsiasi estensione delle equazioni di campo di Einstein \`e:
+\begin{equation}\label{eq:conservation}
+    \boxed{\nabla^\mu \Tinfo = 0}
+\end{equation}
+
+\textbf{Derivazione dall'identit\`a di Bianchi:}
+
+L'identit\`a di Bianchi per il tensore di Riemann:
+\begin{equation}\label{eq:bianchi}
+    \nabla_\lambda R_{\mu\nu\rho\sigma} + \nabla_\mu R_{\nu\lambda\rho\sigma} + \nabla_\nu R_{\lambda\mu\rho\sigma} = 0
+\end{equation}
+
+Contraendo due volte per ottenere l'identit\`a differenziale di Bianchi: $\nabla^\mu G_{\mu\nu} = 0$, dove $G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu}$.
+
+Dall'equazione~\eqref{eq:S7}, $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G \Tinfo$, abbiamo $\nabla^\mu G_{\mu\nu} = 8\pi G \nabla^\mu \Tinfo$. Il lato sinistro si annulla per l'identit\`a di Bianchi, producendo $\nabla^\mu \Tinfo = 0$.
+
+\textbf{Interpretazione fisica}: L'informazione trasportata dall'operatore di emergenza si conserva durante tutta l'evoluzione cosmica. Nessuna informazione viene creata o distrutta; viene solo ridistribuita attraverso la misura di emergenza $\MC$.
+
+%==============================================================================
+\section{Dinamica cosmologica D-ND}
+\label{sec:cosmo-dynamics}
+%==============================================================================
+
+\subsection{Metrica FRW con correzioni D-ND}
+\label{sec:FRW}
+
+Assumiamo un universo spazialmente isotropo e omogeneo descritto dalla metrica di Friedmann-Robertson-Walker:
+\begin{equation}\label{eq:FRW}
+    ds^2 = -dt^2 + a(t)^2\left[\frac{dr^2}{1-kr^2} + r^2(d\theta^2 + \sin^2\theta \, d\phi^2)\right]
+\end{equation}
+
+Nel framework D-ND, il fattore di scala $a(t)$ \`e vincolato dalla misura di emergenza $\MC$ e dall'operatore di curvatura:
+\begin{equation}\label{eq:scale-factor}
+    a(t) = a_0 \left[1 + \xi \cdot \MC \cdot e^{H(t) \cdot t}\right]^{1/3}
+\end{equation}
+dove $a_0$ \`e il fattore di scala iniziale, $\xi$ \`e una costante di accoppiamento (dell'ordine dell'unit\`a) e $H(t)$ \`e il parametro di Hubble.
+
+\subsection{Equazioni di Friedmann modificate}
+\label{sec:friedmann}
+
+Le equazioni di Friedmann standard vengono modificate dall'accoppiamento con $\MC$:
+\begin{equation}\label{eq:friedmann1}
+    \boxed{H^2 = \frac{8\pi G}{3}\left[\rho + \rhoinfo\right] - \frac{k}{a^2}}
+\end{equation}
+\begin{equation}\label{eq:friedmann2}
+    \boxed{\dot{H} + H^2 = -\frac{4\pi G}{3}\left[(\rho + \rhoinfo) + 3(P + \Pinfo)\right]}
+\end{equation}
+dove la densit\`a e la pressione informazionali sono:
+\begin{equation}\label{eq:rhoinfo}
+    \rhoinfo(t) = \frac{\hbar \omega_0}{c^2} \cdot \dot{M}_C(t) \cdot \MC
+\end{equation}
+\begin{equation}\label{eq:Pinfo}
+    \Pinfo(t) = -\frac{1}{3}\rhoinfo(t) \cdot \wemerge(\MC)
+\end{equation}
+con $\wemerge(\MC)$ parametro dell'equazione di stato dipendente dalla fase di emergenza:
+\begin{itemize}
+    \item \textbf{Pre-emergenza} ($M_C \approx 0$): $\wemerge \approx -1$ (simile al vuoto, guida l'espansione)
+    \item \textbf{Fase di emergenza} ($0 < M_C < 1$): $\wemerge \approx -1/3$ (simile alla radiazione)
+    \item \textbf{Post-emergenza} ($M_C \approx 1$): $\wemerge \approx -\epsilon$ (simile alla materia, con piccolo residuo)
+\end{itemize}
+
+\subsection{L'inflazione come fase di emergenza D-ND}
+\label{sec:inflation}
+
+Nella cosmologia D-ND, \textbf{l'inflazione corrisponde alla fase di emergenza rapida} in cui $\MC$ evolve da $\approx 0$ ad $\approx 1$. La scala temporale dell'emergenza \`e:
+\begin{equation}\label{eq:tau-emerge}
+    \tau_e \sim \hbar / \Delta E_{\text{effective}}
+\end{equation}
+
+Il numero di e-folding dell'inflazione \`e:
+\begin{equation}\label{eq:efolds}
+    N_e = \int_0^{t_*} H(t) \, dt \approx \int_0^{1} \frac{H_0}{\dot{M}_C(M_C)} \, dM_C
+\end{equation}
+Questo predice un numero finito di e-folding determinato dalle propriet\`a spettrali dell'operatore di emergenza, senza necessit\`a di parametri di slow-roll.
+
+Lo spettro di potenza delle perturbazioni primordiali \`e:
+\begin{equation}\label{eq:power-spectrum}
+    P_{\delta}(k) \propto \MC(t_*) \cdot |\langle k|\emerge\NT\rangle|^2 \cdot \left(1 - |\langle k|U(t)\emerge\NT\rangle|^2\right)
+\end{equation}
+dove $t_*$ \`e il tempo in cui il modo $k$ esce dall'orizzonte cosmologico. I modi con autovalori di emergenza prossimi a $1/2$ (massimamente incerti) producono le perturbazioni pi\`u grandi.
+
+%==============================================================================
+\section{La singolarit\`a NT: risolvere la condizione iniziale}
+\label{sec:NT-singularity}
+%==============================================================================
+
+\subsection{La condizione di singolarit\`a NT}
+\label{sec:NT-condition}
+
+Il framework D-ND sostituisce la singolarit\`a classica con una condizione al contorno:
+\begin{equation}\label{eq:A8}
+    \boxed{\ThetaNT = \lim_{t \to 0^+} \left[R(t) e^{i\omega t}\right] = R_0 \quad \text{(A8)}}
+\end{equation}
+dove $R(t) = U(t)\emerge C\NT$ \`e lo stato cosmico emergente, $e^{i\omega t}$ rappresenta l'evoluzione di fase e $R_0$ \`e lo stato emergente limite alla soglia di attualizzazione.
+
+Per $t \to 0$, l'evoluzione quantistica non \`e ancora iniziata; l'universo esiste in uno stato di pura potenzialit\`a. La condizione $\ThetaNT = R_0$ specifica lo stato ``seme'' dal quale ogni successiva emergenza si dispiega. Non si tratta di una singolarit\`a nel senso classico, ma di un \emph{confine di attualizzazione}: l'interfaccia tra non-essere ed essere.
+
+\subsection{Risoluzione della singolarit\`a iniziale tramite $\NT$}
+\label{sec:resolution}
+
+Nel quadro D-ND:
+\begin{enumerate}
+    \item \textbf{Prima dell'emergenza} ($t < 0$): L'universo \`e $\NT$---uno stato di perfetta non-dualit\`a in cui non esiste spaziotempo classico. Non esiste un ``tempo prima del Big Bang'' perch\'e il tempo stesso \`e emergente.
+    \item \textbf{Soglia di emergenza} ($t = 0$): L'operatore di emergenza $\emerge$ inizia ad agire su $\NT$, attualizzando i modi quantistici in configurazioni classiche.
+    \item \textbf{Post-emergenza} ($t > 0$): L'universo evolve secondo le equazioni di Friedmann modificate, con il tasso di emergenza quantistica $\dot{M}_C(t)$ che modella continuamente la storia dell'espansione.
+\end{enumerate}
+
+L'evitamento della singolarit\`a classica segue da: (i)~\textbf{Regolarit\`a di $\MC$}: Per operatori di emergenza ragionevoli, $M_C(0^+)$ \`e finito (tipicamente $\sim 10^{-3}$ a $10^{-1}$); (ii)~\textbf{Curvatura iniziale finita}: Dall'equazione~\eqref{eq:S7}, la curvatura iniziale di Ricci $R_{\mu\nu}(0^+) \sim 8\pi G \cdot \Tinfo(0^+)$ \`e limitata.
+
+\subsection{Connessione con la proposta di assenza di confine di Hartle-Hawking}
+\label{sec:hartle-hawking}
+
+Hartle e Hawking (1983) propongono che l'universo non abbia confine nello spaziotempo \cite{HartleHawking1983}. La loro funzione d'onda senza confine obbedisce all'equazione di Wheeler-DeWitt: $\hat{H}_{\text{WDW}} \Psi[\mathbf{g}] = 0$.
+
+Il framework D-ND \`e compatibile: interpretiamo $\NT$ come un'approssimazione di $\Psi_0[\mathbf{g}]$ senza confine---uno stato universale in cui tutte le geometrie sono sovrapposte. L'azione di $\emerge$ su $\NT$ seleziona la traiettoria classica che domina l'integrale di cammino. La condizione di singolarit\`a NT $\ThetaNT$ specifica dunque il valore iniziale dello stato cosmico emergente, assicurando che la successiva evoluzione classica sia ben definita e non singolare.
+
+%==============================================================================
+\section{Coerenza ciclica ed evoluzione cosmica}
+\label{sec:cyclic}
+%==============================================================================
+
+\subsection{La condizione di coerenza ciclica}
+\label{sec:cyclic-condition}
+
+Il framework D-ND suggerisce molteplici cicli cosmici, governati da:
+\begin{equation}\label{eq:S8}
+    \boxed{\OmegaNT = 2\pi i \quad \text{(S8)}}
+\end{equation}
+
+Questa condizione di fase codifica: \textbf{Periodicit\`a} ($2\pi$)---l'universo ritorna a uno stato topologicamente equivalente; \textbf{Natura immaginaria} ($i$)---il ciclo avviene in tempo complessificato, relazionale (consistente con il meccanismo di Page-Wootters).
+
+La forma esplicita sorge dalla richiesta che la fase totale accumulata durante un ciclo cosmico sia:
+\begin{equation}\label{eq:omega-total}
+    \Omega_{\text{total}} = \int_0^{t_{\text{cycle}}} \left[\frac{d}{dt}\arg(f(t))\right] \, dt = 2\pi
+\end{equation}
+dove $f(t) = \langle NT|U(t)\emerge C\NT\rangle$ \`e la funzione di sovrapposizione.
+
+\subsection{Connessione con la Cosmologia Ciclica Conforme di Penrose}
+\label{sec:CCC}
+
+La Cosmologia Ciclica Conforme (CCC) di Penrose propone infiniti cicli (eoni), con il futuro remoto di un eone identificato con le condizioni iniziali del successivo tramite riscalamento conforme \cite{Penrose2005,Penrose2010}. La condizione di coerenza ciclica $\OmegaNT = 2\pi i$ pu\`o essere intesa come la versione D-ND della condizione di raccordo conforme della CCC---imponendo una condizione di raccordo nello spazio delle fasi sulla misura di emergenza piuttosto che il raccordo dei tensori di curvatura di Weyl.
+
+\subsection{Conservazione dell'informazione attraverso i cicli}
+\label{sec:info-preservation}
+
+Ogni ciclo cosmico: (1)~inizia con l'emergenza da $\NT$ (entropia massima); (2)~prosegue con l'attualizzazione tramite $\emerge$ ($\MC$ cresce); (3)~evolve con l'aumento dell'entropia termodinamica; (4)~termina riconvergendo verso la non-dualit\`a; (5)~trasferisce informazione al ciclo successivo tramite raccordo di fase.
+
+L'informazione trasferita tra eoni \`e:
+\begin{equation}\label{eq:info-transfer}
+    I_{\text{transfer}} = k_B \int_0^{t_{\text{cycle}}} \frac{dS_{\text{vN}}}{dt} \, dt
+\end{equation}
+dove $S_{\text{vN}}(t) = -\text{Tr}[\rho(t) \ln \rho(t)]$ \`e l'entropia di von Neumann.
+
+%==============================================================================
+\section{Predizioni osservative}
+\label{sec:predictions}
+%==============================================================================
+
+\subsection{Firme D-ND nella CMB}
+\label{sec:CMB}
+
+\subsubsection{Bispettro non gaussiano da fluttuazioni modulate dall'emergenza}
+
+Nel framework D-ND, la non-gaussianit\`a sorge dalla struttura spettrale di $\emerge$:
+\begin{equation}\label{eq:bispectrum}
+    \langle \delta k_1 \delta k_2 \delta k_3 \rangle \propto \sum_{j,k,l} \lambda_j \lambda_k \lambda_l \, \delta^3(\mathbf{k}_1 + \mathbf{k}_2 + \mathbf{k}_3)
+\end{equation}
+
+\textbf{Predizione}: Per caratteristiche spettrali lisce, $\fNL^{\text{equilateral}} \sim 5$--$20$, consistente con i vincoli di Planck 2018 ($\fNL^{\text{equilateral}} < 25$) \cite{Planck2018NG}. Per caratteristiche pi\`u marcate, $\fNL$ aumenta ulteriormente ma si manifesta in forme non standard del bispettro (template di tipo emergenza) non ancora vincolate. Testabile da CMB-S4.
+
+\subsubsection{Soppressione anomala di potenza alle scale super-orizzonte}
+
+Lo spettro di potenza:
+\begin{equation}\label{eq:suppression}
+    P_\delta(k) \propto \left[1 - (1 - M_C(t_*))_k\right]^2
+\end{equation}
+
+\textbf{Predizione}: Soppressione netta ai multipoli $\ell \lesssim 10$ (scale super-orizzonte). I dati attuali di Planck suggeriscono una tale soppressione (la ``tensione di Planck'').
+
+\subsubsection{Running dipendente dalla scala dal tasso di emergenza}
+
+\textbf{Predizione}: D-ND predice un running dipendente dalla scala che differisce dalle predizioni di slow-roll per fattori dell'ordine dell'unit\`a, misurabile al livello di $2$--$3\sigma$.
+
+\subsection{Formazione delle strutture dalla dinamica di $\MC$}
+\label{sec:structure}
+
+\subsubsection{Fattore di crescita lineare con retroazione dell'emergenza}
+
+La crescita \`e modulata dall'accoppiamento curvatura-emergenza:
+\begin{equation}\label{eq:growth}
+    f_{\text{D-ND}}(a) = f_{\text{GR}}(a) \cdot \left[1 + \alpha_e \cdot (1 - M_C(a))\right]
+\end{equation}
+dove $\alpha_e \sim 0{,}1$. Alle epoche recenti ($z < 5$), la correzione svanisce, recuperando la RG.
+
+\subsubsection{Clustering non lineare dal bias degli aloni indotto dall'emergenza}
+
+\begin{equation}\label{eq:bias}
+    b_{\text{D-ND}}(z, M) = b_{\text{matter}}(z, M) \cdot \left[1 + \beta_e \cdot M_C(z) \cdot \Psi(M)\right]
+\end{equation}
+dove $\Psi(M)$ dipende dalla massa dell'alone, codificando l'attualizzazione preferenziale di certe scale di massa. Testabile da DESI, Euclid, Roman Space Telescope.
+
+\subsection{L'energia oscura come potenziale $V_0$ residuo e vincoli DESI BAO}
+\label{sec:dark-energy}
+
+Nel framework D-ND, l'energia oscura \`e identificata con il potenziale di fondo non-relazionale $\hat{V}_0$:
+\begin{equation}\label{eq:rhoLambda}
+    \rhoLambda = \rho_0 \cdot (1 - \MC)^p
+\end{equation}
+dove $\rho_0 \sim 10^{-47}$ GeV$^4$ e $p \sim 2$.
+
+L'equazione di stato:
+\begin{equation}\label{eq:wz}
+    w(z) = -1 + \epsilon(z) \quad \text{dove} \quad \epsilon(z) \approx 0{,}05 \cdot (1 - \MCz)
+\end{equation}
+
+\textbf{Confronto con le BAO DESI 2024:}
+
+La scala BAO \`e definita dalla distanza comovente $d_A(z) = \frac{c}{H_0} \int_0^z \frac{dz'}{E(z')}$, e il parametro di Hubble modificato D-ND:
+\begin{equation}\label{eq:H-DND}
+    H_{\text{D-ND}}^2(z) = H_0^2 \left[\Omega_m(1+z)^3 + \rhoLambda(z)/\rho_c + \Omega_k(1+z)^2\right]
+\end{equation}
+
+\begin{table}[H]
+\caption{Predizioni quantitative per $w(z)$ e deviazioni della distanza di diametro angolare da $\Lambda$CDM.}
+\label{tab:wz-predictions}
+\begin{ruledtabular}
+\begin{tabular}{ccccc}
+$z$ & $\Lambda$CDM $w(z)$ & D-ND $w(z)$ & Diff.\ $d_A$ (\%) & DESI $>2\sigma$? \\
+\midrule
+0,0 & $-1{,}000$ & $-1{,}000$ & 0,0 & No \\
+0,5 & $-1{,}000$ & $-0{,}975$ & $+0{,}8$ & Marginale (1,5$\sigma$) \\
+1,0 & $-1{,}000$ & $-0{,}950$ & $+1{,}6$ & Possibile (2--3$\sigma$) \\
+1,5 & $-1{,}000$ & $-0{,}920$ & $+2{,}4$ & Probabile (2,5--3$\sigma$) \\
+2,0 & $-1{,}000$ & $-0{,}890$ & $+3{,}2$ & Forte (3--4$\sigma$) \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Se $V_0$ possiede fluttuazioni quantistiche con varianza $\sigmaV$, la densit\`a di energia oscura diventa dinamica:
+\begin{equation}\label{eq:rhoLambda-dynamic}
+    \rhoLambda(t) = \sigmaV(t) \cdot (1 - \MC)
+\end{equation}
+
+\subsection{L'antigravit\`a come soluzione negativa: la direzione $t = -1$}
+\label{sec:antigravity}
+
+\subsubsection{La struttura dipolare e le due soluzioni per l'evoluzione temporale}
+
+Il framework D-ND \`e fondamentalmente dipolare, producendo due soluzioni:
+\begin{equation}\label{eq:dipolar}
+    \boxed{t = +1 \quad \text{(Convergenza/Gravit\`a)} \quad \text{e} \quad t = -1 \quad \text{(Divergenza/Antigravit\`a)}}
+\end{equation}
+
+Il quadro cosmologico standard privilegia la soluzione $t = +1$. Tuttavia la logica dipolare D-ND richiede che entrambe esistano simultaneamente come poli complementari.
+
+\subsubsection{Analogia con l'equazione di Dirac e il problema del terzo escluso}
+
+L'equazione relativistica di Dirac produce $E = \pm\sqrt{(\mathbf{p}c)^2 + (m_e c^2)^2}$. Scartare la soluzione negativa viola la struttura matematica; lo stesso principio si applica al polo $t = -1$ nella cosmologia D-ND.
+
+L'equazione del moto nella cosmologia D-ND \`e:
+\begin{equation}\label{eq:dipolar-EOM}
+    \dot{a}(t) \propto a(t) \cdot [H_+ \cdot t_+ + H_- \cdot t_-]
+\end{equation}
+dove $H_\pm$ sono i parametri di Hubble nelle direzioni $\pm 1$, simultaneamente presenti e dinamicamente accoppiati.
+
+\subsubsection{Il meccanismo del vettore di Poynting: uscita ortogonale dal piano di oscillazione}
+
+\begin{equation}\label{eq:poynting}
+    \boxed{\vec{S} = \frac{1}{\mu_0} (\vec{E} \times \vec{B})}
+\end{equation}
+
+Il tensore energia-impulso codifica entrambe le componenti:
+\begin{equation}\label{eq:T-total}
+    T_{\mu\nu}^{\text{total}} = T_{\mu\nu}^{(+)} + T_{\mu\nu}^{(-)}
+\end{equation}
+con il contributo dell'antigravit\`a:
+\begin{equation}\label{eq:T-minus}
+    T_{\mu\nu}^{(-)} \propto \epsilon_{\mu\nu\rho\sigma} T^{(+)\rho\lambda} T^{(+)\sigma}{}_\lambda
+\end{equation}
+
+Il simbolo di Levi-Civita $\epsilon_{\mu\nu\rho\sigma}$ incorpora l'operazione di prodotto vettoriale nello spaziotempo curvo---la ragione topologica fondamentale per cui l'antigravit\`a esiste come polo ortogonale.
+
+\subsubsection{Il meccanismo della parete di Bloch: l'inflazione come transizione di dominio}
+
+Nella cosmologia D-ND, l'universo transisce dal dominio di bassa emergenza ($M_C \approx 0$) al dominio di alta emergenza ($M_C \approx 1$). Questa transizione non pu\`o essere istantanea---la regione intermedia \emph{\`e} l'epoca inflazionaria.
+
+La parete di Bloch cosmologica spiega le caratteristiche chiave dell'inflazione:
+\begin{enumerate}
+    \item \textbf{Gravit\`a esterna nulla} nella finestra inflazionaria---le forze di dominio si bilanciano, risolvendo il problema della piattezza.
+    \item \textbf{Massima densit\`a di campo interna}---la densit\`a di energia raggiunge il picco alla transizione.
+    \item \textbf{La larghezza finita della parete determina la durata dell'inflazione}---fissata dalle propriet\`a spettrali dell'operatore di emergenza.
+    \item \textbf{Comportamento oscillatorio all'interno della parete}---predice caratteristiche nello spettro di potenza primordiale.
+\end{enumerate}
+
+\subsubsection{Gravit\`a e antigravit\`a come poli dell'emergenza}
+
+\textbf{Gravit\`a} ($t = +1$): Convergenza dei modi quantistici verso l'attualizzazione classica. \textbf{Antigravit\`a} ($t = -1$): Divergenza dall'attualizzazione---dispersione sistematica degli stati attualizzati nuovamente in sovrapposizione. Entrambe si verificano simultaneamente con uguale intensit\`a nel dipolo D-ND.
+
+Alle scale locali (galassie, stelle): la gravit\`a domina ($M_C \approx 1$). Alle scale cosmologiche (espansione): l'antigravit\`a domina (emergenza parziale). L'energia oscura \`e la manifestazione osservabile del polo $t = -1$.
+
+\subsubsection{Base strutturale per l'antigravit\`a: non una nuova forza, ma una necessit\`a strutturale}
+
+Le equazioni di campo modificate con poli espliciti:
+\begin{align}
+    G_{\mu\nu}^{(+)} + \Lambda g_{\mu\nu} &= 8\pi G T_{\mu\nu}^{(+)} \quad \text{(Polo gravitazionale)} \label{eq:gravity-pole} \\
+    G_{\mu\nu}^{(-)} - \Lambda g_{\mu\nu} &= 8\pi G T_{\mu\nu}^{(-)} \quad \text{(Polo antigravitazionale)} \label{eq:antigravity-pole}
+\end{align}
+con il vincolo dipolare: $T_{\mu\nu}^{(+)} + T_{\mu\nu}^{(-)} = 0$ (cancellazione dipolare all'infinito).
+
+\subsubsection{Connessione con le equazioni di Friedmann e l'equazione di stato dell'energia oscura}
+
+La deviazione $\epsilon(z) = 0{,}05 \cdot (1 - \MCz)$ sorge perch\'e: (1)~l'emergenza non \`e istantanea; (2)~l'accoppiamento tra i poli non \`e perfettamente simmetrico nelle fasi intermedie; (3)~lo squilibrio residuo permette un'oscillazione parziale. A tempi tardi ($z \to 0$), il $w$ osservato si avvicina a $-1$ asintoticamente.
+
+\subsubsection{Antigravit\`a e tensore informazionale}
+
+La densit\`a di curvatura $\Kgen = \nabla \cdot (J \otimes F)$ dipende dal flusso e dalla forza dell'informazione. Nella direzione $+1$, l'informazione viene compressa (gravit\`a); nella $-1$, dispersa (antigravit\`a). La conservazione $\nabla^\mu \Tinfo = 0$ assicura che il contenuto informazionale totale resti costante attraverso entrambi i poli.
+
+\subsubsection{Tre test concreti di falsificabilit\`a per l'antigravit\`a}
+
+\textbf{Test~1: Firma di Bloch nella polarizzazione della CMB.} La correlazione incrociata $T \times E$ dovrebbe mostrare un pattern oscillatorio a $\ell \sim 10$--$50$ (larghezza della parete di Bloch).
+
+\textbf{Test~2: Struttura degli autovalori di Riemann nei dati BAO DESI.} Lo spettro di potenza delle galassie dovrebbe esibire picchi e soppressioni a numeri d'onda corrispondenti alla spaziatura degli zeri di Riemann: spaziatura armonica di tipo numeri primi in $P(k)$ a $k \sim 0{,}01$--$0{,}1$ Mpc$^{-1}$.
+
+\textbf{Test~3: Cancellazione dipolare in $w(z)$.} A $z = 1{,}5$, $w(1{,}5) \approx -0{,}920$ vs.\ $w = -1{,}000$ esattamente per $\Lambda$CDM ($\Delta w \approx 0{,}08$). D-ND predice un aumento monotonico di $w$ verso $-1$ per $z \to 0$.
+
+\subsubsection{Implicazioni osservative: testare l'antigravit\`a}
+
+\begin{enumerate}
+    \item \textbf{Espansione isotropa}: D-ND predice l'isotropia naturalmente dalla simmetria strutturale del dipolo.
+    \item \textbf{Assenza di ``interazioni'' antigravitazionali}: Nessuna deviazione nei test del sistema solare (esperimenti di E\"otv\"os), consistente con i dati attuali.
+    \item \textbf{Decadimento dell'energia oscura negli eoni futuri}: $\rhoLambda \to 0$ asintoticamente ($\sim 10^{100}$ anni), a differenza dell'energia oscura eterna in $\Lambda$CDM.
+\end{enumerate}
+
+\subsection{Il tempo come emergenza: irreversibilit\`a termodinamica e ampiezza dipolare}
+\label{sec:time-emergence}
+
+\subsubsection{Il tempo non ``funziona''---emerge dall'irreversibilit\`a}
+
+Il framework D-ND propone che il tempo emerga come misura dell'elaborazione irreversibile dell'informazione. La disuguaglianza di Clausius:
+\begin{equation}\label{eq:clausius}
+    \boxed{\oint \frac{\delta Q}{T} \leq 0}
+\end{equation}
+
+Per cicli reali (irreversibili), l'integrale \`e strettamente negativo. Questa perdita residua crea la freccia del tempo. Il tempo emerge come l'integrale della produzione di entropia:
+\begin{equation}\label{eq:time-emerge}
+    \boxed{t = \int_0^T \frac{dS}{dT}(\tau) \, d\tau}
+\end{equation}
+
+L'irreversibilit\`a $\oint dQ/T < 0$ garantisce $dS/dT > 0$, rendendo il tempo monotonico e diretto in avanti.
+
+\subsubsection{Emergenza del tempo dal pipeline cognitivo a sei fasi}
+
+Il framework D-ND identifica l'emergenza temporale attraverso sei fasi:
+\begin{itemize}
+    \item \textbf{Fase~0: Indeterminazione} ($\Phi_0$ = Potenzialit\`a di punto zero)
+    \item \textbf{Fase~1: Rottura di simmetria} (tramite emergenza $\emerge$)
+    \item \textbf{Fase~2: Divergenza} (I percorsi alternativi si moltiplicano)
+    \item \textbf{Fase~3: Validazione} (Potatura dello Stream-Guard)
+    \item \textbf{Fase~4: Collasso} (Guida Morpheus)
+    \item \textbf{Fase~5: Raffinamento} (Iniezione KLI, Assioma~P5)
+    \item \textbf{Fase~6: Determinazione} (Output manifesto)
+\end{itemize}
+
+La sequenza Fase~0 $\to$ Fase~6 \`e essa stessa evoluzione temporale. Il tempo non parametrizza questo processo dall'esterno; esso \emph{\`e} il principio ordinatore. Ogni fase avanza attraverso l'elaborazione irreversibile dell'informazione, e il gradiente di entropia $\nabla S$ guida la transizione in avanti.
+
+\subsubsection{Il tempo come parametro che ordina le fasi di collasso di campo}
+
+Nel contesto cosmologico:
+\begin{equation}\label{eq:local-time-ordering}
+    \boxed{t(\mathbf{x}) = T_{\text{cycle}} \times f(M_C(\mathbf{x}), \dot{M}_C(\mathbf{x}))}
+\end{equation}
+
+\textbf{Derivazione formale dal principio di energia libera di Friston:}
+\begin{equation}\label{eq:free-energy}
+    F(\text{Fase } n) = -\ln p(\text{dati}|n) + \text{KL}[\text{Prior}||\text{Posterior}]
+\end{equation}
+
+Il tasso di flusso del tempo \`e proporzionale al tasso di riduzione dell'energia libera:
+\begin{equation}\label{eq:time-rate}
+    \frac{dt}{d\tau} = \left|\frac{dF}{d\tau}\right|
+\end{equation}
+affermando formalmente che il tempo scorre pi\`u velocemente dove l'universo apprende pi\`u rapidamente.
+
+\subsubsection{Il tempo come ampiezza locale dell'oscillazione dipolare}
+
+Il tempo locale nel punto di spaziotempo $(\mathbf{x},t)$:
+\begin{equation}\label{eq:local-time}
+    \tau(\mathbf{x}) = \Lambda \cdot |M_C(\mathbf{x})| \cdot (1 - |M_C(\mathbf{x})|) \cdot T_{\text{cycle}}
+\end{equation}
+
+Il tempo scorre pi\`u velocemente a emergenza intermedia ($M_C \approx 0{,}5$) e lentamente per $M_C \approx 0$ o $M_C \approx 1$. I tempi locali sono come spin intrinseci---propriet\`a dello stato di emergenza, non parametri esterni.
+
+\subsubsection{Il terzo incluso e la normalizzazione della logica del terzo escluso}
+
+Il framework D-ND generalizza il terzo escluso (\emph{tertium non datur}):
+\begin{equation}\label{eq:included-third}
+    1_{\text{D-ND}} = (t = +1) + (t = -1) + (t = 0)_{\text{singularity}}
+\end{equation}
+
+Questo \`e analogo all'estensione da $\mathbb{R}$ a $\mathbb{C}$. Includendo il terzo esplicitamente, D-ND risolve i paradossi derivanti dalle asimmetrie nascoste nella logica del terzo escluso \cite{Lupasco1951,Nicolescu2002}.
+
+\subsubsection{La lagrangiana dell'osservazione e la latenza minima}
+
+\textbf{Principio di Latenza Minima}: Tra tutti i percorsi di attualizzazione possibili, la natura seleziona quelli che minimizzano l'integrale delle latenze locali:
+\begin{equation}\label{eq:minimal-latency}
+    \mathcal{S}_{\text{observe}} = \int_{\text{path}} \tau(\mathbf{x}) \, d\mathcal{M}
+\end{equation}
+
+Questo spiega naturalmente: (1)~perch\'e l'universo si espande (latenza minima per attualizzare molti modi); (2)~perch\'e esiste la gravit\`a (minimizza i percorsi di transizione locali); (3)~perch\'e si formano le strutture (il raggruppamento riduce la latenza totale); (4)~perch\'e l'entropia aumenta (uno spazio di configurazione pi\`u ampio richiede latenze maggiori).
+
+\subsubsection{Convergenza e divergenza sono simultanee: latenza nulla nelle assonanze}
+
+Dove il polo di convergenza ($t = +1$) e il polo di divergenza ($t = -1$) oscillano perfettamente in fase (``assonanza''), la latenza si annulla: $\tau = 0$. Questo corrisponde alla potenzialit\`a massima---precisamente $\NT$. Ai confini del ciclo cosmico, il tempo diventa indefinito (latenza $\to 0$), e il ciclo successivo si inizia dalla pura potenzialit\`a.
+
+\subsubsection{Il doppio pendolo come realizzazione fisica}
+
+Il doppio pendolo esibisce biforcazione simultanea: caos locale vincolato da un'unica lagrangiana globale:
+\begin{equation}\label{eq:double-pendulum}
+    L = \frac{1}{2}m(\dot{x}_1^2 + \dot{y}_1^2 + \dot{x}_2^2 + \dot{y}_2^2) - mg(y_1 + y_2)
+\end{equation}
+
+Se l'universo \`e un doppio pendolo cosmologico: (1)~localmente, la realt\`a \`e caotica (meccanica quantistica); (2)~globalmente, deterministica (equazioni di campo classiche); (3)~nessuna delle due descrizioni \`e pi\`u fondamentale.
+
+\subsubsection{Convergenza e divergenza nelle equazioni di Friedmann modificate}
+
+\textbf{Convergenza} ($t = +1$): Il termine $\Omega_m$ domina ai tempi iniziali. \textbf{Divergenza} ($t = -1$): Il termine $\rhoLambda(z)$ domina ai tempi tardi. A tempi intermedi ($z \sim 1$): i due termini si bilanciano, producendo una risonanza nella storia dell'espansione.
+
+\subsubsection{Predizioni osservative: firme dell'emergenza del tempo}
+
+\begin{enumerate}
+    \item \textbf{Stime anomale dell'et\`a ad alto redshift}: Galassie estremamente distanti possono apparire pi\`u vecchie in tempo proprio che in tempo coordinato.
+    \item \textbf{Scale preferenziali nella formazione delle strutture}: Scale discrete preferenziali dalla minimizzazione della latenza---una ``quantizzazione'' della struttura cosmica.
+    \item \textbf{Costante gravitazionale dipendente dal tempo}: $G(z) = G_0 [1 + \delta_G(1 - \MCz)]$, con $\delta_G \sim 10^{-3}$--$10^{-2}$.
+\end{enumerate}
+
+\subsection{Tabella riassuntiva delle predizioni osservative}
+\label{sec:prediction-table}
+
+La Tabella~\ref{tab:predictions} consolida tutte le predizioni testabili attraverso molteplici domini osservativi.
+
+\begin{longtable}{p{2.5cm}p{3cm}p{3cm}p{2.5cm}p{2.5cm}}
+\caption{Predizioni osservative complete: D-ND vs.\ $\Lambda$CDM e alternative.}
+\label{tab:predictions} \\
+\toprule
+\textbf{Osservabile} & \textbf{Predizione D-ND} & \textbf{$\Lambda$CDM} & \textbf{Distinguibilit\`a} & \textbf{Status} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Osservabile} & \textbf{Predizione D-ND} & \textbf{$\Lambda$CDM} & \textbf{Distinguibilit\`a} & \textbf{Status} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Tensore/scalare $r$ & $0{,}001$--$0{,}01$ & $0{,}001$--$0{,}1$ & Marginale & Planck: $r<0{,}064$ \\
+\addlinespace
+Bispettro $\fNL$ & $5$--$20$ ($\emerge$ liscio); pi\`u alto nei template di emergenza & $\sim 1$--$5$ & Forte (3--5$\sigma$) con S4 & $\fNL^{\rm eq} < 25$ \\
+\addlinespace
+Soppressione di potenza & Deficit del $10$--$20\%$ a $\ell<10$ & Legge di potenza liscia & Possibile (1--2$\sigma$) & Indizio Planck \\
+\addlinespace
+Running spettrale & $dn_s/d\ln k \sim -0{,}005$ a $-0{,}02$ & $\sim 0$ & Possibile (2--3$\sigma$) & Consistente con 0 \\
+\addlinespace
+CMB $T\times E$ & Oscillazioni a $\ell\sim 10$--$50$ & Liscio & Distintivo & Indizi Planck \\
+\addlinespace
+Crescita $f(a)$ & $f_{\rm GR}[1+0{,}1(1-M_C)]$ & $f_{\rm GR}$ esatto & Piccola (1--2$\sigma$) & Consistente con RG \\
+\addlinespace
+Bias degli aloni & Aumentato a $z>1$ & Standard & Possibile (2--3$\sigma$) & Consistente con standard \\
+\addlinespace
+$\sigma_8$ & $\sim 0{,}80$ & $\approx 0{,}811$ & Marginale & Tensione esistente \\
+\addlinespace
+$w(z)$ & $-1+0{,}05(1-M_C(z))$ & $-1{,}000$ & Forte (2--4$\sigma$) & \textbf{DESI Anno-2/3 decisivo} \\
+\addlinespace
+Scala BAO & $d_A^{\rm DND}(z\!=\!1) \approx 1{,}016 \times d_A^{\Lambda}$ & Standard & Possibile (2--3$\sigma$) & DESI Anno-3 \\
+\addlinespace
+Firma di Riemann & Spaziatura di tipo primi in $P(k)$ & Nessuna struttura & Distintivo & Richiede analisi \\
+\addlinespace
+Variazione di $G$ & $\Delta G/G \sim 10^{-3}$--$10^{-2}$ & Costante & Piccola (1--2$\sigma$) & Timing di pulsar \\
+\addlinespace
+Coerenza ciclica & Correlazioni a basso $\ell$ ($\ell\sim 1$--$3$) & Nessun segnale & Distintivo & Inconclusivo \\
+\end{longtable}
+
+\textbf{Livello~1---Test decisivi} (3--5$\sigma$): (1)~Energia oscura $w(z)$ dalle BAO DESI; (2)~$\fNL$ della CMB da CMB-S4; (3)~Struttura degli autovalori di Riemann.
+
+\textbf{Livello~2---Promettenti} (1--3$\sigma$): (4)~Running dell'indice spettrale; (5)~Polarizzazione CMB da parete di Bloch; (6)~Evoluzione del bias degli aloni.
+
+\textbf{Livello~3---Indiretti/a lungo termine}: (7)~Variazione di $G$; (8)~Background stocastico di onde gravitazionali; (9)~Coerenza ciclica/punti di Hawking.
+
+%==============================================================================
+\section{Discussione e conclusioni}
+\label{sec:discussion}
+%==============================================================================
+
+\subsection{Punti di forza dell'estensione cosmologica D-ND}
+\label{sec:strengths}
+
+\begin{enumerate}
+    \item \textbf{Colma una lacuna nella teoria cosmologica}: Fornisce un meccanismo per l'emergenza a sistema chiuso dello spaziotempo classico dalla potenzialit\`a quantistica.
+    \item \textbf{Connette micro e macro}: Collega l'emergenza quantistica (Paper~A) all'inflazione cosmica e all'energia oscura attraverso un framework unificato.
+    \item \textbf{Risolve la singolarit\`a iniziale}: Sostituisce la singolarit\`a del Big Bang con una condizione al contorno finita sull'emergenza.
+    \item \textbf{Affronta il problema dell'energia oscura}: Spiegazione qualitativa della piccola costante cosmologica senza fine-tuning.
+    \item \textbf{Struttura ciclica e conservazione dell'informazione}: L'informazione quantistica \`e preservata attraverso i cicli cosmici.
+    \item \textbf{Predizioni falsificabili}: Test osservativi concreti con criteri quantitativi.
+    \item \textbf{Framework vincolato da DESI}: Testabile rispetto ai dati BAO 2024 con criteri di falsificazione chiari.
+\end{enumerate}
+
+\subsection{Limitazioni e avvertenze}
+\label{sec:limitations}
+
+\begin{enumerate}
+    \item \textbf{Natura speculativa}: La connessione tra emergenza microscopica e scale cosmiche non \`e rigorosamente derivata da principi primi.
+    \item \textbf{Mancanza di precisione nell'operatore di emergenza}: Alle scale cosmologiche, la struttura di $\emerge$ e lo spettro dell'``hamiltoniana cosmologica'' non sono noti.
+    \item \textbf{Gravit\`a quantistica incompleta}: Il framework non fornisce una teoria quantistica completa della gravit\`a paragonabile alla LQC o alla cosmologia delle stringhe.
+    \item \textbf{Equazioni modificate motivate assiomaticamente ma non derivate indipendentemente}: Il tensore $\Tinfo$ segue dagli assiomi D-ND P0--P4 (\secref{derivation-P4}), ma una derivazione pienamente indipendente da principi primi di gravit\`a quantistica rimane un problema aperto.
+    \item \textbf{Relazione con le osservazioni poco chiara nei dettagli}: Le predizioni richiedono calcoli dettagliati (ad es., codici CAMB/CLASS modificati) per una precisione quantitativa.
+    \item \textbf{Rivalutazione della costante cosmologica}: L'identificazione dell'energia oscura con il $V_0$ residuo \`e attraente ma speculativa.
+\end{enumerate}
+
+\subsection{Framework speculativo ma falsificabile}
+\label{sec:falsifiable}
+
+Le predizioni sono: non derivate da principi primi ma risultanti dall'estrapolazione del framework quantistico D-ND; testabili in linea di principio attraverso anomalie specifiche nella CMB, pattern nelle strutture ed evoluzione dell'energia oscura; distinguibili da $\Lambda$CDM nei regimi in cui gli effetti dell'emergenza non sono trascurabili.
+
+\subsection{Direzioni future}
+\label{sec:paths}
+
+\textbf{Cosmologia numerica}: Implementare un codice di Boltzmann modificato (estendendo CLASS o CAMB) che incorpori le modifiche D-ND.
+
+\textbf{Integrazione con la gravit\`a quantistica}: Derivare le equazioni di Einstein modificate da principi pi\`u fondamentali (cosmologia quantistica a loop, sicurezza asintotica, principio dell'azione spettrale).
+
+\textbf{Campagne osservative}: Progettare osservazioni dedicate per il bispettro della CMB, la crescita delle strutture ad alto redshift e la precisione sull'energia oscura.
+
+\subsection{Conclusione}
+\label{sec:conclusion}
+
+Abbiamo presentato un'estensione speculativa ma matematicamente coerente del framework Duale-Non-Duale alle scale cosmologiche. Accoppiando le equazioni di campo di Einstein alla misura di emergenza quantistica $\MC$, delineiamo un quadro in cui: l'universo emerge dalla potenzialit\`a primordiale, l'inflazione sorge come fase di rapida attualizzazione, l'energia oscura rappresenta struttura non-relazionale residua, e la singolarit\`a iniziale \`e sostituita da una condizione al contorno sull'emergenza. Il framework suggerisce cicli multipli, ciascuno dei quali preserva l'informazione quantistica attraverso $\OmegaNT = 2\pi i$.
+
+Sebbene altamente speculativo e dipendente da assunzioni sull'operatore di emergenza microscopico, il framework fornisce una visione concettualmente unificata della cosmologia quantistica e classica. Se catturi correttamente la fisica pu\`o essere determinato solo attraverso test osservativi delle sue predizioni quantitative.
+
+\subsection{Predizioni comparative: D-ND vs.\ $\Lambda$CDM vs.\ LQC vs.\ CCC}
+\label{sec:comparison}
+
+La Tabella~\ref{tab:comparison} fornisce un confronto dettagliato attraverso osservabili chiave e propriet\`a teoriche.
+
+\begin{longtable}{p{2.2cm}p{2.2cm}p{2.8cm}p{2.5cm}p{2.5cm}}
+\caption{Predizioni comparative attraverso i framework cosmologici.}
+\label{tab:comparison} \\
+\toprule
+\textbf{Caratteristica} & \textbf{$\Lambda$CDM} & \textbf{D-ND} & \textbf{LQC} & \textbf{CCC} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Caratteristica} & \textbf{$\Lambda$CDM} & \textbf{D-ND} & \textbf{LQC} & \textbf{CCC} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Singolarit\`a & Divergenza di curvatura & Singolarit\`a NT (finita) & Rimbalzo quantistico & Riscalamento conforme \\
+\addlinespace
+Meccanismo & RG classica + $\Lambda$ & $\MC$ + tensore info & Geometria quantistica & Curvatura di Weyl \\
+\addlinespace
+Inflazione & Slow-roll $\phi$ & Evoluzione rapida di $M_C$ & Potenziale modificato & Non primaria \\
+\addlinespace
+Energia oscura & $w=-1$ esatto & $w=-1+0{,}05(1-M_C)$ & Lievi correzioni loop & Ciclica \\
+\addlinespace
+$\fNL$ & $\sim 1$ & $5$--$20$ ($\emerge$ liscio) & Aumentato & Modificato \\
+\addlinespace
+Informazione & Persa (Hawking) & Preservata (cicli) & Preservata (geometria) & Preservata (conforme) \\
+\addlinespace
+Cicli & Nessuno & $\OmegaNT = 2\pi i$ & Rimbalzo quantistico & Eoni infiniti \\
+\addlinespace
+Param.\ liberi & 6 & $\sim 8$ & $\sim 6$ & $\sim 5$ \\
+\addlinespace
+Status & Ben testato & Speculativo; testabile & Quantitativo; dibattuto & Speculativo \\
+\end{longtable}
+
+\textbf{Distinzioni chiave}: (1)~Il meccanismo inflazionario differisce in tutti e quattro i framework; (2)~l'energia oscura \`e costante in $\Lambda$CDM, in evoluzione in D-ND; (3)~la conservazione dell'informazione differisce fondamentalmente; (4)~i dati DESI 2024--2026 forniscono vincoli decisivi; (5)~D-ND connette in modo unico l'emergenza alle scale quantistiche e cosmiche.
+
+%==============================================================================
+% REFERENCES
+%==============================================================================
+
+\begin{thebibliography}{30}
+
+\bibitem{Guth1981}
+A.~H.~Guth,
+``Inflationary universe: A possible solution to the horizon and flatness problems,''
+\textit{Phys.\ Rev.\ D} \textbf{23}, 347 (1981).
+
+\bibitem{Linde1986}
+A.~D.~Linde,
+``Eternally existing self-reproducing chaotic inflationary universe,''
+\textit{Phys.\ Lett.\ B} \textbf{175}, 395 (1986).
+
+\bibitem{Verlinde2011}
+E.~Verlinde,
+``On the origin of gravity and the laws of Newton,''
+\textit{JHEP} \textbf{2011}(4), 29.
+[arXiv:1001.0785]
+
+\bibitem{Verlinde2016}
+E.~Verlinde,
+``Emergent gravity and the dark universe,''
+\textit{SciPost Phys.} \textbf{2}(3), 016 (2016).
+[arXiv:1611.02269]
+
+\bibitem{RyuTakayanagi2006}
+S.~Ryu and T.~Takayanagi,
+``Holographic derivation of entanglement entropy from AdS/CFT,''
+\textit{Phys.\ Rev.\ Lett.} \textbf{96}, 181602 (2006).
+
+\bibitem{HartleHawking1983}
+J.~B.~Hartle and S.~W.~Hawking,
+``Wave function of the universe,''
+\textit{Phys.\ Rev.\ D} \textbf{28}, 2960 (1983).
+
+\bibitem{Wheeler1968}
+J.~A.~Wheeler,
+``Superspace and the nature of quantum geometrodynamics,''
+in \textit{Battelle Rencontres}, pp.~242--307 (1968).
+
+\bibitem{Kuchar1992}
+K.~V.~Kucha\v{r},
+``Time and interpretations of quantum gravity,''
+in \textit{General Relativity and Gravitation}, pp.~520--575 (Cambridge University Press, 1992).
+
+\bibitem{Giovannetti2015}
+V.~Giovannetti, S.~Lloyd, and L.~Maccone,
+``Quantum time,''
+\textit{Phys.\ Rev.\ D} \textbf{92}, 045033 (2015).
+
+\bibitem{Penrose2005}
+R.~Penrose,
+``Before the Big Bang?''
+in \textit{Science and Ultimate Reality}, pp.~1--29 (Cambridge University Press, 2005).
+
+\bibitem{Penrose2010}
+R.~Penrose,
+\textit{Cycles of Time: An Extraordinary New View of the Universe}
+(Jonathan Cape, 2010).
+
+\bibitem{Wehus2021}
+A.~M.~Wehus and H.~K.~Eriksen,
+``A search for concentric circles in the 7-year WMAP temperature sky maps,''
+\textit{Astrophys.\ J.} \textbf{733}, 29 (2021).
+
+\bibitem{Maldacena1998}
+J.~M.~Maldacena,
+``The large N limit of superconformal field theories and supergravity,''
+\textit{Adv.\ Theor.\ Math.\ Phys.} \textbf{2}, 231 (1998).
+
+\bibitem{VanRaamsdonk2010}
+M.~Van~Raamsdonk,
+``Building up spacetime with quantum entanglement,''
+\textit{Gen.\ Relativ.\ Gravit.} \textbf{42}, 2323 (2010).
+
+\bibitem{Planck2018NG}
+Planck Collaboration,
+``Planck 2018 results. IX. Constraints on primordial non-Gaussianity,''
+\textit{Astron.\ Astrophys.} \textbf{641}, A9 (2018).
+
+\bibitem{Komatsu2010}
+E.~Komatsu,
+``Hunting for primordial non-Gaussianity in the CMB,''
+\textit{Class.\ Quantum Grav.} \textbf{27}, 124010 (2010).
+
+\bibitem{Maldacena2003}
+J.~M.~Maldacena,
+``Non-Gaussian features of primordial fluctuations in single-field inflationary models,''
+\textit{JHEP} \textbf{2003}(05), 013.
+
+\bibitem{Dodelson2003}
+S.~Dodelson,
+\textit{Modern Cosmology}
+(Academic Press, 2003).
+
+\bibitem{Perlmutter1999}
+S.~Perlmutter et al.,
+``Measurements of $\Omega$ and $\Lambda$ from 42 high-redshift supernovae,''
+\textit{Astrophys.\ J.} \textbf{517}, 565 (1999).
+
+\bibitem{Riess1998}
+A.~G.~Riess et al.,
+``Observational evidence from supernovae for an accelerating universe and a cosmological constant,''
+\textit{Astron.\ J.} \textbf{116}, 1009 (1998).
+
+\bibitem{Weinberg2000}
+S.~Weinberg,
+``The cosmological constant problems,''
+arXiv:astro-ph/0005265 (2000).
+
+\bibitem{Bekenstein1973}
+J.~D.~Bekenstein,
+``Black holes and entropy,''
+\textit{Phys.\ Rev.\ D} \textbf{7}, 2333 (1973).
+
+\bibitem{Hawking1974}
+S.~W.~Hawking,
+``Black hole explosions?''
+\textit{Nature} \textbf{248}, 30 (1974).
+
+\bibitem{tHooft1993}
+G.~'t~Hooft,
+``Dimensional reduction in quantum gravity,''
+arXiv:gr-qc/9310026 (1993).
+
+\bibitem{Reed1980}
+M.~Reed and B.~Simon,
+\textit{Methods of Modern Mathematical Physics}
+(Academic Press, 1980).
+
+\bibitem{Chamseddine1997}
+A.~H.~Chamseddine and A.~Connes,
+``The spectral action principle,''
+\textit{Commun.\ Math.\ Phys.} \textbf{186}, 731 (1997).
+
+\bibitem{Bardeen1986}
+J.~M.~Bardeen, J.~R.~Bond, N.~Kaiser, and A.~S.~Szalay,
+``The statistics of peaks of Gaussian random fields,''
+\textit{Astrophys.\ J.} \textbf{304}, 15 (1986).
+
+\bibitem{Beke2021}
+L.~Beke and K.~Hinterbichler,
+``Entropic gravity and the limits of thermodynamic descriptions,''
+\textit{Phys.\ Lett.\ B} \textbf{811}, 135863 (2021).
+
+\bibitem{Lupasco1951}
+S.~Lupasco,
+\textit{Le principe d'antagonisme et la logique de l'\'energie}
+(Hermann, Paris, 1951).
+
+\bibitem{Nicolescu2002}
+B.~Nicolescu,
+\textit{Manifesto of Transdisciplinarity}
+(SUNY Press, 2002).
+
+\end{thebibliography}
+
+\end{document}

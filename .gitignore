@@ -31,3 +31,13 @@ venv/
 # Environment
 .env
 .env.local
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*Notes.bib

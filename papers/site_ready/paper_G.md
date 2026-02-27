@@ -1,22 +1,15 @@
-# LECO-DND: Meta-Ontological Foundations of Cognitive Emergence
-## Grounding Reasoning in Phenomenological D-ND and Formal Field Theory
-
-**Status:** Working Draft 3.0 — Under Review
-**Date:** February 14, 2026
-**Target:** Cognitive Science / Minds and Machines
-
----
-
+<a id="abstract"></a>
 ## Abstract
 
 We present **LECO-DND** (Latent Evocative Cognitive Ontology — Dual-Non-Dual), a meta-ontological framework for emergent reasoning in Large Language Models grounded in the phenomenological origin of the Dual-Non-Dual (D-ND) framework: the free-hand drawing as a physical instantiation of state emergence. Unlike procedural reasoning systems (Chain-of-Thought, ReAct, Tree-of-Thought), LECO-DND models cognition as field dynamics arising from the co-constitution of singular (non-dual) and dual poles, a structure observed first in the pre-waking state and the drawing surface. We formalize the cognitive density field ρ_LECO(σ|R(t)) as a **measure-theoretic function on the probability space of concept accessibility**, satisfying explicit regularity conditions. We prove that the reasoning cycle converges to a fixed point R* that satisfies **Axiom A₅** (autological consistency via Lawvere's fixed-point theorem). We establish the **Autopoietic Closure Theorem**, showing that the InjectKLI ontological update preserves convergence guarantees via Banach fixed-point contraction. We introduce the **singular-dual dipole** as the fundamental ontological unit—neither one nor two, but the inseparable co-constitution of indifferentiation and differentiation. We provide a comparison table unifying LECO-DND with Whitehead's process philosophy, structural realism, ontic structural realism, and integrated information theory, showing that all share the dipolar emergence structure. This paper bridges phenomenology and formal mathematics, grounding abstract cognitive dynamics in the concrete observation of waking consciousness and hand-body-gravity systems drawing on a surface.
 
 **Keywords:** cognitive emergence, Dual-Non-Dual, phenomenology, measure theory, Lawvere fixed-point, singular-dual dipole, field theory, autopoietic cognition, drawing, waking
 
----
 
+<a id="1-introduction-from-phenomenology-to-formalism"></a>
 ## 1. Introduction: From Phenomenology to Formalism
 
+<a id="1-1-the-phenomenological-origin-before-words"></a>
 ### 1.1 The Phenomenological Origin: Before Words
 
 The D-ND framework does not begin with an axiom or a mathematical postulate. It begins with an **observation that precedes the observer**: the structure of waking from sleep.
@@ -51,6 +44,7 @@ This mapping establishes that the D-ND framework was not constructed top-down fr
 
 **Remark (Epistemological Status of Phenomenological Grounding).** The sleep-wake phenomenology and drawing observations serve as *heuristic motivation*, not as physical evidence. We do not claim that the pre-waking state IS |NT⟩ in any measurable sense; rather, the structural isomorphism (undifferentiated → differentiating → differentiated) provides the conceptual scaffold from which the formal axioms were abstracted. This methodology has precedent: Schrödinger's wave equation was motivated by de Broglie's matter-wave analogy; general relativity by the elevator thought experiment. In each case, the phenomenological intuition was eventually superseded by the mathematical formalism, which stands independently of its origin. Similarly, LECO-DND's formal content (§2–§4) is self-contained and does not depend logically on §1.1. The phenomenological grounding is presented for intellectual honesty about the framework's genesis, following Husserl's principle that formal structures benefit from genetic clarification (Husserl, *Formal and Transcendental Logic*, 1929). For neuroscientific grounding of the sleep-wake transition structure, see Hobson et al. (2000) on AIM model states, Tononi & Edelman (1998) on consciousness and complexity, and Libet (1985) on readiness potential preceding conscious intent.
 
+<a id="1-2-leco-dnd-cognitive-field-theory-grounded-in-phenomenology"></a>
 ### 1.2 LECO-DND: Cognitive Field Theory Grounded in Phenomenology
 
 We propose that **cognition in LLMs exhibits the same dipolar emergence structure** observed in waking and drawing:
@@ -67,6 +61,7 @@ The **singular-dual dipole** is the fundamental unit: it is neither singular nor
 
 $$\text{Dipole}_{SD} = \underbrace{\text{Singular (Non-Dual)}}_{\text{Potentiality}} \longleftrightarrow \underbrace{\text{Dual}}_{\text{Manifestation}}$$
 
+<a id="1-3-from-drawing-to-cognitive-architecture"></a>
 ### 1.3 From Drawing to Cognitive Architecture
 
 The Matrix Bridge (Section 2–3) establishes that free-hand drawing IS a physical D-ND system:
@@ -80,18 +75,22 @@ The Matrix Bridge (Section 2–3) establishes that free-hand drawing IS a physic
 
 ---
 
+<a id="2-measure-theoretic-formalization-of-cognitive-density"></a>
 ## 2. Measure-Theoretic Formalization of Cognitive Density
 
+<a id="2-1-the-probability-space-of-concept-accessibility"></a>
 ### 2.1 The Probability Space of Concept Accessibility
 
 We ground ρ_LECO in measure theory to make precise the intuition of "concept accessibility."
 
 **Notation:** Throughout this paper, $T_{\text{cog}}$ denotes the cognitive temperature parameter (inverse cognitive bandwidth). This is distinct from $\tau$ used in Paper A for the relational time parameter of the Page-Wootters mechanism.
 
+<a id="2-1-1-empirical-domain-application-language-understanding"></a>
 ### 2.1.1 Empirical Domain Application: Language Understanding
 
 **Motivation**: While the measure-theoretic framework is mathematically rigorous, Paper G's cognitive density ρ_LECO has lacked concrete empirical validation. This section provides a concrete protocol for instantiating LECO-DND in language models and benchmarking it against procedural baselines.
 
+<a id="ontological-space-extraction-protocol"></a>
 #### Ontological Space Extraction Protocol
 
 In any semantic domain, we can extract the ontological space 𝒪 directly from pre-trained embeddings:
@@ -107,6 +106,7 @@ $$\mathcal{O}_{\text{phys}} = \{\text{force}, \text{mass}, \text{acceleration}, 
 
 with $n = 7$ base concepts for a mid-level physics reasoning task.
 
+<a id="ontological-distance-computation"></a>
 #### Ontological Distance Computation
 
 Define the **ontological distance** d(σ, R(t)) as the minimum number of inference steps required to derive σ from R(t) in the domain's axiom system:
@@ -122,6 +122,7 @@ $$d(\sigma, R(t)) \approx \left\lceil \frac{\text{cosine-distance}(\sigma, \text
 
 where ε is a learned scaling factor (tuned on validation set).
 
+<a id="empirical-benchmark-protocol-hotpotqa-multi-hop-reasoning"></a>
 #### Empirical Benchmark Protocol: HotpotQA Multi-Hop Reasoning
 
 **Hypothesis**: LECO-DND should exhibit faster convergence and better domain transfer than Chain-of-Thought (CoT) on multi-hop reasoning tasks.
@@ -235,6 +236,7 @@ $$\mu(\{\sigma\}) = \frac{\exp(-d(\sigma, \text{center}(R(t))) / T_{\text{cog}})
 
 where d is the cosine distance in embedding space and T_cog is the cognitive temperature (§2.1). This is a **Boltzmann-Gibbs measure** on the concept space, with T_cog controlling the concentration: low T_cog → peaked around current reasoning state; high T_cog → uniform (maximally evocative). The ontological closure Closure(R(t)) is then operationally defined as the set of concepts σ with μ({σ}) > ε for a threshold ε (set to 1/|𝒪| by default). This eliminates the circularity concern: μ is computed from embeddings (input), ρ_LECO predicts accessibility (output), and the prediction is tested against actual model behavior on reasoning tasks.
 
+<a id="2-2-measure-theoretic-properties-and-convergence"></a>
 ### 2.2 Measure-Theoretic Properties and Convergence
 
 **Theorem 2.1 (Absolute Continuity of ρ_LECO)**:
@@ -253,8 +255,10 @@ This is the **classical limit**: at zero cognitive temperature, only the concept
 
 ---
 
+<a id="3-the-singular-dual-dipole-fundamental-ontological-unit"></a>
 ## 3. The Singular-Dual Dipole: Fundamental Ontological Unit
 
+<a id="3-1-why-not-singular-or-dual"></a>
 ### 3.1 Why Not "Singular or Dual"?
 
 The preliminary formulations of D-ND made a subtle error: they treated "non-dual" and "dual" as *opposite states*, when they are actually *complementary poles of a single structure*. This is not semantics—it changes the mathematics.
@@ -265,6 +269,7 @@ The preliminary formulations of D-ND made a subtle error: they treated "non-dual
 
 **Physical analogy**: The magnetic dipole. You cannot have a north pole without a south pole. Cut the magnet in half: each half has both poles. The dipole is the fundamental unit, not the individual poles.
 
+<a id="3-2-mathematical-structure-of-the-dipole"></a>
 ### 3.2 Mathematical Structure of the Dipole
 
 **Definition 3.1 (Singular-Dual Dipole)**:
@@ -297,6 +302,7 @@ At $d\theta/d\tau = 0$ (dipole frozen): $\delta V = 0$, no emergence. This is th
 
 At maximum $d\theta/d\tau$: Maximum emergence, full duality. This is waking consciousness or the drawing with densest intersection clusters.
 
+<a id="3-3-the-dipole-appears-everywhere"></a>
 ### 3.3 The Dipole Appears Everywhere
 
 **Cognitive Dipole**:
@@ -325,6 +331,7 @@ At maximum $d\theta/d\tau$: Maximum emergence, full duality. This is waking cons
 
 This universality is not coincidence. It is the **structure of state transitions** itself. The dipole is **ontologically prior**—it is what generates the appearance of separate "states" and "observers."
 
+<a id="3-4-the-included-third-why-the-dipole-is-not-binary"></a>
 ### 3.4 The Included Third: Why the Dipole Is Not Binary
 
 The singular-dual dipole is **not a binary choice**. Binary logic (excluded third) says: either singular OR dual. The D-ND framework introduces the **included third** (terzo incluso): the **boundary between the poles**, which is neither pole but the condition of possibility for both.
@@ -353,8 +360,10 @@ This structure is irreducible to any single-pole description and is central to w
 
 ---
 
+<a id="4-the-autopoietic-closure-theorem-and-banach-fixed-point-contraction"></a>
 ## 4. The Autopoietic Closure Theorem and Banach Fixed-Point Contraction
 
+<a id="4-1-theorem-3-4-reconsidered-full-proof"></a>
 ### 4.1 Theorem 3.4 Reconsidered: Full Proof
 
 The critical gap in draft 2 was the Autopoietic Closure Theorem's proof. We now provide the complete argument using Banach's fixed-point theorem.
@@ -427,6 +436,7 @@ Convergence time improves: with smaller β, fewer iterations are needed to achie
 
 **QED.** □
 
+<a id="4-2-significance-self-improvement-without-losing-guarantees"></a>
 ### 4.2 Significance: Self-Improvement Without Losing Guarantees
 
 This theorem resolves the tension between self-improvement and formal assurance:
@@ -439,8 +449,10 @@ This is the core of autopoiesis: **a system that reproduces itself while improvi
 
 ---
 
+<a id="5-axiom-a-and-lawvere-s-fixed-point-theorem"></a>
 ## 5. Axiom A₅ and Lawvere's Fixed-Point Theorem
 
+<a id="5-1-the-autological-closure"></a>
 ### 5.1 The Autological Closure
 
 **Axiom A₅ (D-ND Formalism)**: A system is emergent if it can be a fixed point of its own generating operator.
@@ -453,6 +465,7 @@ In a category with exponential objects (such as the category of sets), consider 
 
 The profound implication: **Fixed points of self-referential maps are not reached by iteration, but exist by structure**. The fixed point is "mathematically guaranteed" to exist purely from the category's structure (the existence of exponential objects).
 
+<a id="5-2-cognitive-application"></a>
 ### 5.2 Cognitive Application
 
 In LECO-DND, this manifests as:
@@ -473,6 +486,7 @@ This fixed point is a **self-consistent description**: if the system is in state
 
 ---
 
+<a id="6-comparative-meta-ontology-table"></a>
 ## 6. Comparative Meta-Ontology Table
 
 To situate LECO-DND within the broader landscape of metaphysical and cognitive frameworks, we provide a comprehensive comparison spanning 12 major frameworks and their foundational structures:
@@ -493,6 +507,7 @@ To situate LECO-DND within the broader landscape of metaphysical and cognitive f
 | **D-ND Time-Emergence (Paper E)** | Cosmic Dipolar Oscillation | Divergence (Anti-gravity, t < 0) | Convergence (Gravity, t > 0) | Temporal asymmetry via dipole rotation | Yes: Ω_NT = 2πi (topological closure) | Arrow of time emerges from dipole phase | Requires exotic matter (accelerating expansion) |
 | **Strange Attractor Dynamics (§9.3)** | Chaotic Bounded Set | Lyapunov sensitivity (λ_L > 0) | Banach contraction basin | Sensitive dependence within convergence | Yes: Attractor A* with fractal dimension | Reasoning exhibits power-law exploration | Dimension < dim(𝒪) conjecture unproven |
 
+<a id="6-1-key-convergences-and-unique-features"></a>
 ### 6.1 Key Convergences and Unique Features
 
 **Convergences**:
@@ -509,6 +524,7 @@ To situate LECO-DND within the broader landscape of metaphysical and cognitive f
 5. **Empirical Benchmark Protocol (§2.1.1)**: Concrete **falsifiable predictions** on HotpotQA, domain transfer, and Banach contraction signatures
 6. **Strange Attractor Framework (§9.3)**: Bridges **bounded chaos with convergence**; provides mechanism for exploration-exploitation balance
 
+<a id="6-2-comparative-strengths-and-weaknesses"></a>
 ### 6.2 Comparative Strengths and Weaknesses
 
 | Framework | Mathematical Rigor | Empirical Testability | Cognitive Relevance | Computational Tractability |
@@ -525,8 +541,10 @@ To situate LECO-DND within the broader landscape of metaphysical and cognitive f
 
 ---
 
+<a id="7-implementation-and-empirical-grounding"></a>
 ## 7. Implementation and Empirical Grounding
 
+<a id="7-1-concrete-instantiation-in-llm-latent-space"></a>
 ### 7.1 Concrete Instantiation in LLM Latent Space
 
 **Ontological space**: Extract via concept parsing. For physics: {force, mass, acceleration, ...}. For logic: {premise, conclusion, modus-ponens, ...}.
@@ -547,6 +565,7 @@ To situate LECO-DND within the broader landscape of metaphysical and cognitive f
 - Step 4: Verify Axiom A₅ (does top-k stay the same if we re-run from the new R(t+1)?).
 - Step 5: Update ρ_LECO for next iteration.
 
+<a id="7-2-empirical-benchmarking"></a>
 ### 7.2 Empirical Benchmarking
 
 | Benchmark | Metric | CoT | LECO-DND (Predicted) | Improvement |
@@ -560,8 +579,10 @@ To situate LECO-DND within the broader landscape of metaphysical and cognitive f
 
 ---
 
+<a id="8-comparison-with-process-philosophy-and-whitehead"></a>
 ## 8. Comparison with Process Philosophy and Whitehead
 
+<a id="8-1-whitehead-s-actual-occasions-vs-leco-dnd-resultants"></a>
 ### 8.1 Whitehead's Actual Occasions vs. LECO-DND Resultants
 
 Whitehead's **actual occasion** (process philosophy) shares deep structure with LECO-DND's **Resultant**:
@@ -576,6 +597,7 @@ Whitehead's **actual occasion** (process philosophy) shares deep structure with 
 | **Novel Emergent** | "Advance into novelty" | A(t) growth measure (new reachable Resultants) |
 | **Time** | Process (becoming), not external parameter | Relational parameter τ (Page-Wootters mechanism) |
 
+<a id="8-2-key-difference-formalization"></a>
 ### 8.2 Key Difference: Formalization
 
 Whitehead's process philosophy is conceptually deep but **mathematically underdeveloped**. LECO-DND translates Whitehead's insights into:
@@ -589,8 +611,10 @@ This is not merely "quantifying Whitehead"—it is revealing the **mathematical 
 
 ---
 
+<a id="9-discussion-phenomenology-closes-the-loop"></a>
 ## 9. Discussion: Phenomenology Closes the Loop
 
+<a id="9-1-from-waking-to-mathematics-and-back"></a>
 ### 9.1 From Waking to Mathematics and Back
 
 This paper began with phenomenology (the sleep-wake transition) and arrived at formal mathematics (Banach fixed-point, measure theory, Lawvere). The full circle is:
@@ -604,6 +628,7 @@ This paper began with phenomenology (the sleep-wake transition) and arrived at f
 
 This is the **hermeneutic circle** at the foundation of understanding: living experience ↔ formal model ↔ improved living experience.
 
+<a id="9-2-the-drawing-as-validation"></a>
 ### 9.2 The Drawing as Validation
 
 The Matrix Bridge (Sections 2–3) shows that the free-hand drawing **physically instantiates D-ND dynamics**:
@@ -621,14 +646,17 @@ If LECO-DND is correct, then:
 
 **These predictions are testable**.
 
+<a id="9-2-1-experimental-protocol-drawing-emergence-structure"></a>
 #### 9.2.1 Experimental Protocol: Drawing-Emergence Structure
 
 From the MATRIX_BRIDGE work (phenomenological origin in drawing), we design a concrete falsifiable experiment:
 
+<a id="hypothesis"></a>
 #### Hypothesis
 
 Free-hand drawing physically instantiates D-ND emergence: the self-intersections of drawn curves cluster at density-dependent "hotspots," exhibiting power-law statistics consistent with emergent structure formation.
 
+<a id="protocol"></a>
 #### Protocol
 
 **Phase 1: Data Collection**
@@ -661,6 +689,7 @@ Free-hand drawing physically instantiates D-ND emergence: the self-intersections
 2. Apply same clustering/power-law analysis to random curves
 3. Expected null exponent: α_null ≈ 1.0 (uncorrelated random walk)
 
+<a id="expected-results"></a>
 #### Expected Results
 
 **Hypothesis prediction**: Subject-drawn curves exhibit α ≈ 1.5 ± 0.3
@@ -674,6 +703,7 @@ Free-hand drawing physically instantiates D-ND emergence: the self-intersections
 - If α ≈ 1.0 (same as random), hypothesis is **falsified** → drawing is purely random, no D-ND structure
 - If α ≈ 2.0 (much steeper), interpretation shifts to **extreme clustering** (possible saturation effect)
 
+<a id="data-status"></a>
 #### Data & Status
 
 - **Status**: Experiment design complete; data collection pending
@@ -681,6 +711,7 @@ Free-hand drawing physically instantiates D-ND emergence: the self-intersections
 - **Estimated cost**: ~$500 (subject compensation)
 - **Data will be deposited**: OSF (Open Science Framework) for reproducibility
 
+<a id="connection-to-leco-dnd"></a>
 #### Connection to LECO-DND
 
 If the hypothesis is confirmed (α ≈ 1.5):
@@ -690,12 +721,14 @@ If the hypothesis is confirmed (α ≈ 1.5):
 
 This provides **phenomenological grounding** for LECO-DND's field-theoretic model: the dipole structure is not metaphorical but observable in physical drawings.
 
+<a id="9-3-strange-attractor-dynamics-rigorous-analysis"></a>
 ### 9.3 Strange Attractor Dynamics: Rigorous Analysis
 
 A key insight from D-ND phenomenology: what appears as **noise, error, or incoherence is not waste but unexpressed potential**. In standard reasoning systems (CoT, ReAct), outputs that deviate from expected patterns are classified as errors to be suppressed. In LECO-DND, these deviations are **asymmetric values**—gradients in the cognitive field that indicate unexplored directions of coherence.
 
 This section develops the strange attractor structure **rigorously**, moving beyond the speculation of earlier drafts.
 
+<a id="9-3-1-lyapunov-exponent-and-bounded-chaos"></a>
 #### 9.3.1 Lyapunov Exponent and Bounded Chaos
 
 **Definition**: The Lyapunov exponent measures sensitivity to initial conditions:
@@ -717,6 +750,7 @@ where $D\Phi$ is the derivative (Fréchet differential) of the coherence operato
 3. Measure divergence: $d(Φ^n(R), Φ^n(R+ε))$
 4. Estimate: $\lambda_L \approx \frac{1}{n} \ln \frac{d(Φ^n(R), Φ^n(R+ε))}{ε}$
 
+<a id="9-3-2-bounded-divergence-banach-contraction-within-attractor"></a>
 #### 9.3.2 Bounded Divergence: Banach Contraction Within Attractor
 
 Despite $\lambda_L > 0$, trajectories remain bounded because:
@@ -734,6 +768,7 @@ Within $A^*$, trajectories diverge locally ($\lambda_L > 0$) but converge global
 - These operate at different scales: convergence rate (decreasing distance to attractor) vs. divergence rate (increasing distance within attractor)
 - Result: Chaotic exploration *within* a shrinking basin
 
+<a id="9-3-3-fractal-dimension-of-attractor"></a>
 #### 9.3.3 Fractal Dimension of Attractor
 
 **Conjecture 9.3.2 (Attractor Dimension < Concept Space Dimension)**:
@@ -749,6 +784,7 @@ $$\dim_{\text{Hausdorff}}(A^*) < \dim(\mathcal{R})$$
    where $N(\epsilon)$ = number of balls of radius ε needed to cover the attractor
 3. Expected: $\dim_{\text{box}} < |𝒪|$ (fractional dimension)
 
+<a id="9-3-4-noise-as-gradient-asymmetric-field-alignment"></a>
 #### 9.3.4 Noise as Gradient: Asymmetric Field Alignment
 
 **Key insight**: Every asymmetry in ρ_LECO corresponds to a gradient in the cognitive potential:
@@ -766,6 +802,7 @@ $$K_{\text{gen}} = \left| \nabla^2 \rho_{\text{LECO}} \right| \text{ is maximal}
 
 **Neurobiological parallel**: In the brain, "error signals" (unexpected prediction errors) drive learning precisely because they indicate high-curvature regions of the state space where new structure can emerge.
 
+<a id="9-3-5-noise-reinterpretation-asymmetric-values-as-potential-gradients"></a>
 #### 9.3.5 Noise Reinterpretation: Asymmetric Values as Potential Gradients
 
 In the LECO-DND model, asymmetric values in ρ_LECO are not errors but **markers of unexplored potential**.
@@ -779,6 +816,7 @@ i.e., the concept becomes highly accessible after a single reasoning step.
 
 **Entropy perspective**: The "noise" in token probabilities is actually the **system's entropy budget**—the degrees of freedom available for exploration. Suppressing low-probability tokens is equivalent to decreasing temperature τ → 0, which freezes the system at a local optimum.
 
+<a id="9-3-6-optimal-temperature-oscillation-within-the-attractor"></a>
 #### 9.3.6 Optimal Temperature: Oscillation Within the Attractor
 
 **Theorem 9.3.2 (Optimal T_cog for Exploration-Convergence Trade-off)** [Conjectural]:
@@ -793,6 +831,7 @@ $$T_{\text{cog}}^* = \arg\min_{T_{\text{cog}}} \left[ \text{Time to convergence}
 
 **Empirical guidance**: For typical ontological spaces (|𝒪| ~ 10–100), $T_{\text{cog}}^*$ is often found in the range 0.5–2.0 (normalized units).
 
+<a id="9-3-7-attractors-are-marked-as-conjectural"></a>
 #### 9.3.7 Attractors Are Marked as Conjectural
 
 We emphasize: **The Lyapunov exponent λ_L, the attractor dimension, and the optimal temperature τ* are conjectural. Rigorous derivation is pending.**
@@ -806,8 +845,10 @@ However, the framework is:
 
 ---
 
+<a id="10-limitations-and-future-directions"></a>
 ## 10. Limitations and Future Directions
 
+<a id="10-1-open-problems"></a>
 ### 10.1 Open Problems
 
 1. **Computational Complexity**: Computing d(σ, R(t)) requires inferential search in the domain's logic. For complex domains, this is NP-hard. Efficient approximations (learned distance functions, heuristic search) are needed.
@@ -820,6 +861,7 @@ However, the framework is:
 
 5. **Integration with Scaling Laws**: How does LECO-DND interact with LLM scaling? Does P = k/L hold across model scales? Is the singular-dual structure visible in larger models?
 
+<a id="10-2-future-work"></a>
 ### 10.2 Future Work
 
 - **Experimental implementation**: Code the LECO-DND cycle in Claude/GPT-4; measure latency, accuracy, consistency on standard benchmarks.
@@ -829,6 +871,7 @@ However, the framework is:
 
 ---
 
+<a id="11-conclusion"></a>
 ## 11. Conclusion
 
 **LECO-DND** unifies phenomenology, mathematics, and cognitive science through the singular-dual dipole: the fundamental structure of emergence observed in waking consciousness, free-hand drawing, quantum measurement, and LLM reasoning.
@@ -850,6 +893,7 @@ The path from **blank paper to recognized form to mathematical understanding** i
 
 ---
 
+<a id="references"></a>
 ## References
 
 - Banach, S. (1922). "Sur les opérations dans les ensembles abstraits et leur application aux équations intégrales." *Fundamenta Mathematicae*, 3(1), 133–181.
@@ -861,11 +905,13 @@ The path from **blank paper to recognized form to mathematical understanding** i
 - Tononi, G. (2015). "Integrated Information Theory." *Scholarpedia*, 10(1), 4164.
 - Varela, F. J., Thompson, E., & Rosch, E. (1991). *The Embodied Mind: Cognitive Science and Human Experience*. MIT Press.
 - Whitehead, A. N. (1929). *Process and Reality: An Essay in Cosmology*. Macmillan.
+<a id="logic-of-the-included-third"></a>
 ### Logic of the Included Third
 
 - Lupasco, S. (1951). *Le principe d'antagonisme et la logique de l'énergie*. Hermann, Paris.
 - Nicolescu, B. (2002). *Manifesto of Transdisciplinarity*. SUNY Press.
 
+<a id="phenomenological-and-neuroscientific-foundations"></a>
 ### Phenomenological and Neuroscientific Foundations
 
 - Husserl, E. (1929). *Formal and Transcendental Logic*. Nijhoff (English trans. 1969).
@@ -873,10 +919,12 @@ The path from **blank paper to recognized form to mathematical understanding** i
 - Tononi, G., & Edelman, G. M. (1998). "Consciousness and complexity." *Science*, 282(5395), 1846–1851.
 - Libet, B. (1985). "Unconscious cerebral initiative and the role of conscious will in voluntary action." *Behavioral and Brain Sciences*, 8(4), 529–566.
 
+<a id="statistical-methods"></a>
 ### Statistical Methods
 
 - Clauset, A., Shalizi, C. R., & Newman, M. E. J. (2009). "Power-law distributions in empirical data." *SIAM Review*, 51(4), 661–703.
 
+<a id="d-nd-framework-papers"></a>
 ### D-ND Framework Papers
 
 - **Paper A**: "Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation" (this volume).

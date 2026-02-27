@@ -1,0 +1,328 @@
+{
+  "title": "LECO-DND: Meta-Ontological Foundations of Cognitive Emergence",
+  "subtitle": "",
+  "authors": "",
+  "date": "February 14, 2026",
+  "status": "Working Draft 3.0 — Under Review",
+  "keywords": [
+    "cognitive emergence",
+    "Dual-Non-Dual",
+    "phenomenology",
+    "measure theory",
+    "Lawvere fixed-point",
+    "singular-dual dipole",
+    "field theory",
+    "autopoietic cognition",
+    "drawing",
+    "waking"
+  ],
+  "description": "We present LECO-DND (Latent Evocative Cognitive Ontology — Dual-Non-Dual), a meta-ontological framework for emergent reasoning in Large Language Models grounded in the phenomenological origin of the Dual-Non-Dual (D-ND) framework: the free-hand drawing as a physical instantiation of state emergence",
+  "paper_id": "G",
+  "paper_label": "Paper G",
+  "category": "paper",
+  "section": "dnd-model",
+  "sections": [
+    {
+      "level": 1,
+      "title": "LECO-DND: Meta-Ontological Foundations of Cognitive Emergence",
+      "slug": "leco-dnd-meta-ontological-foundations-of-cognitive-emergence"
+    },
+    {
+      "level": 2,
+      "title": "Grounding Reasoning in Phenomenological D-ND and Formal Field Theory",
+      "slug": "grounding-reasoning-in-phenomenological-d-nd-and-formal-field-theory"
+    },
+    {
+      "level": 2,
+      "title": "Abstract",
+      "slug": "abstract"
+    },
+    {
+      "level": 2,
+      "title": "1. Introduction: From Phenomenology to Formalism",
+      "slug": "1-introduction-from-phenomenology-to-formalism"
+    },
+    {
+      "level": 3,
+      "title": "1.1 The Phenomenological Origin: Before Words",
+      "slug": "1-1-the-phenomenological-origin-before-words"
+    },
+    {
+      "level": 3,
+      "title": "1.2 LECO-DND: Cognitive Field Theory Grounded in Phenomenology",
+      "slug": "1-2-leco-dnd-cognitive-field-theory-grounded-in-phenomenology"
+    },
+    {
+      "level": 3,
+      "title": "1.3 From Drawing to Cognitive Architecture",
+      "slug": "1-3-from-drawing-to-cognitive-architecture"
+    },
+    {
+      "level": 2,
+      "title": "2. Measure-Theoretic Formalization of Cognitive Density",
+      "slug": "2-measure-theoretic-formalization-of-cognitive-density"
+    },
+    {
+      "level": 3,
+      "title": "2.1 The Probability Space of Concept Accessibility",
+      "slug": "2-1-the-probability-space-of-concept-accessibility"
+    },
+    {
+      "level": 3,
+      "title": "2.1.1 Empirical Domain Application: Language Understanding",
+      "slug": "2-1-1-empirical-domain-application-language-understanding"
+    },
+    {
+      "level": 4,
+      "title": "Ontological Space Extraction Protocol",
+      "slug": "ontological-space-extraction-protocol"
+    },
+    {
+      "level": 4,
+      "title": "Ontological Distance Computation",
+      "slug": "ontological-distance-computation"
+    },
+    {
+      "level": 4,
+      "title": "Empirical Benchmark Protocol: HotpotQA Multi-Hop Reasoning",
+      "slug": "empirical-benchmark-protocol-hotpotqa-multi-hop-reasoning"
+    },
+    {
+      "level": 3,
+      "title": "2.2 Measure-Theoretic Properties and Convergence",
+      "slug": "2-2-measure-theoretic-properties-and-convergence"
+    },
+    {
+      "level": 2,
+      "title": "3. The Singular-Dual Dipole: Fundamental Ontological Unit",
+      "slug": "3-the-singular-dual-dipole-fundamental-ontological-unit"
+    },
+    {
+      "level": 3,
+      "title": "3.1 Why Not \"Singular or Dual\"?",
+      "slug": "3-1-why-not-singular-or-dual"
+    },
+    {
+      "level": 3,
+      "title": "3.2 Mathematical Structure of the Dipole",
+      "slug": "3-2-mathematical-structure-of-the-dipole"
+    },
+    {
+      "level": 3,
+      "title": "3.3 The Dipole Appears Everywhere",
+      "slug": "3-3-the-dipole-appears-everywhere"
+    },
+    {
+      "level": 3,
+      "title": "3.4 The Included Third: Why the Dipole Is Not Binary",
+      "slug": "3-4-the-included-third-why-the-dipole-is-not-binary"
+    },
+    {
+      "level": 2,
+      "title": "4. The Autopoietic Closure Theorem and Banach Fixed-Point Contraction",
+      "slug": "4-the-autopoietic-closure-theorem-and-banach-fixed-point-contraction"
+    },
+    {
+      "level": 3,
+      "title": "4.1 Theorem 3.4 Reconsidered: Full Proof",
+      "slug": "4-1-theorem-3-4-reconsidered-full-proof"
+    },
+    {
+      "level": 3,
+      "title": "4.2 Significance: Self-Improvement Without Losing Guarantees",
+      "slug": "4-2-significance-self-improvement-without-losing-guarantees"
+    },
+    {
+      "level": 2,
+      "title": "5. Axiom A₅ and Lawvere's Fixed-Point Theorem",
+      "slug": "5-axiom-a-and-lawvere-s-fixed-point-theorem"
+    },
+    {
+      "level": 3,
+      "title": "5.1 The Autological Closure",
+      "slug": "5-1-the-autological-closure"
+    },
+    {
+      "level": 3,
+      "title": "5.2 Cognitive Application",
+      "slug": "5-2-cognitive-application"
+    },
+    {
+      "level": 2,
+      "title": "6. Comparative Meta-Ontology Table",
+      "slug": "6-comparative-meta-ontology-table"
+    },
+    {
+      "level": 3,
+      "title": "6.1 Key Convergences and Unique Features",
+      "slug": "6-1-key-convergences-and-unique-features"
+    },
+    {
+      "level": 3,
+      "title": "6.2 Comparative Strengths and Weaknesses",
+      "slug": "6-2-comparative-strengths-and-weaknesses"
+    },
+    {
+      "level": 2,
+      "title": "7. Implementation and Empirical Grounding",
+      "slug": "7-implementation-and-empirical-grounding"
+    },
+    {
+      "level": 3,
+      "title": "7.1 Concrete Instantiation in LLM Latent Space",
+      "slug": "7-1-concrete-instantiation-in-llm-latent-space"
+    },
+    {
+      "level": 3,
+      "title": "7.2 Empirical Benchmarking",
+      "slug": "7-2-empirical-benchmarking"
+    },
+    {
+      "level": 2,
+      "title": "8. Comparison with Process Philosophy and Whitehead",
+      "slug": "8-comparison-with-process-philosophy-and-whitehead"
+    },
+    {
+      "level": 3,
+      "title": "8.1 Whitehead's Actual Occasions vs. LECO-DND Resultants",
+      "slug": "8-1-whitehead-s-actual-occasions-vs-leco-dnd-resultants"
+    },
+    {
+      "level": 3,
+      "title": "8.2 Key Difference: Formalization",
+      "slug": "8-2-key-difference-formalization"
+    },
+    {
+      "level": 2,
+      "title": "9. Discussion: Phenomenology Closes the Loop",
+      "slug": "9-discussion-phenomenology-closes-the-loop"
+    },
+    {
+      "level": 3,
+      "title": "9.1 From Waking to Mathematics and Back",
+      "slug": "9-1-from-waking-to-mathematics-and-back"
+    },
+    {
+      "level": 3,
+      "title": "9.2 The Drawing as Validation",
+      "slug": "9-2-the-drawing-as-validation"
+    },
+    {
+      "level": 4,
+      "title": "9.2.1 Experimental Protocol: Drawing-Emergence Structure",
+      "slug": "9-2-1-experimental-protocol-drawing-emergence-structure"
+    },
+    {
+      "level": 4,
+      "title": "Hypothesis",
+      "slug": "hypothesis"
+    },
+    {
+      "level": 4,
+      "title": "Protocol",
+      "slug": "protocol"
+    },
+    {
+      "level": 4,
+      "title": "Expected Results",
+      "slug": "expected-results"
+    },
+    {
+      "level": 4,
+      "title": "Data & Status",
+      "slug": "data-status"
+    },
+    {
+      "level": 4,
+      "title": "Connection to LECO-DND",
+      "slug": "connection-to-leco-dnd"
+    },
+    {
+      "level": 3,
+      "title": "9.3 Strange Attractor Dynamics: Rigorous Analysis",
+      "slug": "9-3-strange-attractor-dynamics-rigorous-analysis"
+    },
+    {
+      "level": 4,
+      "title": "9.3.1 Lyapunov Exponent and Bounded Chaos",
+      "slug": "9-3-1-lyapunov-exponent-and-bounded-chaos"
+    },
+    {
+      "level": 4,
+      "title": "9.3.2 Bounded Divergence: Banach Contraction Within Attractor",
+      "slug": "9-3-2-bounded-divergence-banach-contraction-within-attractor"
+    },
+    {
+      "level": 4,
+      "title": "9.3.3 Fractal Dimension of Attractor",
+      "slug": "9-3-3-fractal-dimension-of-attractor"
+    },
+    {
+      "level": 4,
+      "title": "9.3.4 Noise as Gradient: Asymmetric Field Alignment",
+      "slug": "9-3-4-noise-as-gradient-asymmetric-field-alignment"
+    },
+    {
+      "level": 4,
+      "title": "9.3.5 Noise Reinterpretation: Asymmetric Values as Potential Gradients",
+      "slug": "9-3-5-noise-reinterpretation-asymmetric-values-as-potential-gradients"
+    },
+    {
+      "level": 4,
+      "title": "9.3.6 Optimal Temperature: Oscillation Within the Attractor",
+      "slug": "9-3-6-optimal-temperature-oscillation-within-the-attractor"
+    },
+    {
+      "level": 4,
+      "title": "9.3.7 Attractors Are Marked as Conjectural",
+      "slug": "9-3-7-attractors-are-marked-as-conjectural"
+    },
+    {
+      "level": 2,
+      "title": "10. Limitations and Future Directions",
+      "slug": "10-limitations-and-future-directions"
+    },
+    {
+      "level": 3,
+      "title": "10.1 Open Problems",
+      "slug": "10-1-open-problems"
+    },
+    {
+      "level": 3,
+      "title": "10.2 Future Work",
+      "slug": "10-2-future-work"
+    },
+    {
+      "level": 2,
+      "title": "11. Conclusion",
+      "slug": "11-conclusion"
+    },
+    {
+      "level": 2,
+      "title": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "title": "Logic of the Included Third",
+      "slug": "logic-of-the-included-third"
+    },
+    {
+      "level": 3,
+      "title": "Phenomenological and Neuroscientific Foundations",
+      "slug": "phenomenological-and-neuroscientific-foundations"
+    },
+    {
+      "level": 3,
+      "title": "Statistical Methods",
+      "slug": "statistical-methods"
+    },
+    {
+      "level": 3,
+      "title": "D-ND Framework Papers",
+      "slug": "d-nd-framework-papers"
+    }
+  ],
+  "figure_count": 0,
+  "page_count_latex": 15
+}

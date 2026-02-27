@@ -1,0 +1,340 @@
+{
+  "title": "Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation",
+  "subtitle": "",
+  "authors": "D-ND Research Collective",
+  "date": "February 14, 2026",
+  "status": "Working Draft 3.0 — Under Review",
+  "keywords": [
+    "quantum emergence",
+    "primordial state",
+    "non-duality",
+    "emergence measure",
+    "informational arrow",
+    "decoherence",
+    "quantum-to-classical transition",
+    "Page-Wootters mechanism",
+    "spectral action",
+    "Hamiltonian decomposition",
+    "Lindblad dynamics",
+    "computational validation"
+  ],
+  "description": "We present a closed-system framework for quantum emergence in which a primordial state of indifferentiation — the Null-All state  — undergoes constructive differentiation via an emergence operator , yielding observable reality as ",
+  "paper_id": "A",
+  "paper_label": "Paper A",
+  "category": "paper",
+  "section": "dnd-model",
+  "sections": [
+    {
+      "level": 1,
+      "title": "Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation",
+      "slug": "quantum-emergence-from-primordial-potentiality-the-dual-non-dual-framework-for-state-differentiation"
+    },
+    {
+      "level": 2,
+      "title": "Abstract",
+      "slug": "abstract"
+    },
+    {
+      "level": 2,
+      "title": "1. Introduction",
+      "slug": "1-introduction"
+    },
+    {
+      "level": 3,
+      "title": "1.1 The Problem: Emergence and Differentiation",
+      "slug": "1-1-the-problem-emergence-and-differentiation"
+    },
+    {
+      "level": 3,
+      "title": "1.2 Gap in the Literature",
+      "slug": "1-2-gap-in-the-literature"
+    },
+    {
+      "level": 3,
+      "title": "1.3 Proposal: Constructive Emergence via $\\mathcal{E}$",
+      "slug": "1-3-proposal-constructive-emergence-via-mathcal-e"
+    },
+    {
+      "level": 3,
+      "title": "1.4 Contributions of This Work",
+      "slug": "1-4-contributions-of-this-work"
+    },
+    {
+      "level": 2,
+      "title": "2. The Dual-Non-Dual Framework",
+      "slug": "2-the-dual-non-dual-framework"
+    },
+    {
+      "level": 3,
+      "title": "2.1 Axioms A₁–A₆ (Revised)",
+      "slug": "2-1-axioms-a-a-revised"
+    },
+    {
+      "level": 3,
+      "title": "2.2 The Null-All State $|NT\\rangle$",
+      "slug": "2-2-the-null-all-state-nt-rangle"
+    },
+    {
+      "level": 3,
+      "title": "2.3 The Emergence Operator $\\mathcal{E}$",
+      "slug": "2-3-the-emergence-operator-mathcal-e"
+    },
+    {
+      "level": 3,
+      "title": "2.4 Fundamental Equation: $R(t) = U(t)\\mathcal{E}|NT\\rangle$",
+      "slug": "2-4-fundamental-equation-r-t-u-t-mathcal-e-nt-rangle"
+    },
+    {
+      "level": 3,
+      "title": "2.5 Hamiltonian Structure of the D-ND System",
+      "slug": "2-5-hamiltonian-structure-of-the-d-nd-system"
+    },
+    {
+      "level": 2,
+      "title": "3. The Emergence Measure and Asymptotic Theorems",
+      "slug": "3-the-emergence-measure-and-asymptotic-theorems"
+    },
+    {
+      "level": 3,
+      "title": "3.1 Definition: $M(t)$",
+      "slug": "3-1-definition-m-t"
+    },
+    {
+      "level": 3,
+      "title": "3.2 Proposition 1: Quasi-Periodicity and Cesàro Convergence",
+      "slug": "3-2-proposition-1-quasi-periodicity-and-ces-ro-convergence"
+    },
+    {
+      "level": 3,
+      "title": "3.3 Theorem 1: Total Emergence for Continuous Spectrum",
+      "slug": "3-3-theorem-1-total-emergence-for-continuous-spectrum"
+    },
+    {
+      "level": 3,
+      "title": "3.4 Theorem 2: Asymptotic Limit for Commuting Case",
+      "slug": "3-4-theorem-2-asymptotic-limit-for-commuting-case"
+    },
+    {
+      "level": 3,
+      "title": "3.5 Arrow of Emergence (Not Arrow of Time)",
+      "slug": "3-5-arrow-of-emergence-not-arrow-of-time"
+    },
+    {
+      "level": 3,
+      "title": "3.6 Lindblad Master Equation for Emergence Dynamics",
+      "slug": "3-6-lindblad-master-equation-for-emergence-dynamics"
+    },
+    {
+      "level": 3,
+      "title": "3.7 Entropy Production Rate",
+      "slug": "3-7-entropy-production-rate"
+    },
+    {
+      "level": 2,
+      "title": "4. Connection to Entropy, Decoherence, and Emergent Spacetime",
+      "slug": "4-connection-to-entropy-decoherence-and-emergent-spacetime"
+    },
+    {
+      "level": 3,
+      "title": "4.1 Von Neumann Entropy and $M(t)$",
+      "slug": "4-1-von-neumann-entropy-and-m-t"
+    },
+    {
+      "level": 3,
+      "title": "4.2 Comparison with Decoherence Literature",
+      "slug": "4-2-comparison-with-decoherence-literature"
+    },
+    {
+      "level": 4,
+      "title": "Zurek's Quantum Darwinism",
+      "slug": "zurek-s-quantum-darwinism"
+    },
+    {
+      "level": 4,
+      "title": "Joos-Zeh Decoherence Program",
+      "slug": "joos-zeh-decoherence-program"
+    },
+    {
+      "level": 4,
+      "title": "Schlosshauer's Measurement Analysis",
+      "slug": "schlosshauer-s-measurement-analysis"
+    },
+    {
+      "level": 4,
+      "title": "Tegmark's Biological Timescale Bounds",
+      "slug": "tegmark-s-biological-timescale-bounds"
+    },
+    {
+      "level": 3,
+      "title": "4.3 Key Distinction: Constructive vs. Destructive Emergence",
+      "slug": "4-3-key-distinction-constructive-vs-destructive-emergence"
+    },
+    {
+      "level": 3,
+      "title": "4.4 Emergent Spacetime and Quantum Gravity Frameworks",
+      "slug": "4-4-emergent-spacetime-and-quantum-gravity-frameworks"
+    },
+    {
+      "level": 2,
+      "title": "5. Quantum-Classical Bridge: From $M(t)$ to $Z(t)$",
+      "slug": "5-quantum-classical-bridge-from-m-t-to-z-t"
+    },
+    {
+      "level": 3,
+      "title": "5.1 Motivation",
+      "slug": "5-1-motivation"
+    },
+    {
+      "level": 3,
+      "title": "5.2 Definition of the Classical Order Parameter",
+      "slug": "5-2-definition-of-the-classical-order-parameter"
+    },
+    {
+      "level": 3,
+      "title": "5.3 Effective Equation of Motion",
+      "slug": "5-3-effective-equation-of-motion"
+    },
+    {
+      "level": 3,
+      "title": "5.4 Derivation of the Double-Well Potential",
+      "slug": "5-4-derivation-of-the-double-well-potential"
+    },
+    {
+      "level": 3,
+      "title": "5.5 Cyclic Coherence Condition: $\\Omega_{NT} = 2\\pi i$",
+      "slug": "5-5-cyclic-coherence-condition-omega-nt-2-pi-i"
+    },
+    {
+      "level": 3,
+      "title": "5.6 Validity Domain",
+      "slug": "5-6-validity-domain"
+    },
+    {
+      "level": 2,
+      "title": "6. Cosmological Extension",
+      "slug": "6-cosmological-extension"
+    },
+    {
+      "level": 3,
+      "title": "6.1 The Curvature Operator $C$",
+      "slug": "6-1-the-curvature-operator-c"
+    },
+    {
+      "level": 3,
+      "title": "6.2 Cosmological Implications",
+      "slug": "6-2-cosmological-implications"
+    },
+    {
+      "level": 2,
+      "title": "7. Experimental Predictions and Falsifiability",
+      "slug": "7-experimental-predictions-and-falsifiability"
+    },
+    {
+      "level": 3,
+      "title": "7.1 Experimental Strategy",
+      "slug": "7-1-experimental-strategy"
+    },
+    {
+      "level": 3,
+      "title": "7.2 Protocol 1: Circuit QED Verification",
+      "slug": "7-2-protocol-1-circuit-qed-verification"
+    },
+    {
+      "level": 3,
+      "title": "7.3 Protocol 2: Trapped-Ion System",
+      "slug": "7-3-protocol-2-trapped-ion-system"
+    },
+    {
+      "level": 3,
+      "title": "7.4 Summary of Falsifiability Criteria",
+      "slug": "7-4-summary-of-falsifiability-criteria"
+    },
+    {
+      "level": 3,
+      "title": "7.5 Computational Validation",
+      "slug": "7-5-computational-validation"
+    },
+    {
+      "level": 3,
+      "title": "7.5.2 Quantum-Classical Bridge Validity for Small $N$",
+      "slug": "7-5-2-quantum-classical-bridge-validity-for-small-n"
+    },
+    {
+      "level": 2,
+      "title": "8. Discussion and Conclusions",
+      "slug": "8-discussion-and-conclusions"
+    },
+    {
+      "level": 3,
+      "title": "8.1 Summary of Results",
+      "slug": "8-1-summary-of-results"
+    },
+    {
+      "level": 3,
+      "title": "8.2 Limitations and Open Questions",
+      "slug": "8-2-limitations-and-open-questions"
+    },
+    {
+      "level": 3,
+      "title": "8.3 Concluding Remarks",
+      "slug": "8-3-concluding-remarks"
+    },
+    {
+      "level": 2,
+      "title": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "title": "Quantum Decoherence and Environmental Interaction",
+      "slug": "quantum-decoherence-and-environmental-interaction"
+    },
+    {
+      "level": 3,
+      "title": "Lindblad Dynamics and Open Quantum Systems",
+      "slug": "lindblad-dynamics-and-open-quantum-systems"
+    },
+    {
+      "level": 3,
+      "title": "Decoherence Timescales and Biological Systems",
+      "slug": "decoherence-timescales-and-biological-systems"
+    },
+    {
+      "level": 3,
+      "title": "Quantum Gravity and Emergent Spacetime",
+      "slug": "quantum-gravity-and-emergent-spacetime"
+    },
+    {
+      "level": 3,
+      "title": "Holographic Principle and Entanglement-Geometry",
+      "slug": "holographic-principle-and-entanglement-geometry"
+    },
+    {
+      "level": 3,
+      "title": "Page-Wootters Mechanism",
+      "slug": "page-wootters-mechanism"
+    },
+    {
+      "level": 3,
+      "title": "QBism and Observer Role",
+      "slug": "qbism-and-observer-role"
+    },
+    {
+      "level": 3,
+      "title": "Objective Collapse and Consciousness",
+      "slug": "objective-collapse-and-consciousness"
+    },
+    {
+      "level": 3,
+      "title": "Mathematical Foundations",
+      "slug": "mathematical-foundations"
+    },
+    {
+      "level": 3,
+      "title": "Phase Transitions and Universality",
+      "slug": "phase-transitions-and-universality"
+    }
+  ],
+  "figure_count": 0,
+  "page_count_latex": 17
+}

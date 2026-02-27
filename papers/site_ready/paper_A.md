@@ -1,22 +1,15 @@
-# Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation
-
-**Authors:** D-ND Research Collective
-**Date:** February 14, 2026
-**Status:** Working Draft 3.0 — Under Review
-**Target:** Physical Review A / Foundations of Physics
-
----
-
+<a id="abstract"></a>
 ## Abstract
 
 We present a closed-system framework for quantum emergence in which a primordial state of indifferentiation — the Null-All state $|NT\rangle$ — undergoes constructive differentiation via an emergence operator $\mathcal{E}$, yielding observable reality as $R(t) = U(t)\mathcal{E}|NT\rangle$. Unlike environmental decoherence, which describes loss of coherence through interaction with external degrees of freedom, our model explains the *construction* of classical structure within a closed ontological system. We define an emergence measure $M(t) = 1 - |\langle NT|U(t)\mathcal{E}|NT\rangle|^2$ and establish its asymptotic convergence under specified conditions. We prove that for systems with absolutely continuous spectrum and integrable spectral density, $M(t) \to 1$ (total emergence), and for discrete spectra, the Cesàro mean $\overline{M}$ converges to a well-defined value. These results define an informational *arrow of emergence* — distinct from thermodynamic and gravitational arrows of time — arising purely from the differential structure of the quantum system. We derive the explicit **Hamiltonian decomposition into dual sectors** ($\hat{H}_+$), anti-dual ($\hat{H}_-$), and interaction Hamiltonians, establishing the fundamental quantum dynamics from which emergence arises. We present a **Lindblad master equation for emergence-induced decoherence**, with quantitative decoherence rate $\Gamma = \sigma^2_V/\hbar^2 \cdot \langle(\Delta\hat{V}_0)^2\rangle$, explaining the arrow of emergence through open-system dynamics in the intrinsic potential landscape. We introduce a foundational framework based on **six axioms (A₁–A₅ for quantum mechanics, A₆ for cosmological extension)**, grounding the emergence dynamics at both quantum and cosmological scales. We situate the framework relative to Zurek's quantum Darwinism, Penrose's objective reduction, Wheeler's participatory universe, Tononi's integrated information theory, and recent information-geometric approaches to emergent spacetime. We derive the classical limit connecting $M(t)$ to the order parameter $Z(t)$ of an effective Lagrangian theory, establish the cyclic coherence condition $\Omega_{NT} = 2\pi i$ governing periodic emergence orbits, and propose concrete experimental protocols for circuit QED and trapped-ion systems with quantitative predictions distinguishing D-ND emergence from standard decoherence.
 
 **Keywords:** quantum emergence, primordial state, non-duality, emergence measure, informational arrow, decoherence, quantum-to-classical transition, Page-Wootters mechanism, spectral action, Hamiltonian decomposition, Lindblad dynamics, computational validation
 
----
 
+<a id="1-introduction"></a>
 ## 1. Introduction
 
+<a id="1-1-the-problem-emergence-and-differentiation"></a>
 ### 1.1 The Problem: Emergence and Differentiation
 
 A fundamental puzzle at the foundations of physics concerns the origin of differentiation: how does observable classical reality with distinct states and properties emerge from an undifferentiated quantum substrate? The standard narrative appeals to three mechanisms:
@@ -29,12 +22,14 @@ A fundamental puzzle at the foundations of physics concerns the origin of differ
 
 All three mechanisms address the *appearance* of classicality or the *loss* of coherence. None directly address the *emergence* of structure and differentiation from an indifferent initial state within a closed system.
 
+<a id="1-2-gap-in-the-literature"></a>
 ### 1.2 Gap in the Literature
 
 The central gap is this: **decoherence explains the "how" of coherence loss but not the "why" of emergent differentiation.** A superposition $\frac{1}{\sqrt{2}}(|\uparrow\rangle + |\downarrow\rangle)$ exists prior to decoherence; the process suppresses interference between these pre-existing states but does not explain why *these particular states* are distinguished.
 
 More fundamentally, decoherence requires an external environment — it is an *open system* process. Yet the universe as a whole has no external environment. Wheeler's (1989) "it-from-bit" program and the Hartle-Hawking (1983) no-boundary proposal both suggest that any foundational theory of emergence must apply to closed systems. The recent holographic emergence program — from AdS/CFT (Maldacena 1998) through Ryu-Takayanagi (2006) to Van Raamsdonk (2010) — further demonstrates that spacetime itself is not fundamental but emerges from entanglement structure, reinforcing the need for a closed-system emergence mechanism.
 
+<a id="1-3-proposal-constructive-emergence-via-mathcal-e"></a>
 ### 1.3 Proposal: Constructive Emergence via $\mathcal{E}$
 
 We propose the **Dual-Non-Dual (D-ND) framework** as a closed-system alternative:
@@ -47,6 +42,7 @@ We propose the **Dual-Non-Dual (D-ND) framework** as a closed-system alternative
 
 - **Arrow of emergence**: The asymptotic behavior of $M(t)$ establishes a third fundamental arrow — orthogonal to thermodynamic and gravitational arrows — arising from the differential structure of the quantum system.
 
+<a id="1-4-contributions-of-this-work"></a>
 ### 1.4 Contributions of This Work
 
 1. **Formal framework** with six axioms (A₁–A₅ for quantum mechanics, A₆ for cosmological extension), grounded in the Wheeler-DeWitt equation (Axiom A₄), Lawvere's fixed-point theorem (Axiom A₅), and holographic structure coupling to spacetime geometry (Axiom A₆).
@@ -61,8 +57,10 @@ We propose the **Dual-Non-Dual (D-ND) framework** as a closed-system alternative
 
 ---
 
+<a id="2-the-dual-non-dual-framework"></a>
 ## 2. The Dual-Non-Dual Framework
 
+<a id="2-1-axioms-a-a-revised"></a>
 ### 2.1 Axioms A₁–A₆ (Revised)
 
 We ground the framework in six foundational axioms, the last of which is a cosmological extension. Axioms A₄ and A₅ have been revised from their preliminary formulations to resolve circularity and self-justification issues respectively. Axiom A₆ extends the framework to cosmological scales.
@@ -105,6 +103,7 @@ where $T_{\mu\nu}^{\text{info}}$ is the informational energy-momentum tensor der
 
 *Note:* Axiom A₆ is a cosmological extension axiom — it is not required for the quantum emergence results (§§2–5) or the quantum-classical bridge (§5), which depend only on A₁–A₅. It becomes necessary when coupling emergence dynamics to spacetime geometry at cosmological scales (Paper E).
 
+<a id="2-2-the-null-all-state-nt-rangle"></a>
 ### 2.2 The Null-All State $|NT\rangle$
 
 The Null-All state is the mathematical embodiment of non-duality: maximal superposition containing all possibilities with equal weight.
@@ -138,6 +137,7 @@ This conservation law — the *complementarity of potential and actuality* — i
 
 The two measures move in opposite directions because they capture complementary aspects of the same process: $M(t) \to 1$ means the system has maximally differentiated from $|NT\rangle$, while $|\mathcal{P}| \to \dim(\mathcal{H})$ means the unrealized possibilities have returned to the potential reservoir. Both statements describe total emergence. The arrow of emergence (§3.5) is the statement that this differentiation is statistically irreversible under the conditions of Theorems 1–2.
 
+<a id="2-3-the-emergence-operator-mathcal-e"></a>
 ### 2.3 The Emergence Operator $\mathcal{E}$
 
 The emergence operator $\mathcal{E}$ is a self-adjoint operator with spectral decomposition:
@@ -166,6 +166,7 @@ where $\rho_{\mathcal{E}'} = \mathcal{E}'|NT\rangle\langle NT|\mathcal{E}'^\dagg
 $$M_G(t) = 1 - |\langle NT|U(t) G_S \mathcal{E}|NT\rangle|^2$$
 where $G_S$ absorbs the dimensional coupling between the non-relational potential $\hat{V}_0$ and the emergent sectors. In the quantum-mechanical regime (§§2–5), $G_S = 1$ (natural units) and the standard form $M(t)$ is recovered. At cosmological scales, $G_S$ acquires the dimensions and role of Newton's gravitational constant $G_N$, but its D-ND interpretation is broader: it is the proto-axiomatic constant that regulates the *rate* at which potentiality converts to actuality across all sectors of the emergence landscape. This identification — $G$ as singularity mediator rather than mere coupling strength — is developed in Paper E §2.
 
+<a id="2-4-fundamental-equation-r-t-u-t-mathcal-e-nt-rangle"></a>
 ### 2.4 Fundamental Equation: $R(t) = U(t)\mathcal{E}|NT\rangle$
 
 The resultant state at relational time $t$ is:
@@ -181,6 +182,7 @@ $$R(t) = \sum_{k,n} \lambda_k \langle e_k|NT\rangle \langle n|e_k\rangle \, e^{-
 
 **Notation convention**: Throughout this paper, $\mathcal{E}$ denotes the emergence operator, $E_n$ denotes energy eigenvalues, and $\hat{O}$ denotes generic observables, avoiding the symbol overloading noted in preliminary formulations.
 
+<a id="2-5-hamiltonian-structure-of-the-d-nd-system"></a>
 ### 2.5 Hamiltonian Structure of the D-ND System
 
 The total Hamiltonian of the D-ND system admits a natural decomposition reflecting the dual structure of Axiom A₁:
@@ -205,8 +207,10 @@ where $K(x)$ is the emergence kernel function and $\hat{C}$ is the curvature ope
 
 ---
 
+<a id="3-the-emergence-measure-and-asymptotic-theorems"></a>
 ## 3. The Emergence Measure and Asymptotic Theorems
 
+<a id="3-1-definition-m-t"></a>
 ### 3.1 Definition: $M(t)$
 
 The emergence measure quantifies the degree to which $R(t)$ has differentiated from $|NT\rangle$:
@@ -225,6 +229,7 @@ where $\omega_{nm} = (E_n - E_m)/\hbar$ are the Bohr frequencies.
 
 **Remark (Relationship to Purity):** For the special case $\mathcal{E} = I$ (trivial emergence), $M(t)$ reduces to $1 - |\langle NT|U(t)|NT\rangle|^2$, which is the survival probability complement — a well-studied quantity in quantum mechanics. For general $\mathcal{E}$, $M(t)$ is closely related to the purity $\text{Tr}[\rho^2]$ of the reduced state after projecting out the $|NT\rangle$ component, as studied in decoherence theory (Zurek 2003, Schlosshauer 2019). The D-ND framework does not claim that $M(t)$ is a new mathematical quantity; rather, it reinterprets this standard measure within a closed-system ontological context where the "environment" is replaced by the internal structure of $\mathcal{E}$.
 
+<a id="3-2-proposition-1-quasi-periodicity-and-ces-ro-convergence"></a>
 ### 3.2 Proposition 1: Quasi-Periodicity and Cesàro Convergence
 
 **Proposition 1** *(Asymptotic Emergence Convergence).* Let $H$ be a self-adjoint operator with non-degenerate discrete spectrum $\{E_n\}_{n=1}^{N}$, and let $\mathcal{E}$ be a self-adjoint operator with $\mathcal{E}|NT\rangle \neq |NT\rangle$. Then:
@@ -246,6 +251,7 @@ This derivative alternates sign, demonstrating that **pointwise monotonicity $dM
 
 **Remark (correction to preliminary literature):** The claim "$dM/dt \geq 0$ for all $t \geq 0$" appearing in earlier formulations of the D-ND framework (see the "Fondamenti Teorici del Modello di Emergenza Quantistica," unpublished working document, 2024) is false for finite discrete spectra. The correct statement is that the *Cesàro mean* $\overline{M}$ is constant (hence trivially non-decreasing), and that conditions for asymptotic convergence (rather than pointwise monotonicity) are given in Theorems 1–2 below.
 
+<a id="3-3-theorem-1-total-emergence-for-continuous-spectrum"></a>
 ### 3.3 Theorem 1: Total Emergence for Continuous Spectrum
 
 **Theorem 1** *(Total Emergence via Riemann-Lebesgue).* Let $H$ have absolutely continuous spectrum with spectral measure $\mu$. If the spectral density function
@@ -259,6 +265,7 @@ $$\lim_{t \to \infty} M(t) = 1$$
 
 **Physical interpretation and status of novelty:** We note explicitly that Theorem 1 is a direct application of the Riemann-Lebesgue lemma to the D-ND framework — the mathematical content is standard measure theory, not new. Systems coupled to a continuum (radiation fields, phonon baths) exhibit similar asymptotic behavior in standard decoherence theory (Zurek 2003, Schlosshauer 2019). The contribution of Theorem 1 is not the mathematics but the *interpretation within a closed-system ontology*: the continuous spectrum arises from the internal structure of $\mathcal{E}$ and $H$, not from tracing over environmental degrees of freedom. Whether this reinterpretation carries physical content beyond decoherence is an empirical question addressed in §7.
 
+<a id="3-4-theorem-2-asymptotic-limit-for-commuting-case"></a>
 ### 3.4 Theorem 2: Asymptotic Limit for Commuting Case
 
 **Theorem 2** *(Asymptotic Emergence — Commutative Regime).* If $[H, \mathcal{E}] = 0$, then the Cesàro mean is:
@@ -270,6 +277,7 @@ $$\overline{M}_\infty = 1 - \sum_k |\lambda_k|^2 |\langle e_k|NT\rangle|^4$$
 $$\overline{M} = 1 - \sum_n \left|\sum_k \lambda_k \langle n|e_k\rangle\langle e_k|NT\rangle\right|^2 |\beta_n|^2$$
 where $\{|n\rangle\}$ is the $H$-eigenbasis and $\{|e_k\rangle\}$ is the $\mathcal{E}$-eigenbasis.
 
+<a id="3-5-arrow-of-emergence-not-arrow-of-time"></a>
 ### 3.5 Arrow of Emergence (Not Arrow of Time)
 
 We stress a critical semantic distinction: **$M(t)$ defines an arrow of *emergence*, not an arrow of *time*.** The arrow of time refers to temporal asymmetry (irreversibility). The arrow of emergence refers to informational asymmetry — differentiated states accumulate and do not collapse back to pure non-duality *on average*.
@@ -281,6 +289,7 @@ Our framework is *explicitly timeless* (per Axiom A₄): the parameter $t$ repre
 - **(B) Open-system (Lindblad) dynamics**: Off-diagonal terms decay as $a_n a_m^* e^{-i\omega_{nm}t - \gamma_{nm}t}$ with decoherence rates $\gamma_{nm} > 0$, yielding exponential convergence.
 - **(C) Large $N$ (thermodynamic limit)**: Dense spectrum with incommensurate frequencies produces effective dephasing via destructive interference, making $M(t)$ nearly monotonic for $N \gg 1$.
 
+<a id="3-6-lindblad-master-equation-for-emergence-dynamics"></a>
 ### 3.6 Lindblad Master Equation for Emergence Dynamics
 
 When the background potential $\hat{V}_0$ fluctuates with variance $\sigma^2_V$, the reduced density matrix of the emergent system satisfies a Lindblad-type master equation:
@@ -299,6 +308,7 @@ where $\Gamma_n = (\sigma^2_V/\hbar^2)|\langle n|\hat{V}_0|m\rangle - \langle m|
 
 **Remark (Status of Decoherence Rate):** The form $\Gamma = \sigma^2_V/\hbar^2 \cdot \langle(\Delta\hat{V}_0)^2\rangle$ is a phenomenological ansatz motivated by dimensional analysis and consistency with the Fermi Golden Rule in the weak-coupling limit. Specifically: (1) $\sigma^2_V/\hbar^2$ provides the correct dimensions of $[\text{time}]^{-1}$; (2) $\langle(\Delta\hat{V}_0)^2\rangle$ measures the variance of the pre-differentiation landscape, which physically controls the transition rate between emergence sectors; (3) in the limit of Gaussian-distributed $V_0$ fluctuations, this form reduces to the standard Caldeira-Leggett result for quantum Brownian motion (Caldeira & Leggett 1983). A rigorous derivation from the Lindblad master equation, starting from the D-ND Hamiltonian decomposition (§2.5), remains an open problem.
 
+<a id="3-7-entropy-production-rate"></a>
 ### 3.7 Entropy Production Rate
 
 The von Neumann entropy of the reduced state evolves as:
@@ -311,8 +321,10 @@ The inequality follows from the Lindblad structure (Spohn 1978): any completely 
 
 ---
 
+<a id="4-connection-to-entropy-decoherence-and-emergent-spacetime"></a>
 ## 4. Connection to Entropy, Decoherence, and Emergent Spacetime
 
+<a id="4-1-von-neumann-entropy-and-m-t"></a>
 ### 4.1 Von Neumann Entropy and $M(t)$
 
 Define the von Neumann entropy $S(t) = -\text{Tr}[\rho(t)\ln\rho(t)]$ where $\rho(t) = |R(t)\rangle\langle R(t)|$. The measures $M(t)$ and $S(t)$ are complementary:
@@ -321,20 +333,26 @@ Define the von Neumann entropy $S(t) = -\text{Tr}[\rho(t)\ln\rho(t)]$ where $\rh
 
 A state can be highly differentiated from $|NT\rangle$ yet remain pure ($S = 0$), or close to $|NT\rangle$ in the metric of $M(t)$ while exhibiting maximal entropy.
 
+<a id="4-2-comparison-with-decoherence-literature"></a>
 ### 4.2 Comparison with Decoherence Literature
 
+<a id="zurek-s-quantum-darwinism"></a>
 #### Zurek's Quantum Darwinism
 Zurek (2003, 2009) proposes environmental interaction selecting pointer states via einselection. **D-ND diverges** in four respects: (1) pointer states in D-ND are *intrinsic* to $\mathcal{E}$, not externally selected; (2) D-ND applies to closed systems; (3) information *reconfigures* rather than dissipates; (4) emergence timescale depends on operator structure, not environmental coupling.
 
+<a id="joos-zeh-decoherence-program"></a>
 #### Joos-Zeh Decoherence Program
 Joos & Zeh (1985) established decoherence timescales $\tau_{\text{dec}} \sim \hbar/(2\sigma_E^2 v_{\text{env}})$. D-ND is *foundational* rather than phenomenological: it derives the *emergence* of preferred states from $|NT\rangle$, whereas Joos-Zeh presupposes their prior existence.
 
+<a id="schlosshauer-s-measurement-analysis"></a>
 #### Schlosshauer's Measurement Analysis
 Schlosshauer (2004, 2019) notes decoherence explains *apparent* definiteness but not *actualization*. The emergence operator $\mathcal{E}$ is precisely the mechanism Schlosshauer identifies as missing: it specifies how and why certain outcomes actualize without external observers or collapse postulates.
 
+<a id="tegmark-s-biological-timescale-bounds"></a>
 #### Tegmark's Biological Timescale Bounds
 Tegmark (2000) estimated neural decoherence times at $10^{-13}$–$10^{-20}$ s. D-ND emergence is independent of environmental decoherence, hence Tegmark's bound does not constrain the emergence timescale. Non-Markovian effects (Breuer & Petruccione 2002) can further weaken such bounds by introducing memory effects that slow decoherence.
 
+<a id="4-3-key-distinction-constructive-vs-destructive-emergence"></a>
 ### 4.3 Key Distinction: Constructive vs. Destructive Emergence
 
 | Aspect | Decoherence (Destructive) | D-ND Emergence (Constructive) |
@@ -347,6 +365,7 @@ Tegmark (2000) estimated neural decoherence times at $10^{-13}$–$10^{-20}$ s. 
 | **Pointer basis** | Environmental symmetry-breaking | Ontological eigenspace of $\mathcal{E}$ |
 | **Applicability** | Mesoscopic to macroscopic | All scales (universal) |
 
+<a id="4-4-emergent-spacetime-and-quantum-gravity-frameworks"></a>
 ### 4.4 Emergent Spacetime and Quantum Gravity Frameworks
 
 The D-ND framework interfaces with several approaches to emergent spacetime:
@@ -361,12 +380,15 @@ The D-ND framework interfaces with several approaches to emergent spacetime:
 
 ---
 
+<a id="5-quantum-classical-bridge-from-m-t-to-z-t"></a>
 ## 5. Quantum-Classical Bridge: From $M(t)$ to $Z(t)$
 
+<a id="5-1-motivation"></a>
 ### 5.1 Motivation
 
 To connect the quantum framework (Paper A) with classical Lagrangian dynamics (companion paper), we derive the effective classical order parameter $Z(t)$ from the quantum emergence measure $M(t)$.
 
+<a id="5-2-definition-of-the-classical-order-parameter"></a>
 ### 5.2 Definition of the Classical Order Parameter
 
 Define the classical emergence parameter:
@@ -374,6 +396,7 @@ $$Z(t) \equiv M(t) = 1 - |f(t)|^2$$
 
 This identification is natural: $Z = 0$ corresponds to the non-dual state ($|NT\rangle$ undifferentiated), and $Z = 1$ corresponds to total emergence (maximal differentiation), matching the boundary conditions of the classical Lagrangian.
 
+<a id="5-3-effective-equation-of-motion"></a>
 ### 5.3 Effective Equation of Motion
 
 The exact quantum dynamics of $Z(t) = M(t)$ are given by:
@@ -387,6 +410,7 @@ where:
 - $V_{\text{eff}}(\bar{Z})$ is the effective potential determined by the spectral structure of $\mathcal{E}$ and $H$.
 - $\xi(t)$ is a stochastic force with correlations determined by the spectral noise power.
 
+<a id="5-4-derivation-of-the-double-well-potential"></a>
 ### 5.4 Derivation of the Double-Well Potential
 
 For the D-ND system with uniform initial state $|NT\rangle$ and emergence operator $\mathcal{E}$ with bounded spectrum $\lambda_k \in [0,1]$, the effective potential inherits the following symmetry constraints:
@@ -404,6 +428,7 @@ where:
 
 The quartic double-well form $Z^2(1-Z)^2$ belongs to the Ginzburg-Landau universality class (Landau & Lifshitz 1980), placing D-ND emergence dynamics within the well-understood framework of second-order phase transitions. The linear correction $\lambda_{\text{DND}} \cdot \theta_{NT} \cdot Z(1-Z)$ breaks the $Z \leftrightarrow 1-Z$ symmetry when the emergence spectrum is non-uniform, selecting a preferred attractor.
 
+<a id="5-5-cyclic-coherence-condition-omega-nt-2-pi-i"></a>
 ### 5.5 Cyclic Coherence Condition: $\Omega_{NT} = 2\pi i$
 
 The periodic structure of the emergence dynamics yields a fundamental quantization condition. Consider the evolution of the order parameter $Z(t)$ in the double-well potential $V_{\text{eff}}(Z)$ (§5.4). For closed orbits in the complex-$Z$ plane, the action integral around a complete cycle satisfies:
@@ -432,6 +457,7 @@ This is the standard mechanism in WKB theory (see Berry & Mount 1972, Heading 19
 
 This condition is used in Paper B (§5.4, Lagrangian dynamics) to define auto-optimization periodic orbits, and in Paper E (§3) to establish the cyclic coherence of cosmic evolution.
 
+<a id="5-6-validity-domain"></a>
 ### 5.6 Validity Domain
 
 The quantum-classical bridge is valid when:
@@ -443,8 +469,10 @@ For small $N$ (e.g., $N = 2$), the quantum dynamics are exactly solvable and the
 
 ---
 
+<a id="6-cosmological-extension"></a>
 ## 6. Cosmological Extension
 
+<a id="6-1-the-curvature-operator-c"></a>
 ### 6.1 The Curvature Operator $C$
 
 Spacetime curvature couples to quantum emergence via an informational curvature operator:
@@ -453,6 +481,7 @@ where $K_{\text{gen}}(x,t) = \nabla \cdot (J(x,t) \otimes F(x,t))$ is the genera
 
 The modified fundamental equation becomes $R(t) = U(t)\mathcal{E}C|NT\rangle$, with curvature-dependent emergence measure $M_C(t) = 1 - |\langle NT|U(t)\mathcal{E}C|NT\rangle|^2$.
 
+<a id="6-2-cosmological-implications"></a>
 ### 6.2 Cosmological Implications
 
 **Structure formation**: The emergence of large-scale cosmic structure arises from $M_C(t)$ dynamics. During inflation, strong quantum emergence ($\mathcal{E}$ dominance) generates primordial fluctuations; post-inflation, the curvature operator $C$ modulates the pattern, locking in structure through competition between $\mathcal{E}$ and $C$.
@@ -461,8 +490,10 @@ The modified fundamental equation becomes $R(t) = U(t)\mathcal{E}C|NT\rangle$, w
 
 ---
 
+<a id="7-experimental-predictions-and-falsifiability"></a>
 ## 7. Experimental Predictions and Falsifiability
 
+<a id="7-1-experimental-strategy"></a>
 ### 7.1 Experimental Strategy
 
 The D-ND framework makes the same predictions as standard quantum mechanics for the microscopic dynamics of finite-dimensional systems (both follow the Schrödinger equation). The framework's novel predictions arise in three domains:
@@ -471,6 +502,7 @@ The D-ND framework makes the same predictions as standard quantum mechanics for 
 2. **Quantum-classical bridge**: The classical order parameter dynamics $Z(t)$ follow from the quantum spectral structure of $\mathcal{E}$ and $H$.
 3. **Closed-system emergence**: In isolated systems, $M(t) > 0$ for $t > 0$ whenever $\mathcal{E} \neq I$, even without environmental coupling.
 
+<a id="7-2-protocol-1-circuit-qed-verification"></a>
 ### 7.2 Protocol 1: Circuit QED Verification
 
 **System**: $N = 4$ transmon qubits coupled via a bus resonator (IBM/Google architecture, $T_1 \sim 100\,\mu$s, $T_2 \sim 50\,\mu$s).
@@ -492,6 +524,7 @@ The D-ND framework makes the same predictions as standard quantum mechanics for 
 
 **Discrimination from decoherence**: In a controlled experiment where environmental coupling is systematically varied (via cavity quality factor), D-ND predicts that $\overline{M}$ depends on $\mathcal{E}$-structure but is *independent* of environmental coupling strength to leading order. Standard decoherence predicts $\overline{M}$ depends primarily on the decoherence rate $\gamma$, not on the engineered coupling pattern.
 
+<a id="7-3-protocol-2-trapped-ion-system"></a>
 ### 7.3 Protocol 2: Trapped-Ion System
 
 **System**: $N = 8$ ${}^{171}\text{Yb}^+$ ions in a linear Paul trap (NIST/IonQ architecture, $T_2 > 1$ s for hyperfine qubits).
@@ -502,6 +535,7 @@ The D-ND framework makes the same predictions as standard quantum mechanics for 
 
 **Quantitative prediction**: For $N = 256$ ($8$ qubits), the spectral density becomes sufficiently dense that $M(t)$ should exhibit effective monotonic growth (condition C in §3.5), with deviations from monotonicity bounded by $\Delta M \lesssim 1/N \approx 0.004$.
 
+<a id="7-4-summary-of-falsifiability-criteria"></a>
 ### 7.4 Summary of Falsifiability Criteria
 
 The D-ND framework is *falsifiable* through the following tests:
@@ -515,6 +549,7 @@ The D-ND framework is *falsifiable* through the following tests:
 
 **Honest assessment**: For simple quantum systems ($N \leq 16$), D-ND and standard QM make identical dynamical predictions (both follow the Schrödinger equation). The frameworks diverge in: (a) *interpretation* — D-ND provides causal-ontological narrative for emergence; (b) *quantum-classical bridge* — D-ND predicts specific effective potentials; (c) *scaling regime* — large-$N$ predictions about effective monotonicity and classical limit.
 
+<a id="7-5-computational-validation"></a>
 ### 7.5 Computational Validation
 
 We validate the analytical predictions via numerical simulation of $M(t)$ for finite $N$. Figure 1 shows the emergence trajectories for $N = 2, 4, 8, 16$ with linear emergence spectrum $\lambda_k = k/(N-1)$ and equally-spaced energy levels $E_n = n\omega_0$. The simulation confirms:
@@ -529,6 +564,7 @@ We validate the analytical predictions via numerical simulation of $M(t)$ for fi
 
 The simulation code is provided in the supplementary materials (sim_canonical/).
 
+<a id="7-5-2-quantum-classical-bridge-validity-for-small-n"></a>
 ### 7.5.2 Quantum-Classical Bridge Validity for Small $N$
 
 The quantum-classical bridge (§5) assumes that the coarse-graining timescale $\tau_{\text{cg}}$ satisfies $\tau_{\text{cg}} \gg \max\{1/\omega_{nm}\}$, where $\omega_{nm}$ are the Bohr frequencies. This condition becomes increasingly stringent for small system sizes $N < 16$. Here we test the validity domain of the bridge by examining how the classical order parameter $Z(t)$ deviates from the quantum emergence measure $M(t)$ as a function of $N$.
@@ -558,8 +594,10 @@ The classical description becomes reliable, and $Z(t)$ can be treated as a class
 
 **Implications for Experiments:** Circuit QED systems typically have $N \sim 4$–$16$ qubits. The bridge breakdown for $N = 4$ suggests that early-stage many-body quantum simulators will exhibit measurable deviations from classical Lagrangian predictions. As system size increases (approaching photonic or ion-trap systems with $N \sim 100$–$1000$), the classical effective Lagrangian becomes a progressively better description. This $N$-dependence of the classical-quantum correspondence is a quantitative prediction distinguishing the bridge framework from standard approaches that assume classical behavior is a sharp emergent phenomenon.
 
+<a id="8-discussion-and-conclusions"></a>
 ## 8. Discussion and Conclusions
 
+<a id="8-1-summary-of-results"></a>
 ### 8.1 Summary of Results
 
 1. **Revised axiomatic foundation**: Axioms A₄ and A₅ are now grounded in the Page-Wootters mechanism and Lawvere's fixed-point theorem respectively, eliminating the circularity and self-justification issues of preliminary formulations.
@@ -580,6 +618,7 @@ The classical description becomes reliable, and $Z(t)$ can be treated as a class
 
 9. **Concrete experimental protocols**: Circuit QED and trapped-ion experiments with quantitative predictions ($\overline{M}_{\text{linear}} \approx 0.978$, $\overline{M}_{\text{step}} \approx 0.969$ for $N = 16$) and discrimination criteria including decoherence rate scaling.
 
+<a id="8-2-limitations-and-open-questions"></a>
 ### 8.2 Limitations and Open Questions
 
 1. **Operator derivation**: The Hamiltonian decomposition $\hat{H}_D$ and Lindblad dynamics reduce but do not eliminate the phenomenological character of $\mathcal{E}$. A derivation from first principles (symmetry, spectral action, entanglement entropy) is needed.
@@ -592,6 +631,7 @@ The classical description becomes reliable, and $Z(t)$ can be treated as a class
 
 5. **Mathematical rigor**: The theory requires rigorous measure-theoretic treatment for infinite-dimensional Hilbert spaces and unbounded operators (Reed & Simon 1980).
 
+<a id="8-3-concluding-remarks"></a>
 ### 8.3 Concluding Remarks
 
 The D-ND framework provides a closed-system alternative to environmental decoherence for understanding quantum emergence. By positing an intrinsic emergence operator and a primordial undifferentiated state, we explain how classical reality arises deterministically from quantum potentiality without invoking external observers, random collapse, or environmental dissipation.
@@ -602,8 +642,10 @@ Whether D-ND captures the actual mechanism of quantum-to-classical transition ca
 
 ---
 
+<a id="references"></a>
 ## References
 
+<a id="quantum-decoherence-and-environmental-interaction"></a>
 ### Quantum Decoherence and Environmental Interaction
 
 - Caldeira, A.O., Leggett, A.J. (1983). "Path integral approach to quantum Brownian motion." *Physica A*, 121(3), 587–616.
@@ -613,16 +655,19 @@ Whether D-ND captures the actual mechanism of quantum-to-classical transition ca
 - Schlosshauer, M. (2004). "Decoherence, the measurement problem, and interpretations of quantum mechanics." *Rev. Mod. Phys.*, 76(4), 1267–1305.
 - Schlosshauer, M. (2019). "Quantum decoherence." *Physics Reports*, 831, 1–57.
 
+<a id="lindblad-dynamics-and-open-quantum-systems"></a>
 ### Lindblad Dynamics and Open Quantum Systems
 
 - Lindblad, G. (1976). "On the generators of quantum dynamical semigroups." *Commun. Math. Phys.*, 48(2), 119–130.
 - Breuer, H.-P., Petruccione, F. (2002). *The Theory of Open Quantum Systems*. Oxford University Press.
 - Spohn, H. (1978). "Entropy production for quantum dynamical semigroups." *J. Math. Phys.*, 19(5), 1227–1230.
 
+<a id="decoherence-timescales-and-biological-systems"></a>
 ### Decoherence Timescales and Biological Systems
 
 - Tegmark, M. (2000). "Importance of quantum decoherence in brain processes." *Phys. Rev. E*, 61(4), 4194–4206.
 
+<a id="quantum-gravity-and-emergent-spacetime"></a>
 ### Quantum Gravity and Emergent Spacetime
 
 - Hartle, J.B., Hawking, S.W. (1983). "Wave function of the universe." *Phys. Rev. D*, 28(12), 2960–2975.
@@ -632,22 +677,26 @@ Whether D-ND captures the actual mechanism of quantum-to-classical transition ca
 - Verlinde, E. (2011). "On the origin of gravity and the laws of Newton." *JHEP*, 2011(4), 29. [arXiv: 1001.0785]
 - Verlinde, E. (2016). "Emergent gravity and the dark universe." *SciPost Physics*, 2(3), 016. [arXiv: 1611.02269]
 
+<a id="holographic-principle-and-entanglement-geometry"></a>
 ### Holographic Principle and Entanglement-Geometry
 
 - Maldacena, J.M. (1998). "The large N limit of superconformal field theories and supergravity." *Adv. Theor. Math. Phys.*, 2(2), 231–252.
 - Ryu, S., Takayanagi, T. (2006). "Holographic derivation of entanglement entropy from AdS/CFT." *Phys. Rev. Lett.*, 96(18), 181602.
 - Van Raamsdonk, M. (2010). "Building up spacetime with quantum entanglement." *Gen. Rel. Grav.*, 42(10), 2323–2329.
 
+<a id="page-wootters-mechanism"></a>
 ### Page-Wootters Mechanism
 
 - Page, D.N., Wootters, W.K. (1983). "Evolution without evolution: Dynamics described by stationary observables." *Phys. Rev. D*, 27(12), 2885–2892.
 - Giovannetti, V., Lloyd, S., Maccone, L. (2015). "Quantum time." *Phys. Rev. D*, 92(4), 045033.
 - Moreva, E., Braglia, M., Gramegna, M., et al. (2014). "Time from quantum entanglement: An experimental illustration." *Phys. Rev. A*, 89(5), 052122.
 
+<a id="qbism-and-observer-role"></a>
 ### QBism and Observer Role
 
 - Fuchs, C.A., Mermin, N.D., Schack, R. (2014). "An introduction to QBism." In *Quantum Theory: Informational Foundations and Foils* (pp. 267–292). Springer.
 
+<a id="objective-collapse-and-consciousness"></a>
 ### Objective Collapse and Consciousness
 
 - Penrose, R., Hameroff, S. (1996). "Orchestrated objective reduction of quantum coherence in brain microtubules." *J. Consciousness Studies*, 3(1), 36–53.
@@ -656,6 +705,7 @@ Whether D-ND captures the actual mechanism of quantum-to-classical transition ca
 - Tononi, G. (2004). "An information integration theory of consciousness." *BMC Neuroscience*, 5(1), 42.
 - Tononi, G., Boly, M., Sporns, O., Koch, C. (2016). "Integrated information theory." *Nature Reviews Neuroscience*, 17(7), 450–461.
 
+<a id="mathematical-foundations"></a>
 ### Mathematical Foundations
 
 - Kac, M. (1966). "Can one hear the shape of a drum?" *Amer. Math. Monthly*, 73(4), 1–23.
@@ -664,8 +714,7 @@ Whether D-ND captures the actual mechanism of quantum-to-classical transition ca
 - Chamseddine, A.H., Connes, A. (1997). "The spectral action principle." *Commun. Math. Phys.*, 186(3), 731–750.
 - Jaynes, E.T. (1957). "Information theory and statistical mechanics." *Phys. Rev.*, 106(4), 620–630.
 
+<a id="phase-transitions-and-universality"></a>
 ### Phase Transitions and Universality
 
 - Landau, L.D., Lifshitz, E.M. (1980). *Statistical Physics, Part 1* (3rd ed.). Pergamon Press.
-
-

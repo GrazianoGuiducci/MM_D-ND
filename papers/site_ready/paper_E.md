@@ -1,22 +1,15 @@
-# Cosmological Extension of the Dual-Non-Dual Framework: Emergence at Universal Scales
-
-**Authors:** D-ND Research Collective
-**Date:** February 14, 2026
-**Status:** Working Draft 3.0 — Under Review
-**Target:** Classical and Quantum Gravity / Foundations of Physics
-
----
-
+<a id="abstract"></a>
 ## Abstract
 
 We extend the Dual-Non-Dual (D-ND) framework from quantum-mechanical emergence (Paper A) to cosmological scales, proposing that the universe's large-scale structure and dynamical evolution emerge from the interplay of quantum potentiality ($|NT\rangle$) and the emergence operator ($\mathcal{E}$) modulated by spacetime curvature. We introduce modified Einstein field equations (S7) incorporating an informational energy-momentum tensor: $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G T_{\mu\nu}^{\text{info}}$, where $T_{\mu\nu}^{\text{info}}$ arises from the spatial integral of the curvature operator $C$ and captures the effect of quantum emergence on classical spacetime geometry. **Crucially, we establish that equation (S7) is not a phenomenological ansatz but a structural necessity derived from Axiom P4 (Holographic Manifestation)**: any spacetime geometry must encode the collapse mechanism of the emergence field $\Phi_A$. The informational tensor is grounded thermodynamically in Gibbs free energy gradients, satisfies the conservation law $\nabla^\mu T_{\mu\nu}^{\text{info}} = 0$ via the Bianchi identity, and preserves diffeomorphism invariance. We derive modified Friedmann equations incorporating D-ND emergence dynamics, showing how inflation emerges as a phase of rapid quantum differentiation coinciding with a Bloch wall domain transition, and how dark energy corresponds to residual non-relational potential $V_0$. The Non-Trivial (NT) singularity condition $\Theta_{NT} = \lim_{t\to 0} (R(t)e^{i\omega t}) = R_0$ replaces the classical singularity with a boundary condition at the emergence threshold. **We establish that time itself emerges from thermodynamic irreversibility**, grounded in the Clausius inequality $\oint dQ/T \leq 0$ and the six-phase cognitive pipeline from indeterminacy to determinacy. Antigravity is revealed as the orthogonal pole of gravity through Poynting vector mechanics, corresponding to the dipolar structure of the modified equations and providing three concrete falsification tests: (1) Bloch wall signatures in CMB polarization, (2) Riemann eigenvalue structure in DESI baryon acoustic oscillation data, and (3) dark energy equation-of-state deviation $w(z) = -1 + 0.05(1-M_C(z))$ measurable by DESI Year-2 (2025) and decisive by Year-3 (2026). We establish a cyclic coherence condition $\Omega_{NT} = 2\pi i$ governing the overall temporal topology of cosmic evolution, connecting to conformal cyclic cosmology and information preservation across cosmic cycles. We present a comprehensive observational prediction table spanning CMB, structure growth, dark energy, gravitational waves, and large-scale structure, with quantitative comparisons to ΛCDM, Loop Quantum Cosmology, and Conformal Cyclic Cosmology. The framework is falsifiable but receives substantial theoretical grounding from corpus-extracted mathematical structures, elevating its status from purely speculative to corpus-justified extension of standard cosmology.
 
 **Keywords:** D-ND emergence, cosmology, modified Einstein equations, inflation, dark energy, NT singularity, cyclic coherence, informational energy-momentum tensor, quantum cosmology, structure formation, CMB signatures, DESI BAO constraints
 
----
 
+<a id="1-introduction"></a>
 ## 1. Introduction
 
+<a id="1-1-the-cosmological-problem-of-emergence"></a>
 ### 1.1 The Cosmological Problem of Emergence
 
 The universe exhibits a fundamental asymmetry: it began in an extraordinarily simple, nearly homogeneous state (as evidenced by the cosmic microwave background's isotropy to one part in $10^5$) and evolved toward increasingly complex, structured configurations—galaxies, stars, life. Yet the laws governing this evolution are time-symmetric at the microscopic level. Three mechanisms attempt to resolve this paradox:
@@ -27,6 +20,7 @@ The universe exhibits a fundamental asymmetry: it began in an extraordinarily si
 
 Yet none directly address: **How does classical spacetime emerge from a quantum substrate within a closed system?**
 
+<a id="1-2-gap-in-cosmological-theory"></a>
 ### 1.2 Gap in Cosmological Theory
 
 Standard cosmology presupposes a classical spacetime metric $g_{\mu\nu}$ from the outset and seeks to explain how *structures* form within it. Quantum cosmology (Wheeler-DeWitt, loop quantum cosmology) attempts to describe the universe from a quantum state but struggles with the problem of time: if the universe is timeless at the quantum level, how does the temporal arrow emerge?
@@ -37,6 +31,7 @@ Paper A (the quantum D-ND framework) provides a mechanism for closed-system emer
 - **Spacetime curvature acts as an emergence filter**, modulating which quantum modes actualize into classical configurations.
 - **The modified Einstein equations couple geometry to informational emergence**, creating a feedback loop where quantum emergence shapes curvature, which in turn gates further emergence.
 
+<a id="1-3-contributions"></a>
 ### 1.3 Contributions
 
 1. **Modified Einstein equations** with informational energy-momentum tensor $T_{\mu\nu}^{\text{info}}$ derived from D-ND emergence dynamics.
@@ -50,8 +45,10 @@ Paper A (the quantum D-ND framework) provides a mechanism for closed-system emer
 
 ---
 
+<a id="2-modified-einstein-equations-with-informational-energy-momentum-tensor"></a>
 ## 2. Modified Einstein Equations with Informational Energy-Momentum Tensor
 
+<a id="2-1-the-informational-energy-momentum-tensor"></a>
 ### 2.1 The Informational Energy-Momentum Tensor
 
 We propose a generalization of Einstein's field equations incorporating the effect of quantum emergence on spacetime:
@@ -99,6 +96,7 @@ The functional dependence $h_{\mu\nu}(K_{\text{gen}}, e^{\pm\lambda Z})$ arises 
 
 This is the explicit bridge between the D-ND Lagrangian dynamics (Paper B) and cosmological spacetime geometry, showing how quantum emergence shapes classical curvature through an informational metric perturbation.
 
+<a id="2-1-1-the-singularity-constant-g-s-and-its-proto-axiomatic-role"></a>
 ### 2.1.1 The Singularity Constant $G_S$ and Its Proto-Axiomatic Role
 
 The gravitational constant $G_N$ in Einstein's field equations acquires a deeper interpretation within the D-ND framework. From the proto-axiomatic structure (cf. Paper A §2.3, Remark on Singularity Mediation), $G_N$ is identified as the physical manifestation of the **Singularity Constant** $G_S$ — the unitary reference for all coupling constants outside the dual regime.
@@ -119,6 +117,7 @@ $$G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G_S \cdot T_{\mu\nu}^{\text{info}}$$
 
 The factor $8\pi G_S$ is no longer merely the standard coupling but the product of the proto-axiomatic singularity constant with the geometric factor $8\pi$ arising from the Gauss-Bonnet structure of 4-dimensional spacetime.
 
+<a id="2-2-derivation-from-the-d-nd-lagrangian-structural-inference-from-axiom-p4"></a>
 ### 2.2 Derivation from the D-ND Lagrangian: Structural Inference from Axiom P4
 
 The informational energy-momentum tensor is **not a phenomenological ansatz** but a **structural requirement** derived from the D-ND axioms, specifically **Axiom P4 (Holographic Manifestation, corresponding to Paper A Axiom A₆)**.
@@ -165,6 +164,7 @@ Therefore, the modified Einstein equations (S7) represent not an empirical guess
 
 However, we note that a fully independent derivation from quantum gravity first principles (e.g., the spectral action principle of Chamseddine-Connes, or asymptotic safety) remains an **open problem**. The D-ND framework provides the topological justification; complete gravitational derivation from microscopic quantum geometry awaits future work.
 
+<a id="2-3-relationship-to-verlinde-s-entropic-gravity"></a>
 ### 2.3 Relationship to Verlinde's Entropic Gravity
 
 Verlinde (2011, 2016) proposes that gravity emerges from entropic forces on particle configurations. The D-ND approach is complementary: rather than deriving gravity from entropy gradients of existing matter configurations, we derive it from the *emergence* of those configurations themselves.
@@ -175,6 +175,7 @@ $$F_{\text{entropic}} \propto \nabla(\Delta S) \leftrightarrow F_{\text{emerge}}
 
 The informational energy-momentum tensor $T_{\mu\nu}^{\text{info}}$ thus provides a dynamical realization of entropic gravity at the quantum-to-classical transition.
 
+<a id="2-4-explicit-derivation-of-informational-energy-momentum-conservation"></a>
 ### 2.4 Explicit Derivation of Informational Energy-Momentum Conservation
 
 A fundamental requirement of any extension to Einstein's field equations is that the energy-momentum tensor satisfy the conservation law:
@@ -207,8 +208,10 @@ $$\nabla^\mu T_{\mu\nu}^{\text{info}} = 0$$
 
 ---
 
+<a id="3-cosmological-d-nd-dynamics"></a>
 ## 3. Cosmological D-ND Dynamics
 
+<a id="3-1-frw-metric-with-d-nd-corrections"></a>
 ### 3.1 FRW Metric with D-ND Corrections
 
 We assume a spatially isotropic and homogeneous universe described by the Friedmann-Robertson-Walker metric:
@@ -227,6 +230,7 @@ where:
 - $M_C(t) = 1 - |\langle NT|U(t)\mathcal{E}C|NT\rangle|^2$ is the curvature-modulated emergence measure
 - $H(t)$ is the Hubble parameter, now dynamically determined by emergence rate
 
+<a id="3-2-modified-friedmann-equations"></a>
 ### 3.2 Modified Friedmann Equations
 
 The standard Friedmann equations are:
@@ -252,6 +256,7 @@ with $w_{\text{emerge}}(M_C)$ an equation-of-state parameter depending on the em
 - **Emergence phase** ($0 < M_C < 1$): $w_{\text{emerge}} \approx -1/3$ (radiation-like)
 - **Post-emergence** ($M_C \approx 1$): $w_{\text{emerge}} \approx -\epsilon$ (matter-like, with small residual)
 
+<a id="3-3-inflation-as-d-nd-emergence-phase"></a>
 ### 3.3 Inflation as D-ND Emergence Phase
 
 Inflation is conventionally driven by the slow-roll of a scalar field $\phi$ down a potential $V(\phi)$. In D-ND cosmology, **inflation corresponds to the rapid emergence phase** where $M_C(t)$ evolves from $\approx 0$ to $\approx 1$.
@@ -278,8 +283,10 @@ where $t_*$ is the time when mode $k$ exits the cosmological horizon. Modes with
 
 ---
 
+<a id="4-the-nt-singularity-resolving-the-initial-condition"></a>
 ## 4. The NT Singularity: Resolving the Initial Condition
 
+<a id="4-1-the-nt-singularity-condition"></a>
 ### 4.1 The NT Singularity Condition
 
 Classical general relativity predicts a singularity at $t = 0$: the scale factor $a(t) \to 0$, density $\rho \to \infty$, and curvature diverges. The D-ND framework replaces this singularity with a boundary condition.
@@ -296,6 +303,7 @@ where:
 
 **Physical interpretation**: As $t \to 0$, quantum evolution has not yet begun; the universe exists in a state of pure potentiality. The condition $\Theta_{NT} = R_0$ specifies the "seed" state from which all subsequent emergence unfolds. It is not a singularity in the classical sense (infinite curvature) but rather a *boundary of actualization*: the interface between non-being (unmanifestate potentiality) and being (differentiated reality).
 
+<a id="4-2-resolution-of-the-initial-singularity-via-nt-rangle"></a>
 ### 4.2 Resolution of the Initial Singularity via $|NT\rangle$
 
 In the D-ND picture:
@@ -312,6 +320,7 @@ The avoidance of the classical singularity follows from two properties:
 
 - **Finite initial curvature**: From equation (S7), the initial Ricci curvature is finite: $R_{\mu\nu}(0^+) \sim 8\pi G \cdot T_{\mu\nu}^{\text{info}}(0^+)$, which is bounded by the initial emergence rate and informational density.
 
+<a id="4-3-connection-to-hartle-hawking-no-boundary-proposal"></a>
 ### 4.3 Connection to Hartle-Hawking No-Boundary Proposal
 
 Hartle and Hawking (1983) propose that the universe has no boundary in spacetime: all of spacetime is described by a single, regular wave function $\Psi[\mathbf{g}]$, with no singular initial condition. Their no-boundary wave function obeys the Wheeler-DeWitt equation:
@@ -330,8 +339,10 @@ The NT singularity condition $\Theta_{NT}$ thus specifies the initial value of t
 
 ---
 
+<a id="5-cyclic-coherence-and-cosmic-evolution"></a>
 ## 5. Cyclic Coherence and Cosmic Evolution
 
+<a id="5-1-the-cyclic-coherence-condition"></a>
 ### 5.1 The Cyclic Coherence Condition
 
 The D-ND framework suggests that the universe may undergo multiple cycles, each beginning with emergence from $|NT\rangle$ and ending with return to non-duality (or reconvergence to a new such state). This cyclic structure is governed by:
@@ -349,6 +360,7 @@ $$\Omega_{\text{total}} = \int_0^{t_{\text{cycle}}} \left[\frac{d}{dt}\arg(f(t))
 
 where $f(t) = \langle NT|U(t)\mathcal{E}C|NT\rangle$ is the overlap function. In the complex plane, this becomes $\Omega_{NT} = 2\pi i$ when accounting for the imaginary structure of the underlying quantum evolution.
 
+<a id="5-2-penrose-s-conformal-cyclic-cosmology-connection"></a>
 ### 5.2 Penrose's Conformal Cyclic Cosmology Connection
 
 Roger Penrose's Conformal Cyclic Cosmology (CCC) proposes that the universe undergoes infinite cycles (aeons), each preceded by an infinite past and followed by an infinite future, with the far future of one aeon identified with the initial conditions of the next via conformal rescaling.
@@ -364,6 +376,7 @@ Roger Penrose's Conformal Cyclic Cosmology (CCC) proposes that the universe unde
 
 The cyclic coherence condition $\Omega_{NT} = 2\pi i$ can be understood as the D-ND version of CCC's conformal matching condition. Instead of matching Weyl curvature tensors, D-ND imposes a phase-space matching condition on the emergence measure.
 
+<a id="5-3-information-preservation-across-cycles"></a>
 ### 5.3 Information Preservation Across Cycles
 
 A critical advantage of the D-ND cyclic framework is the *preservation of quantum information*. Each cosmic cycle:
@@ -384,8 +397,10 @@ where $S_{\text{vN}}(t) = -\text{Tr}[\rho(t) \ln \rho(t)]$ is the von Neumann en
 
 ---
 
+<a id="6-observational-predictions"></a>
 ## 6. Observational Predictions
 
+<a id="6-1-cmb-signatures-of-d-nd-emergence"></a>
 ### 6.1 CMB Signatures of D-ND Emergence
 
 The cosmic microwave background carries imprints of physics at recombination ($z \approx 1000$) and, more speculatively, imprints of inflationary dynamics seeding primordial fluctuations. D-ND emergence predicts novel CMB signatures:
@@ -420,6 +435,7 @@ where the running coefficient $d\ln n_s / d\ln k$ encodes the emergence rate $\d
 
 **Prediction**: D-ND predicts a scale-dependent running that differs from slow-roll predictions by order-unity factors. With Planck and future data, this running is measurable at the $2$–$3\sigma$ level.
 
+<a id="6-2-structure-formation-from-m-c-t-dynamics"></a>
 ### 6.2 Structure Formation from $M_C(t)$ Dynamics
 
 The large-scale structure of the universe (galaxy distributions, matter power spectrum) is seeded by primordial perturbations and grows via gravitational instability. D-ND modifies the growth history through the back-reaction of emergence on structure:
@@ -452,6 +468,7 @@ where $\Psi(M)$ depends on halo mass, encoding the preferential actualization of
 
 **Prediction**: D-ND predicts a scale- and redshift-dependent halo bias that differs from standard predictions, most notably at the highest redshifts and in the largest clusters. This is testable via clustering measurements from galaxy surveys (DESI, Euclid, Roman Space Telescope).
 
+<a id="6-3-dark-energy-as-residual-v-0-potential-and-desi-baryon-acoustic-oscillation-constraints"></a>
 ### 6.3 Dark Energy as Residual $V_0$ Potential and DESI Baryon Acoustic Oscillation Constraints
 
 The cosmological constant problem asks why the vacuum energy density is so small: $\rho_\Lambda \sim 10^{-47}$ GeV$^4$, compared to estimates from quantum field theory of $\rho_{\text{QFT}} \sim 10^{113}$ GeV$^4$. This discrepancy of $\sim 120$ orders of magnitude is the worst prediction in physics.
@@ -513,8 +530,10 @@ In this scenario, dark energy would track the emergence dynamics and could poten
 
 ---
 
+<a id="6-4-antigravity-as-the-negative-solution-the-t-1-direction"></a>
 ## 6.4 Antigravity as the Negative Solution: The t = −1 Direction
 
+<a id="6-4-1-the-dipolar-structure-and-two-solutions-for-temporal-evolution"></a>
 ### 6.4.1 The Dipolar Structure and Two Solutions for Temporal Evolution
 
 The D-ND framework is fundamentally dipolar: it describes reality as the simultaneous existence of complementary poles—being and non-being, actualization and potentiality, manifestation and non-manifestation. This dipolar structure naturally produces **two solutions** for temporal evolution, corresponding to the two directions of the dipole:
@@ -523,6 +542,7 @@ $$\boxed{t = +1 \quad \text{(Convergence/Gravity)} \quad \text{and} \quad t = -1
 
 The standard cosmological picture privileges the $t = +1$ solution: time flows forward, entropy increases, and gravity pulls matter together, creating a convergence toward a singular state (either in the past at the Big Bang or in the future at a Big Crunch). Yet the D-ND dipolar logic demands that wherever the $+1$ solution exists, the $-1$ solution exists simultaneously. They are not sequential or mutually exclusive; they are complementary poles of a single dynamical structure.
 
+<a id="6-4-2-analogy-to-dirac-s-equation-and-the-excluded-third-problem"></a>
 ### 6.4.2 Analogy to Dirac's Equation and the Excluded-Third Problem
 
 The parallel to Dirac's discovery of antiparticles is instructive. When Dirac solved his relativistic equation for the electron in 1928, he found:
@@ -543,6 +563,7 @@ $$\dot{a}(t) \propto a(t) \cdot [H_+ \cdot t_+ + H_- \cdot t_-]$$
 
 where $H_+$ is the Hubble parameter in the $+1$ direction (convergence/expansion in standard cosmology) and $H_-$ is its dual in the $-1$ direction. Both are **simultaneously present and dynamically coupled**. The universe does not choose between them; it manifests both.
 
+<a id="6-4-3-the-poynting-vector-mechanism-orthogonal-exit-from-oscillation-plane"></a>
 ### 6.4.3 The Poynting Vector Mechanism: Orthogonal Exit from Oscillation Plane
 
 The mathematical structure of antigravity is clarified through analogy to the **Poynting vector** in electromagnetism:
@@ -563,6 +584,7 @@ $$T_{\mu\nu}^{(-)} \propto \epsilon_{\mu\nu\rho\sigma} T^{(+)\rho\lambda} T^{(+)
 
 The Levi-Civita symbol $\epsilon_{\mu\nu\rho\sigma}$ embodies the cross-product operation in curved spacetime. This is not merely a mathematical artifact but the **fundamental topological reason why antigravity exists as the orthogonal pole** to gravity. Just as the Poynting vector is demanded by Maxwell's equations, the antigravity pole is demanded by the dipolar structure of the D-ND field equations.
 
+<a id="6-4-4-the-bloch-wall-mechanism-inflation-as-domain-transition"></a>
 ### 6.4.4 The Bloch Wall Mechanism: Inflation as Domain Transition
 
 The Bloch wall is a fundamental object in condensed matter physics, appearing wherever two complementary states (magnetic domains with opposite spin orientation) must coexist. At the boundary between an "up" domain (all spins pointing north) and a "down" domain (all spins pointing south), the spins cannot flip instantaneously—this would require infinite energy. Instead, they **rotate gradually through space** in a helical pattern.
@@ -589,6 +611,7 @@ The properties of the cosmological Bloch wall explain inflation's key observatio
 
 4. **Oscillatory behavior within the wall:** As spins rotate through the Bloch wall, they pass through intermediate orientations that create oscillatory patterns in the field. This predicts **oscillations in the inflation potential** near the transition, which would appear as features in the primordial power spectrum.
 
+<a id="6-4-5-gravity-and-antigravity-as-poles-of-emergence"></a>
 ### 6.4.5 Gravity and Antigravity as Poles of Emergence
 
 In the D-ND picture:
@@ -605,6 +628,7 @@ Both occur **simultaneously and with equal strength** in the D-ND dipole. At cos
 
 - **Dark energy** as the manifestation of the antigravity pole: Rather than introducing a mysterious "dark energy" substance, the D-ND framework identifies dark energy **as the observable manifestation of the $t = -1$ pole of the cosmic dipole**. It is not a new form of energy; it is the pole of the dipolar emergence structure that standard excluded-third logic (which admits only $t = +1$) necessarily excludes.
 
+<a id="6-4-6-the-structural-basis-for-antigravity-not-a-new-force-but-structural-necessity"></a>
 ### 6.4.6 The Structural Basis for Antigravity: Not a New Force, But Structural Necessity
 
 The D-ND framework does not require a separate "antigravity force." Instead, it shows that **excluding antigravity is the non-physical act**. The inclusion of both poles is dictated by mathematical consistency with the dipolar structure, analogous to how Dirac's equation requires both positive and negative energy solutions.
@@ -623,6 +647,7 @@ $$T_{\mu\nu}^{(+)} + T_{\mu\nu}^{(-)} = T_{\mu\nu}^{\text{total}} = 0 \quad \tex
 
 In the early universe where emergence is incomplete, both poles contribute significantly. The antigravity component $T_{\mu\nu}^{(-)}$ drives expansion not through a repulsive force but through the structural logic of incomplete actualization.
 
+<a id="6-4-7-connection-to-friedmann-equations-and-dark-energy-equation-of-state"></a>
 ### 6.4.7 Connection to Friedmann Equations and Dark Energy Equation of State
 
 The Friedmann equations derived in §3.2 incorporate the modified dark energy term:
@@ -643,6 +668,7 @@ The small deviation $\epsilon(z) = 0.05 \cdot (1 - M_C(z))$ arises because:
 
 At late times ($z \to 0$), as $M_C \to 1$, the coupling becomes increasingly symmetric, and the observed $w$ approaches $-1$ asymptotically. This prediction is testable by DESI and future surveys (see §6.3 for quantitative constraints).
 
+<a id="6-4-8-antigravity-and-the-information-tensor"></a>
 ### 6.4.8 Antigravity and the Information Tensor
 
 The informational energy-momentum tensor $T_{\mu\nu}^{\text{info}}$ from §2.1 naturally encodes both poles through its mathematical structure:
@@ -655,6 +681,7 @@ $$\nabla^\mu T_{\mu\nu}^{\text{info}} = 0$$
 
 This conservation ensures that the total information content of the universe—integrated over both poles—remains constant across cosmic evolution, consistent with quantum mechanics and the no-information-loss principle.
 
+<a id="6-4-9-three-concrete-falsification-tests-for-antigravity"></a>
 ### 6.4.9 Three Concrete Falsification Tests for Antigravity
 
 The Bloch wall and Poynting vector mechanisms provide three falsifiable observational tests:
@@ -692,6 +719,7 @@ Specifically:
 - **Observable:** From DESI BAO + weak lensing + supernova data, constrain $w(z)$ across multiple redshift bins. D-ND predicts a **monotonic increase in $w$ toward $-1$ as $z \to 0$**, distinct from many modified dark energy models which predict oscillatory or non-monotonic behavior.
 - **Current Status:** DESI 2024 Year-1 measurements have error bars of order $\pm 0.05$ in $w(z)$ at individual redshifts. A $1$-$2\sigma$ detection of D-ND's predicted deviation is within reach of DESI Year-2 (2025). A $3\sigma$ or higher detection would strongly support the D-ND framework.
 
+<a id="6-4-10-observational-implications-testing-antigravity"></a>
 ### 6.4.10 Observational Implications: Testing Antigravity
 
 If antigravity is a fundamental pole of the D-ND dipole, several additional observational tests follow:
@@ -704,8 +732,10 @@ If antigravity is a fundamental pole of the D-ND dipole, several additional obse
 
 ---
 
+<a id="6-5-time-as-emergence-thermodynamic-irreversibility-and-the-dipolar-amplitude"></a>
 ## 6.5 Time as Emergence: Thermodynamic Irreversibility and the Dipolar Amplitude
 
+<a id="6-5-1-time-does-not-function-it-emerges-from-irreversibility"></a>
 ### 6.5.1 Time Does Not "Function"—It Emerges from Irreversibility
 
 A fundamental premise of standard physics is that time is a **given**—a background parameter on which dynamical equations operate. Events happen "*in* time" as if time were a stage on which the drama of reality unfolds. Classical mechanics takes time as absolute (Newtonian) or as part of a unified spacetime metric (Einstein). Even quantum mechanics, despite its operational focus, presupposes time as an external variable with respect to which the wave function evolves: $i\hbar \partial_t |\psi\rangle = H|\psi\rangle$.
@@ -730,6 +760,7 @@ $$\boxed{t = \int_0^T \frac{dS}{dT}(\tau) \, d\tau}$$
 
 where $S(T)$ is the entropy of the system and the derivative measures the rate of irreversible information loss. The irreversibility implied by $\oint dQ/T < 0$ guarantees that $dS/dT > 0$, making time a monotonic and forward-directed parameter.
 
+<a id="6-5-2-time-emergence-from-the-six-phase-cognitive-pipeline"></a>
 ### 6.5.2 Time Emergence from the Six-Phase Cognitive Pipeline
 
 The D-ND framework identifies a detailed mechanism for temporal emergence through the **six-phase cognitive pipeline** that describes the collapse of possibility space into actuality. This pipeline is not merely conceptual but reflects the dynamical structure of field-collapse at all scales:
@@ -746,6 +777,7 @@ The **sequence from Phase 0 (indeterminacy) to Phase 6 (determinacy) is itself t
 
 **Connection to Entropy Gradient:** Each phase advances through irreversible information processing. Phase 0 contains maximal entropy (maximum uncertainty). Phase 6 contains minimal entropy (classical definiteness). The gradient $\nabla S$ across the phase sequence drives the transition forward. **This is why time flows Phase 0 → Phase 6 and never backward**: because backward flow would decrease entropy, violating the second law.
 
+<a id="6-5-3-time-as-parameter-ordering-field-collapse-phases"></a>
 ### 6.5.3 Time as Parameter Ordering Field-Collapse Phases
 
 In the D-ND cosmological context, time is the measure of emergence progress across the six phases at cosmological scales:
@@ -770,6 +802,7 @@ $$\frac{dt}{d\tau} = \left|\frac{dF}{d\tau}\right| \quad \text{(Free Energy Prin
 
 This formally states that **time flows fastest where the universe learns most rapidly** (maximum information gain).
 
+<a id="6-5-4-time-as-local-amplitude-of-the-dipolar-oscillation"></a>
 ### 6.5.4 Time as Local Amplitude of the Dipolar Oscillation
 
 In the D-ND picture, the universe is a **dipolar oscillator**: at every spacetime point, the fundamental degrees of freedom oscillate between the two poles of the dipole ($t = +1$ and $t = -1$). Time, at each location, is not a global parameter but a **local quantity**: the phase or amplitude of this oscillation at that point.
@@ -788,6 +821,7 @@ where:
 
 **Analogy**: The local times $\{\tau(\mathbf{x})\}$ are like **intrinsic spins** in quantum mechanics. Just as each particle carries an intrinsic angular momentum (spin) without requiring that the particle "spin" in a literal sense, each spacetime point carries an intrinsic time without requiring that time "flow" in the classical sense. The local times are properties of the emergence state itself, not parameters external to it.
 
+<a id="6-5-5-the-included-third-and-normalization-of-excluded-third-logic"></a>
 ### 6.5.5 The Included Third and Normalization of Excluded-Third Logic
 
 Standard logic operates on the excluded-third (tertium non datur): a proposition is either true or false; there is no third option. In mathematics, real numbers and classical logic are built on this foundation. Yet classical logic encounters a fundamental problem: it cannot easily account for **polarities** or **complements**. To extend real numbers to complex numbers and preserve algebraic structure, mathematicians introduced an additional axis (the imaginary unit $i$) that is **neither true nor false** but is the **condition of possibility** for both.
@@ -812,6 +846,7 @@ $$1 = \sqrt{1} + i\sqrt{0} + \text{(rotation axis in } \mathbb{C})$$
 
 By including the third explicitly, the D-ND framework resolves theorems and paradoxes that arise from hidden asymmetries in excluded-third logic. Any theorem suffering from such asymmetries—quantum indeterminacy, the cosmological constant problem, the information paradox—can be re-examined through the lens of D-ND's included-third logic.
 
+<a id="6-5-6-the-lagrangian-of-observation-and-minimal-latency"></a>
 ### 6.5.6 The Lagrangian of Observation and Minimal Latency
 
 If time emerges as latency, then there must be a principle determining which latencies are realized and which are suppressed. The D-ND framework proposes:
@@ -836,6 +871,7 @@ This principle naturally explains:
 
 4. **Why entropy increases**: As the universe expands and actualizes, it explores larger portions of configuration space, requiring longer latencies on average—hence entropy increases.
 
+<a id="6-5-7-convergence-and-divergence-are-simultaneous-zero-latency-in-assonances"></a>
 ### 6.5.7 Convergence and Divergence Are Simultaneous: Zero Latency in Assonances
 
 A striking prediction of the principle of minimal latency is:
@@ -848,6 +884,7 @@ This zero-latency state corresponds to the **maximal potentiality**: a point in 
 
 This resolves a paradox in cyclic cosmologies: if time emerges from the universe's evolution, how can the universe "cycle" without an external time parameter? Answer: at the cycle boundary, time itself ceases to exist (latency vanishes), and the next cycle initiates from a state of pure potentiality.
 
+<a id="6-5-8-the-double-pendulum-as-physical-realization"></a>
 ### 6.5.8 The Double Pendulum as Physical Realization
 
 The mathematical idealization of the latency principle can be realized in classical mechanics by the **double pendulum**—a system with a direct classical analogue to the D-ND dipole.
@@ -869,6 +906,7 @@ If the universe is a cosmological double pendulum, then:
 2. Globally, reality is deterministic and Lagrangian-coherent (classical field equations).
 3. Neither description is more fundamental; they are complementary manifestations of a single underlying structure.
 
+<a id="6-5-9-convergence-and-divergence-in-the-modified-friedmann-equations"></a>
 ### 6.5.9 Convergence and Divergence in the Modified Friedmann Equations
 
 The latency principle and dipolar oscillation structure are reflected in the modified Friedmann equations (§3.2). Rewriting them in terms of convergence and divergence:
@@ -883,6 +921,7 @@ where $\rho_\Lambda(z) = \rho_0 (1 - M_C(z))^p$ encodes the **antigravity pole**
 
 **At intermediate times** ($z \sim 1$): The two terms balance. Cosmic acceleration transitions from deceleration (matter-dominated era) to acceleration (dark-energy-dominated era). This transition is a **resonance**—the two poles temporarily couple with similar strengths, resulting in a complex oscillatory behavior in the expansion history.
 
+<a id="6-5-10-observational-predictions-time-emergence-signatures"></a>
 ### 6.5.10 Observational Predictions: Time Emergence Signatures
 
 If time genuinely emerges from the dipolar oscillation, several novel signatures should appear:
@@ -895,10 +934,12 @@ If time genuinely emerges from the dipolar oscillation, several novel signatures
 
 ---
 
+<a id="6-6-observational-predictions-summary-table-d-nd-vs-cdm-and-alternatives"></a>
 ## 6.6 Observational Predictions Summary Table: D-ND vs. ΛCDM and Alternatives
 
 This section consolidates all testable predictions of D-ND cosmology across multiple observational domains, providing a unified framework for hypothesis testing against ΛCDM and other alternative theories.
 
+<a id="comprehensive-prediction-table"></a>
 ### Comprehensive Prediction Table
 
 | **Observable Domain** | **Specific Prediction** | **D-ND Value/Behavior** | **ΛCDM Value/Behavior** | **Distinguishability** | **Current Constraint Status** |
@@ -924,6 +965,7 @@ This section consolidates all testable predictions of D-ND cosmology across mult
 | **Time-Variation of $G$** | Gravitational "constant" evolves as $G(z) = G_0[1 + 0.001(1-M_C(z))]$ | $\Delta G / G \sim 10^{-3}$ to $10^{-2}$ over cosmic time | $G$ is constant | Small (1–2σ) | Pulsar timing arrays; equivalence principle tests constrain |
 | **Cyclic Coherence Signature** | Phase matching at aeon boundaries (if cycles occur) | Low-frequency temperature correlations in CMB at $\ell \sim 1$–$3$ (Penrose's Hawking points) | No expected signal | Distinctive if detected | Planck analysis: Hawking point searches inconclusive |
 
+<a id="interpretation-and-priorities-for-falsification"></a>
 ### Interpretation and Priorities for Falsification
 
 **Tier 1 — Decisive Tests (3–5σ precision potential):**
@@ -941,6 +983,7 @@ This section consolidates all testable predictions of D-ND cosmology across mult
 8. **Gravitational wave stochastic background** (LISA, Einstein Telescope, 2030s+)
 9. **Cyclic coherence/Hawking points** (speculative; future high-precision CMB)
 
+<a id="desi-2024-year-1-status-and-forecast"></a>
 ### DESI 2024 Year-1 Status and Forecast
 
 The DESI Dark Energy Spectroscopic Instrument released baryon acoustic oscillation measurements in June 2024, providing constraints on the expansion history at $z \sim 0.3$–$0.9$. These measurements:
@@ -956,8 +999,10 @@ The DESI Dark Energy Spectroscopic Instrument released baryon acoustic oscillati
 
 ---
 
+<a id="7-discussion-and-conclusions"></a>
 ## 7. Discussion and Conclusions
 
+<a id="7-1-strengths-of-the-d-nd-cosmological-extension"></a>
 ### 7.1 Strengths of the D-ND Cosmological Extension
 
 1. **Closes a gap in cosmological theory**: Provides a mechanism for closed-system emergence of classical spacetime from quantum potentiality, applicable at all scales.
@@ -974,6 +1019,7 @@ The DESI Dark Energy Spectroscopic Instrument released baryon acoustic oscillati
 
 7. **DESI-constrained framework**: Provides quantitative predictions testable against 2024 BAO data, with clear falsification criteria.
 
+<a id="7-2-limitations-and-caveats"></a>
 ### 7.2 Limitations and Caveats
 
 1. **Speculative nature**: The connection between microscopic emergence (Paper A) and cosmic scales is not rigorously derived from first principles. The modified Einstein equations (S7) are phenomenological ansatze rather than precise geometric consequences.
@@ -988,6 +1034,7 @@ The DESI Dark Energy Spectroscopic Instrument released baryon acoustic oscillati
 
 6. **Cosmological constant reassessment**: The identification of dark energy with residual $V_0$ is attractive but remains speculative. The actual magnitude and evolution of dark energy depend on the unknown form of $V_0$ and its coupling to $M_C(t)$.
 
+<a id="7-3-speculative-but-falsifiable-framework"></a>
 ### 7.3 Speculative but Falsifiable Framework
 
 We emphasize that this cosmological extension is **speculative but falsifiable**. The predictions are:
@@ -998,6 +1045,7 @@ We emphasize that this cosmological extension is **speculative but falsifiable**
 
 A negative result (e.g., failure to detect predicted CMB non-Gaussianity or absence of scale-dependent growth suppression) would argue against the D-ND cosmological model. Conversely, detection of any of the predicted signatures would provide tentative support for the framework.
 
+<a id="7-4-paths-forward"></a>
 ### 7.4 Paths Forward
 
 Three research programs are suggested:
@@ -1008,6 +1056,7 @@ Three research programs are suggested:
 
 **Observational Campaigns**: Design dedicated observations to search for the predicted CMB bispectrum, measure structure growth at high redshift, and constrain dark energy evolution with precision sufficient to distinguish D-ND from $\Lambda$CDM.
 
+<a id="7-6-comparative-predictions-d-nd-cosmology-vs-cdm-vs-loop-quantum-cosmology-vs-ccc"></a>
 ### 7.6 Comparative Predictions: D-ND Cosmology vs. ΛCDM vs. Loop Quantum Cosmology vs. CCC
 
 To contextualize D-ND cosmology within the landscape of modified and quantum cosmological frameworks, we present a quantitative comparison across key observables and theoretical properties.
@@ -1043,6 +1092,7 @@ To contextualize D-ND cosmology within the landscape of modified and quantum cos
 
 **Recommendation for Future Work**: High-precision measurements of the expansion history ($w(z)$ from BAO, weak lensing, SNe) over $z \sim 0$–$2$ will decisively test D-ND against ΛCDM and other alternatives within the next 3–5 years.
 
+<a id="7-5-conclusion"></a>
 ### 7.5 Conclusion
 
 We have presented a speculative but mathematically coherent extension of the Dual-Non-Dual framework to cosmological scales. By coupling Einstein's field equations to the quantum emergence measure $M_C(t)$, we sketch a picture in which the universe emerges from primordial potentiality, inflation arises as a phase of rapid actualization, dark energy represents residual non-relational structure, and the initial singularity is replaced by a boundary condition on emergence. The framework suggests that the universe may undergo multiple cycles, each preserving quantum information through the cyclic coherence condition $\Omega_{NT} = 2\pi i$.
@@ -1051,13 +1101,16 @@ While the framework remains highly speculative and depends critically on assumpt
 
 ---
 
+<a id="references"></a>
 ## References
 
+<a id="d-nd-framework-papers"></a>
 ### D-ND Framework Papers
 
 - *Paper A*: "Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation" (Draft 3.0)
 - *Paper B*: [Lagrangian formulation of D-ND dynamics — referenced but not detailed here]
 
+<a id="quantum-cosmology-and-the-problem-of-time"></a>
 ### Quantum Cosmology and the Problem of Time
 
 - Hartle, J. B., & Hawking, S. W. (1983). "Wave function of the universe." *Physical Review D*, 28(12), 2960.
@@ -1065,24 +1118,28 @@ While the framework remains highly speculative and depends critically on assumpt
 - Kuchař, K. V. (1992). "Time and interpretations of quantum gravity." In *General Relativity and Gravitation* (pp. 520–575). Cambridge University Press.
 - Giovannetti, V., Lloyd, S., & Maccone, L. (2015). "Quantum time." *Physical Review D*, 92(4), 045033.
 
+<a id="inflationary-cosmology"></a>
 ### Inflationary Cosmology
 
 - Guth, A. H. (1981). "Inflationary universe: A possible solution to the horizon and flatness problems." *Physical Review D*, 23(2), 347.
 - Linde, A. D. (1986). "Eternally existing self-reproducing chaotic inflationary universe." *Physics Letters B*, 175(4), 395–400.
 - Dodelson, S. (2003). *Modern Cosmology*. Academic Press.
 
+<a id="modified-gravity-and-entropic-gravity"></a>
 ### Modified Gravity and Entropic Gravity
 
 - Verlinde, E. (2011). "On the origin of gravity and the laws of Newton." *Journal of High Energy Physics*, 2011(4), 29. [arXiv: 1001.0785]
 - Verlinde, E. (2016). "Emergent gravity and the dark universe." *SciPost Physics*, 2(3), 016. [arXiv: 1611.02269]
 - Beke, L., & Hinterbichler, K. (2021). "Entropic gravity and the limits of thermodynamic descriptions." *Physics Letters B*, 811, 135863.
 
+<a id="conformal-cyclic-cosmology"></a>
 ### Conformal Cyclic Cosmology
 
 - Penrose, R. (2005). "Before the Big Bang?" In *Science and Ultimate Reality* (pp. 1–29). Cambridge University Press.
 - Penrose, R. (2010). *Cycles of Time: An Extraordinary New View of the Universe*. Jonathan Cape.
 - Wehus, A. M., & Eriksen, H. K. (2021). "A search for concentric circles in the 7-year WMAP temperature sky maps." *Astrophysical Journal*, 733(2), 29.
 
+<a id="emergent-spacetime-and-holography"></a>
 ### Emergent Spacetime and Holography
 
 - Maldacena, J. M. (1998). "The large N limit of superconformal field theories and supergravity." *Advances in Theoretical and Mathematical Physics*, 2(2), 231–252.
@@ -1090,35 +1147,41 @@ While the framework remains highly speculative and depends critically on assumpt
 - Van Raamsdonk, M. (2010). "Building up spacetime with quantum entanglement." *General Relativity and Gravitation*, 42(10), 2323–2329.
 - Swingle, B. (2018). "Entanglement renormalization and holography." *Classical and Quantum Gravity*, 34(18), 184001.
 
+<a id="structure-formation-and-large-scale-structure"></a>
 ### Structure Formation and Large-Scale Structure
 
 - Bardeen, J. M., Bond, J. R., Kaiser, N., & Szalay, A. S. (1986). "The statistics of peaks of Gaussian random fields." *Astrophysical Journal*, 304, 15–61.
 - Smith, R. E., et al. (2003). "Stable clustering, the halo model and non-linear cosmological power spectra." *Monthly Notices of the Royal Astronomical Society*, 341(4), 1311–1332.
 - Eisenstein, D. J., & Hu, W. (1998). "Bispectrum of the cosmic microwave background." *Astrophysical Journal*, 496(2), 605.
 
+<a id="cmb-physics-and-non-gaussianity"></a>
 ### CMB Physics and Non-Gaussianity
 
 - Planck Collaboration. (2018). "Planck 2018 results. IX. Constraints on primordial non-Gaussianity." *Astronomy & Astrophysics*, 641, A9.
 - Komatsu, E. (2010). "Hunting for primordial non-Gaussianity in the cosmic microwave background." *Classical and Quantum Gravity*, 27(12), 124010.
 - Maldacena, J. M. (2003). "Non-Gaussian features of primordial fluctuations in single-field inflationary models." *Journal of High Energy Physics*, 2003(05), 013.
 
+<a id="dark-energy-and-the-cosmological-constant"></a>
 ### Dark Energy and the Cosmological Constant
 
 - Perlmutter, S., et al. (1999). "Measurements of Ω and Λ from 42 high-redshift supernovae." *Astrophysical Journal*, 517(2), 565.
 - Riess, A. G., et al. (1998). "Observational evidence from supernovae for an accelerating universe and a cosmological constant." *Astronomical Journal*, 116(3), 1009.
 - Weinberg, S. (2000). "The cosmological constant problems." arXiv preprint astro-ph/0005265.
 
+<a id="black-hole-thermodynamics-and-information"></a>
 ### Black Hole Thermodynamics and Information
 
 - Bekenstein, J. D. (1973). "Black holes and entropy." *Physical Review D*, 7(8), 2333.
 - Hawking, S. W. (1974). "Black hole explosions?" *Nature*, 248(5443), 30–31.
 - 't Hooft, G. (1993). "Dimensional reduction in quantum gravity." arXiv preprint gr-qc/9310026.
 
+<a id="mathematical-foundations"></a>
 ### Mathematical Foundations
 
 - Reed, M., & Simon, B. (1980). *Methods of Modern Mathematical Physics*. Academic Press.
 - Chamseddine, A. H., & Connes, A. (1997). "The spectral action principle." *Communications in Mathematical Physics*, 186(3), 731–750.
 
+<a id="logic-of-the-included-third"></a>
 ### Logic of the Included Third
 
 - Lupasco, S. (1951). *Le principe d'antagonisme et la logique de l'énergie*. Hermann, Paris.

@@ -1,0 +1,400 @@
+{
+  "title": "Cosmological Extension of the Dual-Non-Dual Framework: Emergence at Universal Scales",
+  "subtitle": "",
+  "authors": "D-ND Research Collective",
+  "date": "February 14, 2026",
+  "status": "Working Draft 3.0 — Under Review",
+  "keywords": [
+    "D-ND emergence",
+    "cosmology",
+    "modified Einstein equations",
+    "inflation",
+    "dark energy",
+    "NT singularity",
+    "cyclic coherence",
+    "informational energy-momentum tensor",
+    "quantum cosmology",
+    "structure formation",
+    "CMB signatures",
+    "DESI BAO constraints"
+  ],
+  "description": "We extend the Dual-Non-Dual (D-ND) framework from quantum-mechanical emergence (Paper A) to cosmological scales, proposing that the universe's large-scale structure and dynamical evolution emerge from the interplay of quantum potentiality () and the emergence operator () modulated by spacetime curva",
+  "paper_id": "E",
+  "paper_label": "Paper E",
+  "category": "paper",
+  "section": "dnd-model",
+  "sections": [
+    {
+      "level": 1,
+      "title": "Cosmological Extension of the Dual-Non-Dual Framework: Emergence at Universal Scales",
+      "slug": "cosmological-extension-of-the-dual-non-dual-framework-emergence-at-universal-scales"
+    },
+    {
+      "level": 2,
+      "title": "Abstract",
+      "slug": "abstract"
+    },
+    {
+      "level": 2,
+      "title": "1. Introduction",
+      "slug": "1-introduction"
+    },
+    {
+      "level": 3,
+      "title": "1.1 The Cosmological Problem of Emergence",
+      "slug": "1-1-the-cosmological-problem-of-emergence"
+    },
+    {
+      "level": 3,
+      "title": "1.2 Gap in Cosmological Theory",
+      "slug": "1-2-gap-in-cosmological-theory"
+    },
+    {
+      "level": 3,
+      "title": "1.3 Contributions",
+      "slug": "1-3-contributions"
+    },
+    {
+      "level": 2,
+      "title": "2. Modified Einstein Equations with Informational Energy-Momentum Tensor",
+      "slug": "2-modified-einstein-equations-with-informational-energy-momentum-tensor"
+    },
+    {
+      "level": 3,
+      "title": "2.1 The Informational Energy-Momentum Tensor",
+      "slug": "2-1-the-informational-energy-momentum-tensor"
+    },
+    {
+      "level": 3,
+      "title": "2.1.1 The Singularity Constant $G_S$ and Its Proto-Axiomatic Role",
+      "slug": "2-1-1-the-singularity-constant-g-s-and-its-proto-axiomatic-role"
+    },
+    {
+      "level": 3,
+      "title": "2.2 Derivation from the D-ND Lagrangian: Structural Inference from Axiom P4",
+      "slug": "2-2-derivation-from-the-d-nd-lagrangian-structural-inference-from-axiom-p4"
+    },
+    {
+      "level": 3,
+      "title": "2.3 Relationship to Verlinde's Entropic Gravity",
+      "slug": "2-3-relationship-to-verlinde-s-entropic-gravity"
+    },
+    {
+      "level": 3,
+      "title": "2.4 Explicit Derivation of Informational Energy-Momentum Conservation",
+      "slug": "2-4-explicit-derivation-of-informational-energy-momentum-conservation"
+    },
+    {
+      "level": 2,
+      "title": "3. Cosmological D-ND Dynamics",
+      "slug": "3-cosmological-d-nd-dynamics"
+    },
+    {
+      "level": 3,
+      "title": "3.1 FRW Metric with D-ND Corrections",
+      "slug": "3-1-frw-metric-with-d-nd-corrections"
+    },
+    {
+      "level": 3,
+      "title": "3.2 Modified Friedmann Equations",
+      "slug": "3-2-modified-friedmann-equations"
+    },
+    {
+      "level": 3,
+      "title": "3.3 Inflation as D-ND Emergence Phase",
+      "slug": "3-3-inflation-as-d-nd-emergence-phase"
+    },
+    {
+      "level": 2,
+      "title": "4. The NT Singularity: Resolving the Initial Condition",
+      "slug": "4-the-nt-singularity-resolving-the-initial-condition"
+    },
+    {
+      "level": 3,
+      "title": "4.1 The NT Singularity Condition",
+      "slug": "4-1-the-nt-singularity-condition"
+    },
+    {
+      "level": 3,
+      "title": "4.2 Resolution of the Initial Singularity via $|NT\\rangle$",
+      "slug": "4-2-resolution-of-the-initial-singularity-via-nt-rangle"
+    },
+    {
+      "level": 3,
+      "title": "4.3 Connection to Hartle-Hawking No-Boundary Proposal",
+      "slug": "4-3-connection-to-hartle-hawking-no-boundary-proposal"
+    },
+    {
+      "level": 2,
+      "title": "5. Cyclic Coherence and Cosmic Evolution",
+      "slug": "5-cyclic-coherence-and-cosmic-evolution"
+    },
+    {
+      "level": 3,
+      "title": "5.1 The Cyclic Coherence Condition",
+      "slug": "5-1-the-cyclic-coherence-condition"
+    },
+    {
+      "level": 3,
+      "title": "5.2 Penrose's Conformal Cyclic Cosmology Connection",
+      "slug": "5-2-penrose-s-conformal-cyclic-cosmology-connection"
+    },
+    {
+      "level": 3,
+      "title": "5.3 Information Preservation Across Cycles",
+      "slug": "5-3-information-preservation-across-cycles"
+    },
+    {
+      "level": 2,
+      "title": "6. Observational Predictions",
+      "slug": "6-observational-predictions"
+    },
+    {
+      "level": 3,
+      "title": "6.1 CMB Signatures of D-ND Emergence",
+      "slug": "6-1-cmb-signatures-of-d-nd-emergence"
+    },
+    {
+      "level": 3,
+      "title": "6.2 Structure Formation from $M_C(t)$ Dynamics",
+      "slug": "6-2-structure-formation-from-m-c-t-dynamics"
+    },
+    {
+      "level": 3,
+      "title": "6.3 Dark Energy as Residual $V_0$ Potential and DESI Baryon Acoustic Oscillation Constraints",
+      "slug": "6-3-dark-energy-as-residual-v-0-potential-and-desi-baryon-acoustic-oscillation-constraints"
+    },
+    {
+      "level": 2,
+      "title": "6.4 Antigravity as the Negative Solution: The t = −1 Direction",
+      "slug": "6-4-antigravity-as-the-negative-solution-the-t-1-direction"
+    },
+    {
+      "level": 3,
+      "title": "6.4.1 The Dipolar Structure and Two Solutions for Temporal Evolution",
+      "slug": "6-4-1-the-dipolar-structure-and-two-solutions-for-temporal-evolution"
+    },
+    {
+      "level": 3,
+      "title": "6.4.2 Analogy to Dirac's Equation and the Excluded-Third Problem",
+      "slug": "6-4-2-analogy-to-dirac-s-equation-and-the-excluded-third-problem"
+    },
+    {
+      "level": 3,
+      "title": "6.4.3 The Poynting Vector Mechanism: Orthogonal Exit from Oscillation Plane",
+      "slug": "6-4-3-the-poynting-vector-mechanism-orthogonal-exit-from-oscillation-plane"
+    },
+    {
+      "level": 3,
+      "title": "6.4.4 The Bloch Wall Mechanism: Inflation as Domain Transition",
+      "slug": "6-4-4-the-bloch-wall-mechanism-inflation-as-domain-transition"
+    },
+    {
+      "level": 3,
+      "title": "6.4.5 Gravity and Antigravity as Poles of Emergence",
+      "slug": "6-4-5-gravity-and-antigravity-as-poles-of-emergence"
+    },
+    {
+      "level": 3,
+      "title": "6.4.6 The Structural Basis for Antigravity: Not a New Force, But Structural Necessity",
+      "slug": "6-4-6-the-structural-basis-for-antigravity-not-a-new-force-but-structural-necessity"
+    },
+    {
+      "level": 3,
+      "title": "6.4.7 Connection to Friedmann Equations and Dark Energy Equation of State",
+      "slug": "6-4-7-connection-to-friedmann-equations-and-dark-energy-equation-of-state"
+    },
+    {
+      "level": 3,
+      "title": "6.4.8 Antigravity and the Information Tensor",
+      "slug": "6-4-8-antigravity-and-the-information-tensor"
+    },
+    {
+      "level": 3,
+      "title": "6.4.9 Three Concrete Falsification Tests for Antigravity",
+      "slug": "6-4-9-three-concrete-falsification-tests-for-antigravity"
+    },
+    {
+      "level": 3,
+      "title": "6.4.10 Observational Implications: Testing Antigravity",
+      "slug": "6-4-10-observational-implications-testing-antigravity"
+    },
+    {
+      "level": 2,
+      "title": "6.5 Time as Emergence: Thermodynamic Irreversibility and the Dipolar Amplitude",
+      "slug": "6-5-time-as-emergence-thermodynamic-irreversibility-and-the-dipolar-amplitude"
+    },
+    {
+      "level": 3,
+      "title": "6.5.1 Time Does Not \"Function\"—It Emerges from Irreversibility",
+      "slug": "6-5-1-time-does-not-function-it-emerges-from-irreversibility"
+    },
+    {
+      "level": 3,
+      "title": "6.5.2 Time Emergence from the Six-Phase Cognitive Pipeline",
+      "slug": "6-5-2-time-emergence-from-the-six-phase-cognitive-pipeline"
+    },
+    {
+      "level": 3,
+      "title": "6.5.3 Time as Parameter Ordering Field-Collapse Phases",
+      "slug": "6-5-3-time-as-parameter-ordering-field-collapse-phases"
+    },
+    {
+      "level": 3,
+      "title": "6.5.4 Time as Local Amplitude of the Dipolar Oscillation",
+      "slug": "6-5-4-time-as-local-amplitude-of-the-dipolar-oscillation"
+    },
+    {
+      "level": 3,
+      "title": "6.5.5 The Included Third and Normalization of Excluded-Third Logic",
+      "slug": "6-5-5-the-included-third-and-normalization-of-excluded-third-logic"
+    },
+    {
+      "level": 3,
+      "title": "6.5.6 The Lagrangian of Observation and Minimal Latency",
+      "slug": "6-5-6-the-lagrangian-of-observation-and-minimal-latency"
+    },
+    {
+      "level": 3,
+      "title": "6.5.7 Convergence and Divergence Are Simultaneous: Zero Latency in Assonances",
+      "slug": "6-5-7-convergence-and-divergence-are-simultaneous-zero-latency-in-assonances"
+    },
+    {
+      "level": 3,
+      "title": "6.5.8 The Double Pendulum as Physical Realization",
+      "slug": "6-5-8-the-double-pendulum-as-physical-realization"
+    },
+    {
+      "level": 3,
+      "title": "6.5.9 Convergence and Divergence in the Modified Friedmann Equations",
+      "slug": "6-5-9-convergence-and-divergence-in-the-modified-friedmann-equations"
+    },
+    {
+      "level": 3,
+      "title": "6.5.10 Observational Predictions: Time Emergence Signatures",
+      "slug": "6-5-10-observational-predictions-time-emergence-signatures"
+    },
+    {
+      "level": 2,
+      "title": "6.6 Observational Predictions Summary Table: D-ND vs. ΛCDM and Alternatives",
+      "slug": "6-6-observational-predictions-summary-table-d-nd-vs-cdm-and-alternatives"
+    },
+    {
+      "level": 3,
+      "title": "Comprehensive Prediction Table",
+      "slug": "comprehensive-prediction-table"
+    },
+    {
+      "level": 3,
+      "title": "Interpretation and Priorities for Falsification",
+      "slug": "interpretation-and-priorities-for-falsification"
+    },
+    {
+      "level": 3,
+      "title": "DESI 2024 Year-1 Status and Forecast",
+      "slug": "desi-2024-year-1-status-and-forecast"
+    },
+    {
+      "level": 2,
+      "title": "7. Discussion and Conclusions",
+      "slug": "7-discussion-and-conclusions"
+    },
+    {
+      "level": 3,
+      "title": "7.1 Strengths of the D-ND Cosmological Extension",
+      "slug": "7-1-strengths-of-the-d-nd-cosmological-extension"
+    },
+    {
+      "level": 3,
+      "title": "7.2 Limitations and Caveats",
+      "slug": "7-2-limitations-and-caveats"
+    },
+    {
+      "level": 3,
+      "title": "7.3 Speculative but Falsifiable Framework",
+      "slug": "7-3-speculative-but-falsifiable-framework"
+    },
+    {
+      "level": 3,
+      "title": "7.4 Paths Forward",
+      "slug": "7-4-paths-forward"
+    },
+    {
+      "level": 3,
+      "title": "7.6 Comparative Predictions: D-ND Cosmology vs. ΛCDM vs. Loop Quantum Cosmology vs. CCC",
+      "slug": "7-6-comparative-predictions-d-nd-cosmology-vs-cdm-vs-loop-quantum-cosmology-vs-ccc"
+    },
+    {
+      "level": 3,
+      "title": "7.5 Conclusion",
+      "slug": "7-5-conclusion"
+    },
+    {
+      "level": 2,
+      "title": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "title": "D-ND Framework Papers",
+      "slug": "d-nd-framework-papers"
+    },
+    {
+      "level": 3,
+      "title": "Quantum Cosmology and the Problem of Time",
+      "slug": "quantum-cosmology-and-the-problem-of-time"
+    },
+    {
+      "level": 3,
+      "title": "Inflationary Cosmology",
+      "slug": "inflationary-cosmology"
+    },
+    {
+      "level": 3,
+      "title": "Modified Gravity and Entropic Gravity",
+      "slug": "modified-gravity-and-entropic-gravity"
+    },
+    {
+      "level": 3,
+      "title": "Conformal Cyclic Cosmology",
+      "slug": "conformal-cyclic-cosmology"
+    },
+    {
+      "level": 3,
+      "title": "Emergent Spacetime and Holography",
+      "slug": "emergent-spacetime-and-holography"
+    },
+    {
+      "level": 3,
+      "title": "Structure Formation and Large-Scale Structure",
+      "slug": "structure-formation-and-large-scale-structure"
+    },
+    {
+      "level": 3,
+      "title": "CMB Physics and Non-Gaussianity",
+      "slug": "cmb-physics-and-non-gaussianity"
+    },
+    {
+      "level": 3,
+      "title": "Dark Energy and the Cosmological Constant",
+      "slug": "dark-energy-and-the-cosmological-constant"
+    },
+    {
+      "level": 3,
+      "title": "Black Hole Thermodynamics and Information",
+      "slug": "black-hole-thermodynamics-and-information"
+    },
+    {
+      "level": 3,
+      "title": "Mathematical Foundations",
+      "slug": "mathematical-foundations"
+    },
+    {
+      "level": 3,
+      "title": "Logic of the Included Third",
+      "slug": "logic-of-the-included-third"
+    }
+  ],
+  "figure_count": 0,
+  "page_count_latex": 0
+}

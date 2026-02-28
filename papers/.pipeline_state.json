@@ -113,8 +113,8 @@
     "F": {
       "phase": "PHASE_3",
       "last_draft": "paper_F_draft3.md",
-      "draft_version": "3.0",
-      "last_commit": "48b8b8b",
+      "draft_version": "3.1",
+      "last_commit": null,
       "maturation_report": "MATURATION_REPORT_F.md",
       "quick_audit": null,
       "site_ready_en": "site_ready/paper_F.md",
@@ -122,14 +122,14 @@
       "latex": "latex/paper_F.tex",
       "site_page_slug": "paper-f-quantum-information-engine",
       "published_at": "2026-02-27",
-      "completeness": 93,
+      "completeness": 96,
       "dependencies": ["A", "B", "DND_METHOD_AXIOMS"],
       "dependents": ["G"],
       "audit_findings": {
         "critical": 0,
-        "major": 3,
+        "major": 0,
         "minor": 2,
-        "note": "4C+9M+5m findings. Critical fixes applied. P5 bridge note pending (notes/P5_autopoiesis_bridge_F.md)."
+        "note": "Draft 3.1: abstract calibrated, corpus refs removed, Grover unified, P5 autopoiesis bridge inserted. M1 (THRML condensation) and m1-m4 deferred to final polish."
       }
     },
     "G": {

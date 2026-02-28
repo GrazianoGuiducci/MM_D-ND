@@ -1049,7 +1049,7 @@ This is characteristic of systems near critical points in condensed matter (phas
 
 **Classical Order Emergence from Quantum Superposition**
 
-A central insight from the corpus mining results is the **information condensation** principle: rather than classical information being "retrieved" from a pre-existing database, it is "condensed" from quantum potentiality through systematic error dissipation.
+A central insight from the Lagrangian analysis is the **information condensation** principle: rather than classical information being "retrieved" from a pre-existing database, it is "condensed" from quantum potentiality through systematic error dissipation.
 
 **Mechanism:** In the evolution equation, the dissipative term plays a dual role:
 1. **Energy dissipation:** $c(\dot{Z})^2$ removes kinetic energy, driving the system toward stable minima.

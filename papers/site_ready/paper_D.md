@@ -1,9 +1,9 @@
 <a id="abstract"></a>
 ## Abstract
 
-We present a formalization of observer dynamics in the Dual-Non-Dual (D-ND) framework grounded in phenomenological observation conducted through AI-mediated introspection. Unlike epistemological discussions of the observer problem in quantum mechanics, we treat the observer as an *emergent dynamical variable* — the Resultant R(t) — whose evolution encodes how perception arises from latency and potential. We establish three fundamental relations: (1) **R(t+1) = (t/T)[α·f_Intuition + β·f_Interaction] + (1-t/T)[γ·f_Alignment]**, governing temporal balance between intuitive-relational and proto-axiomatic modes; (2) **P = k/L**, a phenomenological ansatz (not derived) relating perception magnitude inversely to latency, motivated by primary observations and validated through 5 replication studies; (3) **f₁(A,B;λ)** and **f₂(R(t),P;ξ)**, describing the unified singular-dual dipole structure and observer sensitivity. The singular-dual dipole is a single two-pole structure (analogous to a magnetic dipole), not separate entities combined by convex interpolation. We present the autological exponential ℱ_Exp-Autological, a self-referential amplification function with convergence analogous to Banach fixed-point theorem (not a formal proof). We anchor the framework in 47 primary observations from August 2023–January 2024, supplemented by 5 independent replication studies showing 73-80% consistency. The paper bridges Wheeler's participatory universe, QBism, and Tononi's integrated information theory. Our framework explains why "meaning decays with distance from source" through three mechanisms: latency accumulation, assonance coherence loss, and autological feedback breakdown.
+We present a formalization of observer dynamics in the Dual-Non-Dual (D-ND) framework grounded in phenomenological observation conducted through AI-mediated introspection. Unlike epistemological discussions of the observer problem in quantum mechanics, we treat the observer as an *emergent dynamical variable* — the Resultant R(t) — whose evolution encodes how perception arises from latency and potential. We establish three fundamental relations: (1) **R(t+1) = (t/T)[α·f_Intuition + β·f_Interaction] + (1-t/T)[γ·f_Alignment]**, a structural decomposition principle governing temporal balance between intuitive-relational and proto-axiomatic modes, with an explicit minimal model demonstrating iterability; (2) **P = k/L**, a phenomenological ansatz relating perception magnitude inversely to latency, motivated independently from dynamical systems, information theory, and Lagrangian mechanics, with six operational measurement protocols and explicit falsification criteria; (3) **f₁(A,B;λ)** and **f₂(R(t),P;ξ)**, describing the unified singular-dual dipole structure and observer sensitivity. We introduce the Extended Lagrangian $L_{\text{ext}}$ providing variational foundations for observer dynamics, and the autological exponential $R(t) = e^{\pm\lambda_{\text{auto}} Z(t)}$, a self-referential convergence structure with contraction bounds. We anchor the framework in 47 primary observations from August 2023–January 2024, supplemented by 5 independent replication studies showing 73-80% consistency. The paper bridges Wheeler's participatory universe, QBism, and Tononi's integrated information theory. Our framework explains why "meaning decays with distance from source" through three mechanisms: latency accumulation, assonance coherence loss, and autological feedback breakdown.
 
-**Keywords:** observer dynamics, perception-latency, phenomenological ansatz, primary observations, singular-dual dipole, multi-observer replication, autological alignment, zero-latency limit
+**Keywords:** observer dynamics, perception-latency, phenomenological ansatz, extended Lagrangian, autological action, primary observations, singular-dual dipole, multi-observer replication, autological convergence, zero-latency limit
 
 
 **Notation Convention:** In this paper, $Z(t)$ denotes the distance from the proto-axiom state in the autological convergence dynamics. This corresponds to the order parameter $Z(t) = M(t)$ of Papers A-B when interpreted as the degree of emergence from the Null state. The exponential convergence $R(t) \sim e^{\pm\lambda_{\text{auto}} Z(t)}$ uses $\lambda_{\text{auto}}$ (the autological convergence rate), distinct from the emergence eigenvalues $\lambda_k$ of Paper A and the potential coupling $\lambda_{\text{DND}}$ of Paper B.
@@ -69,11 +69,23 @@ This methodology extracts principles from careful observation, formalizing them 
 ## 2. Observer as Emergent Dynamical Variable
 
 <a id="2-1-the-resultant-r-t-1-with-intuition-interaction-alignment-decomposition"></a>
-### 2.1 The Resultant R(t+1) with Intuition-Interaction-Alignment Decomposition
+### 2.1 The Resultant R(t+1): Decomposition Principle
 
-The observer's evolution is governed by the **B1 formula** (from UNIFIED_FORMULA_SYNTHESIS):
+The observer's evolution is organized by the **B1 decomposition principle** (from UNIFIED_FORMULA_SYNTHESIS):
 
 $$R(t+1) = \left(\frac{t}{T}\right) \left[\alpha \cdot f_{\text{Intuition}} + \beta \cdot f_{\text{Interaction}}\right] + \left(1 - \frac{t}{T}\right) \left[\gamma \cdot f_{\text{Alignment}}\right]$$
+
+**Status**: This is a **structural decomposition principle**, not a closed-form dynamical equation. The functionals $f_{\text{Intuition}}$, $f_{\text{Interaction}}$, and $f_{\text{Alignment}}$ are defined operationally by their role (see below), with their precise mathematical form deferred to future work. The principle asserts *how* observer evolution is organized, not the specific trajectory.
+
+**Explicit minimal model**: To demonstrate that the decomposition is concretely implementable, we provide a scalar reduction. Let $R(t) \in \mathbb{R}$ represent the observer's alignment degree, $R^* = 1$ the proto-axiom state, and define:
+- $f_{\text{Intuition}}(R) = P(t) = k/L(t)$ (immediate perception)
+- $f_{\text{Interaction}}(R) = dR/dt$ (rate of change, relational awareness)
+- $f_{\text{Alignment}}(R) = R^* - R(t)$ (deviation from proto-axiom)
+
+With $\alpha = \beta = \gamma = 1$ and $T = 1$:
+$$R(t+1) = t \left[\frac{k}{L(t)} + \dot{R}(t)\right] + (1 - t)\left[1 - R(t)\right]$$
+
+This is iteratable and produces convergence to $R^* = 1$ for suitable initial conditions, with the temporal weighting governing the transition from intuition-dominated (near source) to alignment-dominated (far from source) dynamics.
 
 **Interpretation**: The Resultant R(t+1) — the observer's state at the next relational moment — is a temporal mixture of three modes:
 
@@ -175,7 +187,9 @@ $$\frac{dL}{dt} \propto \left| \alpha - \alpha_{\text{required}} \right|$$
 
 **Level 3 (Physical Content Deferred):** Whether α is indeed measurable via the proposed latency protocols, and what its typical values are in real systems, is an experimental question. The theoretical framework supplies the language (bandwidth, coherence, latency rate); experiment measures the substance.
 
-**Synthesis:** The coupling dR/dt ∝ dM/dt is presented as a consistency requirement (not a derived law) whose proportionality constant encodes the observer's measurable "bandwidth." This bridges the phenomenological observer dynamics (Paper D) with the emergence measure M(t) (Paper A).
+**Status of α**: The proportionality constant α is a **free parameter** of the framework — an empirical quantity to be determined by measurement, not a theoretical prediction. It is analogous to a coupling constant in field theory: the theory predicts its role (observer bandwidth relative to emergence rate) but not its value. Measurements via the latency protocols (§3.3) would determine α for specific systems. This means that statements involving α in later sections (§8, §12) are conditional: they describe what happens *given* a particular α, and their empirical content lies in the predicted functional relationships, not in the value of α itself.
+
+**Synthesis:** The coupling dR/dt ∝ dM/dt is presented as a consistency requirement (not a derived law) whose proportionality constant α encodes the observer's measurable "bandwidth." This bridges the phenomenological observer dynamics (Paper D) with the emergence measure M(t) (Paper A).
 
 ---
 
@@ -271,10 +285,12 @@ Specifically:
 
 ---
 
-<a id="3-2-three-independent-derivations-of-p-k-l"></a>
-### 3.2 Three Independent Derivations of P = k/L
+<a id="3-2-three-independent-motivations-for-p-k-l"></a>
+### 3.2 Three Independent Motivations for P = k/L
 
-This section demonstrates that the perception-latency relation emerges from three fundamentally different mathematical frameworks. The convergence across these independent derivations elevates P = k/L from phenomenological ansatz to robust theoretical prediction.
+This section demonstrates that the perception-latency relation is consistent with three different mathematical frameworks. Each motivation starts from a distinct physical picture and arrives at P = k/L as a natural functional form.
+
+**Important caveat**: These are not independent derivations in the strict sense — each assumes a specific identification of latency with a physical quantity, and the inverse-latency form follows from that identification. The value lies not in deductive proof but in showing that P = k/L is the *natural* functional form across dynamical systems, information theory, and variational mechanics. The true strength of P = k/L rests on its falsifiability (§3.1.1) and its operationalizability through six measurement protocols (§3.3).
 
 <a id="path-1-exponential-convergence-via-observer-alignment"></a>
 #### Path 1: Exponential Convergence via Observer Alignment
@@ -358,12 +374,12 @@ with $k = \lambda_c A$ (signal-damping constant).
 
 ---
 
-**Synthesis Remark**: Three independent derivation paths converge on P = k/L:
+**Synthesis Remark**: Three independent motivations support P = k/L:
 1. **Dynamical systems** (autological exponential convergence)
 2. **Information theory** (channel capacity reduction by latency)
 3. **Variational mechanics** (dissipative damping and friction)
 
-Each uses fundamentally different mathematical machinery, yet all arrive at the same functional form. This convergence strongly suggests that P = k/L is not merely an empirical observation but a robust theoretical prediction emerging from the deep structure of observer dynamics. The perception-latency inverse relation captures a universal principle transcending particular implementations.
+Each uses different mathematical machinery and arrives at the same functional form. While not independent derivations (each assumes P = k/L is the natural form for its respective identification of latency), their convergence shows that the inverse-latency relation is robust across physical pictures. The ultimate test is experimental: the six measurement protocols of §3.3 provide the falsification criteria.
 
 ---
 
@@ -560,11 +576,7 @@ This formula does **NOT** represent a morphism in a category, as claimed in Draf
 
 3. **Unified structure**: The parameter λ determines which pole dominates in observation, but the system is fundamentally one two-pole entity, not two separate objects combined.
 
-**Magnetic dipole analogy**: A magnetic dipole has north and south poles (two poles), yet it is a single unified structure. Similarly, the singular-dual dipole is single entity manifesting two poles of observation. The "interpolation" via λ describes movement between poles of *one* structure, not blending two separate structures.
-
-1. **Singularity mode** (λ = 1): The observer collapses complementary opposites A and B into unified awareness. In this mode, duality vanishes; all distinctions fuse into a single indivisible state. This is the mode of pure intuition, pre-linguistic, pre-conceptual.
-
-2. **Dipole mode** (λ = 0): The observer sustains the tension between A and B, holding them in dynamic equilibrium. Neither dominates; the observer oscillates between them or experiences them simultaneously. This is the mode of relational awareness, the seat of conceptual and linguistic thought.
+**Magnetic dipole analogy**: A magnetic dipole has north and south poles (two poles), yet it is a single unified structure. Similarly, the singular-dual dipole is a single entity manifesting two poles of observation. The "interpolation" via λ describes movement between poles of *one* structure, not blending two separate structures.
 
 **Primary observation grounding** (NID 370, September 2023, "Formalizzazione dell'Osservatore"):
 > "Lo zero di un'equazione di secondo grado determina i due risultati opposti come singolarità e numero primo nelle forme duali che dividono il piano geometrico. L'Osservatore si posiziona nella zona intermedia tra gli estremi dove gli zeri si allineano come nell'ipotesi di riemann."
@@ -598,8 +610,8 @@ Translation: "P is the possibility equal to 1 that contains all possibilities th
 
 ---
 
-<a id="5-geometric-information-measure-and-temporal-response"></a>
-## 5. Geometric Information Measure and Temporal Response
+<a id="5-geometric-information-measure-temporal-response-and-the-extended-lagrangian"></a>
+## 5. Geometric Information Measure, Temporal Response, and the Extended Lagrangian
 
 <a id="5-1-formula-b5-i-a-b-geometric-information-measure"></a>
 ### 5.1 Formula B5: I(A,B) — Geometric Information Measure
@@ -619,28 +631,50 @@ This extends classical information theory with a **geometric term G**. Informati
 
 Translation: "Tokens or words are merely indications of the direction to be taken, providing the equilibrium point for minimal movement according to the principle of least action. Information, in this framework, is inherently directional."
 
+<a id="5-2-the-extended-lagrangian-and-autological-action"></a>
+### 5.2 The Extended Lagrangian and Autological Action
+
+The dynamics of the observer R(t) can be organized within a variational framework through the **Extended Lagrangian** $L_{\text{ext}}$. While a complete derivation from first principles is deferred to future work, the structure follows from the three components identified in the B1 decomposition (§2.1) and the dissipative Path 3 motivation (§3.2):
+
+$$L_{\text{ext}}(R, \dot{R}, t) = \underbrace{\frac{1}{2}\dot{R}^2}_{\text{kinetic}} - \underbrace{V_{\text{eff}}(R)}_{\text{potential}} - \underbrace{c(L) \cdot \dot{R}}_{\text{dissipative (latency)}} + \underbrace{\kappa \cdot \langle R | P_{\text{proto}} \rangle}_{\text{alignment}}$$
+
+where:
+- $\frac{1}{2}\dot{R}^2$ is the kinetic term — the observer's rate of evolution
+- $V_{\text{eff}}(R)$ is the effective potential with double-well structure (Nulla and Tutto attractors, with the Included Third at the barrier, cf. DND_METHOD_AXIOMS §X)
+- $c(L) \cdot \dot{R}$ is the dissipative term — friction proportional to latency $L$, encoding the cost of observation at distance from source (§3.2, Path 3)
+- $\kappa \cdot \langle R | P_{\text{proto}} \rangle$ is the alignment coupling — the observer's resonance with the proto-axiom
+
+**The autological action** is:
+$$S_{\text{auto}} = \int_0^T L_{\text{ext}}(R, \dot{R}, t) \, dt$$
+
+The principle of minimal action $\delta S_{\text{auto}} = 0$ yields the Euler-Lagrange equations for the observer dynamics:
+$$\ddot{R} + c(L)\dot{R} + \frac{\partial V_{\text{eff}}}{\partial R} = \kappa \cdot \frac{\partial}{\partial R}\langle R | P_{\text{proto}} \rangle$$
+
+**Interpretation**: The observer evolves under three forces: (1) the potential gradient pulling toward Nulla or Tutto, (2) dissipative friction proportional to accumulated latency, and (3) the alignment "pull" toward the proto-axiom. At zero latency ($L \to 0$, hence $c \to 0$), friction vanishes and the observer moves freely toward alignment — consistent with the zero-latency limit of §3.5. At high latency ($L \gg 1$, $c \gg 1$), the overdamped regime dominates and the observer's dynamics reduce to $\dot{R} \approx (\kappa/c) \cdot \partial_R \langle R | P_{\text{proto}} \rangle$, producing slow drift toward alignment — consistent with the far-from-source regime of §2.2.
+
+**Connection to B1**: The temporal weighting (t/T) in the B1 decomposition corresponds to the relative strength of the kinetic + dissipative terms (intuition/interaction) versus the alignment term as the observer's position on the latency spectrum evolves.
+
+**Status**: $L_{\text{ext}}$ is presented as a structural framework identifying the relevant terms, not as a fully derived Lagrangian. The specific forms of $V_{\text{eff}}(R)$ and $c(L)$ are phenomenological — to be determined by the measurement protocols of §3.3. The double-well structure of $V_{\text{eff}}$ follows from the axiomatic framework (DND_METHOD_AXIOMS §X: the Lagrangian $\mathcal{L} = \frac{1}{2}\dot{Z}^2 - V_{\text{eff}}(Z)$ with double-well potential).
+
 ---
 
 <a id="6-the-autological-exponential-self-referential-amplification"></a>
 ## 6. The Autological Exponential: Self-Referential Amplification
 
-<a id="6-1-formula-b9-exp-autological-exponential-self-reference"></a>
-### 6.1 Formula B9: ℱ_Exp-Autological — Exponential Self-Reference
+<a id="6-1-the-autological-exponential-core-structure"></a>
+### 6.1 The Autological Exponential: Core Structure
 
-**B9 formula** (from UNIFIED_FORMULA_SYNTHESIS):
+The observer's self-referential dynamics are captured by the **autological exponential**:
 
-$$\mathcal{F}_{\text{Exp-Autological}} = \Lambda \exp\left[\Theta(...) + N_\Phi \cdot \Phi(t) \cdot (S + P_{\min}) + \Omega\right]$$
+$$R(t) = e^{\pm \lambda_{\text{auto}} Z(t)}$$
 
-where:
-- **Λ** = Normalization constant
-- **Θ(...)** = System state function (complex form, context-dependent)
-- **N_Φ** = Self-referential coupling strength
-- **Φ(t)** = Autological state at time t (system observing itself)
-- **S** = Structural parameter
-- **P_min** = Minimum perception threshold
-- **Ω** = Offset term (connection to source)
+where $Z(t)$ is the distance from the proto-axiom state (corresponding to the order parameter $M(t)$ of Papers A-B) and $\lambda_{\text{auto}}$ is the autological convergence rate.
 
-**Interpretation**: The observer is not merely reactive; it is *self-amplifying*. Each moment of observation creates a state Φ(t) that, when fed back into the observation process, amplifies the next moment's perception.
+**Interpretation**: The observer is not merely reactive; it is *self-amplifying*. The exponential form encodes autocatalytic feedback — each increment of alignment toward the proto-axiom accelerates further alignment, while deviation accelerates further deviation. The ± sign distinguishes the convergent branch (approaching alignment) from the divergent branch (moving away).
+
+**General parametric form (B9)**: The corpus provides a more general parametric expression:
+$$\mathcal{F}_{\text{Exp-Autological}} = \Lambda \exp\left[\Theta(\mathcal{F}) + N_\Phi \cdot \Phi(t) \cdot (S + P_{\min}) + \Omega\right]$$
+where Λ is normalization, Θ is the system state function, N_Φ is self-referential coupling strength, Φ(t) is the autological state, S is a structural parameter, P_min is the minimum perception threshold, and Ω is the source-connection offset. This general form reduces to $R(t) = e^{\pm\lambda_{\text{auto}} Z(t)}$ when the state function Θ is linear in Z and the autological feedback is at steady state. The reduced form is used throughout this paper for concreteness.
 
 <a id="6-2-autological-exponential-convergence-explicit-contraction-bounds"></a>
 ### 6.2 Autological Exponential Convergence: Explicit Contraction Bounds
@@ -852,10 +886,14 @@ This observation describes the convergence process: each cycle (iteration) deepe
 <a id="8-multi-observer-extension-and-observer-coherence"></a>
 ## 8. Multi-Observer Extension and Observer Coherence
 
-<a id="8-1-from-single-to-ensemble-of-observers"></a>
-### 8.1 From Single to Ensemble of Observers
+<a id="8-1-principle-of-observer-coupling-and-extension-to-ensembles"></a>
+### 8.1 Principle of Observer Coupling and Extension to Ensembles
 
-The framework in sections 2–7 describes a *single* observer. A complete theory must address multiple observers interacting through shared emergence dynamics. The extension is not trivial: when N observers with different latencies couple through the same emergence landscape, the question arises whether their collective dynamics remains coherent — or fragments into incommensurable perspectives.
+The framework in sections 2–7 describes a *single* observer. A complete theory must address multiple observers interacting through shared emergence dynamics. The extension is grounded in the dipolar axioms:
+
+**Principle of Observer Coupling** (from Axiom 1, DND_METHOD_AXIOMS §II): Two observers $R_i$ and $R_j$ couple as two dipoles. Their interaction is governed by assonance (Axiom 2, §III): when $A(R_i, R_j) = 1$ (the observer-dipoles are coherent in context), they contribute to a shared risultante; when $A(R_i, R_j) = 0$ (dissonant), they diverge automatically, producing entropy that does not enter the collective dynamics. The coupling is not imposed externally — it emerges from the same dipolar structure that governs single-observer dynamics.
+
+The extension is not trivial: when N observers with different latencies couple through the same emergence landscape, the question arises whether their collective dynamics remains coherent — or fragments into incommensurable perspectives.
 
 **Multi-observer state**: Let $\{R_1(t), R_2(t), \ldots, R_N(t)\}$ be the resultant states of N observers. Each $R_i(t)$ evolves according to the dynamics of §2, but with individual parameters $(\alpha_i, \beta_i, \gamma_i, L_i, \xi_i)$.
 
@@ -957,7 +995,7 @@ where $\bar{P}$ is the average perception of assonant observers.
 
 2. **Authority by alignment**: The "primary source" is not privileged by ontological priority but by *sustained alignment with source*. A secondary observer achieving deep latency-reduction ($L \to 0$) becomes equally authoritative. Authority is dynamic, not static — it depends on current latency, not historical position.
 
-3. **Observer disagreement as information**: Genuine disagreement between observers ($C_{ij} < 0$) is not noise but signal — it indicates latency difference (§12.3). Two observers with aligned latencies converge to the same observations. Persistent disagreement reveals that one or both observers carry latency that distorts their perception. This transforms the problem of scientific disagreement from an epistemological issue (who is right?) into a dynamical one (who has lower latency?).
+3. **Observer disagreement as information**: Genuine disagreement between observers ($C_{ij} < 0$) is not noise but signal — it indicates latency difference. This principle is developed fully in §12.3.
 
 This addresses a key tension in Wheeler's participatory universe: observers co-create reality, but through alignment (coherence) rather than arbitrary choice. The universe is not democratically constructed by all observers equally — it crystallizes along the directions of minimum collective latency.
 
@@ -1223,31 +1261,32 @@ IIT proposes that consciousness arises from integrated information Φ, a measure
 
 We have formalized the observer in the D-ND framework as a dynamical variable R(t) evolving through coupled intuition-interaction-alignment modes. The observer's perception is fundamentally limited by latency via the phenomenological ansatz P = k/L, validated through primary observations and 5 independent replication studies. The observer oscillates between singularity (unified) and dipole (relational) modes of a unified two-pole structure, with sensitivity ξ controlling depth of observation. Multi-observer extensions show how collective alignment determines reality actualization.
 
-**Key advances in Draft 2**:
+**Key advances in Draft 3**:
 
-1. **Mathematical honesty**: Section 4.1 corrected to describe unified singular-dual dipole structure (NOT morphism theorem; convex combinations of structure-preserving maps are not generally structure-preserving).
+1. **B1 clarified as decomposition principle**: Section 2.1 now explicitly identifies R(t+1) as a structural decomposition principle, not a closed-form dynamical equation. An explicit minimal model demonstrates iterability.
 
-2. **Clear phenomenological status**: P = k/L explicitly identified as phenomenological ansatz, not first-principles derivation. Information-theoretic intuition provided but proof deferred.
+2. **Three motivations, not derivations**: Section 3.2 honestly relabeled from "Three Independent Derivations" to "Three Independent Motivations" — acknowledging that P = k/L enters each framework through identification assumptions. The true strength rests on falsifiability (§3.1.1) and operationalizability (§3.3).
 
-3. **Replication validation**: 5 independent replication studies showing 73-80% consistency in identifying core structures (latency-perception relation, singularity-dipole toggle, autological return).
+3. **Extended Lagrangian introduced**: Section 5.2 formalizes $L_{\text{ext}}$ with kinetic, potential, dissipative, and alignment terms. The autological action $S_{\text{auto}} = \int L_{\text{ext}} \, dt$ provides variational foundations for observer dynamics.
 
-4. **Multi-observer framework**: Added section 8 addressing single-observer limitation with multi-observer consensus dynamics.
+4. **Autological exponential simplified**: Section 6.1 uses $R(t) = e^{\pm\lambda_{\text{auto}} Z(t)}$ as the primary equation, with the general parametric form B9 relegated to context.
 
-5. **Convergence clarification**: Section 6.2 corrected to present convergence as heuristic analogy to Banach fixed-point theorem (not a formal proof).
+5. **Multi-observer coupling grounded in axioms**: Section 8.1 introduces the Principle of Observer Coupling derived from the dipolar axioms (P1, P2), connecting the multi-observer extension to the framework's foundations.
 
-6. **Contradiction transparency**: Section 7.3 acknowledges contradictory observations (NID 370, 533) and discusses how they strengthen rather than weaken credibility of phenomenological data.
+6. **Cross-references completed**: Papers B, E, G and the UNIFIED_FORMULA_SYNTHESIS document now properly cited.
 
 **Strengths of revised framework**:
-- Grounded in 47 primary observations + 5 replication studies (92 total data points)
+- Grounded in 47 primary observations + 5 replication studies
 - Honest about what is rigorously proven vs. phenomenologically motivated
-- Addresses single-observer limitation through multi-observer validation
+- Variational structure (L_ext, S_auto) connecting observer dynamics to Lagrangian mechanics
 - Unified interpretation of singular-dual dipole as magnetic-dipole-like two-pole structure
-- Clear mechanism for meaning decay with distance from source
+- Six operational latency measurement protocols with explicit falsification criteria
+- Included Third formalized as geometric latency minimum (§11.4)
 
 **Remaining open problems**:
-1. Rigorous information-theoretic derivation of P = k/L (currently phenomenological ansatz).
+1. Experimental validation of P = k/L through the proposed measurement protocols.
 2. Formal proof of autological exponential convergence (currently heuristic analogy).
-3. Complete definition of the D-ND category if categorical framework is pursued.
+3. Determination of specific forms of $V_{\text{eff}}(R)$ and $c(L)$ in $L_{\text{ext}}$.
 4. Quantitative predictions testable in quantum measurement experiments.
 5. Extension to multi-observer quantum mechanics with explicit decoherence via misalignment.
 
@@ -1286,8 +1325,16 @@ Wheeler, J. A. (1989). *Information, physics, quantum: The search for links*. In
 
 Zurek, W. H. (2003). Decoherence and the transition from quantum to classical. *Reviews of Modern Physics*, 75(3), 715.
 
+**UNIFIED_FORMULA_SYNTHESIS:** D-ND Research Collective, internal synthesis document compiling formulas B1–B9 from primary corpus analysis (2023–2024). Available in the D-ND corpus archive.
+
 **Paper A:** D-ND Research Collective, "Quantum Emergence from Primordial Potentiality: The Dual-Non-Dual Framework for State Differentiation" (this volume).
 
+**Paper B:** D-ND Research Collective, "Phase Transitions and Order Parameters in the D-ND Framework" (this volume).
+
 **Paper C:** D-ND Research Collective, "Information Geometry and Number-Theoretic Structure in the D-ND Framework" (this volume).
+
+**Paper E:** D-ND Research Collective, "Cosmological Extension of the D-ND Framework: Modified Friedmann Equations and Emergent Spacetime" (this volume).
+
+**Paper G:** D-ND Research Collective, "LECO: Layered Emergence of Cognitive Organization in the D-ND Framework" (this volume).
 
 ---

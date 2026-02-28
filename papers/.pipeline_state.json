@@ -1,0 +1,166 @@
+{
+  "papers": {
+    "A": {
+      "phase": "PHASE_3",
+      "last_draft": "paper_A_draft3.md",
+      "draft_version": "3.1",
+      "last_commit": "a21162d",
+      "maturation_report": null,
+      "quick_audit": "notes/QUICK_AUDIT_A.md",
+      "site_ready_en": "site_ready/paper_A.md",
+      "site_ready_it": "site_ready/paper_A_IT.md",
+      "latex": "latex/paper_A_template.tex",
+      "site_page_slug": "paper-a-quantum-emergence",
+      "published_at": "2026-02-27",
+      "completeness": 97,
+      "dependencies": ["KERNEL_SEED", "DND_METHOD_AXIOMS"],
+      "dependents": ["B", "C", "D", "E"],
+      "audit_findings": {
+        "critical": 0,
+        "major": 0,
+        "minor": 0,
+        "note": "3 issues fixed in draft 3.1: decoherence rate status, Theorem 1 framing, Omega_NT status"
+      }
+    },
+    "B": {
+      "phase": "PHASE_3",
+      "last_draft": "paper_B_draft3.md",
+      "draft_version": "3.1",
+      "last_commit": "a21162d",
+      "maturation_report": null,
+      "quick_audit": "notes/QUICK_AUDIT_B.md",
+      "site_ready_en": "site_ready/paper_B.md",
+      "site_ready_it": "site_ready/paper_B_IT.md",
+      "latex": null,
+      "site_page_slug": "paper-b-phase-transitions",
+      "published_at": "2026-02-27",
+      "completeness": 97,
+      "dependencies": ["A", "DND_METHOD_AXIOMS"],
+      "dependents": ["C", "D", "E"],
+      "audit_findings": {
+        "critical": 0,
+        "major": 0,
+        "minor": 0,
+        "note": "3 issues fixed in draft 3.1: master equation B1 source, mean-field exponents framing, stability criterion"
+      }
+    },
+    "C": {
+      "phase": "PUBLISHED",
+      "last_draft": "paper_C_draft3.md",
+      "draft_version": "3.0",
+      "last_commit": "096ed82",
+      "maturation_report": "MATURATION_REPORT_C.md",
+      "quick_audit": null,
+      "site_ready_en": "site_ready/paper_C.md",
+      "site_ready_it": "site_ready/paper_C_IT.md",
+      "latex": "latex/paper_C.tex",
+      "site_page_slug": "paper-c-information-geometry",
+      "published_at": "2026-02-27",
+      "completeness": 98,
+      "dependencies": ["A", "B", "DND_METHOD_AXIOMS"],
+      "dependents": ["D", "E"],
+      "audit_findings": {
+        "critical": 0,
+        "major": 0,
+        "minor": 0,
+        "note": "Full maturation complete. 8 figures, 3 validation scripts, LaTeX compiled."
+      }
+    },
+    "D": {
+      "phase": "PUBLISHED",
+      "last_draft": "paper_D_draft3.md",
+      "draft_version": "3.0",
+      "last_commit": "096ed82",
+      "maturation_report": "MATURATION_REPORT_D.md",
+      "quick_audit": null,
+      "site_ready_en": "site_ready/paper_D.md",
+      "site_ready_it": "site_ready/paper_D_IT.md",
+      "latex": "latex/paper_D.tex",
+      "site_page_slug": "paper-d-observer-dynamics",
+      "published_at": "2026-02-27",
+      "completeness": 95,
+      "dependencies": ["A", "B", "C", "DND_METHOD_AXIOMS"],
+      "dependents": ["E", "G"],
+      "audit_findings": {
+        "critical": 0,
+        "major": 0,
+        "minor": 2,
+        "note": "3C+5M+4m findings. Critical fixes applied in draft 3.0."
+      }
+    },
+    "E": {
+      "phase": "PHASE_3",
+      "last_draft": "paper_E_draft3.md",
+      "draft_version": "3.1",
+      "last_commit": null,
+      "maturation_report": null,
+      "quick_audit": "notes/QUICK_AUDIT_E.md",
+      "site_ready_en": "site_ready/paper_E.md",
+      "site_ready_it": "site_ready/paper_E_IT.md",
+      "latex": null,
+      "site_page_slug": "paper-e-cosmological-extension",
+      "published_at": "2026-02-27",
+      "completeness": 96,
+      "dependencies": ["A", "B", "D", "DND_METHOD_AXIOMS"],
+      "dependents": ["G"],
+      "audit_findings": {
+        "critical": 0,
+        "major": 0,
+        "minor": 0,
+        "note": "3 issues fixed in draft 3.1: S7 status calibration, Omega_NT as conjecture, corpus extraction removed"
+      }
+    },
+    "F": {
+      "phase": "PHASE_3",
+      "last_draft": "paper_F_draft3.md",
+      "draft_version": "3.0",
+      "last_commit": "48b8b8b",
+      "maturation_report": "MATURATION_REPORT_F.md",
+      "quick_audit": null,
+      "site_ready_en": "site_ready/paper_F.md",
+      "site_ready_it": "site_ready/paper_F_IT.md",
+      "latex": "latex/paper_F.tex",
+      "site_page_slug": "paper-f-quantum-information-engine",
+      "published_at": "2026-02-27",
+      "completeness": 93,
+      "dependencies": ["A", "B", "DND_METHOD_AXIOMS"],
+      "dependents": ["G"],
+      "audit_findings": {
+        "critical": 0,
+        "major": 3,
+        "minor": 2,
+        "note": "4C+9M+5m findings. Critical fixes applied. P5 bridge note pending (notes/P5_autopoiesis_bridge_F.md)."
+      }
+    },
+    "G": {
+      "phase": "PHASE_3",
+      "last_draft": "paper_G_draft3.md",
+      "draft_version": "3.1",
+      "last_commit": null,
+      "maturation_report": null,
+      "quick_audit": "notes/QUICK_AUDIT_G.md",
+      "site_ready_en": "site_ready/paper_G.md",
+      "site_ready_it": "site_ready/paper_G_IT.md",
+      "latex": null,
+      "site_page_slug": "paper-g-leco-dnd",
+      "published_at": "2026-02-27",
+      "completeness": 94,
+      "dependencies": ["A", "B", "D", "E", "DND_METHOD_AXIOMS"],
+      "dependents": [],
+      "audit_findings": {
+        "critical": 0,
+        "major": 1,
+        "minor": 5,
+        "note": "3 issues: Theorem 4.1 conditionals, Omega_NT status, Matrix Bridge refs. First two fixed in 3.1. Refs require operator decision."
+      }
+    }
+  },
+  "cross_paper_status": {
+    "omega_nt_alignment": "All papers aligned: Omega_NT = 2pi*i is 'motivated conjecture from WKB analysis' (Paper A source, propagated to B, E, G)",
+    "corpus_mining_cleanup": "Removed from Papers B and E. Not present in A, C, D, F, G.",
+    "mean_field_exponents": "Paper B §4.2 now explicitly scoped as mean-field results with validity regime"
+  },
+  "last_check": "2026-02-28T16:00:00Z",
+  "last_commit_processed": "a21162d",
+  "pipeline_version": "1.0"
+}

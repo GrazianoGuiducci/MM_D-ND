@@ -4,7 +4,7 @@
 
 **Authors:** D-ND Research Collective
 **Date:** February 13, 2026
-**Status:** Working Draft 2.0 — Under Review
+**Status:** Working Draft 3.0 — Post-Maturation (3 critical, 5 major fixes applied)
 **Target:** Communications in Mathematical Physics / Studies in Applied Mathematics
 
 ---
@@ -67,11 +67,11 @@ The emergence landscape is the geometric space of possible states $R(t) = U(t)\m
 
 3. **Topological classification** via a Gauss-Bonnet type topological charge $\chi_{\text{DND}}$ that is quantized and counts topological sectors of emergence states, with explicit 2D computation and discussion of higher-dimensional extensions.
 
-4. **Spectral interpretation**: Derivation of the Riemann zeta function from D-ND spectral data via Formula A6.
+4. **Spectral interpretation**: Construction of a D-ND spectral zeta function $Z_{\text{DND}}(s)$ analogous to the Riemann zeta function, encoding both eigenvalue density and curvature corrections.
 
 5. **Cyclic coherence and winding number**: Connection of $\Omega_{\text{NT}} = 2\pi i$ (cyclic phase) to the winding number of the zeta function.
 
-6. **Unified constant derivation**: Explanation of Formula A9 ($U = e^{i\pi} + \hbar G/c^3 + \ln(e^{2\pi}/\hbar)$) as the natural scale bridging quantum mechanics and number theory.
+6. **Unified constant analysis** (Appendix A): Examination of Formula A9 ($U = e^{i\pi} + \hbar G/c^3 + \ln(e^{2\pi}/\hbar)$) as a symbolic representation of the three scales converging at the Planck regime.
 
 7. **Elliptic curve structure**: Characterization of stable emergence states as rational points on an elliptic curve with possibilistic density, including Mordell-Weil theorem context.
 
@@ -112,35 +112,32 @@ $$g_{ij}(\theta) = \mathbb{E}_{p}\left[\frac{\partial \ln p}{\partial \theta_i} 
 
 The scalar Ricci curvature $\mathcal{R}$ (in the information-geometric sense) measures the deviation of geodesic distances from Euclidean geometry.
 
-**Proposition 1** (Informal): The generalized informational curvature $K_{\text{gen}}$ is related to the Ricci curvature of the Fisher metric by:
-$$K_{\text{gen}} = \mathcal{R} + \text{(geometric drift terms)}$$
-for suitable choice of metric on $M$ identified with the manifold of emergence states.
-
-**Justification**: The Fisher metric governs the local geometry of parameter space. The Ricci curvature measures geodesic focusing. In the context of emergence, the manifold $M$ has natural parameters $\theta = \{\lambda_k\}$ (emergence eigenvalues) that determine the state. The Fisher metric becomes:
+**Proposition 1** (Decomposition of $K_{\text{gen}}$): Let $M$ be the emergence manifold parametrized by $\theta = \{\lambda_k\}$ (emergence eigenvalues), equipped with the Fisher information metric
 $$g_{\lambda_k \lambda_\ell} = \int \frac{\partial \rho}{\partial \lambda_k} \frac{\partial \rho}{\partial \lambda_\ell} \frac{d^Dx}{\rho}$$
-where $\rho(x|\{\lambda_k\})$ is the emergent probability density. The curvature of this metric, when combined with the drift $F$, yields $K_{\text{gen}}$.
+where $\rho(x|\{\lambda_k\})$ is the emergent probability density. Then the generalized informational curvature decomposes as:
+$$K_{\text{gen}} = \mathcal{R}_F + \frac{1}{\rho} \nabla_\mu \left( J^\mu F^\nu g_{\nu\alpha} n^\alpha \right)$$
+where $\mathcal{R}_F$ is the Ricci scalar of the Fisher metric and the second term is the **dynamical drift** — the covariant divergence of the information-force coupling projected along the normal $n^\alpha$ to the level sets of the emergence potential.
+
+**Proof sketch**:
+1. On each temporal slice $M_t$, the Fisher metric $g_F$ induces a Ricci scalar $\mathcal{R}_F(t) = g^{\lambda_k \lambda_\ell} R_{\lambda_k \lambda_\ell}(t)$ via the standard Levi-Civita connection.
+2. From the definition (§2.1), $K_{\text{gen}} = \nabla_M \cdot (J \otimes F)$. Expanding in the Fisher-adapted coordinate basis and separating the static (metric-dependent) and dynamic (flow-dependent) contributions yields the decomposition above.
+3. The static part $\mathcal{R}_F$ captures the intrinsic curvature of the parameter space — the nonlinearity of the statistical model family.
+4. The dynamical drift captures how information flow $J$ and force $F$ diverge or converge beyond what the metric geometry prescribes. This term vanishes identically when the system is in statistical equilibrium ($J = 0$), recovering $K_{\text{gen}} = \mathcal{R}_F$.
+5. At critical points where the drift term balances the Fisher curvature, $K_{\text{gen}}$ achieves the critical value $K_c$ independent of local statistical details — a universal threshold that connects to number-theoretic structure (§4.2).
+
+**Physical interpretation**: $K_{\text{gen}}$ subsumes the Fisher curvature (information geometry) and adds dynamical forcing. In the static limit it reduces to standard information-geometric curvature; under emergence dynamics it captures the full information-dynamical structure of the landscape.
 
 ### 2.3 K_gen as Generalization of Fisher Curvature on the Emergence Manifold
 
-**Proposition 2** (K_gen Generalization): The generalized informational curvature $K_{\text{gen}}$ is a natural extension of the Fisher-metric-induced curvature $\mathcal{R}_F$ to the full emergence landscape, incorporating both statistical and dynamical components.
+**Proposition 2** (Limiting cases of $K_{\text{gen}}$): The decomposition from Proposition 1 admits three distinguished limits:
 
-**Proof sketch**:
-1. On the emergence manifold $M = \{\text{states parametrized by } \{\lambda_k\}\}$, the Fisher metric induces curvature $\mathcal{R}_F$.
+1. **Static limit** ($J = 0$): $K_{\text{gen}} = \mathcal{R}_F$. The generalized curvature reduces to the Fisher-Ricci curvature. This applies to equilibrium statistical models.
 
-2. The emergence landscape $M$ admits decomposition into submanifolds: temporal slices $M_t$ and spatial slices $M_x$.
+2. **Flat-metric limit** ($\mathcal{R}_F = 0$): $K_{\text{gen}} = \rho^{-1} \nabla_\mu (J^\mu F^\nu g_{\nu\alpha} n^\alpha)$. The curvature is purely dynamical. This applies to exponential families (which have flat Fisher geometry).
 
-3. On each temporal slice $M_t$, the Fisher metric $g_F$ governs the local geometry. The Ricci scalar is:
-$$\mathcal{R}_F(t) = g^{\lambda_k \lambda_\ell} R_{\lambda_k \lambda_\ell}(t)$$
+3. **Critical limit** ($K_{\text{gen}} = K_c$): $\mathcal{R}_F = K_c - \rho^{-1} \nabla \cdot (J \otimes F)_n$. The Fisher curvature is determined by the critical threshold minus the dynamical drift — a constraint that connects to zeta zero structure (§4.2).
 
-4. The additional term $(J \otimes F)$ captures the dynamical evolution. The divergence $\nabla \cdot (J \otimes F)$ measures the rate at which information and force diverge or converge.
-
-5. **Unified form**: The generalized curvature is
-$$K_{\text{gen}} = \mathcal{R}_F + \frac{1}{Z} \nabla \cdot (J \otimes F)$$
-where $Z$ is a normalization constant ensuring dimensional consistency.
-
-6. At critical points where emergence dynamics undergo phase transitions, $K_{\text{gen}}$ achieves critical values $K_c$ independent of the statistical details — a property that connects to number-theoretic structure.
-
-**Interpretation**: $K_{\text{gen}}$ subsumes Fisher curvature (information geometry) and adds dynamical forcing. It describes the full **information-dynamical** structure of emergence.
+**Proof**: Each limit follows directly from the decomposition in Proposition 1 by setting the appropriate terms to zero or to the critical value. The flat-metric case uses the Čencov-Campbell theorem: on exponential families, the Fisher metric has zero Ricci curvature in the natural parametrization (Amari 2016, Theorem 3.5). $\square$
 
 ---
 
@@ -262,14 +259,20 @@ In the D-ND framework, the emergence operator $\mathcal{E}$ has spectral decompo
 $$\mathcal{E} = \sum_{k=1}^M \lambda_k |e_k\rangle\langle e_k|$$
 with eigenvalues $\lambda_k \in [0,1]$.
 
-**Formula A6** (from the synthesis document) states:
-$$\zeta(s) \approx \int (\rho(x) e^{-sx} + K_{\text{gen}}) \, dx$$
-where $\rho(x)$ is a possibilistic density and $K_{\text{gen}}$ is the curvature.
+**Spectral approximation** (motivating formula): The standard integral representation of the Riemann zeta function (via Mellin transform of the theta function) is:
+$$\zeta(s) = \frac{1}{\Gamma(s)} \int_0^\infty \frac{x^{s-1}}{e^x - 1} \, dx, \quad \text{Re}(s) > 1$$
+
+In the D-ND framework, the emergence operator $\mathcal{E}$ with eigenvalues $\{\lambda_k\}$ generates a spectral density $\rho_\mathcal{E}(x) = \sum_k \delta(x - \lambda_k)$. Replacing the arithmetic density in the Mellin integral with the D-ND spectral density yields a **formal spectral analogue**:
+$$Z_{\text{DND}}(s) = \int_0^\infty \rho_\mathcal{E}(x) \, x^{-s} \, dx + \int_M K_{\text{gen}} \, \mu(dx)$$
+
+The first term is a spectral zeta function of $\mathcal{E}$ (cf. Minakshisundaram-Pleijel 1949). The second term is the curvature correction — the integral of $K_{\text{gen}}$ over the emergence manifold, which by Gauss-Bonnet (§3.1) contributes the topological charge. This is not an identity but a **structural analogy**: $Z_{\text{DND}}(s)$ encodes both spectral (arithmetic) and geometric (curvature) data, paralleling how $\zeta(s)$ encodes prime distribution and analytic structure.
 
 **Interpretation**: The zeta function can be viewed as a *spectral invariant* of the emergence landscape:
-1. The $e^{-sx}$ term contributes a density-weighted spectral sum (related to prime distribution).
-2. The $K_{\text{gen}}$ term contributes the geometric structure (curvature corrections).
-3. Together, they encode both arithmetic (density of primes) and geometric (landscape curvature) information.
+1. The spectral term encodes the eigenvalue distribution of $\mathcal{E}$ (related to prime distribution via the conjecture of §4.2).
+2. The curvature term contributes the geometric structure (topological corrections via $\chi_{\text{DND}}$).
+3. Together, they encode both arithmetic (spectral density) and geometric (landscape curvature) information.
+
+**Status**: This spectral analogy is a *motivating construction*, not a proven identity. The conjecture that $Z_{\text{DND}}(s)$ reproduces the analytic properties of $\zeta(s)$ (specifically, shared zeros on the critical line) is the content of §4.2.
 
 ### 4.2 Central Conjecture: Curvature Zeros and Zeta Zeros
 
@@ -451,7 +454,7 @@ This potential can be identified with the informational potential encoding the z
 
 ### 4.5 Angular Loop Momentum and Auto-Coherence Mechanism
 
-A complementary mechanism for understanding the alignment of curvature and zeta zeros derives from the **angular loop momentum** (derived in the companion Zeta proof document). This provides an auto-coherence mechanism explaining why zeta zeros are self-referential stability points.
+A complementary mechanism for understanding the alignment of curvature and zeta zeros derives from the **angular loop momentum** (developed in the D-ND formula synthesis document [UNIFIED_FORMULA_SYNTHESIS]). This provides an auto-coherence mechanism explaining why zeta zeros are self-referential stability points.
 
 **Key observations**:
 
@@ -583,7 +586,7 @@ The latency contribution vanishes asymptotically only at special points in emerg
 
 #### 5.4.2 NT Closure Theorem — Three Conditions
 
-**Conjecture** (NT Closure): The NT continuum achieves **topological closure** — a state in which the number-theoretic structure becomes topologically isolated and self-contained — if and only if the following three conditions hold *simultaneously*:
+**Conjecture** (NT Closure — Sufficient Conditions): The NT continuum achieves **topological closure** — a state in which the number-theoretic structure becomes topologically isolated and self-contained — if the following three conditions hold *simultaneously*:
 
 **Condition 1** (Latency vanishes):
 $$L_{\text{lat}} \to 0$$
@@ -603,9 +606,10 @@ where:
 
 This condition states that the gradient of curvature and the gradient of possibility are **orthogonal** — they are independent, non-interfering directions on the emergence manifold. This ensures that changes in curvature structure do not directly drive changes in possibility, and vice versa.
 
-**Sufficiency and necessity**: These three conditions are **necessary and sufficient** for topological closure. That is:
-- If all three hold, the NT continuum achieves closure.
-- If any one fails, closure does not occur.
+**Sufficiency**: These three conditions are **jointly sufficient** for topological closure:
+- If all three hold simultaneously, the NT continuum achieves closure.
+
+**Remark on necessity**: We conjecture but do not prove that these conditions are also necessary. The proof sketch below establishes sufficiency. Necessity would require showing that no other combination of conditions can produce topological closure — an open problem that likely requires a classification of all fixed points of the emergence dynamics. We leave this as a direction for future work.
 
 **Proof sketch**:
 1. Condition 1 (latency → 0) ensures that the system reaches a stationary state without temporal distortion. The stability condition (§5.4.1) is automatically satisfied when latency vanishes.
@@ -637,7 +641,7 @@ When the closure conditions normalize this residue to unity, the integral yields
 
 **Physical meaning**: The contour integral measures the total "rotation" of the curvature-possibility product around the singular closure point. The value $2\pi i$ signals a topological invariant: the emergence landscape has completed one full cycle of differentiation and re-integration.
 
-#### 5.4.4 Auto-Alignment Corollary
+#### 5.4.3 Auto-Alignment Corollary
 
 **Corollary** (Auto-Alignment): When all three closure conditions are simultaneously satisfied, the contour integral of the curvature-possibility product achieves perfect **auto-alignment**:
 $$\oint_{\text{NT}} R \cdot P \, dZ = \Omega_{\text{NT}} = 2\pi i$$
@@ -661,7 +665,7 @@ When these align, the system achieves a state of maximal coherence — the possi
 
 The auto-alignment corollary thus **unifies** the algebraic-geometric constraints (elliptic curves) with the spectral constraints (zeta zeros), showing they are two facets of the same informational equilibrium condition.
 
-#### 5.4.3 Connection to Zeta Zeros: Informational Equilibrium
+#### 5.4.4 Connection to Zeta Zeros: Informational Equilibrium
 
 **Conjecture** (Zeta-Stability Correspondence): At each zero of the Riemann zeta function on the critical line, $\zeta(1/2 + it_n) = 0$, the generalized informational curvature achieves its critical value:
 $$K_{\text{gen}}(x_c(t_n), t_n) = K_c$$
@@ -747,55 +751,9 @@ Progress toward proof or refutation can be marked by:
 
 ---
 
-## 7. Unified Constant and Planck Scale
+## 7. Relation to Berry-Keating Conjecture
 
-### 7.1 Derivation: $U = e^{i\pi} + \hbar G/c^3 + \ln(e^{2\pi}/\hbar)$
-
-**Formula A9** defines the unified constant:
-$$U = e^{i\pi} + \frac{\hbar G}{c^3} + \ln\left(\frac{e^{2\pi}}{\hbar}\right)$$
-
-This combines three fundamental scales:
-
-**Term 1: $e^{i\pi} = -1$**
-- Represents the quantum phase at the heart of complex analysis.
-- Links to the Euler identity $e^{i\pi} + 1 = 0$, perhaps the most beautiful equation in mathematics.
-- Significance: The quantum phase wrapping around the origin.
-
-**Term 2: $\hbar G/c^3$**
-- $\hbar$ is the quantum scale (action).
-- $G$ is the gravitational constant.
-- $c$ is the speed of light.
-- $\hbar G/c^3$ is a Planck-scale quantity (dimensionally equal to $\ell_P^2$, related to the Planck length squared).
-- Significance: Bridges quantum mechanics and gravity.
-
-**Term 3: $\ln(e^{2\pi}/\hbar)$**
-- $e^{2\pi}$ is the exponential of $2\pi$ (the cyclic quantum phase).
-- $\ln(e^{2\pi}/\hbar) = 2\pi - \ln(\hbar)$ measures the ratio of cyclic phase to quantum action.
-- Significance: Compares the natural cyclic phase (2π) to the quantum scale.
-
-**Combined meaning**:
-$$U = \text{(quantum phase)} + \text{(quantum-gravity scale)} + \text{(cyclic-to-quantum ratio)}$$
-
-**Dimensional caveat.** As written, this expression combines a dimensionless complex number ($e^{i\pi} = -1$), a quantity with dimensions of length$^2$ ($\hbar G/c^3 = \ell_P^2$), and a dimensionless logarithm. A physically meaningful expression requires working in natural units ($\hbar = c = G = 1$) or introducing appropriate dimensionful conversion factors. In natural units, $U = -1 + 1 + \ln(e^{2\pi}) = 2\pi$, recovering the cyclic phase. The expression is best understood as a *symbolic representation* of the three scales that unify at the Planck regime, rather than a literal numerical equation in SI units. It appears in the unified action functional for the D-ND system (Paper A, Formula A9).
-
-### 7.2 Connection to Planck Scale and Information Units
-
-The Planck length is:
-$$\ell_P = \sqrt{\frac{\hbar G}{c^3}} \approx 1.616 \times 10^{-35} \, \text{m}$$
-
-The unified constant $U$ encodes the Planck scale through the second term. More precisely:
-$$\frac{\hbar G}{c^3} \propto \ell_P^2$$
-
-In natural units where $\hbar = c = 1$, the unified constant simplifies:
-$$U_{\text{natural}} = -1 + G + \ln(e^{2\pi}) = -1 + G + 2\pi$$
-
-This suggests that at the Planck scale, geometry ($G$, spacetime curvature), quantum mechanics (phase $-1$), and cyclicity ($2\pi$) are intimately linked.
-
----
-
-## 8. Relation to Berry-Keating Conjecture
-
-### 8.1 Berry-Keating Framework
+### 7.1 Berry-Keating Framework
 
 Berry & Keating (1999) proposed that zeros of $\zeta(1/2 + it)$ correspond to eigenvalues of a quantum Hamiltonian:
 $$\hat{H}_{\text{zeta}} |\psi_n\rangle = E_n |\psi_n\rangle$$
@@ -807,7 +765,7 @@ where $\hat{x}, \hat{p}$ are position and momentum operators (satisfying $[\hat{
 
 This is a logarithmic operator in phase space — unconventional but mathematically precise.
 
-### 8.2 D-ND as Refinement of Berry-Keating
+### 7.2 D-ND as Refinement of Berry-Keating
 
 **Interpretive proposal**: The D-ND framework provides a candidate *physical realization* of the Berry-Keating program. Specifically:
 
@@ -833,7 +791,7 @@ $$C = \int d^4x \, K_{\text{gen}}(x,t) |x\rangle\langle x|$$
 
 ---
 
-## 9. Conclusions
+## 8. Conclusions
 
 This paper establishes a mathematical framework connecting information geometry, the D-ND emergence theory (Paper A), and the Riemann zeta function. The central result is a **conjecture** — not a theorem — that critical values of the informational curvature of the emergence landscape correspond to zeros of the Riemann zeta function on the critical line.
 
@@ -847,7 +805,7 @@ This paper establishes a mathematical framework connecting information geometry,
 
 4. **Elliptic curve structure** of emergence states with possibilistic density characterizing classical realizability, including Mordell-Weil theorem context.
 
-5. **Unified constant derivation** connecting quantum mechanics, gravity, and number theory.
+5. **Unified constant analysis** (Appendix A) examining the symbolic connection between quantum mechanics, gravity, and cyclic phase.
 
 6. **Numerical evidence** from three independent computational tests against the first 100 verified zeta zeros, revealing a two-scale structure: logarithmic spectra encode zero positions ($r = 0.921$), linear spectra encode gap statistics (KS = 0.152).
 
@@ -867,6 +825,25 @@ This paper establishes a mathematical framework connecting information geometry,
 - Investigation of the elliptic curve structure in detail, relating rational points to specific zeta zeros.
 
 The D-ND framework and its connection to number theory remain **conjectural** at this stage. However, the numerical evidence presented here — particularly the strong and selective correlation under logarithmic spectral structure, the GUE-compatible gap statistics under linear structure, and the verified topological quantization — suggests that the apparent coincidence of emergence curvature and prime zeros is not accidental, but reflects a deeper structural correspondence in the fabric of quantum reality.
+
+---
+
+## Appendix A. Unified Constant and Planck Scale
+
+**Formula A9** (from Paper A) defines the unified constant:
+$$U = e^{i\pi} + \frac{\hbar G}{c^3} + \ln\left(\frac{e^{2\pi}}{\hbar}\right)$$
+
+This expression combines three scales:
+- **$e^{i\pi} = -1$**: the quantum phase (Euler identity).
+- **$\hbar G/c^3 = \ell_P^2$**: the Planck-scale coupling of quantum mechanics and gravity.
+- **$\ln(e^{2\pi}/\hbar) = 2\pi - \ln(\hbar)$**: the cyclic-to-quantum ratio.
+
+**Dimensional caveat.** As written, this expression combines a dimensionless complex number, a quantity with dimensions of length$^2$, and a dimensionless logarithm. In natural units ($\hbar = c = G = 1$), $U = -1 + 1 + 2\pi = 2\pi$, recovering the cyclic phase. The expression is best understood as a *symbolic representation* of the three scales that unify at the Planck regime, rather than a literal numerical equation in SI units.
+
+In natural units where $\hbar = c = 1$:
+$$U_{\text{natural}} = -1 + G + 2\pi$$
+
+This suggests that at the Planck scale, geometry ($G$), quantum mechanics (phase $-1$), and cyclicity ($2\pi$) converge. The relationship to the cyclic coherence $\Omega_{\text{NT}} = 2\pi i$ (§3.4) is suggestive but not proven: the real part $2\pi$ of the natural-units constant matches the modulus of the cyclic phase.
 
 ---
 

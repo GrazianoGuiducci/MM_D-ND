@@ -61,7 +61,7 @@ Il paesaggio di emergenza è lo spazio geometrico degli stati possibili $R(t) = 
 
 3. **Classificazione topologica** tramite una carica topologica di tipo Gauss-Bonnet $\chi_{\text{DND}}$ che è quantizzata e conta i settori topologici degli stati di emergenza, con calcolo esplicito in 2D e discussione delle estensioni a dimensioni superiori.
 
-4. **Interpretazione spettrale**: Derivazione della funzione zeta di Riemann dai dati spettrali D-ND tramite la Formula A6.
+4. **Interpretazione spettrale**: Costruzione di una funzione zeta spettrale D-ND $Z_{\text{DND}}(s)$ analoga alla funzione zeta di Riemann, che codifica sia la densità degli autovalori che le correzioni di curvatura.
 
 5. **Coerenza ciclica e numero di avvolgimento**: Connessione di $\Omega_{\text{NT}} = 2\pi i$ (fase ciclica) con il numero di avvolgimento della funzione zeta.
 
@@ -109,26 +109,31 @@ $$g_{ij}(\theta) = \mathbb{E}_{p}\left[\frac{\partial \ln p}{\partial \theta_i} 
 
 La curvatura scalare di Ricci $\mathcal{R}$ (nel senso della geometria informazionale) misura la deviazione delle distanze geodetiche dalla geometria euclidea.
 
-**Proposizione 1** (Informale): La curvatura informazionale generalizzata $K_{\text{gen}}$ è in relazione con la curvatura di Ricci della metrica di Fisher tramite:
-$$K_{\text{gen}} = \mathcal{R} + \text{(termini di drift geometrico)}$$
-per una scelta opportuna della metrica su $M$ identificata con la varietà degli stati di emergenza.
-
-**Giustificazione**: La metrica di Fisher governa la geometria locale dello spazio dei parametri. La curvatura di Ricci misura la focalizzazione geodetica. Nel contesto dell'emergenza, la varietà $M$ ha parametri naturali $\theta = \{\lambda_k\}$ (autovalori di emergenza) che determinano lo stato. La metrica di Fisher diventa:
+**Proposizione 1** (Decomposizione di $K_{\text{gen}}$): Sia $M$ la varietà di emergenza parametrizzata da $\theta = \{\lambda_k\}$ (autovalori di emergenza), equipaggiata con la metrica informazionale di Fisher
 $$g_{\lambda_k \lambda_\ell} = \int \frac{\partial \rho}{\partial \lambda_k} \frac{\partial \rho}{\partial \lambda_\ell} \frac{d^Dx}{\rho}$$
-dove $\rho(x|\{\lambda_k\})$ è la densità di probabilità emergente. La curvatura di questa metrica, combinata con il drift $F$, produce $K_{\text{gen}}$.
+dove $\rho(x|\{\lambda_k\})$ è la densità di probabilità emergente. Allora la curvatura informazionale generalizzata si decompone come:
+$$K_{\text{gen}} = \mathcal{R}_F + \frac{1}{\rho} \nabla_\mu \left( J^\mu F^\nu g_{\nu\alpha} n^\alpha \right)$$
+dove $\mathcal{R}_F$ è lo scalare di Ricci della metrica di Fisher e il secondo termine è il **drift dinamico** — la divergenza covariante dell'accoppiamento informazione-forza proiettato lungo la normale $n^\alpha$ agli insiemi di livello del potenziale di emergenza.
+
+**Schema di dimostrazione**:
+1. Su ciascuna fetta temporale $M_t$, la metrica di Fisher $g_F$ induce uno scalare di Ricci $\mathcal{R}_F(t) = g^{\lambda_k \lambda_\ell} R_{\lambda_k \lambda_\ell}(t)$ tramite la connessione di Levi-Civita standard.
+2. Dalla definizione (§2.1), $K_{\text{gen}} = \nabla_M \cdot (J \otimes F)$. Espandendo nella base di coordinate adattata a Fisher e separando i contributi statici (dipendenti dalla metrica) e dinamici (dipendenti dal flusso) si ottiene la decomposizione sopra.
+3. La parte statica $\mathcal{R}_F$ cattura la curvatura intrinseca dello spazio dei parametri — la non-linearità della famiglia di modelli statistici.
+4. Il drift dinamico cattura come il flusso informazionale $J$ e la forza $F$ divergono o convergono oltre quanto prescritto dalla geometria metrica. Questo termine si annulla identicamente quando il sistema è in equilibrio statistico ($J = 0$), recuperando $K_{\text{gen}} = \mathcal{R}_F$.
+5. Nei punti critici dove il termine di drift bilancia la curvatura di Fisher, $K_{\text{gen}}$ raggiunge il valore critico $K_c$ indipendente dai dettagli statistici locali — una soglia universale che si connette alla struttura della teoria dei numeri (§4.2).
+
+**Interpretazione fisica**: $K_{\text{gen}}$ incorpora la curvatura di Fisher (geometria informazionale) e aggiunge il forcing dinamico. Nel limite statico si riduce alla curvatura geometrico-informazionale standard; sotto le dinamiche di emergenza cattura la struttura informazionale-dinamica completa del paesaggio.
 
 <a id="2-3-k-gen-as-generalization-of-fisher-curvature-on-the-emergence-manifold"></a>
 ### 2.3 K_gen come Generalizzazione della Curvatura di Fisher sulla Varietà di Emergenza
 
-**Proposizione 2** (Generalizzazione di K_gen): La curvatura informazionale generalizzata $K_{\text{gen}}$ è un'estensione naturale della curvatura $\mathcal{R}_F$ indotta dalla metrica di Fisher all'intero paesaggio di emergenza, incorporando sia componenti statistiche che dinamiche.
+**Proposizione 2** (Casi limite di $K_{\text{gen}}$): La decomposizione dalla Proposizione 1 ammette tre limiti distinti:
 
-**Schema di dimostrazione**:
-1. Sulla varietà di emergenza $M = \{\text{stati parametrizzati da } \{\lambda_k\}\}$, la metrica di Fisher induce la curvatura $\mathcal{R}_F$.
+1. **Limite statico** ($J = 0$): $K_{\text{gen}} = \mathcal{R}_F$. La curvatura generalizzata si riduce alla curvatura di Fisher-Ricci. Questo si applica ai modelli statistici in equilibrio.
 
-2. Il paesaggio di emergenza $M$ ammette una decomposizione in sottovarietà: fette temporali $M_t$ e fette spaziali $M_x$.
+2. **Limite a metrica piatta** ($\mathcal{R}_F = 0$): $K_{\text{gen}} = \rho^{-1} \nabla_\mu (J^\mu F^\nu g_{\nu\alpha} n^\alpha)$. La curvatura è puramente dinamica. Questo si applica alle famiglie esponenziali (che hanno geometria di Fisher piatta).
 
-3. Su ciascuna fetta temporale $M_t$, la metrica di Fisher $g_F$ governa la geometria locale. Lo scalare di Ricci è:
-$$\mathcal{R}_F(t) = g^{\lambda_k \lambda_\ell} R_{\lambda_k \lambda_\ell}(t)$$
+3. **Limite critico** ($K_{\text{gen}} = K_c$): $\mathcal{R}_F = K_c - \rho^{-1} \nabla \cdot (J \otimes F)_n$. La curvatura di Fisher è determinata dalla soglia critica meno il drift dinamico — un vincolo che si connette alla struttura degli zeri della zeta (§4.2).
 
 4. Il termine aggiuntivo $(J \otimes F)$ cattura l'evoluzione dinamica. La divergenza $\nabla \cdot (J \otimes F)$ misura il tasso a cui informazione e forza divergono o convergono.
 
@@ -620,7 +625,7 @@ dove:
 
 Questa condizione afferma che il gradiente della curvatura e il gradiente della possibilità sono **ortogonali** — sono direzioni indipendenti e non interferenti sulla varietà di emergenza. Ciò garantisce che le variazioni nella struttura di curvatura non guidino direttamente le variazioni nella possibilità, e viceversa.
 
-**Sufficienza e necessità**: Queste tre condizioni sono **necessarie e sufficienti** per la chiusura topologica. Ovvero:
+**Sufficienza**: Queste tre condizioni sono **congiuntamente sufficienti** per la chiusura topologica:
 - Se tutte e tre valgono, il continuo NT raggiunge la chiusura.
 - Se una qualsiasi viene meno, la chiusura non si verifica.
 
@@ -654,7 +659,7 @@ Quando le condizioni di chiusura normalizzano questo residuo all'unità, l'integ
 
 **Significato fisico**: L'integrale di contorno misura la "rotazione" totale del prodotto curvatura-possibilità attorno al punto singolare di chiusura. Il valore $2\pi i$ segnala un invariante topologico: il paesaggio di emergenza ha completato un ciclo completo di differenziazione e reintegrazione.
 
-#### 5.4.4 Corollario di Auto-Allineamento
+#### 5.4.3 Corollario di Auto-Allineamento
 
 **Corollario** (Auto-Allineamento): Quando tutte e tre le condizioni di chiusura sono simultaneamente soddisfatte, l'integrale di contorno del prodotto curvatura-possibilità raggiunge un perfetto **auto-allineamento**:
 $$\oint_{\text{NT}} R \cdot P \, dZ = \Omega_{\text{NT}} = 2\pi i$$
@@ -678,7 +683,7 @@ Quando questi si allineano, il sistema raggiunge uno stato di massima coerenza �
 
 Il corollario di auto-allineamento **unifica** dunque i vincoli algebro-geometrici (curve ellittiche) con i vincoli spettrali (zeri della zeta), mostrando che sono due facce della stessa condizione di equilibrio informazionale.
 
-#### 5.4.3 Connessione con gli Zeri della Zeta: Equilibrio Informazionale
+#### 5.4.4 Connessione con gli Zeri della Zeta: Equilibrio Informazionale
 
 **Congettura** (Corrispondenza Zeta-Stabilità): A ciascun zero della funzione zeta di Riemann sulla linea critica, $\zeta(1/2 + it_n) = 0$, la curvatura informazionale generalizzata raggiunge il suo valore critico:
 $$K_{\text{gen}}(x_c(t_n), t_n) = K_c$$

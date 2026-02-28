@@ -1,15 +1,15 @@
 # Phase Transitions and Lagrangian Dynamics in the D-ND Continuum: Complete Formulation and Validation
 
 **Authors:** D-ND Research Collective
-**Date:** February 14, 2026
-**Status:** Working Draft 3.0 — Under Review
+**Date:** February 28, 2026
+**Status:** Working Draft 3.1
 **Target:** Physical Review D / Foundations of Physics
 
 ---
 
 ## Abstract
 
-Building on the quantum-theoretic foundations of Paper A (Track A), we present a complete Lagrangian formulation of the Dual-Non-Dual (D-ND) continuum with explicit conservation laws, phase transitions, and information-theoretic dynamics. The observer emerges as the Resultant $R(t)$, parameterized by a single classical order parameter $Z(t) \in [0,1]$, evolving through a Null-All (Nulla-Tutto) space under variational principles. We formulate the **complete Lagrangian** $L_{DND} = L_{kin} + L_{pot} + L_{int} + L_{QOS} + L_{grav} + L_{fluct}$, decomposing quantum emergence (from Paper A §5) into classically tractable terms. From the **effective potential** $V_{eff}(R, NT) = -\lambda(R^2 - NT^2)^2 - \kappa(R \cdot NT)^n$ and interaction term $L_{int} = \sum_k g_k(R_k NT_k + NT_k R_k) + \delta V f_{Pol}(S)$, we derive via Euler-Lagrange the fundamental equation of motion: $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$. We establish **Noether's theorem applied to D-ND symmetries**, deriving conserved quantities including energy $E(t)$ and information current $\mathcal{J}_{\text{info}}(t)$ that govern emergence irreversibility. The cyclic coherence condition $\Omega_{NT} = 2\pi i$ defines periodic orbits and quantization. We establish a comprehensive **phase diagram** in parameter space $(\theta_{NT}, \lambda_{DND})$ exhibiting sharp transitions consistent with the **Ginzburg-Landau universality class**, with detailed derivation of critical exponents ($\beta=1/2, \gamma=1, \delta=3, \nu=1/2$ for mean-field) and spinodal decomposition analysis. We present the **Z(t) master equation** $R(t+1) = P(t) \cdot \exp(\pm\lambda Z(t)) \cdot \int [\text{generative} - \text{dissipation}] dt'$ connecting quantum coherence to classical order. Numerical integration via adaptive Runge-Kutta validates theory: convergence to attractors with $L^2$ error $\sim 8.84 \times 10^{-8}$, Lyapunov exponents confirming stability structure, and bifurcation diagrams matching theory. We introduce **information condensation** mechanism via error dissipation term $\xi \cdot \partial R/\partial t$ that drives classical order from quantum superposition. Finally, we demonstrate how D-ND phase transitions transcend standard Landau theory through the role of information dynamics and compare explicitly with Ising model universality and Kosterlitz-Thouless transitions. This work completes the D-ND framework by providing deterministic, computable dynamics for observer emergence in a continuum of potentiality.
+Building on the quantum-theoretic foundations of Paper A (Track A), we present a complete Lagrangian formulation of the Dual-Non-Dual (D-ND) continuum with explicit conservation laws, phase transitions, and information-theoretic dynamics. The observer emerges as the Resultant $R(t)$, parameterized by a single classical order parameter $Z(t) \in [0,1]$, evolving through a Null-All (Nulla-Tutto) space under variational principles. We formulate the **complete Lagrangian** $L_{DND} = L_{kin} + L_{pot} + L_{int} + L_{QOS} + L_{grav} + L_{fluct}$, decomposing quantum emergence (from Paper A §5) into classically tractable terms. From the **effective potential** $V_{eff}(R, NT) = -\lambda(R^2 - NT^2)^2 - \kappa(R \cdot NT)^n$ and interaction term $L_{int} = \sum_k g_k(R_k NT_k + NT_k R_k) + \delta V f_{Pol}(S)$, we derive via Euler-Lagrange the fundamental equation of motion: $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$. We establish **Noether's theorem applied to D-ND symmetries**, deriving conserved quantities including energy $E(t)$ and information current $\mathcal{J}_{\text{info}}(t)$ that govern emergence irreversibility. The cyclic coherence condition $\Omega_{NT} = 2\pi i$ defines periodic orbits and quantization. We establish a comprehensive **phase diagram** in parameter space $(\theta_{NT}, \lambda_{DND})$ exhibiting sharp transitions consistent with the **Ginzburg-Landau universality class**, with detailed derivation of mean-field critical exponents ($\beta=1/2, \gamma=1, \delta=3, \nu=1/2$), valid for the single-observer global order parameter regime, and spinodal decomposition analysis. We formulate the **Z(t) master equation** $R(t+1) = P(t) \cdot \exp(\pm\lambda Z(t)) \cdot \int [\text{generative} - \text{dissipation}] dt'$ as a motivated ansatz connecting quantum coherence to classical order, derived from Euler-Forward discretization of the Lagrangian equations of motion with an exponential coupling approximation valid near the bifurcation region. Numerical integration via adaptive Runge-Kutta validates theory: convergence to attractors with $L^2$ error $\sim 8.84 \times 10^{-8}$, Lyapunov exponents confirming stability structure, and bifurcation diagrams matching theory. We introduce **information condensation** mechanism via error dissipation term $\xi \cdot \partial R/\partial t$ that drives classical order from quantum superposition. Finally, we demonstrate how D-ND phase transitions transcend standard Landau theory through the role of information dynamics and compare explicitly with Ising model universality and Kosterlitz-Thouless transitions. This work completes the D-ND framework by providing deterministic, computable dynamics for observer emergence in a continuum of potentiality.
 
 **Keywords:** Lagrangian formalism, D-ND continuum, phase transitions, quantum-classical bridge, Ginzburg-Landau, Noether symmetries, conservation laws, critical exponents, information condensation, auto-optimization, variational principles, order parameter, emergence measure
 
@@ -355,7 +355,9 @@ For typical parameter ranges ($\lambda_{DND} \approx 0.1$, $\theta_{NT} \approx 
 
 Thus, **$Z = 1/2$ is the primary interior critical point**.
 
-### 4.2 Bifurcation Structure and Critical Exponent Derivation
+### 4.2 Bifurcation Structure and Mean-Field Critical Exponents
+
+**Scope note:** The critical exponents derived below ($\beta=1/2, \gamma=1, \delta=3, \nu=1/2$) are **mean-field results**, exact for the single-observer, global order parameter formulation of this paper. They require infinite-range (or effectively global) interactions—a condition satisfied here because $Z(t)$ is a coarse-grained average over the entire emergence landscape (Paper A §5.2). For spatially extended multi-observer systems with local coupling, these exponents receive logarithmic corrections requiring renormalization group analysis; see §4.2.2 for the full validity regime discussion.
 
 **Bifurcation type:** As $\lambda_{DND}$ varies, the landscape changes from symmetric (at $\lambda_{DND} = 0$) to asymmetric (at $\lambda_{DND} > 0$), exhibiting a **pitchfork bifurcation**:
 
@@ -763,7 +765,7 @@ $$\frac{\partial^2 V}{\partial Z^2}\bigg|_{Z_c} \approx 0 \quad \text{(at critic
 Thus $\partial V/\partial Z$ becomes predominantly cubic near the bifurcation:
 $$\frac{\partial V}{\partial Z} \approx -4\lambda(Z-Z_c)^3 + O((Z-Z_c)^5)$$
 
-**Emergence of Exponential Coupling:**
+**Emergence of Exponential Coupling (Ansatz):**
 
 When the system is away from the critical point (either near $Z \approx 0$ or $Z \approx 1$), the effective dynamics become dominated by the nonlinear restoring force. The cumulative effect of repeated incremental steps, each scaled by a factor related to the potential, produces exponential growth or decay.
 
@@ -771,6 +773,8 @@ Specifically, if we interpret the iterative updates as:
 $$Z(t+\Delta t) - Z(t) \propto e^{-\lambda_{\text{eff}} Z(t)}$$
 
 where $\lambda_{\text{eff}}$ emerges from the curvature of $V$ at the attractor (e.g., at $Z=0$ or $Z=1$), the exponential factor $e^{\pm\lambda Z(t)}$ represents the **nonlinear feedback modulation** of the step size as the system evolves. The sign ($\pm$) depends on which basin (Null or Totality) the system approaches.
+
+**Status of the exponential form:** The passage from the polynomial potential $V(Z)$ to the exponential modulation $e^{\pm\lambda Z}$ is a **motivated ansatz**, not a first-principles derivation. The motivation is threefold: (1) near attractors, the linearized dynamics are exponential by construction; (2) the cumulative effect of many small nonlinear steps approximates an exponential; (3) the form is consistent with the numerical integration (§6). However, the exact mapping from $V^{(4)}(Z_c)(Z-Z_c)^3$ to $e^{\pm\lambda Z}$ involves an approximation whose error grows away from the bifurcation region.
 
 **Generative and Dissipative Components from Interaction and Damping:**
 
@@ -846,7 +850,7 @@ For $N < 8$, the quantum oscillations are too large to coarse-grain, and the dis
 
 **Summary: Complete R(t+1) Evolution Equation**
 
-From the corpus mining results and unified formula synthesis, the evolution of the resultant field $R(t)$ is governed by the master equation:
+Combining the Euler-Forward discretization (§5.3.1), the discrete-continuous correspondence (§5.4), and the component identifications above, the evolution of the resultant field $R(t)$ is governed by the master equation:
 
 $$\boxed{R(t+1) = P(t) \cdot e^{\pm\lambda Z(t)} \cdot \int_t^{t+\Delta t} \left[\vec{D}_{\text{primary}}(t') \cdot \vec{P}_{\text{possibilistic}}(t') - \nabla \cdot \vec{L}_{\text{latency}}(t')\right] dt'}$$
 
@@ -893,17 +897,19 @@ $$\boxed{\Omega_{NT} = \lim_{Z(t) \to 0} \left[\int_{NT} R(t) \cdot P(t) \cdot e
 - $Z(t) \sim 0.5$: Intermediate coherence, classical-quantum crossover
 - $Z(t) \to 1$: Coherence loss, classical behavior dominates
 
-**Stability Criterion for Phase Transitions:**
+**Qualitative Stability Criterion for Phase Transitions:**
 
-The transition onset is signaled by the refined stability condition:
+The transition onset can be characterized qualitatively by a stability condition on the iterative convergence of the coherence integral:
 
 $$\lim_{n \to \infty} \frac{|\Omega_{NT}^{(n+1)} - \Omega_{NT}^{(n)}|}{|\Omega_{NT}^{(n)}|} \cdot \left(1 + \frac{\|\nabla P(t)\|}{\rho_{NT}(t)}\right) < \varepsilon$$
 
 where:
-- $|\Omega_{NT}^{(n+1)} - \Omega_{NT}^{(n)}|$: Iteration variation (convergence rate)
-- $\|\nabla P(t)\|$: Potential spatial gradient (energy landscape steepness)
-- $\rho_{NT}(t)$: Coherence density in NT continuum (acts as stabilizing regulator)
+- $|\Omega_{NT}^{(n+1)} - \Omega_{NT}^{(n)}|$: Iteration variation (convergence rate of the $\Omega_{NT}$ computation)
+- $\|\nabla P(t)\|$: Gradient of the system potential in phase space, measuring the local steepness of the energy landscape. Here $\nabla$ acts on the order-parameter space $(Z, \dot{Z})$, not on a spatial coordinate.
+- $\rho_{NT}(t) \equiv |f(t)|^2 = 1 - M(t)$: Coherence density, defined as the survival probability of the initial NT state (Paper A §3.1). This is a dimensionless scalar $\in [0,1]$, not a spatial density. The notation "NT continuum" refers to the order-parameter interval $Z \in [0,1]$, not to a spatial manifold.
 - $\varepsilon$: Stability threshold (typically $10^{-6}$ to $10^{-10}$)
+
+**Status:** This criterion is **qualitative**—it identifies when phase transitions occur (convergence failure) but does not predict critical parameter values quantitatively. The numerical validation (§6) tests the underlying ODE $\ddot{Z} + c\dot{Z} + \partial V/\partial Z = 0$ directly via Runge-Kutta integration, not this criterion. A fully quantitative stability analysis would require defining the iteration scheme for $\Omega_{NT}^{(n)}$ explicitly and proving convergence bounds, which remains open.
 
 **Bifurcation Point:** A phase transition occurs when this criterion becomes an equality—the system barely maintains stability. At this critical point, even infinitesimal perturbations cause rapid evolution toward a symmetry-broken state.
 

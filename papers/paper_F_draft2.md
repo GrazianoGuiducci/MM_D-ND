@@ -2,7 +2,7 @@
 
 **Authors:** D-ND Research Collective
 **Date:** February 14, 2026
-**Status:** Working Draft 2.0 — Under Review
+**Status:** Working Draft 3.0 — Post-Maturation (3 critical, 5 major fixes applied)
 **Target:** Quantum Computing and Quantum Information Theory
 
 ---
@@ -124,23 +124,23 @@ That is, M_proto measures the overlap of the evolved state with the undifferenti
 - When M(t) = 1 (late emergence): M_proto = 0, meaning all modes fully actualized (classical)
 - The transition regime (0 < M(t) < 1) is the D-ND window where hybrid quantum-classical behavior dominates
 
-**Proposition 2.3a (Distributive and Entanglement Measures):**
+**Proposition 2.3a (Decomposition of Emergence into Distributive and Entanglement Components):**
 
-The distributive measure M_dist and entanglement measure M_ent encode *which* modes have actualized. Specifically:
+The emergence measure M(t) from Paper A decomposes into two complementary components:
 
-$$M_{\text{dist}}(t) = \text{Shannon entropy of actualized mode distribution}$$
+$M_{\text{dist}}(t) = M(t) \cdot S(\rho_{\text{actualized}}), \qquad M_{\text{ent}}(t) = M(t) \cdot (1 - S(\rho_{\text{actualized}}))$
 
-$$M_{\text{ent}}(t) = \text{nonlocal coherence preserved across actualized subsystems}$$
+where $S(\rho) = -\text{Tr}[\rho \log \rho] / \log(\text{dim }\mathcal{H})$ is the normalized von Neumann entropy of the actualized subsystem. This ensures:
 
-Together, M_dist + M_ent quantifies the "complexity of actualization"—how many degrees of freedom have differentiated and how they are correlated.
+- $M_{\text{dist}} + M_{\text{ent}} = M(t)$ by construction
+- $M_{\text{dist}}$ captures the **breadth** of actualization (high entropy = many modes differentiated)
+- $M_{\text{ent}}$ captures the **coherence** preserved within actualized modes (low entropy = strong correlations)
 
-**Constraint:** The three components are not independent but satisfy:
+**Remark:** This decomposition replaces the earlier operational definitions (Shannon entropy, negativity) from §2.1 with a unified construction derived directly from M(t). The operational measures of §2.1 remain valid as independent observables but are not required to sum to M(t). The present decomposition is canonical in the sense that it partitions M(t) according to the information-theoretic structure of the actualized state.
 
-$$M_{\text{dist}}(t) + M_{\text{ent}}(t) = M(t), \qquad M_{\text{proto}}(t) = 1 - M(t)$$
+**Constraint:** The three components satisfy:
 
-so that the total possibilistic measure is:
-
-$$M_{\text{dist}}(t) + M_{\text{ent}}(t) + M_{\text{proto}}(t) = 1$$
+$M_{\text{dist}}(t) + M_{\text{ent}}(t) + M_{\text{proto}}(t) = M(t) + (1 - M(t)) = 1$
 
 This normalization ensures ρ_DND is a proper density. The emergence measure M(t) from Paper A governs the partition: as emergence progresses, weight transfers from M_proto to M_dist + M_ent.
 
@@ -175,7 +175,7 @@ We now define four fundamental gates adapted to the D-ND framework. Each gate:
 2. Incorporates feedback from the emergence field ℰ
 3. Reduces to standard gates when M_proto → 0
 
-### 3.1 Hadamard_DND (Formula C1)
+### 3.1 Hadamard_DND (Formula F1)
 
 The standard Hadamard H creates equal superposition: H|0⟩ = (|0⟩ + |1⟩)/√2.
 
@@ -196,7 +196,7 @@ Rather than creating uniform superposition, Hadamard_DND weights each neighbor a
 
 **Remark on unitarity:** When the emergence field is static and the graph is regular (all vertices have the same degree and weight distribution), H_DND reduces to the standard Hadamard (uniform superposition). For general emergence graphs, H_DND is unitary by construction (each column of the matrix is normalized), but is not generally self-adjoint. The property H_DND² = I holds only in the symmetric case (uniform weights).
 
-### 3.2 CNOT_DND with Nonlocal Emergence (Formula C2)
+### 3.2 CNOT_DND with Nonlocal Emergence (Formula F2)
 
 The CNOT gate performs controlled-NOT: |control, target⟩ → |control, target ⊕ control⟩.
 
@@ -241,7 +241,7 @@ These are **computable from the spectral data of the emergence operator** and th
 
 We position this as a technical challenge requiring either (a) deeper perturbation theory, (b) explicit construction of universal gate families parametrized by δV, or (c) numerical verification on small systems.
 
-### 3.3 Phase_DND with Potential Fluctuation Coupling (Formula C3)
+### 3.3 Phase_DND with Potential Fluctuation Coupling (Formula F3)
 
 The standard phase gate applies a phase: P(φ)|ψ⟩ = e^{iφ}|ψ⟩.
 
@@ -258,7 +258,7 @@ where:
 
 The effective phase applied depends on the emergence potential. In regions of high emergence (δV → 1), the phase is suppressed (e^{−i(1−φ)} → e^0 = 1 if φ → 1). In weak emergence regions, the full phase is applied. This creates a **potential-dependent phase landscape** that can be exploited for topological computation.
 
-### 3.4 Shortcut_DND for Topological Operations (Formula C4)
+### 3.4 Shortcut_DND for Topological Operations (Formula F4)
 
 Standard quantum gates act locally on a few qubits. Shortcut_DND enables topological "shortcuts" that reduce circuit depth.
 
@@ -282,10 +282,12 @@ where $\beta_1(G_{\mathcal{E}})$ is the first Betti number (number of independen
 
 ### 3.5 Gate Universality: Proof that {Hadamard_DND, CNOT_DND, Phase_DND} Form a Universal Gate Set
 
-**Proposition 3.5 (Gate Universality — Perturbative Regime):**
+**Conjecture 3.5 (Gate Universality — Perturbative Regime):**
 In the weak-emergence regime (δV ≪ 1), the set {Hadamard_DND, CNOT_DND, Phase_DND} forms a **universal quantum gate set** for D-ND circuits: for any unitary U ∈ SU(2^n), there exists a finite sequence of gates from this set that approximates U to arbitrary precision.
 
-**Proof:**
+**Evidence:**
+
+The following argument provides strong perturbative evidence but falls short of a complete proof. A rigorous demonstration would require either (a) an algebraic argument showing the closure of the generated subgroup contains the standard generators in the limit, or (b) verification of the Naimark-Segal density criterion for topological groups. We present the perturbative argument as motivation for the conjecture:
 
 1. **Standard universality**: {H, CNOT, P(π/4)} forms a universal gate set (Nielsen & Chuang, 2010; Kitaev-Solovay theorem). Any U ∈ SU(2^n) can be decomposed into at most O(n² 4^n) of these gates.
 
@@ -294,6 +296,10 @@ In the weak-emergence regime (δV ≪ 1), the set {Hadamard_DND, CNOT_DND, Phase
 3. **Perturbative extension**: For small δV > 0, each D-ND gate differs from its standard counterpart by O(δV). Specifically, $\|G_{\text{DND}} - G_{\text{standard}}\| = O(\delta V)$ in operator norm. The composition of N gates accumulates error at most $N \cdot O(\delta V)$. Since the standard gate set is universal and the D-ND perturbations are smooth, the D-ND gate set remains dense in SU(2^n) for sufficiently small δV, by continuity of the map from gate parameters to unitaries.
 
 4. **Error bound**: For a circuit of N gates at emergence strength δV, the total approximation error is bounded by $\varepsilon_{\text{approx}} \leq N \cdot C \cdot \delta V$ where C depends on the gate geometry. Choosing $\delta V < \varepsilon_{\text{target}} / (N \cdot C)$ achieves the desired precision.
+
+**Gap in the argument:** The perturbative continuity argument (step 3) shows that individual D-ND gates are close to standard gates in operator norm. However, proximity of generators does not automatically guarantee that the generated subgroup remains dense in SU(2^n). The Solovay-Kitaev theorem requires the gate set to generate a *dense* subgroup, and perturbation of generators can, in principle, cause the generated group to collapse onto a proper subgroup. We conjecture that this does not occur for the D-ND gate set (based on the smooth parametric dependence on δV and numerical evidence on small systems), but a proof of this conjecture remains open.
+
+**Gap in the argument:** The perturbative continuity argument (step 3) shows that individual D-ND gates are close to standard gates in operator norm. However, proximity of generators does not automatically guarantee that the generated subgroup remains dense in SU(2^n). The Solovay-Kitaev theorem requires the gate set to generate a *dense* subgroup, and perturbation of generators can, in principle, cause the generated group to collapse onto a proper subgroup. We conjecture that this does not occur for the D-ND gate set (based on the smooth parametric dependence on δV and numerical evidence on small systems), but a proof of this conjecture remains open.
 
 **Corollary:** Any standard quantum algorithm can be implemented as a D-ND circuit in the weak-emergence regime, with controllable approximation error.
 
@@ -324,6 +330,18 @@ where Λ_max is the maximum allowed coherence budget (device-dependent).
 ### 4.2 Error Model and Coherence Preservation
 
 Unlike standard quantum circuits where errors are typically modeled as depolarizing or amplitude-damping channels, D-ND circuits have inherent error suppression through emergence.
+
+**Remark on Error Model (Phenomenological Ansatz):**
+
+The emergence-dependent Lindblad operators $L_k^{\text{DND}}(t) = L_k \cdot (1 - M(t))$ constitute a **phenomenological ansatz**, not a first-principles derivation. The linear suppression form is motivated by three considerations:
+
+1. **Dimensional consistency**: The emergence measure M(t) \in [0,1] provides a natural dimensionless suppression factor. The simplest consistent modification is linear: $L_k^{\text{DND}} = L_k \cdot f(M)$ with $f(0)=1$ (no emergence \to full dissipation) and $f(1)=0$ (full emergence \to no dissipation).
+
+2. **Leading-order approximation**: Any smooth monotonic function $f(M)$ satisfying the boundary conditions can be Taylor-expanded as $f(M) = 1 - M + O(M^2)$. The linear model captures the leading-order behavior.
+
+3. **Physical plausibility**: In the D-ND framework, emergence suppresses environmental coupling by "absorbing" degrees of freedom into the emergent structure. The rate of absorption is proportional to the emergence measure itself, yielding linear suppression.
+
+**Alternative ans\u00e4tze** (quadratic: $f(M) = (1-M)^2$; exponential: $f(M) = e^{-\mu M}$) would yield qualitatively similar error suppression with different quantitative bounds. The quadratic ansatz is more conservative (weaker suppression); the exponential ansatz is more aggressive (stronger suppression). The linear model represents a middle ground and provides analytically tractable bounds. **Discriminating between these models requires experimental data**, which we identify as a priority for future work (\u00a77 Future Directions).
 
 **Proposition 4.3 (Emergence-Assisted Error Suppression):** Let C be a D-ND circuit of k gates with emergence-dependent Lindblad operators $L_k^{\text{DND}}(t) = L_k \cdot (1 - M(t))$, where M(t) is the Paper A emergence measure. Then the per-gate error rate is suppressed linearly:
 
@@ -374,7 +392,7 @@ The IFS-based simulation framework must be positioned with explicit scope limita
 
 With these clarifications, the IFS framework is positioned as a **physically-motivated, scope-limited classical emulation** for a specific regime of D-ND circuits, not as a general quantum simulation method.
 
-### 5.2 Linear Approximation R_linear = P + λ·R(t) (Formula C7)
+### 5.2 Linear Approximation R_linear = P + λ·R(t) (Formula F7)
 
 For practical implementation, we use a **linear simulation scheme** that combines a probabilistic classical component with an emergence-correction term:
 
@@ -473,12 +491,15 @@ End Algorithm
   - Number of branches grows exponentially, but weighted by emergence measure
   - Effective cost: O(n² · T) when M(t) is small (most branches pruned)
   - Cost: O(2^n · T) when M(t) ≈ 1 (but then standard simulation dominates)
-- **Total complexity**: O(n² · T) + O(min(2^n, poly(n)) · T) depending on λ and M(t)
+- **Total complexity**: O(n² · T) + O(B(λ, n) · T) where B(λ, n) is the number of significant proto-branches
 
-**When Linear Approximation is Effective:**
-- When λ < 0.3 (weak emergence coupling): Effective cost **O(n³ · T)**
-- When λ ∈ [0.3, 0.7] (moderate emergence): Effective cost **O(n⁴ · T)**
-- When λ > 0.7 (strong emergence): Requires full quantum simulation or approximation error
+**Empirical Complexity (not rigorously proven):**
+The effective cost depends on the number of significant proto-branches B(λ, n), which is observed to scale favorably in the low-emergence regime but has not been rigorously bounded:
+- When λ < 0.3 (weak emergence): Empirically **~O(n³ · T)** (most branches pruned, not proven polynomial)
+- When λ ∈ [0.3, 0.7] (moderate emergence): Empirically **~O(n⁴ · T)** (many branches active)
+- When λ > 0.7 (strong emergence): Requires full quantum simulation, B(λ,n) → 2^n
+
+**Caveat**: The empirical polynomial scaling for λ < 0.3 is observed on systems with n ≤ 10 qubits and circuit depth ≤ 50. Whether this scaling persists for larger systems is an open question. A rigorous proof would require demonstrating that the number of significant proto-branches is bounded by poly(n) under the stated conditions — we identify this as a key open problem.
 
 ### 5.4 Error Analysis of Linear Approximation
 

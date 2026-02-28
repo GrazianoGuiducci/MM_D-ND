@@ -123,15 +123,19 @@ Ovvero, M_proto misura la sovrapposizione dello stato evoluto con lo stato di ri
 - Quando M(t) = 1 (emergenza tardiva): M_proto = 0, il che significa che tutti i modi sono pienamente attualizzati (classici)
 - Il regime di transizione (0 < M(t) < 1) è la finestra D-ND in cui domina il comportamento ibrido quantistico-classico
 
-**Proposizione 2.3a (Misure distributiva e di entanglement):**
+**Proposizione 2.3a (Decomposizione canonica di M(t)):**
 
-La misura distributiva M_dist e la misura di entanglement M_ent codificano *quali* modi si sono attualizzati. Specificamente:
+La misura di emergenza M(t) del Paper A si decompone in due componenti complementari:
 
-$$M_{\text{dist}}(t) = \text{Shannon entropy of actualized mode distribution}$$
+$M(t) = M_{\text{dist}}(t) + M_{\text{ent}}(t)$
 
-$$M_{\text{ent}}(t) = \text{nonlocal coherence preserved across actualized subsystems}$$
+dove la decomposizione canonica è definita tramite entropia di von Neumann normalizzata:
 
-Insieme, M_dist + M_ent quantifica la "complessità dell'attualizzazione" — quanti gradi di libertà si sono differenziati e come sono correlati.
+$M_{\text{dist}}(t) = -\sum_k p_k(t) \log p_k(t) \big/ \log N$
+
+$M_{\text{ent}}(t) = S(\rho_{\text{red}}(t)) \big/ \log N$
+
+dove \(p_k(t)\) è la distribuzione dei modi attualizzati, \(\rho_{\text{red}}(t)\) è la matrice densità ridotta del sottosistema attualizzato, \(S(\cdot)\) è l'entropia di von Neumann, e \(N\) è la dimensione dello spazio di Hilbert. Insieme, M_dist + M_ent quantifica la "complessità dell'attualizzazione" — quanti gradi di libertà si sono differenziati e come sono correlati.
 
 **Vincolo:** Le tre componenti non sono indipendenti ma soddisfano:
 
@@ -175,8 +179,8 @@ Definiamo ora quattro gate fondamentali adattati al framework D-ND. Ciascun gate
 2. Incorpora un feedback dal campo di emergenza ℰ
 3. Si riduce ai gate standard quando M_proto → 0
 
-<a id="3-1-hadamard-dnd-formula-c1"></a>
-### 3.1 Hadamard_DND (Formula C1)
+<a id="3-1-hadamard-dnd-formula-f1"></a>
+### 3.1 Hadamard_DND (Formula F1)
 
 L'Hadamard standard H crea una sovrapposizione uniforme: H|0⟩ = (|0⟩ + |1⟩)/√2.
 
@@ -197,8 +201,8 @@ Anziché creare una sovrapposizione uniforme, Hadamard_DND pesa ciascun vicino i
 
 **Osservazione sull'unitarietà:** Quando il campo di emergenza è statico e il grafo è regolare (tutti i vertici hanno lo stesso grado e la stessa distribuzione dei pesi), H_DND si riduce all'Hadamard standard (sovrapposizione uniforme). Per grafi di emergenza generali, H_DND è unitario per costruzione (ogni colonna della matrice è normalizzata), ma non è generalmente autoaggiunto. La proprietà H_DND² = I vale solo nel caso simmetrico (pesi uniformi).
 
-<a id="3-2-cnot-dnd-with-nonlocal-emergence-formula-c2"></a>
-### 3.2 CNOT_DND con emergenza non locale (Formula C2)
+<a id="3-2-cnot-dnd-with-nonlocal-emergence-formula-f2"></a>
+### 3.2 CNOT_DND con emergenza non locale (Formula F2)
 
 Il gate CNOT esegue il NOT controllato: |controllo, bersaglio⟩ → |controllo, bersaglio ⊕ controllo⟩.
 
@@ -243,8 +247,8 @@ Questi sono **calcolabili dai dati spettrali dell'operatore di emergenza** e qui
 
 Posizioniamo questo come una sfida tecnica che richiede (a) una teoria perturbativa più approfondita, (b) la costruzione esplicita di famiglie universali di gate parametrizzate da δV, oppure (c) la verifica numerica su sistemi piccoli.
 
-<a id="3-3-phase-dnd-with-potential-fluctuation-coupling-formula-c3"></a>
-### 3.3 Phase_DND con accoppiamento alle fluttuazioni di potenziale (Formula C3)
+<a id="3-3-phase-dnd-with-potential-fluctuation-coupling-formula-f3"></a>
+### 3.3 Phase_DND con accoppiamento alle fluttuazioni di potenziale (Formula F3)
 
 Il gate di fase standard applica una fase: P(φ)|ψ⟩ = e^{iφ}|ψ⟩.
 
@@ -261,8 +265,8 @@ dove:
 
 La fase effettiva applicata dipende dal potenziale di emergenza. Nelle regioni di emergenza forte (δV → 1), la fase è soppressa (e^{−i(1−φ)} → e^0 = 1 se φ → 1). Nelle regioni di emergenza debole, la fase completa è applicata. Ciò crea un **paesaggio di fase dipendente dal potenziale** che può essere sfruttato per il calcolo topologico.
 
-<a id="3-4-shortcut-dnd-for-topological-operations-formula-c4"></a>
-### 3.4 Shortcut_DND per operazioni topologiche (Formula C4)
+<a id="3-4-shortcut-dnd-for-topological-operations-formula-f4"></a>
+### 3.4 Shortcut_DND per operazioni topologiche (Formula F4)
 
 I gate quantistici standard agiscono localmente su pochi qubit. Shortcut_DND abilita "scorciatoie" topologiche che riducono la profondità del circuito.
 
@@ -287,7 +291,7 @@ dove $\beta_1(G_{\mathcal{E}})$ è il primo numero di Betti (numero di cicli ind
 <a id="3-5-gate-universality-proof-that-hadamard-dnd-cnot-dnd-phase-dnd-form-a-universal-gate-set"></a>
 ### 3.5 Universalità dei gate: dimostrazione che {Hadamard_DND, CNOT_DND, Phase_DND} formano un insieme universale di gate
 
-**Proposizione 3.5 (Universalità dei gate — Regime perturbativo):**
+**Congettura 3.5 (Universalità dei gate — Regime perturbativo):**
 Nel regime di emergenza debole (δV ≪ 1), l'insieme {Hadamard_DND, CNOT_DND, Phase_DND} forma un **insieme universale di gate quantistici** per i circuiti D-ND: per qualsiasi unitario U ∈ SU(2^n), esiste una sequenza finita di gate da questo insieme che approssima U con precisione arbitraria.
 
 **Dimostrazione:**
@@ -384,8 +388,8 @@ Il framework di simulazione basato su IFS deve essere posizionato con limitazion
 
 Con queste precisazioni, il framework IFS è posizionato come un'**emulazione classica fisicamente motivata e di ambito limitato** per un regime specifico dei circuiti D-ND, non come un metodo generale di simulazione quantistica.
 
-<a id="5-2-linear-approximation-r-linear-p-r-t-formula-c7"></a>
-### 5.2 Approssimazione lineare R_linear = P + λ·R(t) (Formula C7)
+<a id="5-2-linear-approximation-r-linear-p-r-t-formula-f7"></a>
+### 5.2 Approssimazione lineare R_linear = P + λ·R(t) (Formula F7)
 
 Per l'implementazione pratica, utilizziamo uno **schema di simulazione lineare** che combina una componente classica probabilistica con un termine di correzione dell'emergenza:
 
@@ -488,7 +492,7 @@ End Algorithm
 - **Complessità totale**: O(n² · T) + O(min(2^n, poly(n)) · T) a seconda di λ e M(t)
 
 **Quando l'approssimazione lineare è efficace:**
-- Quando λ < 0.3 (accoppiamento di emergenza debole): Costo effettivo **O(n³ · T)**
+- Quando λ < 0.3 (accoppiamento di emergenza debole): Costo effettivo **O(n³ · T)** (empirico, non dimostrato rigorosamente)
 - Quando λ ∈ [0.3, 0.7] (emergenza moderata): Costo effettivo **O(n⁴ · T)**
 - Quando λ > 0.7 (emergenza forte): Richiede simulazione quantistica completa o errore di approssimazione
 
@@ -563,7 +567,7 @@ Si scelga λ tale che $C \lambda^2 < \epsilon_{\text{tol}}$ per la tolleranza de
 
 | Aspetto | Simulazione Standard | D-ND Lineare |
 |---------|---------------------|------------|
-| Complessità temporale | O(2^n · T) | O(n³ · T) quando λ < 0.3 |
+| Complessità temporale | O(2^n · T) | O(n³ · T) quando λ < 0.3 (empirico, non dimostrato rigorosamente) |
 | Memoria | O(2^n) | O(n²) |
 | Accuratezza (bassa emergenza) | Perfetta (entro la precisione numerica) | ~99% |
 | Accuratezza (alta emergenza) | Costo esponenziale | ~95% |

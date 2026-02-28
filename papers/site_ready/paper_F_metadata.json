@@ -3,7 +3,7 @@
   "subtitle": "",
   "authors": "D-ND Research Collective",
   "date": "February 14, 2026",
-  "status": "Working Draft 2.0 — Under Review",
+  "status": "Working Draft 3.0 — Post-Maturation",
   "keywords": [
     "Possibilistic quantum information",
     "D-ND gates",
@@ -77,23 +77,23 @@
     },
     {
       "level": 3,
-      "title": "3.1 Hadamard_DND (Formula C1)",
-      "slug": "3-1-hadamard-dnd-formula-c1"
+      "title": "3.1 Hadamard_DND (Formula F1)",
+      "slug": "3-1-hadamard-dnd-formula-f1"
     },
     {
       "level": 3,
-      "title": "3.2 CNOT_DND with Nonlocal Emergence (Formula C2)",
-      "slug": "3-2-cnot-dnd-with-nonlocal-emergence-formula-c2"
+      "title": "3.2 CNOT_DND with Nonlocal Emergence (Formula F2)",
+      "slug": "3-2-cnot-dnd-with-nonlocal-emergence-formula-f2"
     },
     {
       "level": 3,
-      "title": "3.3 Phase_DND with Potential Fluctuation Coupling (Formula C3)",
-      "slug": "3-3-phase-dnd-with-potential-fluctuation-coupling-formula-c3"
+      "title": "3.3 Phase_DND with Potential Fluctuation Coupling (Formula F3)",
+      "slug": "3-3-phase-dnd-with-potential-fluctuation-coupling-formula-f3"
     },
     {
       "level": 3,
-      "title": "3.4 Shortcut_DND for Topological Operations (Formula C4)",
-      "slug": "3-4-shortcut-dnd-for-topological-operations-formula-c4"
+      "title": "3.4 Shortcut_DND for Topological Operations (Formula F4)",
+      "slug": "3-4-shortcut-dnd-for-topological-operations-formula-f4"
     },
     {
       "level": 3,
@@ -127,8 +127,8 @@
     },
     {
       "level": 3,
-      "title": "5.2 Linear Approximation R_linear = P + λ·R(t) (Formula C7)",
-      "slug": "5-2-linear-approximation-r-linear-p-r-t-formula-c7"
+      "title": "5.2 Linear Approximation R_linear = P + λ·R(t) (Formula F7)",
+      "slug": "5-2-linear-approximation-r-linear-p-r-t-formula-f7"
     },
     {
       "level": 3,

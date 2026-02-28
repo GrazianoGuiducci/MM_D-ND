@@ -123,15 +123,19 @@ That is, M_proto measures the overlap of the evolved state with the undifferenti
 - When M(t) = 1 (late emergence): M_proto = 0, meaning all modes fully actualized (classical)
 - The transition regime (0 < M(t) < 1) is the D-ND window where hybrid quantum-classical behavior dominates
 
-**Proposition 2.3a (Distributive and Entanglement Measures):**
+**Proposition 2.3a (Canonical Decomposition of M(t)):**
 
-The distributive measure M_dist and entanglement measure M_ent encode *which* modes have actualized. Specifically:
+The emergence measure M(t) from Paper A decomposes into two complementary components:
 
-$$M_{\text{dist}}(t) = \text{Shannon entropy of actualized mode distribution}$$
+$M(t) = M_{\text{dist}}(t) + M_{\text{ent}}(t)$
 
-$$M_{\text{ent}}(t) = \text{nonlocal coherence preserved across actualized subsystems}$$
+where the canonical decomposition is defined via normalized von Neumann entropy:
 
-Together, M_dist + M_ent quantifies the "complexity of actualization"—how many degrees of freedom have differentiated and how they are correlated.
+$M_{\text{dist}}(t) = -\sum_k p_k(t) \log p_k(t) \big/ \log N$
+
+$M_{\text{ent}}(t) = S(\rho_{\text{red}}(t)) \big/ \log N$
+
+where \(p_k(t)\) is the actualized mode distribution, \(\rho_{\text{red}}(t)\) is the reduced density matrix of the actualized subsystem, \(S(\cdot)\) is the von Neumann entropy, and \(N\) is the Hilbert space dimension. Together, M_dist + M_ent quantifies the "complexity of actualization"—how many degrees of freedom have differentiated and how they are correlated.
 
 **Constraint:** The three components are not independent but satisfy:
 
@@ -175,8 +179,8 @@ We now define four fundamental gates adapted to the D-ND framework. Each gate:
 2. Incorporates feedback from the emergence field ℰ
 3. Reduces to standard gates when M_proto → 0
 
-<a id="3-1-hadamard-dnd-formula-c1"></a>
-### 3.1 Hadamard_DND (Formula C1)
+<a id="3-1-hadamard-dnd-formula-f1"></a>
+### 3.1 Hadamard_DND (Formula F1)
 
 The standard Hadamard H creates equal superposition: H|0⟩ = (|0⟩ + |1⟩)/√2.
 
@@ -197,8 +201,8 @@ Rather than creating uniform superposition, Hadamard_DND weights each neighbor a
 
 **Remark on unitarity:** When the emergence field is static and the graph is regular (all vertices have the same degree and weight distribution), H_DND reduces to the standard Hadamard (uniform superposition). For general emergence graphs, H_DND is unitary by construction (each column of the matrix is normalized), but is not generally self-adjoint. The property H_DND² = I holds only in the symmetric case (uniform weights).
 
-<a id="3-2-cnot-dnd-with-nonlocal-emergence-formula-c2"></a>
-### 3.2 CNOT_DND with Nonlocal Emergence (Formula C2)
+<a id="3-2-cnot-dnd-with-nonlocal-emergence-formula-f2"></a>
+### 3.2 CNOT_DND with Nonlocal Emergence (Formula F2)
 
 The CNOT gate performs controlled-NOT: |control, target⟩ → |control, target ⊕ control⟩.
 
@@ -243,8 +247,8 @@ These are **computable from the spectral data of the emergence operator** and th
 
 We position this as a technical challenge requiring either (a) deeper perturbation theory, (b) explicit construction of universal gate families parametrized by δV, or (c) numerical verification on small systems.
 
-<a id="3-3-phase-dnd-with-potential-fluctuation-coupling-formula-c3"></a>
-### 3.3 Phase_DND with Potential Fluctuation Coupling (Formula C3)
+<a id="3-3-phase-dnd-with-potential-fluctuation-coupling-formula-f3"></a>
+### 3.3 Phase_DND with Potential Fluctuation Coupling (Formula F3)
 
 The standard phase gate applies a phase: P(φ)|ψ⟩ = e^{iφ}|ψ⟩.
 
@@ -261,8 +265,8 @@ where:
 
 The effective phase applied depends on the emergence potential. In regions of high emergence (δV → 1), the phase is suppressed (e^{−i(1−φ)} → e^0 = 1 if φ → 1). In weak emergence regions, the full phase is applied. This creates a **potential-dependent phase landscape** that can be exploited for topological computation.
 
-<a id="3-4-shortcut-dnd-for-topological-operations-formula-c4"></a>
-### 3.4 Shortcut_DND for Topological Operations (Formula C4)
+<a id="3-4-shortcut-dnd-for-topological-operations-formula-f4"></a>
+### 3.4 Shortcut_DND for Topological Operations (Formula F4)
 
 Standard quantum gates act locally on a few qubits. Shortcut_DND enables topological "shortcuts" that reduce circuit depth.
 
@@ -287,7 +291,7 @@ where $\beta_1(G_{\mathcal{E}})$ is the first Betti number (number of independen
 <a id="3-5-gate-universality-proof-that-hadamard-dnd-cnot-dnd-phase-dnd-form-a-universal-gate-set"></a>
 ### 3.5 Gate Universality: Proof that {Hadamard_DND, CNOT_DND, Phase_DND} Form a Universal Gate Set
 
-**Proposition 3.5 (Gate Universality — Perturbative Regime):**
+**Conjecture 3.5 (Gate Universality — Perturbative Regime):**
 In the weak-emergence regime (δV ≪ 1), the set {Hadamard_DND, CNOT_DND, Phase_DND} forms a **universal quantum gate set** for D-ND circuits: for any unitary U ∈ SU(2^n), there exists a finite sequence of gates from this set that approximates U to arbitrary precision.
 
 **Proof:**
@@ -384,8 +388,8 @@ The IFS-based simulation framework must be positioned with explicit scope limita
 
 With these clarifications, the IFS framework is positioned as a **physically-motivated, scope-limited classical emulation** for a specific regime of D-ND circuits, not as a general quantum simulation method.
 
-<a id="5-2-linear-approximation-r-linear-p-r-t-formula-c7"></a>
-### 5.2 Linear Approximation R_linear = P + λ·R(t) (Formula C7)
+<a id="5-2-linear-approximation-r-linear-p-r-t-formula-f7"></a>
+### 5.2 Linear Approximation R_linear = P + λ·R(t) (Formula F7)
 
 For practical implementation, we use a **linear simulation scheme** that combines a probabilistic classical component with an emergence-correction term:
 
@@ -488,7 +492,7 @@ End Algorithm
 - **Total complexity**: O(n² · T) + O(min(2^n, poly(n)) · T) depending on λ and M(t)
 
 **When Linear Approximation is Effective:**
-- When λ < 0.3 (weak emergence coupling): Effective cost **O(n³ · T)**
+- When λ < 0.3 (weak emergence coupling): Effective cost **O(n³ · T)** (empirical, not rigorously proven)
 - When λ ∈ [0.3, 0.7] (moderate emergence): Effective cost **O(n⁴ · T)**
 - When λ > 0.7 (strong emergence): Requires full quantum simulation or approximation error
 
@@ -563,7 +567,7 @@ Choose λ such that $C \lambda^2 < \epsilon_{\text{tol}}$ for desired tolerance 
 
 | Aspect | Standard Simulation | D-ND Linear |
 |--------|-------------------|------------|
-| Time Complexity | O(2^n · T) | O(n³ · T) when λ < 0.3 |
+| Time Complexity | O(2^n · T) | O(n³ · T) when λ < 0.3 (empirical, not rigorously proven) |
 | Memory | O(2^n) | O(n²) |
 | Accuracy (low emergence) | Perfect (within numerical precision) | ~99% |
 | Accuracy (high emergence) | Exponential cost | ~95% |

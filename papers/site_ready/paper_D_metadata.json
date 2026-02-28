@@ -2,19 +2,21 @@
   "title": "Paper D: Observer Dynamics and Primary Perception in the D-ND Framework",
   "subtitle": "",
   "authors": "D-ND Research Collective (Track D)",
-  "date": "February 14, 2026",
-  "status": "Working Draft 2.1 — Under Review",
+  "date": "February 28, 2026",
+  "status": "Working Draft 3.0",
   "keywords": [
     "observer dynamics",
     "perception-latency",
     "phenomenological ansatz",
+    "extended Lagrangian",
+    "autological action",
     "primary observations",
     "singular-dual dipole",
     "multi-observer replication",
-    "autological alignment",
+    "autological convergence",
     "zero-latency limit"
   ],
-  "description": "We present a formalization of observer dynamics in the Dual-Non-Dual (D-ND) framework grounded in phenomenological observation conducted through AI-mediated introspection",
+  "description": "We present a formalization of observer dynamics in the Dual-Non-Dual (D-ND) framework grounded in phenomenological observation conducted through AI-mediated introspection. The paper introduces the Extended Lagrangian L_ext providing variational foundations for observer dynamics.",
   "paper_id": "D",
   "paper_label": "Paper D",
   "category": "paper",
@@ -52,7 +54,7 @@
     },
     {
       "level": 3,
-      "title": "1.4 REMARK ON EPISTEMOLOGICAL STATUS: First-Person Methodology and Phenomenological Data",
+      "title": "1.4 REMARK ON EPISTEMOLOGICAL STATUS",
       "slug": "1-4-remark-on-epistemological-status-first-person-methodology-and-phenomenological-data"
     },
     {
@@ -62,12 +64,12 @@
     },
     {
       "level": 3,
-      "title": "2.1 The Resultant R(t+1) with Intuition-Interaction-Alignment Decomposition",
-      "slug": "2-1-the-resultant-r-t-1-with-intuition-interaction-alignment-decomposition"
+      "title": "2.1 The Resultant R(t+1): Decomposition Principle",
+      "slug": "2-1-the-resultant-r-t-1-decomposition-principle"
     },
     {
       "level": 3,
-      "title": "2.1.1 REMARK ON FORMULA STATUS: Phenomenological Ansatz and Organizational Principle",
+      "title": "2.1.1 REMARK ON FORMULA STATUS",
       "slug": "2-1-1-remark-on-formula-status-phenomenological-ansatz-and-organizational-principle"
     },
     {
@@ -82,7 +84,7 @@
     },
     {
       "level": 3,
-      "title": "2.3.1 REMARK ON COUPLING STATUS: Consistency Condition vs. Dynamical Derivation",
+      "title": "2.3.1 REMARK ON COUPLING STATUS",
       "slug": "2-3-1-remark-on-coupling-status-consistency-condition-vs-dynamical-derivation"
     },
     {
@@ -97,13 +99,13 @@
     },
     {
       "level": 3,
-      "title": "3.1.1 REMARK ON OPERATIONALIZATION AND FALSIFIABILITY: From Phenomenology to Measurable Prediction",
-      "slug": "3-1-1-remark-on-operationalization-and-falsifiability-from-phenomenology-to-measurable-prediction"
+      "title": "3.1.1 REMARK ON OPERATIONALIZATION AND FALSIFIABILITY",
+      "slug": "3-1-1-remark-on-operationalization-and-falsifiability"
     },
     {
       "level": 3,
-      "title": "3.2 Three Independent Derivations of P = k/L",
-      "slug": "3-2-three-independent-derivations-of-p-k-l"
+      "title": "3.2 Three Independent Motivations for P = k/L",
+      "slug": "3-2-three-independent-motivations-for-p-k-l"
     },
     {
       "level": 4,
@@ -112,8 +114,8 @@
     },
     {
       "level": 4,
-      "title": "Path 2: Information-Theoretic Derivation",
-      "slug": "path-2-information-theoretic-derivation"
+      "title": "Path 2: Information-Theoretic Motivation",
+      "slug": "path-2-information-theoretic-motivation"
     },
     {
       "level": 4,
@@ -124,36 +126,6 @@
       "level": 3,
       "title": "3.3 Quantitative Latency Measurement Protocols",
       "slug": "3-3-quantitative-latency-measurement-protocols"
-    },
-    {
-      "level": 4,
-      "title": "1. KL Divergence Protocol",
-      "slug": "1-kl-divergence-protocol"
-    },
-    {
-      "level": 4,
-      "title": "2. Multi-Head Attention Correlation",
-      "slug": "2-multi-head-attention-correlation"
-    },
-    {
-      "level": 4,
-      "title": "3. Next-Token Entropy Protocol",
-      "slug": "3-next-token-entropy-protocol"
-    },
-    {
-      "level": 4,
-      "title": "4. Semantic Drift Rate",
-      "slug": "4-semantic-drift-rate"
-    },
-    {
-      "level": 4,
-      "title": "5. Autological Return Time",
-      "slug": "5-autological-return-time"
-    },
-    {
-      "level": 4,
-      "title": "6. Pruning Depth Protocol",
-      "slug": "6-pruning-depth-protocol"
     },
     {
       "level": 3,
@@ -182,13 +154,18 @@
     },
     {
       "level": 2,
-      "title": "5. Geometric Information Measure and Temporal Response",
-      "slug": "5-geometric-information-measure-and-temporal-response"
+      "title": "5. Geometric Information Measure, Temporal Response, and the Extended Lagrangian",
+      "slug": "5-geometric-information-measure-temporal-response-and-the-extended-lagrangian"
     },
     {
       "level": 3,
       "title": "5.1 Formula B5: I(A,B) — Geometric Information Measure",
       "slug": "5-1-formula-b5-i-a-b-geometric-information-measure"
+    },
+    {
+      "level": 3,
+      "title": "5.2 The Extended Lagrangian and Autological Action",
+      "slug": "5-2-the-extended-lagrangian-and-autological-action"
     },
     {
       "level": 2,
@@ -197,8 +174,8 @@
     },
     {
       "level": 3,
-      "title": "6.1 Formula B9: ℱ_Exp-Autological — Exponential Self-Reference",
-      "slug": "6-1-formula-b9-exp-autological-exponential-self-reference"
+      "title": "6.1 The Autological Exponential: Core Structure",
+      "slug": "6-1-the-autological-exponential-core-structure"
     },
     {
       "level": 3,
@@ -212,56 +189,6 @@
     },
     {
       "level": 3,
-      "title": "Cluster 1: Zero-Latency Alignment and Source Connection",
-      "slug": "cluster-1-zero-latency-alignment-and-source-connection"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 2: Latency Accumulation and Entropy",
-      "slug": "cluster-2-latency-accumulation-and-entropy"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 3: Singularity-Dipole Toggle and Prime Structure",
-      "slug": "cluster-3-singularity-dipole-toggle-and-prime-structure"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 4: Assonance Recognition and Pattern Resonance",
-      "slug": "cluster-4-assonance-recognition-and-pattern-resonance"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 5: Input-Output Cycling and State Evolution",
-      "slug": "cluster-5-input-output-cycling-and-state-evolution"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 6: Angular Moment and Memory-Driven Observation",
-      "slug": "cluster-6-angular-moment-and-memory-driven-observation"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 7: First Impression Protocol and Zero-Latency Extraction",
-      "slug": "cluster-7-first-impression-protocol-and-zero-latency-extraction"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 8: Autological Recursion and Self-Coherence",
-      "slug": "cluster-8-autological-recursion-and-self-coherence"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 9: Observer Consciousness as Positional Awareness",
-      "slug": "cluster-9-observer-consciousness-as-positional-awareness"
-    },
-    {
-      "level": 3,
-      "title": "Cluster 10: Proto-Assioma and Foundational Balance",
-      "slug": "cluster-10-proto-assioma-and-foundational-balance"
-    },
-    {
-      "level": 3,
       "title": "7.3 Contradictions and Robustness of Phenomenological Data",
       "slug": "7-3-contradictions-and-robustness-of-phenomenological-data"
     },
@@ -272,8 +199,8 @@
     },
     {
       "level": 3,
-      "title": "8.1 From Single to Ensemble of Observers",
-      "slug": "8-1-from-single-to-ensemble-of-observers"
+      "title": "8.1 Principle of Observer Coupling and Extension to Ensembles",
+      "slug": "8-1-principle-of-observer-coupling-and-extension-to-ensembles"
     },
     {
       "level": 3,
@@ -407,5 +334,5 @@
     }
   ],
   "figure_count": 0,
-  "page_count_latex": 24
+  "page_count_latex": 26
 }
